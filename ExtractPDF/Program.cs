@@ -19,12 +19,13 @@ namespace PDFDataExtraction
         {
             string baseDirectory = Directory.GetCurrentDirectory();
 
-            // Navigate up 4 levels to reach invoice-processing-automation-main directory
-            for (int i = 0; i < 4; i++)
+            /* Navigate up 3 levels to reach invoice-processing-automation-main directory
+            for (int i = 0; i < 3; i++)
             {
+                         }
+*/
                 baseDirectory = Directory.GetParent(baseDirectory).FullName;
-            }
-
+   
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
