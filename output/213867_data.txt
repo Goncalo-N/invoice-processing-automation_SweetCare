@@ -1,0 +1,102 @@
+ATCUD:JFXPRTBP-213867
+Fatura Nº 213867
+2ª VIA
+Fatura Direta Série 29 FT 29/213867 de 2023-12-20
+/
+Local de carga: N / Instalações
+MORENO II - Produtos de Saúde, Lda. Local de descarga: SWEETCARE
+Rua Dr. Eduardo Santos Silva Nº 261 AQ1
+Rua Central de Olival, 2272
+4200-283 PORTO
+4415-726 Olival VNG Vila Nova de Gaia
+Contribuinte nº 500016240
+Sweetcare Nº 5766
+Web www.moreno.pt comercial@moreno.pt
+E-mail
+SWEETCARE - SERVIÇOS E PRODUTOS DE SAÚDE, LDA.
+Rua Dr. Eduardo Santos Silva Nº 261, AQ1
+Cond. Pagamento:
+Porto
+Pagamento 8 DIAS ESPECIAL
+4200-283 Porto
+Data de Vencimento: 28.12.2023
+Contribuinte: 507945417
+Software PHC - q0kq-Processado por programa certificado nº 0006/AT (20231211.14886) Conservar a temperatura inferior a 25ºC
+CNP Designação Lote Validade Tipo Qtd. PV* Dsc.1 Dsc.2 PV Liq. IVA Total
+31.03.2028
+170474
+6061085 Carmex Stick Strawberry SPF15 4,25 21 3,28 1,5% 3,23 23% 67,85
+31.03.2028
+170474
+6061085 Carmex Stick Strawberry SPF15 4,25 Bónus 6 1,5% 23%
+169581 31.03.2028
+6883942 Carmex Tubo Bálsamo Labial Hidratante 18 3,28 1,5% 3,23 23% 58,15
+169581 31.03.2028
+6883942 Carmex Tubo Bálsamo Labial Hidratante Bónus 6 1,5% 23%
+31.12.2027
+171629
+6883934 Carmex Stick Bálsamo Labial Hidrat.SPF 15 9 3,28 1,5% 3,23 23% 29,08
+31.12.2027
+171629
+6883934 Carmex Stick Bálsamo Labial Hidrat.SPF 15 Bónus 3 1,5% 23%
+0000128255 30.09.2025
+6163121 Salvelox 10 Pensos para Calos 8 3,45 1,5% 3,40 6% 27,19
+0000128255 30.09.2025
+6163121 Salvelox 10 Pensos para Calos Bónus 4 1,5% 6%
+Página 1 de 1
+Peso: 2,55 KG Volume: 0,02 m3
+Valores do Documento
+Taxa Incidência I.V.A.
+TRANSFERÊNCIA BANCÁRIA
+6,00% 27,19 185,04
+1,63 Total s/desc.
+IBAN: PT50 0033 0000 4545 4273 6240 5
+23,00% 155,08
+35,67
+Desconto Comercial: 2,77
+SWIFT: BCOMPTPL
+13,00%
+Base de Incidência: 182,27
+PT50 0007 0000 0009 4327 7482 3
+IBAN:
+Total de IVA: 37,30
+SWIFT: BESCPTPL
+Enviar comprovativo para pagamentos@moreno.pt
+219,57
+TOTAL 182,27 TOTAL
+37,30
+Os artigos faturados/serviços prestados foram colocados à disposição do adquirente em 2023-12-20 ( Nº 5º , Alínea f) do Artº 36º do CIVA)
+MB - PAGAMENTO SERVIÇOS
+Todos os descontos estão já incluídos na Fatura  | Dsc 1: Desconto de visibilidade | Dsc 2 : Desconto SDD
+Consulte as condições gerais de venda em www.moreno.pt/cgvf.pdf  e a política de devoluções em www.moreno.pt/devolucoes.pdf.
+Reclamações só serão aceites no prazo de 8 dias após emissão da Fatura.
+Entidade
+11683
+Em caso de mora no cumprimento do pagamento das facturas, serão devidos juros de mora à taxa supletiva legal para as obrigações
+comerciais, em vigor à data do respectivo vencimento.
+Referência 832819026
+A responsabilidade pela gestão dos Medicamentos e Resíduos de Embalagens foi transferida para a Entidade Gestora Valormed,
+219,57
+Montante
+de Embalagens e Resíduos de Embalagens para a Sociedade Ponto Verde.
+Mais informações, incluindo os valores das prestações financeiras fixadas a favor daquelas, em:
+Comprovativo serve como prova de pagamento
+http://www.valormed.pt/paginas/11/ecovalor e www.pontoverde.pt/vpv.html
+
+Nº Encomenda: N/A
+Total sem IVA: 0
+Total com IVA: 0
+Data da Fatura: N/A
+Data Vencimento: N/A
+Taxa IVA: 0%
+Article: PT50
+Barcode: 0033
+Description: 0000
+Quantity: 4545
+GrossPrice: 4273
+Discount1: 6240%
+Discount2: 6240%
+Discount3: 6240%
+PrecoSemIVA: 5
+PrecoComIVA: 23.00
+--------End of Product---------
