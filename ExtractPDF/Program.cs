@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
-using iText.Kernel.Pdf.Xobject;
-using iText.Layout.Element;
-using iText.Layout.Properties;
+
 
 namespace PDFDataExtraction
 {
     class Program
     {
+        // global instance of dbSetup
+        static dbSetup instance = new dbSetup();
         static void Main(string[] args)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -23,13 +20,13 @@ namespace PDFDataExtraction
             for (int i = 0; i < 3; i++)
             {
                          }
-*/
-                baseDirectory = Directory.GetParent(baseDirectory).FullName;
-   
+            */
+            baseDirectory = Directory.GetParent(baseDirectory).FullName;
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
             string validatedFolderPath = Path.Combine(baseDirectory, "validated");
+            instance.SetupDatabase();
             // Start a separate thread to monitor the PDF folder
             System.Threading.Tasks.Task.Run(() => MonitorPdfFolder(folderPath, outputFolderPath, validatedFolderPath));
             while (true)
@@ -95,6 +92,7 @@ namespace PDFDataExtraction
                 List<Product> products = ExtractProductDetails(invoiceText);
                 foreach (var product in products)
                 {
+                    writer.WriteLine("--------Start of Product---------");
                     writer.WriteLine("Article: " + product.Article);
                     writer.WriteLine("Barcode: " + product.Barcode);
                     writer.WriteLine("Description: " + product.Description);
@@ -136,10 +134,12 @@ namespace PDFDataExtraction
 
         static string ExtractNumEncomenda(string text)
         {
+
             // create an array of strings containing the possible patterns for the order number
-            string[] patterns = new string[] { @"\b[A-Za-z]+\d+CRM\d+\b", @"N encomen\s*:\s*(\d+)" };
-            foreach (string pattern in patterns)
+            string[] patternsObtained = instance.GetPatterns("NEncomenda");
+            foreach (string pattern in patternsObtained)
             {
+                Console.WriteLine(pattern);
                 Match match = Regex.Match(text, pattern);
                 if (match.Success)
                 {
@@ -159,12 +159,15 @@ namespace PDFDataExtraction
             //explanation of the regular expression:
             //Total sem IVA\s*([\d,]+)\s* - Total sem IVA followed by 0 or more spaces,
             //followed by 1 or more digits or commas, followed by 0 or more spaces
-            string pattern = @"Total sem IVA\s*([\d,]+)\s*";
-            Match match = Regex.Match(text, pattern);
-            if (match.Success)
+            string[] patterns = instance.GetPatterns("totalsemIVA");
+            foreach (string pattern in patterns)
             {
-                string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
-                return decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
+                Match match = Regex.Match(text, pattern);
+                if (match.Success)
+                {
+                    string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
+                    return decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
+                }
             }
             return 0;
         }
@@ -175,7 +178,7 @@ namespace PDFDataExtraction
             //explanation of the regular expression:
             //Total com IVA\s*([\d,]+)\s*EUR - Total com IVA followed by 0 or more spaces,
             //followed by 1 or more digits or commas, followed by 0 or more spaces, followed by EUR
-            string[] patterns = new string[] { @"Total com IVA\s*([\d,]+)\s*EUR", @"Total\s*([\d,]+)\s*EUR" };
+            string[] patterns = instance.GetPatterns("totalcomIVA");
             foreach (string pattern in patterns)
             {
                 Match match = Regex.Match(text, pattern);
@@ -189,6 +192,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract invoice date using regular expression
+        //Still working on a persistent solution for finding the dates correctly without it having to be explicit
         static string ExtractInvoiceDate(string text)
         {
             //explanation of the regular expression:
@@ -211,11 +215,13 @@ namespace PDFDataExtraction
         }
 
         // Method to extract due date using regular expression
+        //Still working on a persistent solution for finding the dates correctly without it having to be explicit
         static string ExtractDueDate(string text)
         {
 
             //explanation of the regular expression:
             //Data\s+Vencimento - Data followed by 1 or more spaces, followed by Vencimento
+
             string pattern = @"Data\s+Vencimento";
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
@@ -237,11 +243,14 @@ namespace PDFDataExtraction
         {
             //explanation of the regular expression: 
             //IVA\s*:?(\d+)% - IVA followed by 0 or more spaces, followed by an optional colon, followed by 1 or more digits, followed by %
-            string pattern = @"IVA\s*:?(\d+)%";
-            Match match = Regex.Match(text, pattern);
-            if (match.Success)
+            string[] patterns = instance.GetPatterns("IVA");
+            foreach (string pattern in patterns)
             {
-                return decimal.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
+                Match match = Regex.Match(text, pattern);
+                if (match.Success)
+                {
+                    return decimal.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
+                }
             }
             return 0;
         }
@@ -252,68 +261,70 @@ namespace PDFDataExtraction
             List<Product> products = new List<Product>();
             //string [] patterns = new string[] { @"(?<Article>\w+)\s+(?<Barcode>\d+)\s+(?<Description>.+?)\s+(?<Quantity>\d+)\s+(?<GrossPrice>[\d,]+)\s+(?<Discount>[\d,]+)\s+(?<PrecoSemIVA>[\d,]+)\s+(?<PrecoComIVA>[\d,]+)" };
 
-            string pattern = @"(?<Article>\w+)\s+(?<Barcode>\d+)\s+(?<Description>.+?)\s+(?<Quantity>\d+)\s+(?<GrossPrice>[\d,]+)\s+(?<Discount>[\d,]+)\s+(?<PrecoSemIVA>[\d,]+)\s+(?<PrecoComIVA>[\d,]+)";
-            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
-
-            foreach (Match match in matches)
+            string[] patterns = instance.GetPatterns("Produto");
+            foreach (string pattern in patterns)
             {
-                Product product = new Product();
+                MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
 
-                product.Article = match.Groups["Article"].Value;
-                product.Barcode = match.Groups["Barcode"].Value;
-                product.Description = match.Groups["Description"].Value;
-                // Parse quantity if present
-                int quantity;
-                if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
+                foreach (Match match in matches)
                 {
-                    product.Quantity = quantity;
+                    Product product = new Product();
+                    
+                    product.Article = match.Groups["Article"].Value;
+                    product.Barcode = match.Groups["Barcode"].Value;
+                    product.Description = match.Groups["Description"].Value;
+                    // Parse quantity if present
+                    int quantity;
+                    if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
+                    {
+                        product.Quantity = quantity;
+                    }
+
+                    // Parse bonus quantity if present
+                    int bonus;
+                    if (match.Groups["Bonus"].Success && int.TryParse(match.Groups["Bonus"].Value, out bonus))
+                    {
+                        product.Bonus = bonus;
+                    }
+                    else
+                    {
+                        product.Bonus = 0;
+                    }
+
+                    // Parse gross price if present
+                    decimal grossPrice;
+                    if (decimal.TryParse(match.Groups["GrossPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out grossPrice))
+                    {
+                        product.GrossPrice = grossPrice;
+                    }
+
+                    // Parse discount if present
+                    decimal discount;
+                    if (decimal.TryParse(match.Groups["Discount"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount))
+                    {
+                        product.Discount1 = discount;
+                        product.Discount2 = discount;
+                        product.Discount3 = discount;
+                    }
+
+                    // Parse net price if present
+                    decimal precoSemIVA;
+                    if (decimal.TryParse(match.Groups["PrecoSemIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoSemIVA))
+                    {
+                        product.PrecoSemIVA = precoSemIVA;
+                    }
+
+                    // Parse net price with IVA if present
+                    decimal precoComIVA;
+                    if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
+                    {
+                        product.PrecoComIVA = precoComIVA;
+                    }
+
+                    products.Add(product);
                 }
 
-                // Parse bonus quantity if present
-                int bonus;
-                if (match.Groups["Bonus"].Success && int.TryParse(match.Groups["Bonus"].Value, out bonus))
-                {
-                    product.Bonus = bonus;
-                }
-                else
-                {
-                    product.Bonus = 0;
-                }
-
-                // Parse gross price if present
-                decimal grossPrice;
-                if (decimal.TryParse(match.Groups["GrossPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out grossPrice))
-                {
-                    product.GrossPrice = grossPrice;
-                }
-
-                // Parse discount if present
-                decimal discount;
-                if (decimal.TryParse(match.Groups["Discount"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount))
-                {
-                    product.Discount1 = discount;
-                    product.Discount2 = discount;
-                    product.Discount3 = discount;
-                }
-
-                // Parse net price if present
-                decimal precoSemIVA;
-                if (decimal.TryParse(match.Groups["PrecoSemIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoSemIVA))
-                {
-                    product.PrecoSemIVA = precoSemIVA;
-                }
-
-                // Parse net price with IVA if present
-                decimal precoComIVA;
-                if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
-                {
-                    product.PrecoComIVA = precoComIVA;
-                }
-
-                products.Add(product);
             }
-
-
             return products;
         }
 

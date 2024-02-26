@@ -89,6 +89,7 @@ Total com IVA: 0
 Data da Fatura: N/A
 Data Vencimento: N/A
 Taxa IVA: 0%
+--------Start of Product---------
 Article: PT50
 Barcode: 0033
 Description: 0000

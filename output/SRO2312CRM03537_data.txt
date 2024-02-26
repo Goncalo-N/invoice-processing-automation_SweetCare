@@ -77,6 +77,7 @@ Total com IVA: 58.53
 Data da Fatura: 13/12/2023
 Data Vencimento: 11/02/2024
 Taxa IVA: 0%
+--------Start of Product---------
 Article: RG1001021WW
 Barcode: 3701436911607
 Description: JMF SABONETES REDONDOS 3x100G
@@ -88,6 +89,7 @@ Discount3: 25.00%
 PrecoSemIVA: 8.18
 PrecoComIVA: 0.00
 --------End of Product---------
+--------Start of Product---------
 Article: RG1007041WW
 Barcode: 3701436910488
 Description: CEDRAT SABONETE 100g
@@ -99,6 +101,7 @@ Discount3: 25.00%
 PrecoSemIVA: 3.15
 PrecoComIVA: 9.45
 --------End of Product---------
+--------Start of Product---------
 Article: RG1006071WW
 Barcode: 3701436911621
 Description: ROSE KIT SABONETES 3X100g

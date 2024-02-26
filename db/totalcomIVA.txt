@@ -1,0 +1,2 @@
+Total com IVA\s*([\d,]+)\s*EUR
+Total\s*([\d,]+)\s*EUR
