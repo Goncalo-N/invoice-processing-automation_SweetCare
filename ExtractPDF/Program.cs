@@ -140,7 +140,7 @@ namespace PDFDataExtraction
             foreach (string pattern in patternsObtained)
             {
                 Console.WriteLine(pattern);
-                Match match = Regex.Match(text, pattern);
+                Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
                 if (match.Success)
                 {
                     return match.Value;
@@ -162,7 +162,7 @@ namespace PDFDataExtraction
             string[] patterns = instance.GetPatterns("totalsemIVA");
             foreach (string pattern in patterns)
             {
-                Match match = Regex.Match(text, pattern);
+                Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
                 if (match.Success)
                 {
                     string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
@@ -173,70 +173,86 @@ namespace PDFDataExtraction
         }
 
         // Method to extract total price using regular expression
+        //Still working on a persistent solution for finding the prices correctly without it having to be explicit
+        //Right now, it grabs the biggest price it can find after a pattern.
         static decimal ExtractTotalPrice(string text)
         {
-            //explanation of the regular expression:
-            //Total com IVA\s*([\d,]+)\s*EUR - Total com IVA followed by 0 or more spaces,
-            //followed by 1 or more digits or commas, followed by 0 or more spaces, followed by EUR
+            decimal maxTotalPrice = 0;
+
             string[] patterns = instance.GetPatterns("totalcomIVA");
             foreach (string pattern in patterns)
             {
-                Match match = Regex.Match(text, pattern);
-                if (match.Success)
+                MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
+                foreach (Match match in matches)
                 {
                     string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
-                    return decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
+                    decimal totalPrice = decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
+                    // Compare with the current maximum total price
+                    if (totalPrice > maxTotalPrice)
+                    {
+                        maxTotalPrice = totalPrice;
+                    }
                 }
             }
-            return 0;
+            return maxTotalPrice;
         }
+
 
         // Method to extract invoice date using regular expression
         //Still working on a persistent solution for finding the dates correctly without it having to be explicit
         static string ExtractInvoiceDate(string text)
         {
-            //explanation of the regular expression:
-            //Data\s+da\s+Fatura - Data followed by 1 or more spaces, followed by da,
-            // followed by 1 or more spaces, followed by Fatura
-            string pattern = @"Data\s+da\s+Fatura";
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
+            string[] patterns = instance.GetPatterns("DataFatura");
+            foreach (string pattern in patterns)
             {
-                int startIndex = match.Index + match.Length;
-                string remainingText = text.Substring(startIndex);
-                Match dateMatch = Regex.Match(remainingText, @"\b\d{2}/\d{2}/\d{4}\b");
-                if (dateMatch.Success)
+                MatchCollection matches = Regex.Matches(text, pattern);
+                foreach (Match match in matches)
                 {
-                    return dateMatch.Value;
+                    if (DateTime.TryParse(match.Value, out DateTime date))
+                    {
+                        return date.ToString("dd/MM/yyyy");
+                    }
                 }
             }
-
             return "N/A";
         }
 
         // Method to extract due date using regular expression
         //Still working on a persistent solution for finding the dates correctly without it having to be explicit
+        //Currrent solution is through regex, going from most specific to most general regex, making
+        //sure that the most specific regex is the first to be checked so that
+        //it has more probability of getting the correct date
         static string ExtractDueDate(string text)
         {
-
-            //explanation of the regular expression:
-            //Data\s+Vencimento - Data followed by 1 or more spaces, followed by Vencimento
-
-            string pattern = @"Data\s+Vencimento";
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
+            string[] patterns = instance.GetPatterns("DataVencimento");
+            DateTime latestDueDate = DateTime.MinValue;
+            foreach (string pattern in patterns)
             {
-                int startIndex = match.Index + match.Length;
-                string remainingText = text.Substring(startIndex);
-                Match dateMatch = Regex.Match(remainingText, @"\b\d{2}/\d{2}/\d{4}\b");
-                if (dateMatch.Success)
+                MatchCollection matches = Regex.Matches(text, pattern);
+                foreach (Match match in matches)
                 {
-                    return dateMatch.Value;
+                    string dateString = match.Value;
+                    if (DateTime.TryParse(dateString, out DateTime date))
+                    {
+                        if (date > latestDueDate)
+                        {
+                            latestDueDate = date;
+                        }
+                    }
                 }
             }
 
-            return "N/A";
+            if (latestDueDate != DateTime.MinValue)
+            {
+                return latestDueDate.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                return "N/A";
+            }
         }
+
+
 
         // Method to extract IVA percentage using regular expression
         static decimal ExtractIVAPercentage(string text)
@@ -269,7 +285,7 @@ namespace PDFDataExtraction
                 foreach (Match match in matches)
                 {
                     Product product = new Product();
-                    
+
                     product.Article = match.Groups["Article"].Value;
                     product.Barcode = match.Groups["Barcode"].Value;
                     product.Description = match.Groups["Description"].Value;

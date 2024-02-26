@@ -83,11 +83,11 @@ Mais informações, incluindo os valores das prestações financeiras fixadas a 
 Comprovativo serve como prova de pagamento
 http://www.valormed.pt/paginas/11/ecovalor e www.pontoverde.pt/vpv.html
 
-Nº Encomenda: N/A
+Nº Encomenda: 213867
 Total sem IVA: 0
-Total com IVA: 0
-Data da Fatura: N/A
-Data Vencimento: N/A
+Total com IVA: 182,27
+Data da Fatura: 20/12/2023
+Data Vencimento: 20/12/2023
 Taxa IVA: 0%
 --------Start of Product---------
 Article: PT50
@@ -99,5 +99,5 @@ Discount1: 6240%
 Discount2: 6240%
 Discount3: 6240%
 PrecoSemIVA: 5
-PrecoComIVA: 23.00
+PrecoComIVA: 23,00
 --------End of Product---------

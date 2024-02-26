@@ -1,2 +1,4 @@
 \b[A-Za-z]+\d+CRM\d+\b
 N encomen\s*:\s*(\d+)
+(?:(?<=Nº\s)|(?<=\b))(?<!\d)(\d+)
+(?:n\s*encom(?:enda)?|num\s*encom(?:enda)?|\b)(\d+)
