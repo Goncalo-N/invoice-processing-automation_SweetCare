@@ -119,9 +119,9 @@ Data de carga 2023-12-18T11:37:11 Total fatura 1,158.06 EUR
 local de descarga SWEETCARE - PORTO RUA DR EDUARDO SANTOS SILVA 261 U  4200-283 PORTO PORTUGAL
 Nome transpo 69296GT 1(1)
 
-Nº Encomenda: 220052765
+Nº Encomenda: N/A
 Total sem IVA: 0
-Total com IVA: 1,158
-Data da Fatura: 13/12/2023
-Data Vencimento: 02/01/2024
+Total com IVA: 0
+Data da Fatura: N/A
+Data Vencimento: N/A
 Taxa IVA: 0%

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using iText.Kernel.Pdf;
@@ -10,23 +10,28 @@ namespace PDFDataExtraction
 {
     class Program
     {
-        // global instance of dbSetup
-        static dbSetup instance = new dbSetup();
+
+        // global instance of Producer
+        static Producer dbHelper = new Producer();
+
+
         static void Main(string[] args)
         {
+
+            // Get the base directory of the project
             string baseDirectory = Directory.GetCurrentDirectory();
 
-            /* Navigate up 3 levels to reach invoice-processing-automation-main directory
-            for (int i = 0; i < 3; i++)
+            // Navigate up 3 levels to reach invoice-processing-automation-main directory
+            for (int i = 0; i <= 3; i++)
             {
-                         }
-            */
-            baseDirectory = Directory.GetParent(baseDirectory).FullName;
+                baseDirectory = Directory.GetParent(baseDirectory).FullName;
+            }
+
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
             string validatedFolderPath = Path.Combine(baseDirectory, "validated");
-            instance.SetupDatabase();
+
             // Start a separate thread to monitor the PDF folder
             System.Threading.Tasks.Task.Run(() => MonitorPdfFolder(folderPath, outputFolderPath, validatedFolderPath));
             while (true)
@@ -34,7 +39,20 @@ namespace PDFDataExtraction
                 System.Threading.Thread.Sleep(1000); // Sleep for 1 second
             }
         }
+        //Method to check the file to see what company it belongs to
+        static string CheckCompany(string text, List<string> companyNames)
+        {
 
+            foreach (string company in companyNames)
+            {
+                Match match = Regex.Match(text, company, RegexOptions.IgnoreCase);
+                if (match.Success)
+                {
+                    return match.Value;
+                }
+            }
+            return "N/A";
+        }
         static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
             // Create a timer with a 5-minute interval
@@ -59,19 +77,63 @@ namespace PDFDataExtraction
         static void OnPdfFileCreated(string pdfFilePath, string outputFolderPath, string validatedFolderPath)
         {
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
-
+            // Get all company names from the database
+            List<string> companyNames = dbHelper.GetAllCompanyNames();
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
+            // Check the company name
+            string companyName = CheckCompany(invoiceText, companyNames);
 
+            // return if company name is N/A
+            if (companyName == "N/A")
+            {
+                Console.WriteLine("Company not found");
+                return;
+            }
+
+            // Get the regex for the company
+            List<string> regex = dbHelper.GetAllRegex(companyName);
+            Console.WriteLine("Company Name: " + companyName);
+
+            /*  foreach (string value in regex)
+              {
+                  Console.WriteLine("regex array values: " + value);
+              }*/
             // Maybe extract logo from invoice to check the company?
             //int empresa = ExtractLogo(pdfFilePath);
             // Extract other invoice information
-            string numEncomenda = ExtractNumEncomenda(invoiceText);
-            decimal totalSemIVA = ExtractTotalSemIVA(invoiceText);
-            decimal totalPrice = ExtractTotalPrice(invoiceText);
-            string invoiceDate = ExtractInvoiceDate(invoiceText);
-            string dueDate = ExtractDueDate(invoiceText);
-            decimal IVA = ExtractIVAPercentage(invoiceText);
+            //create a condition that based on the company name it will call the correct method;
+            string numEncomenda = "N/A";
+            string numFatura = "N/A";
+            decimal totalSemIVA = 0;
+            decimal totalPrice = 0;
+            string invoiceDate = "N/A";
+            string dueDate = "N/A";
+            decimal IVA = 0;
+
+            switch (companyName)
+            {
+                case "Roger & Gallet":
+                    invoiceDate = RG.ExtractInvoiceDateRG(invoiceText, regex[3]);
+                    numEncomenda = RG.ExtractNumEncomendaRG(invoiceText, regex[4]);
+                    Console.WriteLine("aaaaaaaaaaaaaa: " + regex[8]);
+                    numFatura = RG.ExtractNumFaturaRG(invoiceText, regex[5]);
+                    dueDate = RG.ExtractDueDateRG(invoiceText, regex[6]);
+                    totalSemIVA = RG.ExtractTotalSemIVARG(invoiceText, regex[7]);
+                    totalPrice = RG.ExtractTotalPriceRG(invoiceText, regex[11]);
+                    IVA = RG.ExtractIVAPercentageRG(invoiceText, regex[13]);
+
+                    break;
+                case "":
+                    //ExtractMEO(pdfFilePath, outputFolderPath, validatedFolderPath, invoiceText, regex);
+                    break;
+                case "s":
+                    //ExtractRG(pdfFilePath, outputFolderPath, validatedFolderPath, invoiceText, regex);
+                    break;
+                case "N/A":
+                    Console.WriteLine("Company not found");
+                    break;
+            }
 
             // Generate output file path
             string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
@@ -81,15 +143,17 @@ namespace PDFDataExtraction
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
                 writer.WriteLine(invoiceText);
+                writer.WriteLine("Data da Fatura: " + invoiceDate);
                 writer.WriteLine("Nº Encomenda: " + numEncomenda);
+                writer.WriteLine("Nº Fatura: " + numFatura);
+                writer.WriteLine("Data Vencimento: " + dueDate);
                 writer.WriteLine("Total sem IVA: " + totalSemIVA);
                 writer.WriteLine("Total com IVA: " + totalPrice);
-                writer.WriteLine("Data da Fatura: " + invoiceDate);
-                writer.WriteLine("Data Vencimento: " + dueDate);
                 writer.WriteLine("Taxa IVA: " + IVA + "%");
 
                 // Write product details
-                List<Product> products = ExtractProductDetails(invoiceText);
+
+                List<Product> products = RG.ExtractProductDetailsRG(invoiceText, regex[12]);
                 foreach (var product in products)
                 {
                     writer.WriteLine("--------Start of Product---------");
@@ -130,224 +194,6 @@ namespace PDFDataExtraction
                 }
                 return output.ToString();
             }
-        }
-
-        static string ExtractNumEncomenda(string text)
-        {
-
-            // create an array of strings containing the possible patterns for the order number
-            string[] patternsObtained = instance.GetPatterns("NEncomenda");
-            foreach (string pattern in patternsObtained)
-            {
-                Console.WriteLine(pattern);
-                Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-                if (match.Success)
-                {
-                    return match.Value;
-                }
-            }
-
-            return "N/A";
-        }
-
-
-
-
-        // Method to extract total price sem IVA using regular expression
-        static decimal ExtractTotalSemIVA(string text)
-        {
-            //explanation of the regular expression:
-            //Total sem IVA\s*([\d,]+)\s* - Total sem IVA followed by 0 or more spaces,
-            //followed by 1 or more digits or commas, followed by 0 or more spaces
-            string[] patterns = instance.GetPatterns("totalsemIVA");
-            foreach (string pattern in patterns)
-            {
-                Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-                if (match.Success)
-                {
-                    string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
-                    return decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
-                }
-            }
-            return 0;
-        }
-
-        // Method to extract total price using regular expression
-        //Still working on a persistent solution for finding the prices correctly without it having to be explicit
-        //Right now, it grabs the biggest price it can find after a pattern.
-        static decimal ExtractTotalPrice(string text)
-        {
-            decimal maxTotalPrice = 0;
-
-            string[] patterns = instance.GetPatterns("totalcomIVA");
-            foreach (string pattern in patterns)
-            {
-                MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
-                foreach (Match match in matches)
-                {
-                    string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
-                    decimal totalPrice = decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
-                    // Compare with the current maximum total price
-                    if (totalPrice > maxTotalPrice)
-                    {
-                        maxTotalPrice = totalPrice;
-                    }
-                }
-            }
-            return maxTotalPrice;
-        }
-
-
-        // Method to extract invoice date using regular expression
-        //Still working on a persistent solution for finding the dates correctly without it having to be explicit
-        static string ExtractInvoiceDate(string text)
-        {
-            string[] patterns = instance.GetPatterns("DataFatura");
-            foreach (string pattern in patterns)
-            {
-                MatchCollection matches = Regex.Matches(text, pattern);
-                foreach (Match match in matches)
-                {
-                    if (DateTime.TryParse(match.Value, out DateTime date))
-                    {
-                        return date.ToString("dd/MM/yyyy");
-                    }
-                }
-            }
-            return "N/A";
-        }
-
-        // Method to extract due date using regular expression
-        //Still working on a persistent solution for finding the dates correctly without it having to be explicit
-        //Currrent solution is through regex, going from most specific to most general regex, making
-        //sure that the most specific regex is the first to be checked so that
-        //it has more probability of getting the correct date
-        static string ExtractDueDate(string text)
-        {
-            string[] patterns = instance.GetPatterns("DataVencimento");
-            DateTime latestDueDate = DateTime.MinValue;
-            foreach (string pattern in patterns)
-            {
-                MatchCollection matches = Regex.Matches(text, pattern);
-                foreach (Match match in matches)
-                {
-                    string dateString = match.Value;
-                    if (DateTime.TryParse(dateString, out DateTime date))
-                    {
-                        if (date > latestDueDate)
-                        {
-                            latestDueDate = date;
-                        }
-                    }
-                }
-            }
-
-            if (latestDueDate != DateTime.MinValue)
-            {
-                return latestDueDate.ToString("dd/MM/yyyy");
-            }
-            else
-            {
-                return "N/A";
-            }
-        }
-
-
-
-        // Method to extract IVA percentage using regular expression
-        static decimal ExtractIVAPercentage(string text)
-        {
-            //explanation of the regular expression: 
-            //IVA\s*:?(\d+)% - IVA followed by 0 or more spaces, followed by an optional colon, followed by 1 or more digits, followed by %
-            string[] patterns = instance.GetPatterns("IVA");
-            foreach (string pattern in patterns)
-            {
-                Match match = Regex.Match(text, pattern);
-                if (match.Success)
-                {
-                    return decimal.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
-                }
-            }
-            return 0;
-        }
-
-        // Method to extract product details using regular expression
-        static List<Product> ExtractProductDetails(string invoiceText)
-        {
-            List<Product> products = new List<Product>();
-            //string [] patterns = new string[] { @"(?<Article>\w+)\s+(?<Barcode>\d+)\s+(?<Description>.+?)\s+(?<Quantity>\d+)\s+(?<GrossPrice>[\d,]+)\s+(?<Discount>[\d,]+)\s+(?<PrecoSemIVA>[\d,]+)\s+(?<PrecoComIVA>[\d,]+)" };
-
-            string[] patterns = instance.GetPatterns("Produto");
-            foreach (string pattern in patterns)
-            {
-                MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
-
-                foreach (Match match in matches)
-                {
-                    Product product = new Product();
-
-                    product.Article = match.Groups["Article"].Value;
-                    product.Barcode = match.Groups["Barcode"].Value;
-                    product.Description = match.Groups["Description"].Value;
-                    // Parse quantity if present
-                    int quantity;
-                    if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
-                    {
-                        product.Quantity = quantity;
-                    }
-
-                    // Parse bonus quantity if present
-                    int bonus;
-                    if (match.Groups["Bonus"].Success && int.TryParse(match.Groups["Bonus"].Value, out bonus))
-                    {
-                        product.Bonus = bonus;
-                    }
-                    else
-                    {
-                        product.Bonus = 0;
-                    }
-
-                    // Parse gross price if present
-                    decimal grossPrice;
-                    if (decimal.TryParse(match.Groups["GrossPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out grossPrice))
-                    {
-                        product.GrossPrice = grossPrice;
-                    }
-
-                    // Parse discount if present
-                    decimal discount;
-                    if (decimal.TryParse(match.Groups["Discount"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount))
-                    {
-                        product.Discount1 = discount;
-                        product.Discount2 = discount;
-                        product.Discount3 = discount;
-                    }
-
-                    // Parse net price if present
-                    decimal precoSemIVA;
-                    if (decimal.TryParse(match.Groups["PrecoSemIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoSemIVA))
-                    {
-                        product.PrecoSemIVA = precoSemIVA;
-                    }
-
-                    // Parse net price with IVA if present
-                    decimal precoComIVA;
-                    if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
-                    {
-                        product.PrecoComIVA = precoComIVA;
-                    }
-
-                    products.Add(product);
-                }
-
-            }
-            return products;
-        }
-
-        // Method to parse decimal value from string
-        static decimal ParseDecimal(string value)
-        {
-            return decimal.Parse(value.Replace(",", "."), CultureInfo.InvariantCulture);
         }
 
     }
