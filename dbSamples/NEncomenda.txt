@@ -1,4 +1,3 @@
-\b[A-Za-z]+\d+CRM\d+\b
-N encomen\s*:\s*(\d+)
-(?:(?<=Nº\s)|(?<=\b))(?<!\d)(\d+)
-(?:n\s*encom(?:enda)?|num\s*encom(?:enda)?|\b)(\d+)
+RG:
+LEX: N\s+encomen(?:\s+\w+)*\s+(\d+)(?=\s|$) //double check after.
+Moreno II: Sweetcare\s+Nº\s*:\s*(\d+) //not entirely sure though.
