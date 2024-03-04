@@ -5,7 +5,7 @@ namespace PDFDataExtraction
     public class RG
     {
 
-        internal static string ExtractNumEncomendaRG(string text, string pattern)
+        internal static string ExtractNumEncomenda(string text, string pattern)
         {
             Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
@@ -15,7 +15,7 @@ namespace PDFDataExtraction
             }
             return "N/A";
         }
-        internal static string ExtractNumFaturaRG(string text, string pattern)
+        internal static string ExtractNumFatura(string text, string pattern)
         {
             Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
@@ -26,7 +26,7 @@ namespace PDFDataExtraction
             return "N/A";
         }
         // Method to extract total price sem IVA using regular expression
-        internal static decimal ExtractTotalSemIVARG(string text, string pattern)
+        internal static decimal ExtractTotalSemIVA(string text, string pattern)
         {
             Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
@@ -39,7 +39,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract total price using regular expression
-        internal static decimal ExtractTotalPriceRG(string text, string pattern)
+        internal static decimal ExtractTotalPrice(string text, string pattern)
         {
             Console.WriteLine(pattern);
             decimal maxTotalPrice = 0;
@@ -57,7 +57,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract invoice date using regular expression
-        internal static string ExtractInvoiceDateRG(string text, string pattern)
+        internal static string ExtractInvoiceDate(string text, string pattern)
         {
             Console.WriteLine(pattern);
             MatchCollection matches = Regex.Matches(text, pattern);
@@ -72,7 +72,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract due date using regular expression
-        internal static string ExtractDueDateRG(string text, string pattern)
+        internal static string ExtractDueDate(string text, string pattern)
         {
             Console.WriteLine(pattern);
             DateTime latestDueDate = DateTime.MinValue;
@@ -99,7 +99,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract IVA percentage using regular expression
-        internal static decimal ExtractIVAPercentageRG(string text, string pattern)
+        internal static decimal ExtractIVAPercentage(string text, string pattern)
         {
             Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern);
@@ -111,7 +111,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract product details using regular expression
-        internal static List<Product> ExtractProductDetailsRG(string invoiceText, string pattern)
+        internal static List<Product> ExtractProductDetails(string invoiceText, string pattern)
         {
             Console.WriteLine(pattern);
             List<Product> products = new List<Product>();
@@ -157,6 +157,97 @@ namespace PDFDataExtraction
                 if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
                 {
                     product.PrecoComIVA = precoComIVA;
+                }
+                products.Add(product);
+            }
+            return products;
+        }
+        // Method to extract products from Moreno II invoices using regular expression
+        internal static List<MorenoProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
+        {
+            Console.WriteLine(pattern);
+            List<MorenoProduct> products = new List<MorenoProduct>();
+            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+            foreach (Match match in matches)
+            {
+                MorenoProduct product = new MorenoProduct();
+                product.CNP = match.Groups["CNP"].Value;
+                product.Designation = match.Groups["Designation"].Value;
+                product.Lot = match.Groups["Lot"].Value;
+                DateTime expiryDate;
+                if (DateTime.TryParse(match.Groups["ExpiryDate"].Value, out expiryDate))
+                {
+                    product.ExpiryDate = expiryDate;
+                }
+                product.Type = match.Groups["Type"].Value;
+                product.Quantity = match.Groups["Quantity"].Value;
+                decimal unitPrice;
+                if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
+                {
+                    product.UnitPrice = unitPrice;
+                }
+                decimal discount1;
+                if (decimal.TryParse(match.Groups["Discount1"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount1))
+                {
+                    product.Discount1 = discount1;
+                }
+                decimal discount2;
+                if (decimal.TryParse(match.Groups["Discount2"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount2))
+                {
+                    product.Discount2 = discount2;
+                }
+                decimal netPrice;
+                if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
+                {
+                    product.NetPrice = netPrice;
+                }
+                int iva;
+                if (int.TryParse(match.Groups["IVA"].Value, out iva))
+                {
+                    product.IVA = iva;
+                }
+                decimal total;
+                if (decimal.TryParse(match.Groups["Total"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out total))
+                {
+                    product.Total = total;
+                }
+                products.Add(product);
+            }
+            return products;
+        }
+        // Method to extract products from LEX invoices using regular expression
+        internal static List<LEXProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
+        {
+            Console.WriteLine(pattern);
+            List<LEXProduct> products = new List<LEXProduct>();
+            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+            foreach (Match match in matches)
+            {
+                LEXProduct product = new LEXProduct();
+                product.Code = match.Groups["Code"].Value;
+                product.Name = match.Groups["Name"].Value;
+                product.CNP = match.Groups["CNP"].Value;
+                product.LotNumber = match.Groups["LotNumber"].Value;
+                product.Quantity = match.Groups["Quantity"].Value;
+                decimal unitPrice;
+                if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
+                {
+                    product.UnitPrice = unitPrice;
+                }
+                decimal discountPercentage;
+                if (decimal.TryParse(match.Groups["DiscountPercentage"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discountPercentage))
+                {
+                    product.DiscountPercentage = discountPercentage;
+                }
+                decimal netPrice;
+                if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
+                {
+                    product.NetPrice = netPrice;
+                }
+                int iva;
+                if (int.TryParse(match.Groups["IVA"].Value, out iva))
+                {
+                    product.IVA = iva;
                 }
                 products.Add(product);
             }
