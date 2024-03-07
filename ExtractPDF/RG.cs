@@ -7,7 +7,7 @@ namespace PDFDataExtraction
 
         internal static string ExtractNumEncomenda(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            ////Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
             {
@@ -17,7 +17,7 @@ namespace PDFDataExtraction
         }
         internal static string ExtractNumFatura(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            ////Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
             {
@@ -28,7 +28,7 @@ namespace PDFDataExtraction
         // Method to extract total price sem IVA using regular expression
         internal static decimal ExtractTotalSemIVA(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
             {
@@ -41,7 +41,7 @@ namespace PDFDataExtraction
         // Method to extract total price using regular expression
         internal static decimal ExtractTotalPrice(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             decimal maxTotalPrice = 0;
             MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
@@ -59,7 +59,7 @@ namespace PDFDataExtraction
         // Method to extract invoice date using regular expression
         internal static string ExtractInvoiceDate(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             MatchCollection matches = Regex.Matches(text, pattern);
             foreach (Match match in matches)
             {
@@ -74,7 +74,7 @@ namespace PDFDataExtraction
         // Method to extract due date using regular expression
         internal static string ExtractDueDate(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             DateTime latestDueDate = DateTime.MinValue;
             MatchCollection matches = Regex.Matches(text, pattern);
             foreach (Match match in matches)
@@ -101,7 +101,7 @@ namespace PDFDataExtraction
         // Method to extract IVA percentage using regular expression
         internal static decimal ExtractIVAPercentage(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern);
             if (match.Success)
             {
@@ -111,14 +111,14 @@ namespace PDFDataExtraction
         }
 
         // Method to extract product details using regular expression
-        internal static List<Product> ExtractProductDetails(string invoiceText, string pattern)
+        internal static List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
         {
-            Console.WriteLine(pattern);
-            List<Product> products = new List<Product>();
+            //Console.WriteLine(pattern);
+            List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
-                Product product = new Product();
+                IProduct product = new IProduct();
                 product.Article = match.Groups["Article"].Value;
                 product.Barcode = match.Groups["Barcode"].Value;
                 product.Description = match.Groups["Description"].Value;
@@ -165,7 +165,7 @@ namespace PDFDataExtraction
         // Method to extract products from Moreno II invoices using regular expression
         internal static List<MorenoProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             List<MorenoProduct> products = new List<MorenoProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
@@ -218,7 +218,7 @@ namespace PDFDataExtraction
         // Method to extract products from LEX invoices using regular expression
         internal static List<LEXProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             List<LEXProduct> products = new List<LEXProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)

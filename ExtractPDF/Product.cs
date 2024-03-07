@@ -1,4 +1,4 @@
-public class Product
+public class IProduct
 {
     //ORIGINAL PRODUCT CLASS IS USED FOR R&G INVOICES
     public string Article { get; set; }
@@ -21,7 +21,7 @@ public class Product
     }
 }
 //LEX INVOICES
-public class LEXProduct
+public class LEXProduct : IProduct
 {
     public string Code { get; set; }
     public string Name { get; set; }
@@ -41,7 +41,7 @@ public class LEXProduct
 }
 
 // Moreno II INVOICES
-public class MorenoProduct
+public class MorenoProduct : IProduct
 {
     public string CNP { get; set; }
     public string Designation { get; set; }

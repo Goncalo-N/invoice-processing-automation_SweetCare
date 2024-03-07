@@ -14,7 +14,6 @@ namespace PDFDataExtraction
         // global instance of Producer
         static Producer dbHelper = new Producer();
 
-
         static void Main(string[] args)
         {
 
@@ -77,13 +76,15 @@ namespace PDFDataExtraction
         static void OnPdfFileCreated(string pdfFilePath, string outputFolderPath, string validatedFolderPath)
         {
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
+
             // Get all company names from the database
             List<string> companyNames = dbHelper.GetAllCompanyNames();
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
+
             // Check the company name
             string companyName = CheckCompany(invoiceText, companyNames);
-
+            Console.WriteLine("Company Name: " + companyName);
             // return if company name is N/A
             if (companyName == "N/A")
             {
@@ -95,13 +96,6 @@ namespace PDFDataExtraction
             List<string> regex = dbHelper.GetAllRegex(companyName);
             Console.WriteLine("Company Name: " + companyName);
 
-            /*  foreach (string value in regex)
-              {
-                  Console.WriteLine("regex array values: " + value);
-              }*/
-            // Maybe extract logo from invoice to check the company?
-            //int empresa = ExtractLogo(pdfFilePath);
-            // Extract other invoice information
             //create a condition that based on the company name it will call the correct method;
             string numEncomenda = "N/A";
             string numFatura = "N/A";
@@ -110,39 +104,60 @@ namespace PDFDataExtraction
             string invoiceDate = "N/A";
             string dueDate = "N/A";
             decimal IVA = 0;
-
+            // Generate output file path
+            string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
+            string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
+            List<IProduct> products = new List<IProduct>();
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = RG.ExtractInvoiceDateRG(invoiceText, regex[3]);
-                    numEncomenda = RG.ExtractNumEncomendaRG(invoiceText, regex[4]);
-                    Console.WriteLine("aaaaaaaaaaaaaa: " + regex[8]);
-                    numFatura = RG.ExtractNumFaturaRG(invoiceText, regex[5]);
-                    dueDate = RG.ExtractDueDateRG(invoiceText, regex[6]);
-                    totalSemIVA = RG.ExtractTotalSemIVARG(invoiceText, regex[7]);
-                    totalPrice = RG.ExtractTotalPriceRG(invoiceText, regex[11]);
-                    IVA = RG.ExtractIVAPercentageRG(invoiceText, regex[13]);
-
+                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
+                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
+                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
+                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
+                    products = RG.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "":
-                    //ExtractMEO(pdfFilePath, outputFolderPath, validatedFolderPath, invoiceText, regex);
+                case "MORENO II":
+                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
+                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
+                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
+                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
+                    products = RG.ExtractProductDetailsMoreno(invoiceText, regex[12]).Cast<IProduct>().ToList();
+                    foreach (var product in products)
+                    {
+                        Console.WriteLine("Produtos lidos na hora"+product);
+                    }
                     break;
-                case "s":
-                    //ExtractRG(pdfFilePath, outputFolderPath, validatedFolderPath, invoiceText, regex);
+                case "LEX":
+                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
+                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
+                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
+                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
+                    products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]).Cast<IProduct>().ToList();
+                    Console.WriteLine(products);
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
                     break;
             }
 
-            // Generate output file path
-            string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
-            string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
 
             // Write extracted data to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
-                writer.WriteLine(invoiceText);
+                writer.WriteLine(invoiceText); // Write the entire text to the file for debugging purposes (will be deleted later)
+
+                // Write general information
+                writer.WriteLine("General Information: ");
                 writer.WriteLine("Data da Fatura: " + invoiceDate);
                 writer.WriteLine("Nº Encomenda: " + numEncomenda);
                 writer.WriteLine("Nº Fatura: " + numFatura);
@@ -150,24 +165,12 @@ namespace PDFDataExtraction
                 writer.WriteLine("Total sem IVA: " + totalSemIVA);
                 writer.WriteLine("Total com IVA: " + totalPrice);
                 writer.WriteLine("Taxa IVA: " + IVA + "%");
+                writer.WriteLine("Products:");
 
                 // Write product details
-
-                List<Product> products = RG.ExtractProductDetailsRG(invoiceText, regex[12]);
                 foreach (var product in products)
                 {
-                    writer.WriteLine("--------Start of Product---------");
-                    writer.WriteLine("Article: " + product.Article);
-                    writer.WriteLine("Barcode: " + product.Barcode);
-                    writer.WriteLine("Description: " + product.Description);
-                    writer.WriteLine("Quantity: " + product.Quantity);
-                    writer.WriteLine("GrossPrice: " + product.GrossPrice);
-                    writer.WriteLine("Discount1: " + product.Discount1 + "%");
-                    writer.WriteLine("Discount2: " + product.Discount2 + "%");
-                    writer.WriteLine("Discount3: " + product.Discount3 + "%");
-                    writer.WriteLine("PrecoSemIVA: " + product.PrecoSemIVA);
-                    writer.WriteLine("PrecoComIVA: " + product.PrecoComIVA);
-                    writer.WriteLine("--------End of Product---------");
+                    writer.WriteLine(product);
                 }
             }
 
@@ -177,6 +180,7 @@ namespace PDFDataExtraction
             //File.Move(pdfFilePath, destinationFilePath);
             Console.WriteLine("Data written to " + outputFilePath);
             Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
+            regex.Clear();
         }
 
         static string ExtractTextFromPDF(string filePath)
