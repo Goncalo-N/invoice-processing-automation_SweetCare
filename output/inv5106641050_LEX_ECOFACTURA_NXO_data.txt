@@ -121,7 +121,7 @@ Nome transpo 69296GT 1(1)
 
 General Information: 
 Data da Fatura: 18/12/2023
-Nº Encomenda: N/A
+Nº Encomenda: 1000345369
 Nº Fatura: N/A
 Data Vencimento: 02/01/2024
 Total sem IVA: 0
