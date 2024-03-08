@@ -21,11 +21,14 @@ namespace PDFDataExtraction
             string baseDirectory = Directory.GetCurrentDirectory();
 
             // Navigate up 3 levels to reach invoice-processing-automation-main directory
-            for (int i = 0; i <= 3; i++)
+            /*for (int i = 0; i <= 3; i++)
+            {
+                baseDirectory = Directory.GetParent(baseDirectory).FullName;
+            }*/
+            if (Directory.GetParent(baseDirectory) != null)
             {
                 baseDirectory = Directory.GetParent(baseDirectory).FullName;
             }
-
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
@@ -66,6 +69,11 @@ namespace PDFDataExtraction
 
         static void CheckFolderForNewPDFs(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
+            if (!Directory.Exists(folderPath))
+            {
+                Console.WriteLine("PDF folder does not exist: " + folderPath);
+                return;
+            }
             string[] newPdfFiles = Directory.GetFiles(folderPath, "*.pdf");
             foreach (string pdfFilePath in newPdfFiles)
             {
@@ -104,9 +112,7 @@ namespace PDFDataExtraction
             string invoiceDate = "N/A";
             string dueDate = "N/A";
             decimal IVA = 0;
-            // Generate output file path
-            string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
-            string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
+
             List<IProduct> products = new List<IProduct>();
             switch (companyName)
             {
@@ -128,13 +134,13 @@ namespace PDFDataExtraction
                     totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
                     totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
-                    products = RG.ExtractProductDetailsMoreno(invoiceText, regex[12]).Cast<IProduct>().ToList();
-                    foreach (var product in products)
+                    products = RG.ExtractProductDetailsMoreno(invoiceText, regex[12]);
+                    /*foreach (var product in products)
                     {
-                        Console.WriteLine("Produtos lidos na hora"+product);
-                    }
+                        Console.WriteLine("Produtos lidos na hora" + product);
+                    }*/
                     break;
-                case "LEX":
+                case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
                     numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
@@ -142,15 +148,17 @@ namespace PDFDataExtraction
                     totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
                     totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
-                    products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]).Cast<IProduct>().ToList();
-                    Console.WriteLine(products);
+                    products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]);
+                    Console.WriteLine("aad");
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
                     break;
             }
 
-
+            // Generate output file path
+            string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
+            string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
             // Write extracted data to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {

@@ -59,7 +59,7 @@ namespace PDFDataExtraction
         // Method to extract invoice date using regular expression
         internal static string ExtractInvoiceDate(string text, string pattern)
         {
-            //Console.WriteLine(pattern);
+            Console.WriteLine(pattern);
             MatchCollection matches = Regex.Matches(text, pattern);
             foreach (Match match in matches)
             {
@@ -68,7 +68,7 @@ namespace PDFDataExtraction
                     return date.ToString("dd/MM/yyyy");
                 }
             }
-            return "N/A";
+            return "N/Aa";
         }
 
         // Method to extract due date using regular expression
@@ -163,11 +163,12 @@ namespace PDFDataExtraction
             return products;
         }
         // Method to extract products from Moreno II invoices using regular expression
-        internal static List<MorenoProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
+        internal static List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
-            List<MorenoProduct> products = new List<MorenoProduct>();
+            List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+            
             foreach (Match match in matches)
             {
                 MorenoProduct product = new MorenoProduct();
@@ -211,18 +212,21 @@ namespace PDFDataExtraction
                 {
                     product.Total = total;
                 }
+                Console.WriteLine(product);
                 products.Add(product);
             }
             return products;
         }
         // Method to extract products from LEX invoices using regular expression
-        internal static List<LEXProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
+        internal static List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
-            List<LEXProduct> products = new List<LEXProduct>();
+            List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
+                //print out each value
+                Console.WriteLine(match.Value);
                 LEXProduct product = new LEXProduct();
                 product.Code = match.Groups["Code"].Value;
                 product.Name = match.Groups["Name"].Value;

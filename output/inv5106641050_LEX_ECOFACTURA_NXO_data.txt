@@ -119,9 +119,44 @@ Data de carga 2023-12-18T11:37:11 Total fatura 1,158.06 EUR
 local de descarga SWEETCARE - PORTO RUA DR EDUARDO SANTOS SILVA 261 U  4200-283 PORTO PORTUGAL
 Nome transpo 69296GT 1(1)
 
+General Information: 
+Data da Fatura: 18/12/2023
 Nº Encomenda: N/A
+Nº Fatura: N/A
+Data Vencimento: 02/01/2024
 Total sem IVA: 0
 Total com IVA: 0
-Data da Fatura: N/A
-Data Vencimento: N/A
 Taxa IVA: 0%
+Products:
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0
+Code: , Name: , CNP: , LotNumber: , Quantity: , UnitPrice: 0, DiscountPercentage: 0, NetPrice: 0, IVA: 0

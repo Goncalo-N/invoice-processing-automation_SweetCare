@@ -92,3 +92,4 @@ Total sem IVA: 182.27
 Total com IVA: 219.57
 Taxa IVA: 0%
 Products:
+CNP: , Designation: , Lot: , ExpiryDate: 01/01/0001 00:00:00, Type: , Quantity: 4545, UnitPrice: 0, Discount1: 0, Discount2: 0, NetPrice: 0, IVA: 0, Total: 0
