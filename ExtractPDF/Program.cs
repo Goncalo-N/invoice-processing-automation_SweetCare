@@ -4,7 +4,12 @@ using System.Text.RegularExpressions;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using Serilog;
 
+Log.Logger = new LoggerConfiguration().
+MinimumLevel.Debug().
+WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
+.CreateLogger();
 
 namespace PDFDataExtraction
 {
@@ -16,6 +21,7 @@ namespace PDFDataExtraction
 
         static void Main(string[] args)
         {
+            Log.Information("Application Starting");
 
             // Get the base directory of the project
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -29,6 +35,7 @@ namespace PDFDataExtraction
             {
                 baseDirectory = Directory.GetParent(baseDirectory).FullName;
             }
+            Log.Information("Base directory: " + baseDirectory);
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
@@ -176,12 +183,11 @@ namespace PDFDataExtraction
                 writer.WriteLine("Products:");
 
                 // Write product details
-                foreach (var product in products)
+                foreach (var product in products.Distinct())
                 {
                     writer.WriteLine(product);
                 }
             }
-
             // Move processed PDF file to validated folder
             string fileName = Path.GetFileName(pdfFilePath);
             string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
