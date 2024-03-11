@@ -1,1 +1,2 @@
 Total sem IVA\s*([\d,]+)\s*
+LEX: Total líquido\s+([\d\.,]+)

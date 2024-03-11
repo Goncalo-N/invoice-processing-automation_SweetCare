@@ -1,4 +1,4 @@
 Total com IVA\s*([\d,]+)\s*EUR
 Total\s*([\d,]+)\s*EUR
 TOTAL\s+(\d+,\d+)
-Total\sFatura\s+(\d+,\d+)
+LEX : Total fatura\s+([\d\.,]+) EUR
