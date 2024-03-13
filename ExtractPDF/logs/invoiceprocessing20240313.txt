@@ -22,3 +22,5 @@
 2024-03-13 10:50:54.046 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
 2024-03-13 10:52:22.006 +00:00 [INF] Application Starting
 2024-03-13 10:52:22.142 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:56:22.786 +00:00 [INF] Application Starting
+2024-03-13 10:56:22.854 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
