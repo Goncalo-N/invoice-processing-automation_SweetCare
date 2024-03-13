@@ -206,13 +206,45 @@ namespace PDFDataExtraction
                 }
             }
 
-            var values = new object[] { invoiceDate, numEncomenda, numFatura, dueDate, totalSemIVA, totalPrice, IVA, products };
+           
+            // Check if any field is missing
+            var fields = new Dictionary<string, object>{
+                {"Invoice Date", invoiceDate},
+                {"Num Encomenda", numEncomenda},
+                {"Num Fatura", numFatura},
+                {"Due Date", dueDate},
+                {"Total Sem IVA", totalSemIVA},
+                {"Total Price", totalPrice},
+                {"IVA Percentage", IVA},
+                };
 
-            if (values.Any(v => v == null) || values.Any(v => v.ToString() == "N/A") || products.Count == 0)
+            bool isAnyFieldMissing = false;
+            int missingFieldsCounter = 0;
+            foreach (var field in fields)
             {
-                OnValuesMissing(pdfFilePath);
-
+                if (field.Value == null || field.Value.ToString() == "N/A")
+                {
+                    log.Error($"Missing field: {field.Key}");
+                    Console.WriteLine($"Missing field: {field.Key}");
+                    missingFieldsCounter++;
+                    isAnyFieldMissing = true;
+                }
             }
+
+            // Special check for products being null or having a count of 0
+            if (products == null || products.Count == 0)
+            {
+                Console.WriteLine("Missing field: Products");
+                missingFieldsCounter++;
+                isAnyFieldMissing = true;
+            }
+
+            if (isAnyFieldMissing)
+            {
+                log.Error("Number of missing fields: " + missingFieldsCounter);
+                OnValuesMissing(pdfFilePath);
+            }
+
             else
             {
                 // Move processed PDF file to validated folder
