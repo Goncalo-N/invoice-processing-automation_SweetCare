@@ -41,16 +41,24 @@ namespace PDFDataExtraction
         // Method to extract total price using regular expression
         internal static decimal ExtractTotalPrice(string text, string pattern)
         {
-            //Console.WriteLine(pattern);
             decimal maxTotalPrice = 0;
             MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
-                string totalPriceStr = match.Groups[1].Value.Replace(",", ".");
-                decimal totalPrice = decimal.Parse(totalPriceStr, CultureInfo.InvariantCulture);
-                if (totalPrice > maxTotalPrice)
+                // Extract the matched price string.
+                string totalPriceStr = match.Groups[1].Value;
+
+                // Ensure proper decimal parsing for numbers like "1,158.06".
+                // Convert the extracted string into a format that can be parsed by decimal.Parse.
+                totalPriceStr = totalPriceStr.Replace(",", string.Empty);
+
+                // Parse the number using InvariantCulture to handle the dot as a decimal separator.
+                if (decimal.TryParse(totalPriceStr, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal totalPrice))
                 {
-                    maxTotalPrice = totalPrice;
+                    if (totalPrice > maxTotalPrice)
+                    {
+                        maxTotalPrice = totalPrice;
+                    }
                 }
             }
             return maxTotalPrice;
@@ -99,15 +107,24 @@ namespace PDFDataExtraction
         }
 
         // Method to extract IVA percentage using regular expression
-        internal static decimal ExtractIVAPercentage(string text, string pattern)
+        internal static string ExtractIVAPercentage(string text, string pattern)
         {
             //Console.WriteLine(pattern);
-            Match match = Regex.Match(text, pattern);
-            if (match.Success)
+            
+            MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
+            string finalIVA = "";
+            var distinctMatches = matches.GroupBy(match => match.ToString()) // Use the property(s) that define uniqueness
+                             .Select(group => group.First())
+                             .ToList();
+
+            foreach(Match match in distinctMatches)
             {
-                return decimal.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
+                if (match.Success)
+                {
+                    finalIVA = finalIVA + match.Value+"\n";
+                }
             }
-            return 0;
+            return finalIVA;
         }
 
         // Method to extract product details using regular expression
@@ -168,7 +185,7 @@ namespace PDFDataExtraction
             //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
-            
+
             foreach (Match match in matches)
             {
                 MorenoProduct product = new MorenoProduct();
@@ -218,43 +235,47 @@ namespace PDFDataExtraction
             return products;
         }
         // Method to extract products from LEX invoices using regular expression
-        internal static List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
+        public static List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
-            //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+
             foreach (Match match in matches)
             {
-                //print out each value
-                Console.WriteLine(match.Value);
                 LEXProduct product = new LEXProduct();
-                product.Code = match.Groups["Code"].Value;
-                product.Name = match.Groups["Name"].Value;
-                product.CNP = match.Groups["CNP"].Value;
-                product.LotNumber = match.Groups["LotNumber"].Value;
-                product.Quantity = match.Groups["Quantity"].Value;
-                decimal unitPrice;
-                if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
-                {
+
+                // Assuming first capturing group is the product code
+                product.Code = match.Groups[1].Value;
+
+                // Second capturing group for product name
+                product.Name = match.Groups[2].Value;
+
+                // Third capturing group for CNP (numeric identifier)
+                product.CNP = match.Groups[3].Value;
+
+                // Fourth capturing group for Lot Number (optional)
+                product.LotNumber = match.Groups[4].Value;
+
+                // Fifth capturing group for Quantity, extract numeric part
+                product.Quantity = match.Groups[5].Value;
+
+                // Following groups for prices and percentages
+                if (decimal.TryParse(match.Groups[6].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice))
                     product.UnitPrice = unitPrice;
-                }
-                decimal discountPercentage;
-                if (decimal.TryParse(match.Groups["DiscountPercentage"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discountPercentage))
-                {
+
+                if (decimal.TryParse(match.Groups[7].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discountPercentage))
                     product.DiscountPercentage = discountPercentage;
-                }
-                decimal netPrice;
-                if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
-                {
+
+                if (decimal.TryParse(match.Groups[8].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice))
                     product.NetPrice = netPrice;
-                }
-                int iva;
-                if (int.TryParse(match.Groups["IVA"].Value, out iva))
-                {
+
+                // Last group for IVA
+                if (int.TryParse(match.Groups[9].Value, out int iva))
                     product.IVA = iva;
-                }
+
                 products.Add(product);
             }
+
             return products;
         }
     }

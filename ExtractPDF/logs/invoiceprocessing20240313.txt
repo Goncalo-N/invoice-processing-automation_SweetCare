@@ -1,0 +1,24 @@
+2024-03-13 10:07:52.560 +00:00 [INF] Application Starting
+2024-03-13 10:07:52.643 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:12:17.966 +00:00 [INF] Application Starting
+2024-03-13 10:12:18.046 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:22:18.033 +00:00 [INF] Application Starting
+2024-03-13 10:22:18.121 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:24:40.513 +00:00 [INF] Application Starting
+2024-03-13 10:24:40.611 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:28:29.327 +00:00 [INF] Application Starting
+2024-03-13 10:28:29.398 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:36:32.638 +00:00 [INF] Application Starting
+2024-03-13 10:36:32.700 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:38:23.763 +00:00 [INF] Application Starting
+2024-03-13 10:38:23.820 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:40:19.828 +00:00 [INF] Application Starting
+2024-03-13 10:40:19.922 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:42:16.879 +00:00 [INF] Application Starting
+2024-03-13 10:42:16.936 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:45:00.268 +00:00 [INF] Application Starting
+2024-03-13 10:45:00.340 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:50:53.977 +00:00 [INF] Application Starting
+2024-03-13 10:50:54.046 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 10:52:22.006 +00:00 [INF] Application Starting
+2024-03-13 10:52:22.142 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation

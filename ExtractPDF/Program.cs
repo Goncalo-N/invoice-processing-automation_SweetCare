@@ -6,21 +6,24 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using Serilog;
 
-Log.Logger = new LoggerConfiguration().
-MinimumLevel.Debug().
-WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
-.CreateLogger();
-
 namespace PDFDataExtraction
 {
+
     class Program
     {
+
 
         // global instance of Producer
         static Producer dbHelper = new Producer();
 
         static void Main(string[] args)
         {
+
+            Log.Logger = new LoggerConfiguration().
+            MinimumLevel.Debug().
+            WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+
             Log.Information("Application Starting");
 
             // Get the base directory of the project
@@ -118,7 +121,7 @@ namespace PDFDataExtraction
             decimal totalPrice = 0;
             string invoiceDate = "N/A";
             string dueDate = "N/A";
-            decimal IVA = 0;
+            string IVA = "";
 
             List<IProduct> products = new List<IProduct>();
             switch (companyName)
@@ -156,7 +159,7 @@ namespace PDFDataExtraction
                     totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]);
-                    Console.WriteLine("aad");
+                    Console.WriteLine("");
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
@@ -179,7 +182,7 @@ namespace PDFDataExtraction
                 writer.WriteLine("Data Vencimento: " + dueDate);
                 writer.WriteLine("Total sem IVA: " + totalSemIVA);
                 writer.WriteLine("Total com IVA: " + totalPrice);
-                writer.WriteLine("Taxa IVA: " + IVA + "%");
+                writer.WriteLine("Taxa IVA: " + IVA);
                 writer.WriteLine("Products:");
 
                 // Write product details
