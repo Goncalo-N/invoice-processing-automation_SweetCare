@@ -233,11 +233,9 @@ namespace PDFDataExtraction
             {
                 baseDirectory = parentDirectory.FullName;
             }
-            
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
 
-            // Extract text from PDF
-            string invoiceText = ExtractTextFromPDF(pdfFilePath);
+            string missingValuesFolderPath = Path.Combine(baseDirectory, "missing");
+
             string fileName = Path.GetFileName(pdfFilePath);
             Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
             string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
