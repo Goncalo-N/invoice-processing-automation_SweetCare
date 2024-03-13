@@ -18,7 +18,7 @@ namespace PDFDataExtraction
 
         static Serilog.Core.Logger log = new LoggerConfiguration()
             .MinimumLevel.Debug()
-            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
+            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)//file name change every day
             .CreateLogger();
 
         static void Main(string[] args)
@@ -33,10 +33,12 @@ namespace PDFDataExtraction
             {
                 baseDirectory = Directory.GetParent(baseDirectory).FullName;
             }*/
-            if (Directory.GetParent(baseDirectory) != null)
+            var parentDirectory = Directory.GetParent(baseDirectory);
+            if (parentDirectory != null)
             {
-                baseDirectory = Directory.GetParent(baseDirectory).FullName;
+                baseDirectory = parentDirectory.FullName;
             }
+
             log.Information("Base directory: " + baseDirectory);
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
@@ -92,6 +94,14 @@ namespace PDFDataExtraction
 
         static void OnPdfFileCreated(string pdfFilePath, string outputFolderPath, string validatedFolderPath)
         {
+            string baseDirectory = Directory.GetCurrentDirectory();
+            var parentDirectory = Directory.GetParent(baseDirectory);
+            if (parentDirectory != null)
+            {
+                baseDirectory = parentDirectory.FullName;
+            }
+            string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
+            // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
             // Get all company names from the database
@@ -108,6 +118,7 @@ namespace PDFDataExtraction
             if (companyName == "N/A")
             {
                 Console.WriteLine("Company not found");
+                OnValuesMissing(pdfFilePath);
                 return;
             }
 
@@ -164,6 +175,7 @@ namespace PDFDataExtraction
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
+                    OnValuesMissing(pdfFilePath);
                     break;
             }
 
@@ -192,14 +204,47 @@ namespace PDFDataExtraction
                     writer.WriteLine(product);
                 }
             }
-            // Move processed PDF file to validated folder
-            string fileName = Path.GetFileName(pdfFilePath);
-            string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
-            //File.Move(pdfFilePath, destinationFilePath);
-            Console.WriteLine("Data written to " + outputFilePath);
-            Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
+            var values = new object[] { invoiceDate, numEncomenda, numFatura, dueDate, totalSemIVA, totalPrice, IVA, products };
+
+            if (values.Any(v => v == null) || values.Any(v => v.ToString() == "N/A") || products.Count == 0)
+            {
+                OnValuesMissing(pdfFilePath);
+
+            }
+            else
+            {
+                // Move processed PDF file to validated folder
+                string fileName = Path.GetFileName(pdfFilePath);
+                string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
+                //File.Move(pdfFilePath, destinationFilePath);
+                Console.WriteLine("Data written to " + outputFilePath);
+                Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
+            }
             regex.Clear();
         }
+
+        static void OnValuesMissing(string pdfFilePath)
+        {
+            string baseDirectory = Directory.GetCurrentDirectory();
+            var parentDirectory = Directory.GetParent(baseDirectory);
+            if (parentDirectory != null)
+            {
+                baseDirectory = parentDirectory.FullName;
+            }
+            string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
+
+            // Extract text from PDF
+            string invoiceText = ExtractTextFromPDF(pdfFilePath);
+            string fileName = Path.GetFileName(pdfFilePath);
+            Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
+            string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
+
+            Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
+            //File.Move(pdfFilePath, destinationFilePath);
+            Console.WriteLine($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
+
+        }
+
 
         static string ExtractTextFromPDF(string filePath)
         {
