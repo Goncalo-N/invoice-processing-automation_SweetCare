@@ -27,7 +27,7 @@ public class LEXProduct : IProduct
     public string Name { get; set; }
     public string CNP { get; set; }
     public string LotNumber { get; set; }
-    public string Quantity { get; set; }
+    public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }
     public decimal DiscountPercentage { get; set; }
     public decimal NetPrice { get; set; }
@@ -48,7 +48,7 @@ public class MorenoProduct : IProduct
     public string Lot { get; set; }
     public DateTime ExpiryDate { get; set; }
     public string Type { get; set; }
-    public string Quantity { get; set; }
+    public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }
     public decimal Discount1 { get; set; }
     public decimal Discount2 { get; set; }

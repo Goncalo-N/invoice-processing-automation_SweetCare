@@ -16,15 +16,14 @@ namespace PDFDataExtraction
         // global instance of Producer
         static Producer dbHelper = new Producer();
 
-        static void Main(string[] args)
-        {
-
-            Log.Logger = new LoggerConfiguration().
-            MinimumLevel.Debug().
-            WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
+        static Serilog.Core.Logger log = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
-            Log.Information("Application Starting");
+        static void Main(string[] args)
+        {
+            log.Information("Application Starting");
 
             // Get the base directory of the project
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -38,7 +37,7 @@ namespace PDFDataExtraction
             {
                 baseDirectory = Directory.GetParent(baseDirectory).FullName;
             }
-            Log.Information("Base directory: " + baseDirectory);
+            log.Information("Base directory: " + baseDirectory);
             Console.WriteLine("Base directory: " + baseDirectory);
             string folderPath = Path.Combine(baseDirectory, "pdfs");
             string outputFolderPath = Path.Combine(baseDirectory, "output");
@@ -103,6 +102,8 @@ namespace PDFDataExtraction
             // Check the company name
             string companyName = CheckCompany(invoiceText, companyNames);
             Console.WriteLine("Company Name: " + companyName);
+
+            log.Information("Reading invoice : " + pdfFilePath);
             // return if company name is N/A
             if (companyName == "N/A")
             {

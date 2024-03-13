@@ -272,7 +272,11 @@ namespace PDFDataExtraction
                         product.ExpiryDate = expiryDate;
                     }
                     product.Type = match.Groups["Type"].Value;
-                    product.Quantity = match.Groups["Quantity"].Value;
+                    int quantity;
+                    if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
+                    {
+                        product.Quantity = quantity;
+                    }
                     decimal unitPrice;
                     if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
                     {
@@ -340,8 +344,16 @@ namespace PDFDataExtraction
                     // Fourth capturing group for Lot Number (optional)
                     product.LotNumber = match.Groups[4].Value;
 
-                    // Fifth capturing group for Quantity, extract numeric part
-                    product.Quantity = match.Groups[5].Value;
+                    // Fifth capturing group for Quantity, extract numeric part through regex matching
+                    string rgxStr = @"\d+";
+
+                    var intMatch = Regex.Match(match.Groups[5].Value, rgxStr);
+
+                    if (intMatch.Success)
+                    {
+                        product.Quantity = int.Parse(intMatch.Value);
+                    }
+                    
 
                     // Following groups for prices and percentages
                     if (decimal.TryParse(match.Groups[6].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice))
