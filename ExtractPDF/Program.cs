@@ -182,6 +182,7 @@ namespace PDFDataExtraction
             // Generate output file path
             string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
             string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
+
             // Write extracted data to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
@@ -204,6 +205,7 @@ namespace PDFDataExtraction
                     writer.WriteLine(product);
                 }
             }
+
             var values = new object[] { invoiceDate, numEncomenda, numFatura, dueDate, totalSemIVA, totalPrice, IVA, products };
 
             if (values.Any(v => v == null) || values.Any(v => v.ToString() == "N/A") || products.Count == 0)
@@ -231,6 +233,7 @@ namespace PDFDataExtraction
             {
                 baseDirectory = parentDirectory.FullName;
             }
+            
             string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
 
             // Extract text from PDF

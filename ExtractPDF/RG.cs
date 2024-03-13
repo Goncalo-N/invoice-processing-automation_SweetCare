@@ -4,7 +4,6 @@ namespace PDFDataExtraction
 {
     public class RG
     {
-
         internal static string ExtractNumEncomenda(string text, string pattern)
         {
             ////Console.WriteLine(pattern);
