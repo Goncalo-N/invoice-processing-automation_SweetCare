@@ -128,7 +128,7 @@ namespace PDFDataExtraction
                     return date.ToString("dd/MM/yyyy");
                 }
             }
-            return "N/Aa";
+            return "N/A";
         }
 
         // Method to extract due date using regular expression
@@ -165,7 +165,9 @@ namespace PDFDataExtraction
 
             MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
             string finalIVA = "";
-            var distinctMatches = matches.GroupBy(match => match.ToString()) // Use the property(s) that define uniqueness
+            // Remove duplicate entries, 
+            //due to multiple pages in the same invoice with duplicate values.
+            var distinctMatches = matches.GroupBy(match => match.ToString())
                              .Select(group => group.First())
                              .ToList();
 
@@ -173,7 +175,7 @@ namespace PDFDataExtraction
             {
                 if (match.Success)
                 {
-                    finalIVA = finalIVA + match.Value + "\n";
+                    finalIVA = "\n" + finalIVA + match.Value + "\n";
                 }
             }
             return finalIVA;
@@ -353,7 +355,7 @@ namespace PDFDataExtraction
                     {
                         product.Quantity = int.Parse(intMatch.Value);
                     }
-                    
+
 
                     // Following groups for prices and percentages
                     if (decimal.TryParse(match.Groups[6].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice))

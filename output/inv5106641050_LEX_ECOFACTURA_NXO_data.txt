@@ -126,7 +126,9 @@ Nº Fatura: 220052765
 Data Vencimento: 02/01/2024
 Total sem IVA: 946,31
 Total com IVA: 1158,06
-Taxa IVA: 6.00                2.08
+Taxa IVA: 
+
+6.00                2.08
 23.00              209.67
 
 Products:

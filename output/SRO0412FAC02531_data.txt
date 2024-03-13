@@ -77,7 +77,8 @@ Nº Fatura: SRO0412FAC02596
 Data Vencimento: 11/02/2024
 Total sem IVA: 58,53
 Total com IVA: 58,53
-Taxa IVA: 0,00 % 0,00 €
+Taxa IVA: 
+0,00 % 0,00 €
 
 Products:
 Article: RG1001021WW, Barcode: 3701436911607, Description: JMF SABONETES REDONDOS 3x100G, Quantity: 3, GrossPrice: 10,90, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 8,18, PrecoComIVA: 24,54, Bonus: 0

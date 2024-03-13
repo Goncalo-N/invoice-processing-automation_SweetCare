@@ -72,3 +72,83 @@
 2024-03-13 15:14:59.391 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
 2024-03-13 15:14:59.421 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
 2024-03-13 15:14:59.509 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:19:58.243 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:19:58.306 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:19:58.329 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:19:58.350 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:19:58.375 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:19:58.400 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:19:58.420 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:24:58.266 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:24:58.353 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:24:58.386 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:24:58.415 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:24:58.443 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:24:58.474 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:24:58.502 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:29:58.208 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:29:58.227 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:29:58.237 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:29:58.245 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:29:58.254 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:29:58.264 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:29:58.273 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:38:10.549 +00:00 [INF] Application Starting
+2024-03-13 15:38:10.664 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 15:38:12.136 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:38:12.252 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:38:12.312 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:38:12.342 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:38:12.365 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:38:12.407 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:38:12.507 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:38:48.759 +00:00 [INF] Application Starting
+2024-03-13 15:38:48.838 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 15:38:50.188 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:38:50.326 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:38:50.402 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:38:50.433 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:38:50.463 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:38:50.500 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:38:50.609 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:40:25.617 +00:00 [INF] Application Starting
+2024-03-13 15:40:25.712 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 15:40:26.872 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:40:27.037 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:40:27.094 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:40:27.120 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:40:27.140 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:40:27.170 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:40:27.266 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:40:59.816 +00:00 [INF] Application Starting
+2024-03-13 15:40:59.903 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 15:41:01.636 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:41:01.805 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:41:01.890 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:41:01.922 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:41:01.944 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:41:02.001 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:41:02.199 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:41:38.346 +00:00 [INF] Application Starting
+2024-03-13 15:41:38.418 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 15:41:39.643 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:41:39.788 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:41:39.875 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:41:39.914 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:41:39.941 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:41:39.984 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:41:40.123 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:46:38.547 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:46:38.622 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:46:38.650 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:46:38.672 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:46:38.700 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:46:38.728 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:46:38.750 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 15:51:38.587 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 15:51:38.701 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 15:51:38.745 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 15:51:38.783 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 15:51:38.815 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 15:51:38.853 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 15:51:38.887 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
