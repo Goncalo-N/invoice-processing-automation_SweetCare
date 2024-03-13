@@ -1,11 +1,25 @@
-2024-03-13 17:29:02.901 +00:00 [INF] Application Starting
-2024-03-13 17:29:03.058 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
-2024-03-13 17:29:04.402 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
-2024-03-13 17:29:04.441 +00:00 [ERR] Missing field: Num Encomenda
-2024-03-13 17:29:04.441 +00:00 [ERR] Number of missing fields: 1
-2024-03-13 17:29:04.540 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
-2024-03-13 17:29:04.599 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
-2024-03-13 17:29:04.634 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
-2024-03-13 17:29:04.658 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
-2024-03-13 17:29:04.699 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
-2024-03-13 17:29:04.819 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 17:38:55.671 +00:00 [INF] Application Starting
+2024-03-13 17:38:55.833 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 17:38:57.573 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 17:38:57.630 +00:00 [ERR] Missing field: Num Encomenda
+2024-03-13 17:38:57.630 +00:00 [ERR] Number of missing fields: 1
+2024-03-13 17:38:57.761 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 17:38:57.841 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 17:38:57.885 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 17:38:57.912 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 17:38:57.973 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 17:38:58.119 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 17:38:58.405 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\TrabalhoANADITP1__2024.pdf
+2024-03-13 17:40:42.112 +00:00 [INF] Application Starting
+2024-03-13 17:40:42.203 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-13 17:40:43.661 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-13 17:40:43.716 +00:00 [ERR] Missing field: Num Encomenda
+2024-03-13 17:40:43.716 +00:00 [ERR] Number of missing fields: 1
+2024-03-13 17:40:43.812 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-13 17:40:43.889 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-13 17:40:43.932 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-13 17:40:43.961 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-13 17:40:44.005 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-13 17:40:44.186 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-13 17:40:44.656 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\TrabalhoANADITP1__2024.pdf
+2024-03-13 17:40:44.656 +00:00 [ERR] Company not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\TrabalhoANADITP1__2024.pdf

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Globalization;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
@@ -117,6 +115,7 @@ namespace PDFDataExtraction
             // return if company name is N/A
             if (companyName == "N/A")
             {
+                log.Error("Company not found for file: " + pdfFilePath);
                 Console.WriteLine("Company not found");
                 OnValuesMissing(pdfFilePath);
                 return;

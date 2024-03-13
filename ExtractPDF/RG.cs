@@ -4,7 +4,7 @@ namespace PDFDataExtraction
 {
     public class RG
     {
-        internal static string ExtractNumEncomenda(string text, string pattern)
+        public static string ExtractNumEncomenda(string text, string pattern)
         {
             ////Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
@@ -14,7 +14,7 @@ namespace PDFDataExtraction
             }
             return "N/A";
         }
-        internal static string ExtractNumFatura(string text, string pattern)
+        public static string ExtractNumFatura(string text, string pattern)
         {
             ////Console.WriteLine(pattern);
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
@@ -25,7 +25,7 @@ namespace PDFDataExtraction
             return "N/A";
         }
         // Method to extract total price sem IVA using regular expression
-        internal static decimal ExtractTotalSemIVA(string text, string pattern)
+        public static decimal ExtractTotalSemIVA(string text, string pattern)
         {
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
@@ -71,7 +71,7 @@ namespace PDFDataExtraction
 
 
         // Method to extract total price using regular expression
-        internal static decimal ExtractTotalPrice(string text, string pattern)
+        public static decimal ExtractTotalPrice(string text, string pattern)
         {
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
@@ -116,7 +116,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract invoice date using regular expression
-        internal static string ExtractInvoiceDate(string text, string pattern)
+        public static string ExtractInvoiceDate(string text, string pattern)
         {
             Console.WriteLine(pattern);
             MatchCollection matches = Regex.Matches(text, pattern);
@@ -131,7 +131,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract due date using regular expression
-        internal static string ExtractDueDate(string text, string pattern)
+        public static string ExtractDueDate(string text, string pattern)
         {
             //Console.WriteLine(pattern);
             DateTime latestDueDate = DateTime.MinValue;
@@ -158,7 +158,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract IVA percentage using regular expression
-        internal static string ExtractIVAPercentage(string text, string pattern)
+        public static string ExtractIVAPercentage(string text, string pattern)
         {
             //Console.WriteLine(pattern);
 
@@ -181,7 +181,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract product details using regular expression
-        internal static List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
+        public static List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
@@ -246,7 +246,7 @@ namespace PDFDataExtraction
             return products;
         }
         // Method to extract products from Moreno II invoices using regular expression
-        internal static List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
+        public static List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
