@@ -65,4 +65,29 @@ public class Producer
 
         return regexList.ConvertAll(x => x.ToString());
     }
+    //get supplierID through companyName
+    public int getEmpresaID(string companyName)
+    {
+        int empresaID = 0;
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "SELECT ID FROM suppliersName WHERE supplierName = @nomeEmpresa";
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                // For SQL Server, use the Add method with a value to prevent SQL injection.
+                command.Parameters.Add(new SqlParameter("@nomeEmpresa", companyName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        empresaID = reader.GetInt32(0);
+                    }
+                }
+            }
+        }
+        return empresaID;
+    }
 }

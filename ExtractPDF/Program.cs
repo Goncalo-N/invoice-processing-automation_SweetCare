@@ -112,6 +112,16 @@ namespace PDFDataExtraction
             string companyName = CheckCompany(invoiceText, companyNames);
             Console.WriteLine("Company Name: " + companyName);
 
+            //Get supplierID
+            int supplierID = dbHelper.getEmpresaID(companyName);
+            Console.WriteLine("Supplier ID: " + supplierID);
+            if (supplierID == 0)
+            {
+                log.Error("Supplier not found for file: " + pdfFilePath);
+                Console.WriteLine("Supplier not found");
+                OnValuesMissing(pdfFilePath);
+                return;
+            }
             log.Information("Reading invoice : " + pdfFilePath);
             // return if company name is N/A
             if (companyName == "N/A")
@@ -125,7 +135,7 @@ namespace PDFDataExtraction
             // Get the regex for the company
             List<string> regex = dbHelper.GetAllRegex(companyName);
             Console.WriteLine("Company Name: " + companyName);
-
+        
             //create a condition that based on the company name it will call the correct method;
             string numEncomenda = "N/A";
             string numFatura = "N/A";
