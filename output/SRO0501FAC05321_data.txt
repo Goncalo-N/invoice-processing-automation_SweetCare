@@ -1,0 +1,118 @@
+Responsável Comercial : ANDREIA PINHEIRO
+FACTURA
+Telefone : (+35)939079612
+E-mail : 
+Serviço Cliente
+Telefone :  +351308802496
+Endereço de Entrega Endereço de Faturação
+SWEETCARE-SESWEETCARE-SERRV.PROD.SAUDE,LDAV.PROD.SAUDE,LDA SWEETCARE
+R DR EDUARDO SANTOS SILVA, 261 FRACCAO U SWEETCARE-SERV.PROD.SAUDE,LDA
+4200283 PORTO R. PROF. DUARTE LEITE, 203-5.E
+Portugal 4200270 PORTO
+Portugal
+N° IVA intracomunitário : PT507945417
+Código Cliente Fatura Data da Fatura Referência Nº Encomenda Guia de Remessa
+146609
+PT000295 SRO0501FAC05321 31/01/2024 SRO2401CRM07946 OEG2401301294
+EUR
+ 
+  Artigo Código de Barras     Descrição Quantidade   Preço bruto Desconto   Preço líquido  Tot preço IVA
+  sem IVA  sem IVA líquido
+RG1002081WW 3701436916510 CREME MÃOS FLEUR FIG 30ML 24 3,93 30,00 2,75 66,00 0,00
+CNP : 6938100
+RG1005051WW 3701436916565 CREME MÃOS OSMANTHUS 30ML 18 3,93 30,00 2,75 49,50 0,00
+CNP : 6919043
+RG1006081WW 3701436916572 CREME MÃOS ROSE 30ML 6 3,93 30,00 2,75 16,50 0,00
+CNP : 6919050
+RG1008081WW 3701436916503 CREME MÃOS FEUILLE THE 30ML 6 3,93 30,00 2,75 16,50 0,00
+CNP : 7265926
+RG1012051WW 3701436916558 CREME MÃOS NEROLI 30ML 6 3,93 30,00 2,75 16,50 0,00
+CNP : 7265918
+RG1004081WW 3701436916473 CREME MÃOS BOIS ORANGE 30ML 6 3,93 30,00 2,75 16,50 0,00
+CNP : 6886309
+RG1007051WW 3701436916480 CREME MÃOS CEDRAT 30ML 6 3,93 30,00 2,75 16,50 0,00
+CNP : 6050070
+1 3
+/
+Responsável Comercial : ANDREIA PINHEIRO
+FACTURA
+Telefone : (+35)939079612
+E-mail : 
+Serviço Cliente
+Telefone :  +351308802496
+Endereço de Entrega Endereço de Faturação
+SWEETCARE-SESWEETCARE-SERRV.PROD.SAUDE,LDAV.PROD.SAUDE,LDA SWEETCARE
+R DR EDUARDO SANTOS SILVA, 261 FRACCAO U SWEETCARE-SERV.PROD.SAUDE,LDA
+4200283 PORTO R. PROF. DUARTE LEITE, 203-5.E
+Portugal 4200270 PORTO
+Portugal
+N° IVA intracomunitário : PT507945417
+Código Cliente Fatura Data da Fatura Referência Nº Encomenda Guia de Remessa
+146609
+PT000295 SRO0501FAC05321 31/01/2024 SRO2401CRM07946 OEG2401301294
+Total sem IVA Taxa de IVA Total IVA
+Total sem IVA 198,00
+198,00 € 0,00 % 0,00 €
+198,00 € 0,00 % 0,00 €
+Total sem IVA 198,00
+Total IVA 0,00
+Total com IVA 198,00 EUR
+Modo de Pagamento SEPA Debitos diretos Data Vencimento 31/03/2024
+Dados Bancários 
+Banco : SOCIETE GENERALE
+IBAN : FR76 30003036200002065794419
+BIC : SOGEFRPP
+Incoterm : DDP
+Saída : PORTO
+Modo de Transporte : 
+TERMOS DE PAGAMENTO: 60 dias corridos a partir da data de emissão da fatura, sem desconto.
+NÃO PAGAMENTO OU ATRASO NO PAGAMENTO: em conformidade com os artigos L 441-3 e L- 441-6 do Código Comercial Francês, aplicação por direito de :
+- penalidades de atraso de pagamento calculadas com base no triplo da taxa de juro legal
+- uma taxa fixa para custos de recolha de 40 euros.
+PRAZO PARA RECLAMAÇÕES: Após um período de quinze dias a contar da receção da encomenda, não será aceite qualquer reclamação relativa à natureza e/ou 
+qualidade da mercadoria.
+Qualquer encomenda de produtos Roger & Gallet abaixo do montante de envio gratuito de cento e cinquenta (150) euros ( excluindo IVA) será sujeita a uma factura 
+de vinte e cinco (25) euros (excluindo IVA). 
+Os custos de envio devem ser mencionados na fatura.
+2 3
+/
+Responsável Comercial : ANDREIA PINHEIRO
+FACTURA
+Telefone : (+35)939079612
+E-mail : 
+Serviço Cliente
+Telefone :  +351308802496
+Endereço de Entrega Endereço de Faturação
+SWEETCARE-SESWEETCARE-SERRV.PROD.SAUDE,LDAV.PROD.SAUDE,LDA SWEETCARE
+R DR EDUARDO SANTOS SILVA, 261 FRACCAO U SWEETCARE-SERV.PROD.SAUDE,LDA
+4200283 PORTO R. PROF. DUARTE LEITE, 203-5.E
+Portugal 4200270 PORTO
+Portugal
+N° IVA intracomunitário : PT507945417
+Código Cliente Fatura Data da Fatura Referência Nº Encomenda Guia de Remessa
+146609
+PT000295 SRO0501FAC05321 31/01/2024 SRO2401CRM07946 OEG2401301294
+LABORATOIRE NATIVE SAS - 54 rue de Monceau 75008 PARIS
+Capital 6 500 000,00 EUR - SIREN 882773658
+IVA Intracomunitária : FR20882773658
+3 3
+/
+
+General Information: 
+Data da Fatura: 31/01/2024
+Nº Encomenda: SRO2401CRM07946
+Nº Fatura: SRO0501FAC05321
+Data Vencimento: 31/03/2024
+Total sem IVA: 198.00
+Total com IVA: 198.00
+Taxa IVA: 
+0,00 % 0,00 €
+
+Products:
+Article: RG1002081WW, Barcode: 3701436916510, Description: CREME MÃOS FLEUR FIG 30ML, Quantity: 24, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 66.00, Bonus: 0
+Article: RG1005051WW, Barcode: 3701436916565, Description: CREME MÃOS OSMANTHUS 30ML, Quantity: 18, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 49.50, Bonus: 0
+Article: RG1006081WW, Barcode: 3701436916572, Description: CREME MÃOS ROSE 30ML, Quantity: 6, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 16.50, Bonus: 0
+Article: RG1008081WW, Barcode: 3701436916503, Description: CREME MÃOS FEUILLE THE 30ML, Quantity: 6, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 16.50, Bonus: 0
+Article: RG1012051WW, Barcode: 3701436916558, Description: CREME MÃOS NEROLI 30ML, Quantity: 6, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 16.50, Bonus: 0
+Article: RG1004081WW, Barcode: 3701436916473, Description: CREME MÃOS BOIS ORANGE 30ML, Quantity: 6, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 16.50, Bonus: 0
+Article: RG1007051WW, Barcode: 3701436916480, Description: CREME MÃOS CEDRAT 30ML, Quantity: 6, GrossPrice: 3.93, Discount1: 30.00, Discount2: 30.00, Discount3: 30.00, PrecoSemIVA: 2.75, PrecoComIVA: 16.50, Bonus: 0
