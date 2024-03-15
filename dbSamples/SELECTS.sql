@@ -1,4 +1,4 @@
--- Active: 1710321482829@@127.0.0.1@3306@invoicedb
+-- Active: 1709306145245@@127.0.0.1@3306@invoicedb
 SELECT * FROM Regex WHERE nome_empresa = 'Roger & Gallet';
 SELECT * FROM Regex WHERE nome_empresa = 'Moreno II';
 SELECT * FROM Regex;

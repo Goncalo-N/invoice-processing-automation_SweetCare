@@ -104,6 +104,7 @@ namespace PDFDataExtraction
 
             // Get all company names from the database
             List<string> companyNames = dbHelper.GetAllCompanyNames();
+
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
 
