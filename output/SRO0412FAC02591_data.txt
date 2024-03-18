@@ -83,6 +83,6 @@ Taxa IVA:
 0,00 % 0,00 €
 
 Products:
-Article: RG1001021WW, Barcode: 3701436911607, Description: JMF SABONETES REDONDOS 3x100G, Quantity: 3, GrossPrice: 10,90, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 8,18, PrecoComIVA: 20,33, Bonus: 0
-Article: RG1007041WW, Barcode: 3701436910488, Description: CEDRAT SABONETE 100g, Quantity: 3, GrossPrice: 4,20, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 3,15, PrecoComIVA: 9,45, Bonus: 0
-Article: RG1006071WW, Barcode: 3701436911621, Description: ROSE KIT SABONETES 3X100g, Quantity: 3, GrossPrice: 10,90, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 8,18, PrecoComIVA: 24,54, Bonus: 0
+Code: RG1001021WW, Barcode: 3701436911607, Description: JMF SABONETES REDONDOS 3x100G, Quantity: 3, GrossPrice: 10,90, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 8,18, PrecoComIVA: 20,33, Bonus: 0
+Code: RG1007041WW, Barcode: 3701436910488, Description: CEDRAT SABONETE 100g, Quantity: 3, GrossPrice: 4,20, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 3,15, PrecoComIVA: 9,45, Bonus: 0
+Code: RG1006071WW, Barcode: 3701436911621, Description: ROSE KIT SABONETES 3X100g, Quantity: 3, GrossPrice: 10,90, Discount1: 25,00, Discount2: 25,00, Discount3: 25,00, PrecoSemIVA: 8,18, PrecoComIVA: 24,54, Bonus: 0

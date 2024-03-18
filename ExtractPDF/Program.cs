@@ -284,17 +284,33 @@ namespace PDFDataExtraction
 
         static void validateProducts(int orderID, List<IProduct> products)
         {
+            decimal valueCheck = 0;
+            bool isValid = false;
             foreach (var product in products)
             {
-                bool isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
+                //valueCheck for invoices that multiply the quantity with unit price instead of using the net price per product
+                
+                if (product.UnitPrice < product.NetPrice)
+                {
+
+                    isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice/product.Quantity, product.UnitPrice);
+                    Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
+                }
+                else
+                {
+                    isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
+                    Console.WriteLine("ValueCheck: " + product.NetPrice);
+                }
                 if (!isValid)
                 {
                     log.Error("Product not validated: " + product);
                     Console.WriteLine("Product not validated: " + product);
                 }
-                Console.WriteLine("Product Code: " + product.Code);
-                Console.WriteLine("Product Unit Price: " + product.UnitPrice);
-                Console.WriteLine("Product Net Price: " + product.NetPrice);
+                else
+                {
+                    log.Information("Product validated: " + product);
+                    Console.WriteLine("Product validated: " + product);
+                }
 
             }
         }

@@ -123,6 +123,7 @@ public class Producer
     {
         bool isValid = false;
         bool needsUpdate = false;
+        NetPrice = Math.Round(NetPrice, 4);
         Console.WriteLine("ProductCode: " + productCode);
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
