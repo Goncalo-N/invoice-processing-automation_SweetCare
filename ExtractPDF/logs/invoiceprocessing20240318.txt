@@ -1,0 +1,66 @@
+2024-03-18 14:24:38.645 +00:00 [INF] Application Starting
+2024-03-18 14:24:38.759 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-18 14:24:40.177 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:24:40.329 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:24:40.410 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:24:40.478 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:24:40.512 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:24:40.546 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:24:40.599 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:24:40.641 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:24:40.795 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-18 14:25:29.348 +00:00 [INF] Application Starting
+2024-03-18 14:25:29.442 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-18 14:25:30.592 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:25:30.692 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:25:30.762 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:25:30.828 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:25:30.855 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:25:30.879 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:25:30.920 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:25:30.953 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:25:31.078 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-18 14:30:29.526 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:30:29.597 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:30:29.645 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:30:29.668 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:30:29.689 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:30:29.711 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:30:29.738 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:30:29.771 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:30:29.803 +00:00 [ERR] Supplier not found for file: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-18 14:31:45.111 +00:00 [INF] Application Starting
+2024-03-18 14:31:45.184 +00:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-03-18 14:31:46.042 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:31:46.083 +00:00 [ERR] Missing field: Num Encomenda
+2024-03-18 14:31:46.083 +00:00 [ERR] Number of missing fields: 1
+2024-03-18 14:31:46.186 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:31:46.257 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:31:46.310 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:31:46.337 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:31:46.363 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:31:46.398 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:31:46.428 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:31:46.541 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-18 14:36:45.290 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:36:45.294 +00:00 [ERR] Missing field: Num Encomenda
+2024-03-18 14:36:45.294 +00:00 [ERR] Number of missing fields: 1
+2024-03-18 14:36:45.387 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:36:45.519 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:36:45.556 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:36:45.583 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:36:45.632 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:36:45.686 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:36:45.728 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:36:45.763 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-03-18 14:41:45.378 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-03-18 14:41:45.392 +00:00 [ERR] Missing field: Num Encomenda
+2024-03-18 14:41:45.392 +00:00 [ERR] Number of missing fields: 1
+2024-03-18 14:41:45.583 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:41:45.681 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-03-18 14:41:45.734 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-03-18 14:41:45.796 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-03-18 14:41:45.878 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-03-18 14:41:45.944 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-03-18 14:41:45.998 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-03-18 14:41:46.050 +00:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf

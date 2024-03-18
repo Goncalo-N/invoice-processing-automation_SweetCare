@@ -6,7 +6,8 @@ public class Producer
 {
     // Connection string to connect to the SQL Server database.
     // Ensure that your connection string is appropriate for SQL Server.
-    private string connectionString = "Server=localhost;Database=sweet;Integrated Security=True;";
+    private string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
+    //private string connectionString = "Server=localhost;Database=sweet;Integrated Security=True;";
 
     // Retrieves all company names from the database.
     public List<string> GetAllCompanyNames()
@@ -26,12 +27,12 @@ public class Producer
                     while (reader.Read())
                     {
                         string companyName = reader.GetString(0);
+                        Console.WriteLine("aaaaa::"+companyName);
                         companyNames.Add(companyName);
                     }
                 }
             }
         }
-
         return companyNames;
     }
 
