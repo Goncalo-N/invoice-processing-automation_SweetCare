@@ -135,9 +135,7 @@ public class Producer
                 // Check for null or empty productCode and handle accordingly
                 if (string.IsNullOrEmpty(productCode))
                 {
-                    // Depending on your use case, you might want to return false, throw a new exception, or handle the null case differently
-                    //throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
-                    return false;
+                   throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
                 }
 
                 selectCommand.Parameters.Add(new SqlParameter("@productCode", productCode ?? string.Empty)); // Using ?? operator as a safeguard
