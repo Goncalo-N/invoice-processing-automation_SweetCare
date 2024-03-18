@@ -201,7 +201,8 @@ namespace PDFDataExtraction
                     uniqueProductIdentifiers.Add(uniqueIdentifier);
 
                     IProduct product = new IProduct();
-                    product.Article = match.Groups["Article"].Value;
+                    product.Code = match.Groups[1].Value;
+
                     product.Barcode = match.Groups["Barcode"].Value;
                     product.Description = match.Groups["Description"].Value;
                     int quantity;
@@ -221,7 +222,7 @@ namespace PDFDataExtraction
                     decimal grossPrice;
                     if (decimal.TryParse(match.Groups["GrossPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out grossPrice))
                     {
-                        product.GrossPrice = grossPrice;
+                        product.UnitPrice = grossPrice;
                     }
                     decimal discount;
                     if (decimal.TryParse(match.Groups["Discount"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount))
@@ -233,7 +234,7 @@ namespace PDFDataExtraction
                     decimal precoSemIVA;
                     if (decimal.TryParse(match.Groups["PrecoSemIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoSemIVA))
                     {
-                        product.PrecoSemIVA = precoSemIVA;
+                        product.NetPrice = precoSemIVA;
                     }
                     decimal precoComIVA;
                     if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))

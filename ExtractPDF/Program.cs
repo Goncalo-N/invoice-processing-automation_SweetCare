@@ -146,7 +146,7 @@ namespace PDFDataExtraction
             string IVA = "";
 
             List<IProduct> products = new List<IProduct>();
-            
+
             List<IProduct> productsDistinct = new List<IProduct>();
             switch (companyName)
             {
@@ -172,7 +172,8 @@ namespace PDFDataExtraction
                     /*foreach (var product in products)
                     {
                         Console.WriteLine("Produtos lidos na hora" + product);
-                    }*/;
+                    }*/
+                    ;
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
@@ -285,7 +286,7 @@ namespace PDFDataExtraction
         {
             foreach (var product in products)
             {
-                bool isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.UnitPrice, product.NetPrice);
+                bool isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
                 if (!isValid)
                 {
                     log.Error("Product not validated: " + product);
