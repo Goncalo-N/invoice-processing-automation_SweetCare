@@ -27,7 +27,7 @@ public class Producer
                     while (reader.Read())
                     {
                         string companyName = reader.GetString(0);
-                        Console.WriteLine("aaaaa::"+companyName);
+                        //Console.WriteLine(companyName);
                         companyNames.Add(companyName);
                     }
                 }
@@ -91,4 +91,31 @@ public class Producer
         }
         return empresaID;
     }
+
+    //get orderID through invoiceNumber
+    public int getOrderID(string invoiceNumber)
+    {
+        int orderID = 0;
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "SELECT orderId FROM supplierOrderItems WHERE supplierInvoiceNumber = @invoiceNumber";
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                // For SQL Server, use the Add method with a value to prevent SQL injection.
+                command.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        orderID = reader.GetInt32(0);
+                    }
+                }
+            }
+        }
+        return orderID;
+    }
+
 }

@@ -216,6 +216,16 @@ namespace PDFDataExtraction
                 }
             }
 
+            
+            int orderID = dbHelper.getOrderID(numFatura);
+            Console.WriteLine("Order ID: " + orderID);
+            if (orderID == 0)
+            {
+                log.Error("Order not found for file: " + pdfFilePath);
+                Console.WriteLine("Order not found");
+                OnValuesMissing(pdfFilePath);
+                return;
+            }
            
             // Check if any field is missing
             var fields = new Dictionary<string, object>{
