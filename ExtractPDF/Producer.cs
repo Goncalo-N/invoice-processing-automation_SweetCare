@@ -118,4 +118,64 @@ public class Producer
         return orderID;
     }
 
+    //validate products
+    public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal NetPrice, decimal UnitPrice)
+    {
+        bool isValid = false;
+        bool needsUpdate = false;
+        Console.WriteLine("ProductCode: " + productCode);
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string selectQuery = "SELECT priceNoBonus, priceWithBonus FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId";
+            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+            {
+                // Check for null or empty productCode and handle accordingly
+                if (string.IsNullOrEmpty(productCode))
+                {
+                    // Depending on your use case, you might want to return false, throw a new exception, or handle the null case differently
+                    //throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
+                    return false;
+                }
+
+                selectCommand.Parameters.Add(new SqlParameter("@productCode", productCode ?? string.Empty)); // Using ?? operator as a safeguard
+                selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        decimal priceNoBonus = reader.GetDecimal(0);
+                        decimal priceWithBonus = reader.GetDecimal(1);
+                        if (UnitPrice == priceNoBonus && NetPrice == priceWithBonus)
+                        {
+                            isValid = true;
+                        }
+                        else
+                        {
+                            needsUpdate = true;
+                        }
+                    }
+                }
+            }
+
+            if (needsUpdate)
+            {
+                string updateQuery = "UPDATE supplierOrderItems SET priceNoBonus = @UnitPrice, priceWithBonus = @NetPrice WHERE ref = @productCode AND orderId = @orderId";
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                {
+                    updateCommand.Parameters.Add(new SqlParameter("@UnitPrice", UnitPrice));
+                    updateCommand.Parameters.Add(new SqlParameter("@NetPrice", NetPrice));
+                    updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                    updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+
+                    int rowsAffected = updateCommand.ExecuteNonQuery();
+                    isValid = rowsAffected > 0;
+                }
+            }
+        }
+        return isValid;
+    }
+
 }

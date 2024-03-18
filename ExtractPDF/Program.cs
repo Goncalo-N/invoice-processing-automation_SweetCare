@@ -135,7 +135,7 @@ namespace PDFDataExtraction
             // Get the regex for the company
             List<string> regex = dbHelper.GetAllRegex(companyName);
             Console.WriteLine("Company Name: " + companyName);
-        
+
             //create a condition that based on the company name it will call the correct method;
             string numEncomenda = "N/A";
             string numFatura = "N/A";
@@ -146,6 +146,8 @@ namespace PDFDataExtraction
             string IVA = "";
 
             List<IProduct> products = new List<IProduct>();
+            
+            List<IProduct> productsDistinct = new List<IProduct>();
             switch (companyName)
             {
                 case "Roger & Gallet":
@@ -158,7 +160,7 @@ namespace PDFDataExtraction
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "MORENO II":
+                case "MOENO II":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
                     numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
@@ -170,7 +172,7 @@ namespace PDFDataExtraction
                     /*foreach (var product in products)
                     {
                         Console.WriteLine("Produtos lidos na hora" + product);
-                    }*/
+                    }*/;
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
@@ -181,7 +183,6 @@ namespace PDFDataExtraction
                     totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]);
-                    Console.WriteLine("");
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
@@ -212,6 +213,7 @@ namespace PDFDataExtraction
                 // Write product details
                 foreach (var product in products.Distinct())
                 {
+                    productsDistinct.Add(product);
                     writer.WriteLine(product);
                 }
             }
@@ -221,12 +223,12 @@ namespace PDFDataExtraction
             Console.WriteLine("Order ID: " + orderID);
             if (orderID == 0)
             {
-                log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
-                Console.WriteLine("Order not found");
-                OnValuesMissing(pdfFilePath);
-                return;
+                //log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
+                //Console.WriteLine("Order not found");
+                //OnValuesMissing(pdfFilePath);
+                //return;
             }
-           
+
             // Check if any field is missing
             var fields = new Dictionary<string, object>{
                 {"Invoice Date", invoiceDate},
@@ -263,11 +265,12 @@ namespace PDFDataExtraction
             {
                 log.Error("Number of missing fields: " + missingFieldsCounter);
                 OnValuesMissing(pdfFilePath);
+                return;
             }
 
             else
             {
-                validateInvoice();
+                validateProducts(orderID, productsDistinct);
                 // Move processed PDF file to validated folder
                 string fileName = Path.GetFileName(pdfFilePath);
                 string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
@@ -278,11 +281,21 @@ namespace PDFDataExtraction
             regex.Clear();
         }
 
-        static void validateInvoice()
+        static void validateProducts(int orderID, List<IProduct> products)
         {
-            // Validate the invoice
-            // if validated, move the file to the validated folder
-            // If the invoice is invalid, move the file to the missing folder
+            foreach (var product in products)
+            {
+                bool isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.UnitPrice, product.NetPrice);
+                if (!isValid)
+                {
+                    log.Error("Product not validated: " + product);
+                    Console.WriteLine("Product not validated: " + product);
+                }
+                Console.WriteLine("Product Code: " + product.Code);
+                Console.WriteLine("Product Unit Price: " + product.UnitPrice);
+                Console.WriteLine("Product Net Price: " + product.NetPrice);
+
+            }
         }
 
         static void OnValuesMissing(string pdfFilePath)
