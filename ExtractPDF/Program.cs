@@ -216,12 +216,12 @@ namespace PDFDataExtraction
                 }
             }
 
-            
+            // Grab the orderID through the numFatura
             int orderID = dbHelper.getOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
             if (orderID == 0)
             {
-                log.Error("Order not found for file: " + pdfFilePath);
+                log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
                 Console.WriteLine("Order not found");
                 OnValuesMissing(pdfFilePath);
                 return;
@@ -267,6 +267,7 @@ namespace PDFDataExtraction
 
             else
             {
+                validateInvoice();
                 // Move processed PDF file to validated folder
                 string fileName = Path.GetFileName(pdfFilePath);
                 string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
@@ -275,6 +276,13 @@ namespace PDFDataExtraction
                 Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
             }
             regex.Clear();
+        }
+
+        static void validateInvoice()
+        {
+            // Validate the invoice
+            // if validated, move the file to the validated folder
+            // If the invoice is invalid, move the file to the missing folder
         }
 
         static void OnValuesMissing(string pdfFilePath)
