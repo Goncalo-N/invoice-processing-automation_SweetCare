@@ -118,7 +118,7 @@ namespace PDFDataExtraction
         // Method to extract invoice date using regular expression
         public static string ExtractInvoiceDate(string text, string pattern)
         {
-            Console.WriteLine(pattern);
+            //Console.WriteLine(pattern);
             MatchCollection matches = Regex.Matches(text, pattern);
             foreach (Match match in matches)
             {
@@ -309,7 +309,7 @@ namespace PDFDataExtraction
                     {
                         product.Total = total;
                     }
-                    Console.WriteLine(product);
+                    //Console.WriteLine(product);
                     products.Add(product);
                 }
             }
