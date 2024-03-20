@@ -1,180 +1,214 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient; // Use the SQL Server client namespace
+using System.Data.SqlClient;
 
-public class Producer
+
+namespace PDFDataExtraction
 {
-    // Connection string to connect to the SQL Server database.
-    // Ensure that your connection string is appropriate for SQL Server.
-    private string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
-    //private string connectionString = "Server=localhost;Database=sweet;Integrated Security=True;";
-
-    // Retrieves all company names from the database.
-    public List<string> GetAllCompanyNames()
+    public class Producer
     {
-        List<string> companyNames = new List<string>();
+        // Connection string to connect to the SQL Server database.
+        // Ensure that your connection string is appropriate for SQL Server.
+        private string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
+        //private string connectionString = "Server=localhost;Database=sweet;Integrated Security=True;";
 
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        // Retrieves all company names from the database.
+        public List<string> GetAllCompanyNames()
         {
-            connection.Open();
+            List<string> companyNames = new List<string>();
 
-            string query = "SELECT nome_empresa FROM regex";
-
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlDataReader reader = command.ExecuteReader())
+                connection.Open();
+
+                string query = "SELECT nome_empresa FROM regex";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        string companyName = reader.GetString(0);
-                        //Console.WriteLine(companyName);
-                        companyNames.Add(companyName);
-                    }
-                }
-            }
-        }
-        return companyNames;
-    }
-
-    // Retrieves all regex patterns associated with a given company name.
-    public List<string> GetAllRegex(string nomeEmpresa)
-    {
-        List<object> regexList = new List<object>();
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            string query = "SELECT * FROM Regex WHERE nome_empresa = @nomeEmpresa";
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                // For SQL Server, use the Add method with a value to prevent SQL injection.
-                command.Parameters.Add(new SqlParameter("@nomeEmpresa", nomeEmpresa));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        for (int i = 0; i < reader.FieldCount; i++)
+                        while (reader.Read())
                         {
-                            regexList.Add(reader.GetValue(i));
+                            string companyName = reader.GetString(0);
+                            //Console.WriteLine(companyName);
+                            companyNames.Add(companyName);
                         }
                     }
                 }
             }
+            return companyNames;
         }
 
-        return regexList.ConvertAll(x => x.ToString());
-    }
-    //get supplierID through companyName
-    public int getEmpresaID(string companyName)
-    {
-        int empresaID = 0;
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        // Retrieves all regex patterns associated with a given company name.
+        public List<string> GetAllRegex(string nomeEmpresa)
         {
-            connection.Open();
+            List<object> regexList = new List<object>();
 
-            string query = "SELECT ID FROM suppliersName WHERE supplierName = @nomeEmpresa";
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // For SQL Server, use the Add method with a value to prevent SQL injection.
-                command.Parameters.Add(new SqlParameter("@nomeEmpresa", companyName));
+                connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                string query = "SELECT * FROM Regex WHERE nome_empresa = @nomeEmpresa";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
+                    // For SQL Server, use the Add method with a value to prevent SQL injection.
+                    command.Parameters.Add(new SqlParameter("@nomeEmpresa", nomeEmpresa));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        empresaID = reader.GetInt32(0);
-                    }
-                }
-            }
-        }
-        return empresaID;
-    }
-
-    //get orderID through invoiceNumber
-    public int getOrderID(string invoiceNumber)
-    {
-        int orderID = 0;
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            string query = "SELECT orderId FROM supplierOrderItems WHERE supplierInvoiceNumber = @invoiceNumber";
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                // For SQL Server, use the Add method with a value to prevent SQL injection.
-                command.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        orderID = reader.GetInt32(0);
-                    }
-                }
-            }
-        }
-        return orderID;
-    }
-
-    //validate products
-    public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal NetPrice, decimal UnitPrice)
-    {
-        bool isValid = false;
-        bool needsUpdate = false;
-        NetPrice = Math.Round(NetPrice, 4);
-        Console.WriteLine("ProductCode: " + productCode);
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            string selectQuery = "SELECT priceNoBonus, priceWithBonus FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId";
-            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
-            {
-                // Check for null or empty productCode and handle accordingly
-                if (string.IsNullOrEmpty(productCode))
-                {
-                   throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
-                }
-
-                selectCommand.Parameters.Add(new SqlParameter("@productCode", productCode ?? string.Empty)); // Using ?? operator as a safeguard
-                selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-
-                using (SqlDataReader reader = selectCommand.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        decimal priceNoBonus = reader.GetDecimal(0);
-                        decimal priceWithBonus = reader.GetDecimal(1);
-                        if (UnitPrice == priceNoBonus && NetPrice == priceWithBonus)
+                        while (reader.Read())
                         {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                regexList.Add(reader.GetValue(i));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return regexList.ConvertAll(x => x.ToString());
+        }
+        //get supplierID through companyName
+        public int getEmpresaID(string companyName)
+        {
+            int empresaID = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT ID FROM suppliersName WHERE supplierName = @nomeEmpresa";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // For SQL Server, use the Add method with a value to prevent SQL injection.
+                    command.Parameters.Add(new SqlParameter("@nomeEmpresa", companyName));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            empresaID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return empresaID;
+        }
+
+        //get orderID through invoiceNumber
+        public int getOrderID(string invoiceNumber)
+        {
+            int orderID = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT orderId FROM supplierOrderItems WHERE supplierInvoiceNumber = @invoiceNumber";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // For SQL Server, use the Add method with a value to prevent SQL injection.
+                    command.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            orderID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return orderID;
+        }
+
+        //validate products
+        public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity)
+        {
+            bool isValid = false;
+            bool needsPriceUpdate = false;
+            bool needsQuantityUpdate = false;
+            NetPrice = Math.Round(NetPrice, 4);
+            UnitPrice = Math.Round(UnitPrice, 4);
+            Console.WriteLine("ProductCode: " + productCode);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId";
+                using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+                {
+                    // Check for null or empty productCode and handle accordingly
+                    if (string.IsNullOrEmpty(productCode))
+                    {
+                        throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
+                    }
+
+                    selectCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                    selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            decimal priceNoBonus = reader.GetDecimal(0);
+                            decimal priceWithBonus = reader.GetDecimal(1);
+                            int quantity = reader.GetInt32(2);
+                            //checking priceNoBonus and priceWithBonus fields from db
+                            if (priceNoBonus == 0 || priceWithBonus == 0)
+                                needsPriceUpdate = true;
                             isValid = true;
-                        }
-                        else
-                        {
-                            needsUpdate = true;
+
+                            //checking quantity field from db
+                            if (quantity != Quantity)
+                            {
+                                Console.WriteLine("Quantity mismatch on productCode: " + productCode);
+                                needsQuantityUpdate = true;
+                            }
                         }
                     }
+
+                    if (needsPriceUpdate)
+                    {
+                        Program.log.Information("Product with code {productCode} has a null price field.", productCode);
+                        string updateQuery = "UPDATE supplierOrderItems SET priceNoBonus = @UnitPrice, priceWithBonus = @NetPrice WHERE ref = @productCode AND orderId = @orderId";
+                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.Add(new SqlParameter("@UnitPrice", UnitPrice));
+                            updateCommand.Parameters.Add(new SqlParameter("@NetPrice", NetPrice));
+                            updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                            updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+                            //execute query
+                            /*int rowsAffected = updateCommand.ExecuteNonQuery();
+                            isValid = rowsAffected > 0;*/
+                        }
+                    }
+                    
+                    if (needsQuantityUpdate)
+                    {
+                        Program.log.Information("Product with code {productCode} has a mismatched quantity.", productCode);
+                        string updateQuery = "UPDATE supplierOrderItems SET qntOrder = @Quantity WHERE ref = @productCode AND orderId = @orderId";
+                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.Add(new SqlParameter("@Quantity", Quantity));
+                            updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                            updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+                            //execute query
+                            /*int rowsAffected = updateCommand.ExecuteNonQuery();
+                            isValid = rowsAffected > 0;*/
+                        }
+                    }
+
                 }
             }
-
-            if (needsUpdate)
-            {
-                string updateQuery = "UPDATE supplierOrderItems SET priceNoBonus = @UnitPrice, priceWithBonus = @NetPrice WHERE ref = @productCode AND orderId = @orderId";
-                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                {
-                    updateCommand.Parameters.Add(new SqlParameter("@UnitPrice", UnitPrice));
-                    updateCommand.Parameters.Add(new SqlParameter("@NetPrice", NetPrice));
-                    updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
-                    updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-
-                    int rowsAffected = updateCommand.ExecuteNonQuery();
-                    isValid = rowsAffected > 0;
-                }
-            }
+            return isValid;
         }
-        return isValid;
-    }
 
+        //generic method to check general invoice details in the database
+        public bool ValidateAndUpdateInvoice(int orderID, string invoiceNumber)
+        {
+            if (orderID != 0 && !string.IsNullOrEmpty(invoiceNumber))
+                return true;
+            return false;
+        }
+    }
 }
