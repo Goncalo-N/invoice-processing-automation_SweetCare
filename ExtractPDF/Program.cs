@@ -226,6 +226,7 @@ namespace PDFDataExtraction
             }
 
             // Check if any field is missing
+            //dictionary to store the fields and their values
             var fields = new Dictionary<string, object>{
                 {"Invoice Date", invoiceDate},
                 {"Num Encomenda", numEncomenda},
@@ -236,7 +237,9 @@ namespace PDFDataExtraction
                 {"IVA Percentage", IVA},
                 };
 
+            // boolean to indicate if any field is missing
             bool isAnyFieldMissing = false;
+            // counter to keep track of the number of missing fields
             int missingFieldsCounter = 0;
             foreach (var field in fields)
             {
@@ -277,11 +280,7 @@ namespace PDFDataExtraction
             regex.Clear();
         }
 
-        /// <summary>
-        /// Calls a method from the producer class to validate products of the invoice.
-        /// </summary>
-        /// <param name="orderID"> variable associated in the database, obtained through Invoice Number</param>
-        /// <param name="products">list of products present in database that have the same value as orderID</param>
+        //Calls a method from the producer class to validate products of the invoice.
         static void validateProducts(int orderID, List<IProduct> products)
         {
             bool isProductValid = false;
@@ -320,6 +319,7 @@ namespace PDFDataExtraction
             }
         }
 
+        //Calls a method from the producer class to validate the general information of the invoice.
         static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber){
             bool isInvoiceValid = false;
             isInvoiceValid = dbHelper.ValidateAndUpdateInvoice(orderID, invoiceNumber);
@@ -334,6 +334,7 @@ namespace PDFDataExtraction
             }
         }
 
+        //Method to move the pdf file to the missing folder in case of missing values
         static void OnValuesMissing(string pdfFilePath)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -356,6 +357,7 @@ namespace PDFDataExtraction
         }
 
 
+        //Method to extract text from PDF using iText7
         static string ExtractTextFromPDF(string filePath)
         {
             using (PdfReader reader = new PdfReader(filePath))
