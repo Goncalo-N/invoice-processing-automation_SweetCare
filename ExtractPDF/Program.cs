@@ -14,7 +14,7 @@ namespace PDFDataExtraction
         // global instance of Producer
         static Producer dbHelper = new Producer();
 
-        static Serilog.Core.Logger log = new LoggerConfiguration()
+        public static Serilog.Core.Logger log = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)//file name change every day
             .CreateLogger();
@@ -284,24 +284,30 @@ namespace PDFDataExtraction
 
         static void validateProducts(int orderID, List<IProduct> products)
         {
-            decimal valueCheck = 0;
-            bool isValid = false;
+            bool isProductValid = false;
+            
             foreach (var product in products)
             {
-                //valueCheck for invoices that multiply the quantity with unit price instead of using the net price per product
-                
-                if (product.UnitPrice < product.NetPrice)
+                //price check
+                //check if neither of the prices equal to 0
+                if ((product.NetPrice == 0 || product.UnitPrice == 0) == false)
                 {
 
-                    isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice/product.Quantity, product.UnitPrice);
-                    Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
+                    //check for invoices that multiply the quantity with unit price instead of using the net price per product                
+                    if (product.UnitPrice < product.NetPrice)
+                    {
+
+                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice);
+                        //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
+                    }
+                    else
+                    {
+                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
+                        //Console.WriteLine("ValueCheck: " + product.NetPrice);
+                    }
                 }
-                else
-                {
-                    isValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
-                    Console.WriteLine("ValueCheck: " + product.NetPrice);
-                }
-                if (!isValid)
+
+                if (!isProductValid)
                 {
                     log.Error("Product not validated: " + product);
                     Console.WriteLine("Product not validated: " + product);
@@ -311,7 +317,20 @@ namespace PDFDataExtraction
                     log.Information("Product validated: " + product);
                     Console.WriteLine("Product validated: " + product);
                 }
+            }
+        }
 
+        static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber){
+            bool isInvoiceValid = false;
+            isInvoiceValid = dbHelper.ValidateAndUpdateInvoice(orderID, invoiceNumber);
+
+            if(isInvoiceValid){
+                log.Information("Invoice validated: " + invoiceNumber);
+                Console.WriteLine("Invoice validated: " + invoiceNumber);
+            }
+            else{
+                log.Error("Invoice not validated: " + invoiceNumber);
+                Console.WriteLine("Invoice not validated: " + invoiceNumber);
             }
         }
 
