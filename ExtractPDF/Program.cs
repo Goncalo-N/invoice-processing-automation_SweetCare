@@ -169,11 +169,6 @@ namespace PDFDataExtraction
                     totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetailsMoreno(invoiceText, regex[12]);
-                    /*foreach (var product in products)
-                    {
-                        Console.WriteLine("Produtos lidos na hora" + product);
-                    }*/
-                    ;
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
@@ -282,6 +277,11 @@ namespace PDFDataExtraction
             regex.Clear();
         }
 
+        /// <summary>
+        /// Calls a method from the producer class to validate products of the invoice.
+        /// </summary>
+        /// <param name="orderID"> variable associated in the database, obtained through Invoice Number</param>
+        /// <param name="products">list of products present in database that have the same value as orderID</param>
         static void validateProducts(int orderID, List<IProduct> products)
         {
             bool isProductValid = false;
@@ -297,12 +297,12 @@ namespace PDFDataExtraction
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice);
+                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
-                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice);
+                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
                 }
@@ -310,12 +310,12 @@ namespace PDFDataExtraction
                 if (!isProductValid)
                 {
                     log.Error("Product not validated: " + product);
-                    Console.WriteLine("Product not validated: " + product);
+                    //Console.WriteLine("Product not validated: " + product);
                 }
                 else
                 {
                     log.Information("Product validated: " + product);
-                    Console.WriteLine("Product validated: " + product);
+                    //Console.WriteLine("Product validated: " + product);
                 }
             }
         }
