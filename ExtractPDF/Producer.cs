@@ -129,7 +129,7 @@ namespace PDFDataExtraction
             bool needsQuantityUpdate = false;
             NetPrice = Math.Round(NetPrice, 4);
             UnitPrice = Math.Round(UnitPrice, 4);
-            Console.WriteLine("ProductCode: " + productCode);
+            //Console.WriteLine("ProductCode: " + productCode);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -182,11 +182,12 @@ namespace PDFDataExtraction
                             isValid = rowsAffected > 0;*/
                         }
                     }
-                    
+
                     if (needsQuantityUpdate)
                     {
                         Program.log.Information("Product with code {productCode} has a mismatched quantity.", productCode);
-                        string updateQuery = "UPDATE supplierOrderItems SET qntOrder = @Quantity WHERE ref = @productCode AND orderId = @orderId";
+                        //Query to update quantity present in db if needed
+                        string updateQuery = "";// = "UPDATE supplierOrderItems SET qntOrder = @Quantity WHERE ref = @productCode AND orderId = @orderId";
                         using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                         {
                             updateCommand.Parameters.Add(new SqlParameter("@Quantity", Quantity));
