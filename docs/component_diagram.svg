@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    contentStyleType="text/css" height="434.375px" preserveAspectRatio="none"
+    style="width:1301px;height:434px;" version="1.1" viewBox="0 0 1301 434" width="1301.0417px"
+    zoomAndPan="magnify">
+    <defs>
+        <linearGradient id="g1cz7dot6o92mm0" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#59B6EC" />
+            <stop offset="100%" stop-color="#2FA4E7" />
+        </linearGradient>
+        <linearGradient id="g1cz7dot6o92mm1" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#35638F" />
+            <stop offset="100%" stop-color="#033C73" />
+        </linearGradient>
+    </defs>
+    <g><!--cluster
+        Core-->
+        <g id="cluster_Core">
+            <path
+                d="M20.8333,16.6667 L150,16.6667 A6.25,6.25 0 0 1 154.1667,20.8333 L161.4583,47.8841 L742.7083,47.8841 A4.1667,4.1667 0 0 1 746.875,52.0508 L746.875,418.6563 A4.1667,4.1667 0 0 1 742.7083,422.8229 L20.8333,422.8229 A4.1667,4.1667 0 0 1 16.6667,418.6563 L16.6667,20.8333 A4.1667,4.1667 0 0 1 20.8333,16.6667 "
+                fill="none" style="stroke:#59B6EC;stroke-width:2.0833333333333335;" />
+            <line style="stroke:#59B6EC;stroke-width:2.0833333333333335;" x1="16.6667" x2="161.4583"
+                y1="47.8841" y2="47.8841" />
+            <text fill="#2FA4E7" font-family="Verdana" font-size="12.5" font-weight="bold"
+                lengthAdjust="spacing" textLength="120.8333" x="26.0417" y="35.5611">Core
+                Application</text>
+        </g><!--entity
+        Core Logic-->
+        <g id="elem_Core Logic">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="119.7917"
+                x="421.3542" y="60.4167" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="520.3125"
+                y="65.625" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="518.2292"
+                y="67.7083" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="518.2292"
+                y="71.875" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="67.7083" x="442.1875" y="98.0611">Core Logic</text>
+        </g><!--entity
+        Data Access Layer (DAL)-->
+        <g id="elem_Data Access Layer (DAL)">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="210.4167"
+                x="519.7917" y="205.1771" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="709.375"
+                y="210.3854" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="707.2917"
+                y="212.4688" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="707.2917"
+                y="216.6354" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="158.3333" x="540.625" y="242.8215">Data Access Layer (DAL)</text>
+        </g><!--entity
+        File System Watcher-->
+        <g id="elem_File System Watcher">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="183.3333" x="33.3333"
+                y="205.1771" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="195.8333"
+                y="210.3854" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="193.75"
+                y="212.4688" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="193.75"
+                y="216.6354" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="131.25" x="54.1667" y="242.8215">File System Watcher</text>
+        </g><!--entity
+        PDF Processor-->
+        <g id="elem_PDF Processor">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="146.875" x="259.8958"
+                y="349.9375" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="385.9375"
+                y="355.1458" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="383.8542"
+                y="357.2292" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="383.8542"
+                y="361.3958" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="94.7917" x="280.7292" y="387.5819">PDF Processor</text>
+        </g><!--entity
+        Validation Engine-->
+        <g id="elem_Validation Engine">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="165.625" x="513.0208"
+                y="349.9375" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="657.8125"
+                y="355.1458" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="655.7292"
+                y="357.2292" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="655.7292"
+                y="361.3958" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="113.5417" x="533.8542" y="387.5819">Validation Engine</text>
+        </g><!--entity
+        Logging and Error Handling-->
+        <g id="elem_Logging and Error Handling">
+            <rect fill="url(#g1cz7dot6o92mm0)" height="56.2174" rx="4.1667" ry="4.1667"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="230.2083"
+                x="252.6042" y="205.1771" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="10.4167"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="15.625" x="461.9792"
+                y="210.3854" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="459.8958"
+                y="212.4688" />
+            <rect fill="url(#g1cz7dot6o92mm0)" height="2.0833"
+                style="stroke:#2FA4E7;stroke-width:1.0416666666666667;" width="4.1667" x="459.8958"
+                y="216.6354" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="178.125" x="273.4375" y="242.8215">Logging and Error Handling</text>
+        </g>
+        <g id="elem_GMN15">
+            <path
+                d="M767.1875,219.7604 L767.1875,229.125 L730.6875,233.2917 L767.1875,237.4583 L767.1875,246.8112 A4.1667,4.1667 0 0 0 771.3542,250.9779 L941.1458,250.9779 A4.1667,4.1667 0 0 0 945.3125,246.8112 L945.3125,226.0104 L934.8958,215.5938 L771.3542,215.5938 A4.1667,4.1667 0 0 0 767.1875,219.7604 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <path
+                d="M934.8958,215.5938 L934.8958,223.9271 A2.0833,2.0833 0 0 0 936.9792,226.0104 L945.3125,226.0104 L934.8958,215.5938 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="145.8333" x="778.6458" y="237.6132">Entity Framework Core</text>
+        </g>
+        <g id="elem_GMN18">
+            <path
+                d="M981.25,219.7604 L981.25,246.8112 A4.1667,4.1667 0 0 0 985.4167,250.9779 L1170.8333,250.9779 A4.1667,4.1667 0 0 0 1175,246.8112 L1175,226.0104 L1164.5833,215.5938 L985.4167,215.5938 A4.1667,4.1667 0 0 0 981.25,219.7604 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <path
+                d="M1164.5833,215.5938 L1164.5833,223.9271 A2.0833,2.0833 0 0 0 1166.6667,226.0104 L1175,226.0104 L1164.5833,215.5938 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="161.4583" x="992.7083" y="237.6132">FileSystemWatcher Class</text>
+        </g>
+        <g id="elem_GMN21">
+            <path
+                d="M763.5417,364.5208 L763.5417,391.5716 A4.1667,4.1667 0 0 0 767.7083,395.7383 L821.875,395.7383 A4.1667,4.1667 0 0 0 826.0417,391.5716 L826.0417,370.7708 L815.625,360.3542 L767.7083,360.3542 A4.1667,4.1667 0 0 0 763.5417,364.5208 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <path
+                d="M815.625,360.3542 L815.625,368.6875 A2.0833,2.0833 0 0 0 817.7083,370.7708 L826.0417,370.7708 L815.625,360.3542 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="30.2083" x="775" y="382.3736">iText</text>
+        </g>
+        <g id="elem_GMN24">
+            <path
+                d="M1211.4583,219.7604 L1211.4583,246.8112 A4.1667,4.1667 0 0 0 1215.625,250.9779 L1284.375,250.9779 A4.1667,4.1667 0 0 0 1288.5417,246.8112 L1288.5417,226.0104 L1278.125,215.5938 L1215.625,215.5938 A4.1667,4.1667 0 0 0 1211.4583,219.7604 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <path
+                d="M1278.125,215.5938 L1278.125,223.9271 A2.0833,2.0833 0 0 0 1280.2083,226.0104 L1288.5417,226.0104 L1278.125,215.5938 "
+                fill="url(#g1cz7dot6o92mm1)" style="stroke:#033C73;stroke-width:1.0416666666666667;" />
+            <text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="44.7917" x="1222.9167" y="237.6132">Serilog</text>
+        </g><!--link
+        Core Logic to Data Access Layer (DAL)-->
+        <g id="link_Core Logic_Data Access Layer (DAL)">
+            <path
+                d="M529.7083,116.9792 C543.1875,125.8542 557.2604,136.3958 568.75,147.8854 C585.5521,164.6875 597.1486,181.8209 607.3153,199.373 "
+                fill="none" id="Core Logic-to-Data Access Layer (DAL)"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <polygon fill="#2FA4E7"
+                points="610.4479,204.7813,609.3545,194.5805,607.8374,200.2744,602.1435,198.7573,610.4479,204.7813"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <text fill="#343A40" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="31.25" x="595.8333" y="165.7382">uses</text>
+        </g><!--link
+        File System Watcher to PDF Processor-->
+        <g id="link_File System Watcher_PDF Processor">
+            <path d="M165.1667,261.8438 C202.0625,287.1042 251.2809,320.8122 288.135,346.0518 "
+                fill="none" id="File System Watcher-to-PDF Processor"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <polygon fill="#2FA4E7"
+                points="293.2917,349.5833,287.9111,340.8483,288.9945,346.6404,283.2024,347.7238,293.2917,349.5833"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <text fill="#343A40" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="136.4583" x="253.125" y="310.4986">detects &amp; processes</text>
+        </g><!--link
+        PDF Processor to Validation Engine-->
+        <g id="link_PDF Processor_Validation Engine">
+            <path d="M407.1563,378.0521 C440.0625,378.0521 472.7188,378.0521 506.625,378.0521 "
+                fill="none" id="PDF Processor-to-Validation Engine"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <polygon fill="#2FA4E7"
+                points="512.875,378.0521,503.5,373.8854,507.6667,378.0521,503.5,382.2188,512.875,378.0521"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <text fill="#343A40" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="58.3333" x="430.7292" y="366.7382">validates</text>
+        </g><!--reverse
+        link Data Access Layer (DAL) to Validation Engine-->
+        <g id="link_Data Access Layer (DAL)_Validation Engine">
+            <path d="M618.1226,267.967 C612.9559,293.2274 606.6042,324.3438 601.4375,349.5833 "
+                fill="none" id="Data Access Layer (DAL)-backto-Validation Engine"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <polygon fill="#2FA4E7"
+                points="619.375,261.8438,613.4142,270.1936,618.3313,266.9464,621.5785,271.8635,619.375,261.8438"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <text fill="#343A40" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="121.875" x="618.75" y="310.4986">queries &amp; updates</text>
+        </g><!--link
+        Core Logic to Logging and Error Handling-->
+        <g id="link_Core Logic_Logging and Error Handling">
+            <path
+                d="M442.1979,116.9167 C431.0521,125.9375 419.4792,136.5729 410.4167,147.8854 C396.6667,165.0521 388.0562,181.6157 380.6499,198.9802 "
+                fill="none" id="Core Logic-to-Logging and Error Handling"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <polygon fill="#2FA4E7"
+                points="378.1979,204.7292,385.7085,197.7404,380.2413,199.9384,378.0433,194.4711,378.1979,204.7292"
+                style="stroke:#2FA4E7;stroke-width:3.125;" />
+            <text fill="#343A40" font-family="Verdana" font-size="12.5" lengthAdjust="spacing"
+                textLength="141.6667" x="416.6667" y="165.7382">logs &amp; handles errors</text>
+        </g><!--link
+        File System Watcher to GMN18-->
+        <g id="link_File System Watcher_GMN18">
+            <path
+                d="M162.9271,204.8333 C187.1875,188.4583 220.0938,169.4896 252.6042,160.9063 C401.4479,121.6354 796.1458,122.8958 945.3125,160.9063 C986.2813,171.3438 1028.25,197.2813 1053.7604,215.0938 "
+                fill="none" id="File System Watcher-GMN18"
+                style="stroke:#2FA4E7;stroke-width:3.125;stroke-dasharray:7.0,7.0;" />
+        </g><!--link
+        PDF Processor to GMN21-->
+        <g id="link_PDF Processor_GMN21">
+            <path
+                d="M388.2917,349.5 C423.0313,333.0938 469.4375,314.1146 513.0208,305.6667 C607.1042,287.4271 640.9583,267.0104 728.6458,305.6667 C753.7292,316.7188 773.4167,342.5 784.5833,360.1146 "
+                fill="none" id="PDF Processor-GMN21"
+                style="stroke:#2FA4E7;stroke-width:3.125;stroke-dasharray:7.0,7.0;" />
+        </g><!--link
+        Logging and Error Handling to GMN24-->
+        <g id="link_Logging and Error Handling_GMN24">
+            <path
+                d="M413.5208,204.7813 C442.6042,188.3854 481.7292,169.4167 519.2708,160.9063 C661.2708,128.7396 1039.375,106.625 1174.4792,160.9063 C1201.6042,171.8125 1224.4896,197.625 1237.7292,215.2917 "
+                fill="none" id="Logging and Error Handling-GMN24"
+                style="stroke:#2FA4E7;stroke-width:3.125;stroke-dasharray:7.0,7.0;" />
+        </g>
+    </g>
+</svg>
