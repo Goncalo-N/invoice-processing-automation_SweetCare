@@ -119,7 +119,7 @@ Data de carga 2023-12-18T11:37:11 Total fatura 1,158.06 EUR
 local de descarga SWEETCARE - PORTO RUA DR EDUARDO SANTOS SILVA 261 U  4200-283 PORTO PORTUGAL
 Nome transpo 69296GT 1(1)
 
-General Information: 
+-----    General Information    ------
 Data da Fatura: 18/12/2023
 Nº Encomenda: 1000345369
 Nº Fatura: 220052765
@@ -131,7 +131,7 @@ Taxa IVA:
 6.00                2.08
 23.00              209.67
 
-Products:
+-----    Products    ------
 Code: PT7295378, Name: CCREAM ROSTO DUO 40 POUPE8, CNP: 7295378, LotNumber: R100, Quantity: 3, UnitPrice: 8,26, DiscountPercentage: 14,00, NetPrice: 21,31, IVA: 3
 Code: PT6895094, Name: AK CR NUTRI-REP PES SECOS 50ML, CNP: 6895094, LotNumber: 606, Quantity: 6, UnitPrice: 5,99, DiscountPercentage: 20,00, NetPrice: 28,75, IVA: 3
 Code: 8704035, Name: SPRAY MUDA FRALDA 75ML, CNP: 7076844, LotNumber: -2312905, Quantity: 3, UnitPrice: 7,96, DiscountPercentage: 14,00, NetPrice: 20,54, IVA: 2

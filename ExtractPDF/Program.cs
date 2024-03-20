@@ -196,7 +196,7 @@ namespace PDFDataExtraction
                 writer.WriteLine(invoiceText); // Write the entire text to the file for debugging purposes (will be deleted later)
 
                 // Write general information
-                writer.WriteLine("General Information: ");
+                writer.WriteLine("-----    General Information    ------");
                 writer.WriteLine("Data da Fatura: " + invoiceDate);
                 writer.WriteLine("Nº Encomenda: " + numEncomenda);
                 writer.WriteLine("Nº Fatura: " + numFatura);
@@ -204,7 +204,7 @@ namespace PDFDataExtraction
                 writer.WriteLine("Total sem IVA: " + totalSemIVA);
                 writer.WriteLine("Total com IVA: " + totalPrice);
                 writer.WriteLine("Taxa IVA: " + IVA);
-                writer.WriteLine("Products:");
+                writer.WriteLine("-----    Products    ------");
 
                 // Write product details
                 foreach (var product in products.Distinct())

@@ -103,7 +103,7 @@ Data de carga 2024-03-07T16:44:48 Total fatura 765.43 EUR
 local de descarga SWEETCARE - PORTO RUA DR EDUARDO SANTOS SILVA 261 U  4200-283 PORTO PORTUGAL
 Nome transpo 79848GT 1(1)
 
-General Information: 
+-----    General Information    ------
 Data da Fatura: 07/03/2024
 Nº Encomenda: 1000360426
 Nº Fatura: 220057334
@@ -113,7 +113,7 @@ Total com IVA: 765,43
 Taxa IVA: 
 23.00              143.13
 
-Products:
+-----    Products    ------
 Code: 8703987, Name: STELATOPIA PLUS CR RELIP 300ML, CNP: 7240523, LotNumber: -R180, Quantity: 6, UnitPrice: 15,50, DiscountPercentage: 14,00, NetPrice: 79,98, IVA: 3
 Code: 8703867, Name: STELATOPIA GEL LAVANTE 500ML, CNP: 6270504, LotNumber: -R380, Quantity: 3, UnitPrice: 12,41, DiscountPercentage: 14,00, NetPrice: 32,02, IVA: 3
 Code: PT6943761, Name: CESTA ESSENCIAIS ROSA, CNP: 6943761, LotNumber: C24ROS231122, Quantity: 3, UnitPrice: 35,90, DiscountPercentage: 14,00, NetPrice: 92,62, IVA: 3

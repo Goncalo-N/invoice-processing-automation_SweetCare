@@ -98,7 +98,7 @@ IVA Intracomunitária : FR20882773658
 3 3
 /
 
-General Information: 
+-----    General Information    ------
 Data da Fatura: 31/01/2024
 Nº Encomenda: SRO2401CRM07946
 Nº Fatura: SRO0501FAC05321
@@ -108,7 +108,7 @@ Total com IVA: 198,00
 Taxa IVA: 
 0,00 % 0,00 €
 
-Products:
+-----    Products    ------
 Code: RG1002081WW, Barcode: 3701436916510, Description: CREME MÃOS FLEUR FIG 30ML, Quantity: 24, GrossPrice: 3,93, Discount1: 30,00, Discount2: 30,00, Discount3: 30,00, PrecoSemIVA: 2,75, PrecoComIVA: 66,00, Bonus: 0
 Code: RG1005051WW, Barcode: 3701436916565, Description: CREME MÃOS OSMANTHUS 30ML, Quantity: 18, GrossPrice: 3,93, Discount1: 30,00, Discount2: 30,00, Discount3: 30,00, PrecoSemIVA: 2,75, PrecoComIVA: 49,50, Bonus: 0
 Code: RG1006081WW, Barcode: 3701436916572, Description: CREME MÃOS ROSE 30ML, Quantity: 6, GrossPrice: 3,93, Discount1: 30,00, Discount2: 30,00, Discount3: 30,00, PrecoSemIVA: 2,75, PrecoComIVA: 16,50, Bonus: 0

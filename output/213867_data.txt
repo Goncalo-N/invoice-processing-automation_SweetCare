@@ -83,7 +83,7 @@ Mais informações, incluindo os valores das prestações financeiras fixadas a 
 Comprovativo serve como prova de pagamento
 http://www.valormed.pt/paginas/11/ecovalor e www.pontoverde.pt/vpv.html
 
-General Information: 
+-----    General Information    ------
 Data da Fatura: N/A
 Nº Encomenda: N/A
 Nº Fatura: N/A
@@ -91,4 +91,4 @@ Data Vencimento: N/A
 Total sem IVA: 0
 Total com IVA: 0
 Taxa IVA: 
-Products:
+-----    Products    ------
