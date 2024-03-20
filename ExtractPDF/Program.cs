@@ -289,7 +289,7 @@ namespace PDFDataExtraction
             {
                 //price check
                 //check if neither of the prices equal to 0
-                if ((product.NetPrice == 0 || product.UnitPrice == 0) == false)
+                if (product.NetPrice != 0 && product.UnitPrice != 0)
                 {
 
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                

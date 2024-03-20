@@ -246,6 +246,7 @@ namespace PDFDataExtraction
             }
             return products;
         }
+        
         // Method to extract products from Moreno II invoices using regular expression
         public static List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
@@ -315,6 +316,7 @@ namespace PDFDataExtraction
             }
             return products;
         }
+
         // Method to extract products from LEX invoices using regular expression
         public static List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
