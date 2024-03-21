@@ -50,6 +50,24 @@ namespace PDFDataExtraction
                 System.Threading.Thread.Sleep(1000); // Sleep for 1 second
             }
         }
+
+        //Method to extract text from PDF using iText7
+        static string ExtractTextFromPDF(string filePath)
+        {
+            using (PdfReader reader = new PdfReader(filePath))
+            using (PdfDocument pdfDoc = new PdfDocument(reader))
+            {
+                StringWriter output = new StringWriter();
+                for (int i = 1; i <= pdfDoc.GetNumberOfPages(); i++)
+                {
+                    PdfPage page = pdfDoc.GetPage(i);
+                    ITextExtractionStrategy strategy = new LocationTextExtractionStrategy();
+                    string text = PdfTextExtractor.GetTextFromPage(page, strategy);
+                    output.WriteLine(text);
+                }
+                return output.ToString();
+            }
+        }
         //Method to check the file to see what company it belongs to
         static string CheckCompany(string text, List<string> companyNames)
         {
@@ -280,7 +298,32 @@ namespace PDFDataExtraction
             regex.Clear();
         }
 
-        //Calls a method from the producer class to validate products of the invoice.
+    
+
+        //Method to move the pdf file to the missing folder in case of missing values
+        static void OnValuesMissing(string pdfFilePath)
+        {
+            string baseDirectory = Directory.GetCurrentDirectory();
+            var parentDirectory = Directory.GetParent(baseDirectory);
+            if (parentDirectory != null)
+            {
+                baseDirectory = parentDirectory.FullName;
+            }
+
+            string missingValuesFolderPath = Path.Combine(baseDirectory, "missing");
+
+            string fileName = Path.GetFileName(pdfFilePath);
+            Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
+            string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
+
+            Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
+            //File.Move(pdfFilePath, destinationFilePath);
+            Console.WriteLine($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
+
+        }
+
+
+          //Calls a method from the producer class to validate products of the invoice.
         static void validateProducts(int orderID, List<IProduct> products)
         {
             bool isProductValid = false;
@@ -319,6 +362,7 @@ namespace PDFDataExtraction
             }
         }
 
+
         //Calls a method from the producer class to validate the general information of the invoice.
         static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber){
             bool isInvoiceValid = false;
@@ -331,47 +375,6 @@ namespace PDFDataExtraction
             else{
                 log.Error("Invoice not validated: " + invoiceNumber);
                 Console.WriteLine("Invoice not validated: " + invoiceNumber);
-            }
-        }
-
-        //Method to move the pdf file to the missing folder in case of missing values
-        static void OnValuesMissing(string pdfFilePath)
-        {
-            string baseDirectory = Directory.GetCurrentDirectory();
-            var parentDirectory = Directory.GetParent(baseDirectory);
-            if (parentDirectory != null)
-            {
-                baseDirectory = parentDirectory.FullName;
-            }
-
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "missing");
-
-            string fileName = Path.GetFileName(pdfFilePath);
-            Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
-            string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
-
-            Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
-            //File.Move(pdfFilePath, destinationFilePath);
-            Console.WriteLine($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
-
-        }
-
-
-        //Method to extract text from PDF using iText7
-        static string ExtractTextFromPDF(string filePath)
-        {
-            using (PdfReader reader = new PdfReader(filePath))
-            using (PdfDocument pdfDoc = new PdfDocument(reader))
-            {
-                StringWriter output = new StringWriter();
-                for (int i = 1; i <= pdfDoc.GetNumberOfPages(); i++)
-                {
-                    PdfPage page = pdfDoc.GetPage(i);
-                    ITextExtractionStrategy strategy = new LocationTextExtractionStrategy();
-                    string text = PdfTextExtractor.GetTextFromPage(page, strategy);
-                    output.WriteLine(text);
-                }
-                return output.ToString();
             }
         }
 
