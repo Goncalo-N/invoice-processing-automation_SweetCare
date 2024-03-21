@@ -160,7 +160,7 @@ namespace PDFDataExtraction
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "MOENO II":
+                case "MORENO II":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
                     numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);

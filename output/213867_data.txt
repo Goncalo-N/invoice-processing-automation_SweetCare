@@ -84,11 +84,12 @@ Comprovativo serve como prova de pagamento
 http://www.valormed.pt/paginas/11/ecovalor e www.pontoverde.pt/vpv.html
 
 -----    General Information    ------
-Data da Fatura: N/A
+Data da Fatura: 20/12/2023
 Nº Encomenda: N/A
-Nº Fatura: N/A
-Data Vencimento: N/A
-Total sem IVA: 0
-Total com IVA: 0
+Nº Fatura: 213867
+Data Vencimento: 20/12/2023
+Total sem IVA: 182,27
+Total com IVA: 1,63
 Taxa IVA: 
 -----    Products    ------
+CNP: , Designation: , Lot: , ExpiryDate: 01/01/0001 00:00:00, Type: , Quantity: 4545, UnitPrice: 0, Discount1: 0, Discount2: 0, NetPrice: 0, IVA: 0, Total: 0
