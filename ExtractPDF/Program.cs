@@ -9,45 +9,47 @@ namespace PDFDataExtraction
 
     class Program
     {
-
-
-        // global instance of Producer
-        static Producer dbHelper = new Producer();
-
-        public static Serilog.Core.Logger log = new LoggerConfiguration()
+        static readonly Producer dbHelper = new Producer();
+        internal static Serilog.Core.Logger log = new LoggerConfiguration()
             .MinimumLevel.Debug()
-            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)//file name change every day
+            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
         static void Main(string[] args)
         {
             log.Information("Application Starting");
 
-            // Get the base directory of the project
-            string baseDirectory = Directory.GetCurrentDirectory();
+            string baseDirectory = GetBaseDirectory();
+            var folders = GetFolderPaths(baseDirectory);
 
-            // Navigate up 3 levels to reach invoice-processing-automation-main directory
-            /*for (int i = 0; i <= 3; i++)
-            {
-                baseDirectory = Directory.GetParent(baseDirectory).FullName;
-            }*/
+            Task.Run(() => MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath));
+            PreventApplicationExit();
+        }
+
+        static string GetBaseDirectory()
+        {
+            var baseDirectory = Directory.GetCurrentDirectory();
             var parentDirectory = Directory.GetParent(baseDirectory);
-            if (parentDirectory != null)
-            {
-                baseDirectory = parentDirectory.FullName;
-            }
+            baseDirectory = parentDirectory?.FullName ?? baseDirectory;
+            log.Information($"Base directory: {baseDirectory}");
+            Console.WriteLine($"Base directory: {baseDirectory}");
+            return baseDirectory;
+        }
 
-            log.Information("Base directory: " + baseDirectory);
-            Console.WriteLine("Base directory: " + baseDirectory);
-            string folderPath = Path.Combine(baseDirectory, "pdfs");
-            string outputFolderPath = Path.Combine(baseDirectory, "output");
-            string validatedFolderPath = Path.Combine(baseDirectory, "validated");
+        static (string folderPath, string outputFolderPath, string validatedFolderPath) GetFolderPaths(string baseDirectory)
+        {
+            return (
+                Path.Combine(baseDirectory, "pdfs"),
+                Path.Combine(baseDirectory, "output"),
+                Path.Combine(baseDirectory, "validated")
+            );
+        }
 
-            // Start a separate thread to monitor the PDF folder
-            System.Threading.Tasks.Task.Run(() => MonitorPdfFolder(folderPath, outputFolderPath, validatedFolderPath));
+        static void PreventApplicationExit()
+        {
             while (true)
             {
-                System.Threading.Thread.Sleep(1000); // Sleep for 1 second
+                Thread.Sleep(1000);
             }
         }
 
@@ -298,7 +300,7 @@ namespace PDFDataExtraction
             regex.Clear();
         }
 
-    
+
 
         //Method to move the pdf file to the missing folder in case of missing values
         static void OnValuesMissing(string pdfFilePath)
@@ -323,11 +325,11 @@ namespace PDFDataExtraction
         }
 
 
-          //Calls a method from the producer class to validate products of the invoice.
+        //Calls a method from the producer class to validate products of the invoice.
         static void validateProducts(int orderID, List<IProduct> products)
         {
             bool isProductValid = false;
-            
+
             foreach (var product in products)
             {
                 //price check
@@ -364,15 +366,18 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate the general information of the invoice.
-        static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber){
+        static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber)
+        {
             bool isInvoiceValid = false;
             isInvoiceValid = dbHelper.ValidateAndUpdateInvoice(orderID, invoiceNumber);
 
-            if(isInvoiceValid){
+            if (isInvoiceValid)
+            {
                 log.Information("Invoice validated: " + invoiceNumber);
                 Console.WriteLine("Invoice validated: " + invoiceNumber);
             }
-            else{
+            else
+            {
                 log.Error("Invoice not validated: " + invoiceNumber);
                 Console.WriteLine("Invoice not validated: " + invoiceNumber);
             }
