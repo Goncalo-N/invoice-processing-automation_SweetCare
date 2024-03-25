@@ -125,8 +125,8 @@ namespace PDFDataExtraction
         public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity)
         {
             bool isValid = false;
-            bool needsPriceUpdate = false;
-            bool needsQuantityUpdate = false;
+            bool needsPrice = false;
+            bool needsQuantity = false;
             NetPrice = Math.Round(NetPrice, 4);
             UnitPrice = Math.Round(UnitPrice, 4);
             //Console.WriteLine("ProductCode: " + productCode);
@@ -155,19 +155,19 @@ namespace PDFDataExtraction
                             int quantity = reader.GetInt32(2);
                             //checking priceNoBonus and priceWithBonus fields from db
                             if (priceNoBonus == 0 || priceWithBonus == 0)
-                                needsPriceUpdate = true;
+                                needsPrice = true;
                             isValid = true;
 
                             //checking quantity field from db
                             if (quantity != Quantity)
                             {
                                 Console.WriteLine("Quantity mismatch on productCode: " + productCode);
-                                needsQuantityUpdate = true;
+                                needsQuantity = true;
                             }
                         }
                     }
 
-                    if (needsPriceUpdate)
+                    if (needsPrice)
                     {
                         Program.log.Information("Product with code {productCode} has a null price field.", productCode);
                         string updateQuery = "UPDATE supplierOrderItems SET priceNoBonus = @UnitPrice, priceWithBonus = @NetPrice WHERE ref = @productCode AND orderId = @orderId";
@@ -183,7 +183,7 @@ namespace PDFDataExtraction
                         }
                     }
 
-                    if (needsQuantityUpdate)
+                    if (needsQuantity)
                     {
                         Program.log.Information("Product with code {productCode} has a mismatched quantity.", productCode);
                         //Query to update quantity present in db if needed

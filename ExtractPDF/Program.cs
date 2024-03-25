@@ -301,7 +301,6 @@ namespace PDFDataExtraction
         }
 
 
-
         //Method to move the pdf file to the missing folder in case of missing values
         static void OnValuesMissing(string pdfFilePath)
         {

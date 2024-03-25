@@ -15,13 +15,13 @@ public class IProduct
     // Unit price of the product before any discounts.
     public decimal UnitPrice { get; set; }
 
-    // First level of discount applied to the product.
+    // First discount applied to the product.
     public decimal Discount1 { get; set; }
 
-    // Second level of discount applied to the product.
+    // Second discount applied to the product.
     public decimal Discount2 { get; set; }
 
-    // Third level of discount applied to the product.
+    // Third discount applied to the product.
     public decimal Discount3 { get; set; }
 
     // Final price after all discounts are applied.
