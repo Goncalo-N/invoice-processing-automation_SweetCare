@@ -133,7 +133,7 @@ namespace PDFDataExtraction
             Console.WriteLine("Company Name: " + companyName);
 
             //Get supplierID
-            int supplierID = dbHelper.getEmpresaID(companyName);
+            int supplierID = dbHelper.GetEmpresaID(companyName);
             Console.WriteLine("Supplier ID: " + supplierID);
             if (supplierID == 0)
             {
@@ -180,7 +180,7 @@ namespace PDFDataExtraction
                     IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
                     products = RG.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "MORENO II":
+                case "MO_ENO II":
                     invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
                     numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
@@ -235,7 +235,7 @@ namespace PDFDataExtraction
             }
 
             // Grab the orderID through the numFatura
-            int orderID = dbHelper.getOrderID(numFatura);
+            int orderID = dbHelper.GetOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
             if (orderID == 0)
             {
@@ -382,6 +382,5 @@ namespace PDFDataExtraction
                 Console.WriteLine("Invoice not validated: " + invoiceNumber);
             }
         }
-
     }
 }

@@ -70,7 +70,7 @@ namespace PDFDataExtraction
             return regexList.ConvertAll(x => x.ToString());
         }
         //get supplierID through companyName
-        public int getEmpresaID(string companyName)
+        public int GetEmpresaID(string companyName)
         {
             int empresaID = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -96,7 +96,7 @@ namespace PDFDataExtraction
         }
 
         //get orderID through invoiceNumber
-        public int getOrderID(string invoiceNumber)
+        public int GetOrderID(string invoiceNumber)
         {
             int orderID = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
