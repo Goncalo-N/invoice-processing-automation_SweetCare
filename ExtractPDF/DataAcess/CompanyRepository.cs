@@ -21,7 +21,7 @@ namespace PDFDataExtraction
             {
                 connection.Open();
 
-                string query = "SELECT nome_empresa FROM regex";
+                string query = "SELECT nome_empresa FROM supplierRegex";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

@@ -287,10 +287,9 @@ namespace PDFDataExtraction
                 OnValuesMissing(pdfFilePath);
                 return;
             }
-
             else
             {
-                validateProducts(orderID, productsDistinct);
+                validateProducts(orderID, productsDistinct, numFatura, pdfFilePath);
                 // Move processed PDF file to validated folder
                 string fileName = Path.GetFileName(pdfFilePath);
                 string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
@@ -326,7 +325,7 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate products of the invoice.
-        static void validateProducts(int orderID, List<IProduct> products)
+        static void validateProducts(int orderID, List<IProduct> products, string invoiceNumber, string pdfFilePath)
         {
             bool isProductValid = false;
 
@@ -341,12 +340,12 @@ namespace PDFDataExtraction
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dataService.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity);
+                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity, invoiceNumber);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
-                        isProductValid = dataService.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity);
+                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
                 }
@@ -354,7 +353,13 @@ namespace PDFDataExtraction
                 if (!isProductValid)
                 {
                     log.Error("Product not validated: " + product);
-                    //Console.WriteLine("Product not validated: " + product);
+                    string baseDirectory = GetBaseDirectory();
+                    // Move processed PDF file to validated folder
+                    string invalidFilePath = Path.Combine(baseDirectory, "Invalid");
+                    string fileName = Path.GetFileName(pdfFilePath);
+                    string destinationFilePath = Path.Combine(invalidFilePath, fileName);
+                    File.Move(pdfFilePath, destinationFilePath);
+                    Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
                 }
                 else
                 {
@@ -366,10 +371,11 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate the general information of the invoice.
+        /*
         static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber)
         {
             bool isInvoiceValid = false;
-            isInvoiceValid = dataService.ValidateAndUpdateInvoice(orderID, invoiceNumber);
+            isInvoiceValid = dataService.ValidateInvoice(orderID, invoiceNumber);
 
             if (isInvoiceValid)
             {
@@ -381,6 +387,6 @@ namespace PDFDataExtraction
                 log.Error("Invoice not validated: " + invoiceNumber);
                 Console.WriteLine("Invoice not validated: " + invoiceNumber);
             }
-        }
+        }*/
     }
 }

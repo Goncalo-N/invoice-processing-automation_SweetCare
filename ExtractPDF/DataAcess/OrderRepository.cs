@@ -19,7 +19,7 @@ public class OrderRepository
         {
             connection.Open();
 
-            string query = "SELECT * FROM Regex WHERE nome_empresa = @nomeEmpresa";
+            string query = "SELECT * FROM supplierRegex WHERE nome_empresa = @nomeEmpresa";
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 // For SQL Server, use the Add method with a value to prevent SQL injection.
@@ -67,11 +67,11 @@ public class OrderRepository
     }
 
     //validate products
-    public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity)
+    public bool ValidateProduct(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber)
     {
         bool isValid = false;
-        bool needsPrice = false;
-        bool needsQuantity = false;
+        bool pricesMatch = false;
+        bool quantityMatch = false;
         NetPrice = Math.Round(NetPrice, 4);
         UnitPrice = Math.Round(UnitPrice, 4);
         //Console.WriteLine("ProductCode: " + productCode);
@@ -79,7 +79,7 @@ public class OrderRepository
         {
             connection.Open();
 
-            string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId";
+            string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId AND isFactUpdated = 0";
             using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
             {
                 // Check for null or empty productCode and handle accordingly
@@ -99,51 +99,37 @@ public class OrderRepository
                         decimal priceWithBonus = reader.GetDecimal(1);
                         int quantity = reader.GetInt32(2);
                         //checking priceNoBonus and priceWithBonus fields from db
-                        if (priceNoBonus == 0 || priceWithBonus == 0)
-                            needsPrice = true;
-                        isValid = true;
+                        if (priceNoBonus == NetPrice && priceWithBonus == UnitPrice)
+                        {
+                            Console.WriteLine("Price matched on productCode: " + productCode);
+                            pricesMatch = true;
+                        }
 
                         //checking quantity field from db
-                        if (quantity != Quantity)
+                        if (quantity == Quantity)
                         {
-                            Console.WriteLine("Quantity mismatch on productCode: " + productCode);
-                            needsQuantity = true;
+                            Console.WriteLine("Quantity matched on productCode: " + productCode);
+                            quantityMatch = true;
+                        }
+
+                        if (pricesMatch && quantityMatch)
+                        {
+
+                            Program.log.Information("Product with code {productCode} has a null price field.", productCode);
+                            string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber WHERE ref = @productCode AND orderId = @orderId AND isFactUpdated = 0";
+                            using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                            {
+                                updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+                                updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                                updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+                                //execute query
+                                int rowsAffected = updateCommand.ExecuteNonQuery();
+                                isValid = rowsAffected > 0;
+
+                            }
                         }
                     }
                 }
-
-                if (needsPrice)
-                {
-                    Program.log.Information("Product with code {productCode} has a null price field.", productCode);
-                    string updateQuery = "UPDATE supplierOrderItems SET priceNoBonus = @UnitPrice, priceWithBonus = @NetPrice WHERE ref = @productCode AND orderId = @orderId";
-                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                    {
-                        updateCommand.Parameters.Add(new SqlParameter("@UnitPrice", UnitPrice));
-                        updateCommand.Parameters.Add(new SqlParameter("@NetPrice", NetPrice));
-                        updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
-                        updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-                        //execute query
-                        /*int rowsAffected = updateCommand.ExecuteNonQuery();
-                        isValid = rowsAffected > 0;*/
-                    }
-                }
-
-                if (needsQuantity)
-                {
-                    Program.log.Information("Product with code {productCode} has a mismatched quantity.", productCode);
-                    //Query to update quantity present in db if needed
-                    string updateQuery = "";// = "UPDATE supplierOrderItems SET qntOrder = @Quantity WHERE ref = @productCode AND orderId = @orderId";
-                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                    {
-                        updateCommand.Parameters.Add(new SqlParameter("@Quantity", Quantity));
-                        updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
-                        updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-                        //execute query
-                        /*int rowsAffected = updateCommand.ExecuteNonQuery();
-                        isValid = rowsAffected > 0;*/
-                    }
-                }
-
             }
         }
         return isValid;

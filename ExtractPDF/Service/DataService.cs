@@ -31,12 +31,12 @@ public class DataService
         return orderRepository.GetOrderID(invoiceNumber);
     }
 
-    public bool ValidateAndUpdateProducts(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity)
+    public bool ValidateProduct(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity, string supplierInvoiceNumber)
     {
-        return orderRepository.ValidateAndUpdateProducts(productCode, orderID, netPrice, unitPrice, quantity);
+        return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber);
     }
 
-    internal bool ValidateAndUpdateInvoice(int orderID, string invoiceNumber)
+    internal bool ValidateInvoice(int orderID, string invoiceNumber)
     {
         throw new NotImplementedException();
     }
