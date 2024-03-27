@@ -1,187 +1,186 @@
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+
 namespace PDFDataExtraction
 {
-    public class RG
+    public class InvoiceParser
     {
-        public static string ExtractNumEncomenda(string text, string pattern)
+        public string ExtractOrderNumber(string text, string pattern)
         {
-            ////Console.WriteLine(pattern);
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
-            {
-                return match.Value;
-            }
-            return "N/A";
+            return ExtractSingleMatch(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
-        public static string ExtractNumFatura(string text, string pattern)
+
+        public string ExtractInvoiceNumber(string text, string pattern)
         {
-            ////Console.WriteLine(pattern);
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
-            {
-                return match.Value;
-            }
-            return "N/A";
+            return ExtractSingleMatch(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
-        // Method to extract total price sem IVA using regular expression
-        public static decimal ExtractTotalSemIVA(string text, string pattern)
+
+        public decimal ExtractTotalWithoutVAT(string text, string pattern)
         {
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
-            {
-                string totalPriceStr = match.Groups[1].Value;
+            return ExtractDecimalValueWithNormalization(text, pattern);
+        }
 
-                // Normalize the string based on the last separator
-                if (totalPriceStr.Contains(",") && totalPriceStr.Contains("."))
-                {
-                    // Ambiguous case: decide based on the convention
-                    int lastCommaIndex = totalPriceStr.LastIndexOf(',');
-                    int lastDotIndex = totalPriceStr.LastIndexOf('.');
-                    if (lastCommaIndex > lastDotIndex)
-                    {
-                        // Assume comma is the decimal separator
-                        totalPriceStr = totalPriceStr.Replace(".", "").Replace(",", ".");
-                    }
-                    else
-                    {
-                        // Assume dot is the decimal separator
-                        totalPriceStr = totalPriceStr.Replace(",", "");
-                    }
-                }
-                else if (totalPriceStr.Contains(",") && !totalPriceStr.Contains("."))
-                {
-                    // Likely using commas as decimal separators
-                    totalPriceStr = totalPriceStr.Replace(",", ".");
-                }
-                // No need to modify totalPriceStr if it only contains dots or no separators at all
+        public decimal ExtractTotalPrice(string text, string pattern)
+        {
+            return ExtractDecimalValueWithNormalization(text, pattern);
+        }
 
-                // Parse the modified string to decimal
-                if (decimal.TryParse(totalPriceStr, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal totalPrice))
-                {
-                    return totalPrice;
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to parse '{totalPriceStr}' as a decimal number.");
-                }
-            }
-            return 0;
+        public string ExtractInvoiceDate(string text, string pattern)
+        {
+            return ExtractDateString(text, new Regex(pattern, RegexOptions.IgnoreCase));
+        }
+
+        public string ExtractDueDate(string text, string pattern)
+        {
+            // Adjust this method based on how you determine the correct due date among multiple dates
+            return ExtractFurthestFutureDateMatch(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
 
 
-        // Method to extract total price using regular expression
-        public static decimal ExtractTotalPrice(string text, string pattern)
+        public string ExtractIvaPercentage(string text, string pattern)
         {
-            Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
-            {
-                string totalPriceStr = match.Groups[1].Value;
-
-                // Normalize the string based on the last separator
-                if (totalPriceStr.Contains(",") && totalPriceStr.Contains("."))
-                {
-                    // Ambiguous case: decide based on the convention
-                    int lastCommaIndex = totalPriceStr.LastIndexOf(',');
-                    int lastDotIndex = totalPriceStr.LastIndexOf('.');
-                    if (lastCommaIndex > lastDotIndex)
-                    {
-                        // Assume comma is the decimal separator
-                        totalPriceStr = totalPriceStr.Replace(".", "").Replace(",", ".");
-                    }
-                    else
-                    {
-                        // Assume dot is the decimal separator
-                        totalPriceStr = totalPriceStr.Replace(",", "");
-                    }
-                }
-                else if (totalPriceStr.Contains(",") && !totalPriceStr.Contains("."))
-                {
-                    // Likely using commas as decimal separators
-                    totalPriceStr = totalPriceStr.Replace(",", ".");
-                }
-                // No need to modify totalPriceStr if it only contains dots or no separators at all
-
-                // Parse the modified string to decimal
-                if (decimal.TryParse(totalPriceStr, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal totalPrice))
-                {
-                    return totalPrice;
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to parse '{totalPriceStr}' as a decimal number.");
-                }
-            }
-            return 0;
+            return ExtractAllMatchesFormatted(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
 
-        // Method to extract invoice date using regular expression
-        public static string ExtractInvoiceDate(string text, string pattern)
+
+        private string ExtractAllMatchesFormatted(string text, Regex regex)
         {
-            //Console.WriteLine(pattern);
-            MatchCollection matches = Regex.Matches(text, pattern);
+            MatchCollection matches = regex.Matches(text);
+            List<string> formattedMatches = new List<string>();
+            var distinctMatches = matches.GroupBy(match => match.ToString())
+                                         .Select(group => group.First())
+                                         .ToList();
+
+            foreach (Match match in distinctMatches)
+            {
+                // Assuming your regex has two groups: one for the percentage and one for the amount
+                // Adjust the group indexes as per your actual regex groups
+                string percentage = match.Groups[1].Value.Trim();
+                string amount = match.Groups[2].Value.Trim();
+
+                // Format each match as desired, here assuming "percentage amount"
+                // Adjust the formatting to match your needs
+                formattedMatches.Add($"{percentage} {amount}");
+            }
+
+            // Join all formatted matches with a newline or another separator
+            // This will ensure each IVA percentage and amount pair is on a new line
+            return string.Join(Environment.NewLine, formattedMatches);
+        }
+
+
+        private string ExtractSingleMatch(string text, Regex regex)
+        {
+            var match = regex.Match(text);
+            if (match.Success)
+            {
+                return match.Value.Trim();
+            }
+            throw new ParseException($"No match found with pattern: {regex.ToString()}");
+        }
+        private string ExtractDateString(string text, Regex regex)
+        {
+            MatchCollection matches = regex.Matches(text);
             foreach (Match match in matches)
             {
                 if (DateTime.TryParse(match.Value, out DateTime date))
                 {
+                    // Return the date formatted as "dd/MM/yyyy"
                     return date.ToString("dd/MM/yyyy");
                 }
             }
+            // Return "N/A" if no valid date is found
             return "N/A";
         }
 
-        // Method to extract due date using regular expression
-        public static string ExtractDueDate(string text, string pattern)
+
+
+        private string ExtractFurthestFutureDateMatch(string text, Regex regex)
+    {
+        MatchCollection matches = regex.Matches(text);
+        DateTime furthestFutureDate = DateTime.MinValue; // Start with the earliest possible date
+
+        foreach (Match match in matches)
         {
-            //Console.WriteLine(pattern);
-            DateTime latestDueDate = DateTime.MinValue;
-            MatchCollection matches = Regex.Matches(text, pattern);
-            foreach (Match match in matches)
+            if (DateTime.TryParse(match.Value, out DateTime parsedDate))
             {
-                string dateString = match.Value;
-                if (DateTime.TryParse(dateString, out DateTime date))
+                // Check if the parsed date is further in the future than the current furthestFutureDate
+                if (parsedDate > furthestFutureDate)
                 {
-                    if (date > latestDueDate)
-                    {
-                        latestDueDate = date;
-                    }
+                    furthestFutureDate = parsedDate; // Update furthestFutureDate
                 }
-            }
-            if (latestDueDate != DateTime.MinValue)
-            {
-                return latestDueDate.ToString("dd/MM/yyyy");
-            }
-            else
-            {
-                return "N/A";
             }
         }
 
-        // Method to extract IVA percentage using regular expression
-        public static string ExtractIVAPercentage(string text, string pattern)
+        // Check if a date was found (furthestFutureDate is no longer DateTime.MinValue)
+        if (furthestFutureDate > DateTime.MinValue)
         {
-            //Console.WriteLine(pattern);
+            // Return the furthest future date found, formatted as "dd/MM/yyyy"
+            return furthestFutureDate.ToString("dd/MM/yyyy");
+        }
+        else
+        {
+            // Return "N/A" if no future date was found
+            return "N/A";
+        }
+    }
 
-            MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
-            string finalIVA = "";
-            // Remove duplicate entries, 
-            //due to multiple pages in the same invoice with duplicate values.
-            var distinctMatches = matches.GroupBy(match => match.ToString())
-                             .Select(group => group.First())
-                             .ToList();
-
-            foreach (Match match in distinctMatches)
+        private decimal ExtractDecimalValueWithNormalization(string text, string pattern)
+        {
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            Match match = regex.Match(text);
+            if (match.Success)
             {
-                if (match.Success)
+                string decimalString = match.Groups[1].Value;
+
+                // Normalize the string based on the last separator
+                decimalString = NormalizeDecimalString(decimalString);
+
+                // Attempt to parse the normalized string to decimal
+                if (decimal.TryParse(decimalString, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal decimalValue))
                 {
-                    finalIVA = "\n" + finalIVA + match.Value + "\n";
+                    return decimalValue;
+                }
+                else
+                {
+                    Console.WriteLine($"Failed to parse '{decimalString}' as a decimal number.");
                 }
             }
-            return finalIVA;
+            // Return 0 or another appropriate default value if parsing fails
+            return 0m;
+        }
+
+        private string NormalizeDecimalString(string decimalString)
+        {
+            if (decimalString.Contains(",") && decimalString.Contains("."))
+            {
+                // Ambiguous case: decide based on the convention
+                int lastCommaIndex = decimalString.LastIndexOf(',');
+                int lastDotIndex = decimalString.LastIndexOf('.');
+                if (lastCommaIndex > lastDotIndex)
+                {
+                    // Assume comma is the decimal separator
+                    decimalString = decimalString.Replace(".", "").Replace(",", ".");
+                }
+                else
+                {
+                    // Assume dot is the decimal separator
+                    decimalString = decimalString.Replace(",", "");
+                }
+            }
+            else if (decimalString.Contains(",") && !decimalString.Contains("."))
+            {
+                // Likely using commas as decimal separators
+                decimalString = decimalString.Replace(",", ".");
+            }
+            // No need to modify decimalString if it only contains dots or no separators at all
+
+            return decimalString;
         }
 
         // Method to extract product details using regular expression
-        public static List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
+        public List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
@@ -246,9 +245,9 @@ namespace PDFDataExtraction
             }
             return products;
         }
-        
+
         // Method to extract products from Moreno II invoices using regular expression
-        public static List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
+        public List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
             List<IProduct> products = new List<IProduct>();
@@ -318,7 +317,7 @@ namespace PDFDataExtraction
         }
 
         // Method to extract products from LEX invoices using regular expression
-        public static List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
+        public List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
             List<IProduct> products = new List<IProduct>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
@@ -379,5 +378,10 @@ namespace PDFDataExtraction
 
             return products;
         }
+    }
+
+    public class ParseException : Exception
+    {
+        public ParseException(string message) : base(message) { }
     }
 }

@@ -9,13 +9,14 @@ namespace PDFDataExtraction
 
     class Program
     {
-        static readonly Producer dbHelper = new Producer();
+        static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
+        static readonly InvoiceParser parser = new InvoiceParser();
         internal static Serilog.Core.Logger log = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
-        static void Main(string[] args)
+        static void Main(string[] aparsers)
         {
             log.Information("Application Starting");
 
@@ -123,7 +124,7 @@ namespace PDFDataExtraction
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
             // Get all company names from the database
-            List<string> companyNames = dbHelper.GetAllCompanyNames();
+            List<string> companyNames = dataService.GetAllCompanyNames();
 
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
@@ -133,7 +134,7 @@ namespace PDFDataExtraction
             Console.WriteLine("Company Name: " + companyName);
 
             //Get supplierID
-            int supplierID = dbHelper.GetEmpresaID(companyName);
+            int supplierID = dataService.GetEmpresaID(companyName);
             Console.WriteLine("Supplier ID: " + supplierID);
             if (supplierID == 0)
             {
@@ -153,7 +154,7 @@ namespace PDFDataExtraction
             }
 
             // Get the regex for the company
-            List<string> regex = dbHelper.GetAllRegex(companyName);
+            List<string> regex = dataService.GetAllRegex(companyName);
             Console.WriteLine("Company Name: " + companyName);
 
             //create a condition that based on the company name it will call the correct method;
@@ -171,34 +172,34 @@ namespace PDFDataExtraction
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
-                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
-                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
-                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
-                    products = RG.ExtractProductDetails(invoiceText, regex[12]);
+                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = parser.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "MO_ENO II":
-                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
-                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
-                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
-                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
-                    products = RG.ExtractProductDetailsMoreno(invoiceText, regex[12]);
+                case "MOENO II":
+                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = parser.ExtractProductDetailsMoreno(invoiceText, regex[12]);
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
-                    invoiceDate = RG.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = RG.ExtractNumEncomenda(invoiceText, regex[4]);
-                    numFatura = RG.ExtractNumFatura(invoiceText, regex[5]);
-                    dueDate = RG.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = RG.ExtractTotalSemIVA(invoiceText, regex[7]);
-                    totalPrice = RG.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = RG.ExtractIVAPercentage(invoiceText, regex[13]);
-                    products = RG.ExtractProductDetailsLEX(invoiceText, regex[12]);
+                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = parser.ExtractProductDetailsLEX(invoiceText, regex[12]);
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
@@ -235,7 +236,7 @@ namespace PDFDataExtraction
             }
 
             // Grab the orderID through the numFatura
-            int orderID = dbHelper.GetOrderID(numFatura);
+            int orderID = dataService.GetOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
             if (orderID == 0)
             {
@@ -340,12 +341,12 @@ namespace PDFDataExtraction
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity);
+                        isProductValid = dataService.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
-                        isProductValid = dbHelper.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity);
+                        isProductValid = dataService.ValidateAndUpdateProducts(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
                 }
@@ -368,7 +369,7 @@ namespace PDFDataExtraction
         static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber)
         {
             bool isInvoiceValid = false;
-            isInvoiceValid = dbHelper.ValidateAndUpdateInvoice(orderID, invoiceNumber);
+            isInvoiceValid = dataService.ValidateAndUpdateInvoice(orderID, invoiceNumber);
 
             if (isInvoiceValid)
             {
