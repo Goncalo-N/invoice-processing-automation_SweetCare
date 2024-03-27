@@ -67,13 +67,22 @@ public class OrderRepository
     }
 
     //validate products
-    public bool ValidateProduct(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber)
+    public bool ValidateProduct(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber, int isFactUpdated)
     {
+
+        //check if the product is already validated from before.
+        if (isFactUpdated == 1)
+        {
+            return true;
+        }
+
         bool isValid = false;
         bool pricesMatch = false;
         bool quantityMatch = false;
         NetPrice = Math.Round(NetPrice, 4);
         UnitPrice = Math.Round(UnitPrice, 4);
+
+
         //Console.WriteLine("ProductCode: " + productCode);
         using (SqlConnection connection = new SqlConnection(connectionString))
         {

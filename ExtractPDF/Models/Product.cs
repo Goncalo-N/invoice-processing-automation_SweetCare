@@ -33,11 +33,13 @@ public class IProduct
     // Bonus quantity that come with the product.
     public int Bonus { get; set; }
 
+    public int isFactUpdated { get; set; }
+
     // Overrides the ToString method to provide a string representation of the product details.
     public override string ToString()
     {
         return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, UnitPrice: {UnitPrice}, " +
-               $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, PrecoComIVA: {PrecoComIVA}, Bonus: {Bonus}";
+               $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, PrecoComIVA: {PrecoComIVA}, Bonus: {Bonus} isFactUpdated: {isFactUpdated}";
     }
 }
 
