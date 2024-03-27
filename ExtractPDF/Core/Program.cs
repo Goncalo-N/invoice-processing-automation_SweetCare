@@ -37,12 +37,13 @@ namespace PDFDataExtraction
             return baseDirectory;
         }
 
-        static (string folderPath, string outputFolderPath, string validatedFolderPath) GetFolderPaths(string baseDirectory)
+        static (string folderPath, string outputFolderPath, string validatedFolderPath, string invalidFolerPath) GetFolderPaths(string baseDirectory)
         {
             return (
                 Path.Combine(baseDirectory, "pdfs"),
                 Path.Combine(baseDirectory, "output"),
-                Path.Combine(baseDirectory, "validated")
+                Path.Combine(baseDirectory, "valid"),
+                Path.Combine(baseDirectory, "invalid")
             );
         }
 
@@ -290,12 +291,8 @@ namespace PDFDataExtraction
             else
             {
                 validateProducts(orderID, productsDistinct, numFatura, pdfFilePath);
-                // Move processed PDF file to validated folder
-                string fileName = Path.GetFileName(pdfFilePath);
-                string destinationFilePath = Path.Combine(validatedFolderPath, fileName);
-                //File.Move(pdfFilePath, destinationFilePath);
+
                 Console.WriteLine("Data written to " + outputFilePath);
-                Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
             }
             regex.Clear();
         }
@@ -349,21 +346,25 @@ namespace PDFDataExtraction
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
                 }
+                string baseDirectory = GetBaseDirectory();
+                string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
+                string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
 
                 if (!isProductValid)
                 {
                     log.Error("Product not validated: " + product);
-                    string baseDirectory = GetBaseDirectory();
-                    // Move processed PDF file to validated folder
-                    string invalidFilePath = Path.Combine(baseDirectory, "Invalid");
                     string fileName = Path.GetFileName(pdfFilePath);
-                    string destinationFilePath = Path.Combine(invalidFilePath, fileName);
+                    string destinationFilePath = Path.Combine(invalidFolderPath, fileName);
                     File.Move(pdfFilePath, destinationFilePath);
-                    Console.WriteLine($"Moved PDF file to Validated folder: {pdfFilePath}");
+                    Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                 }
                 else
                 {
                     log.Information("Product validated: " + product);
+                    // Move processed PDF file to validated folder
+                    string fileName = Path.GetFileName(pdfFilePath);
+                    string destinationFilePath = Path.Combine(validFolderPath, fileName);
+                    File.Move(pdfFilePath, destinationFilePath);
                     //Console.WriteLine("Product validated: " + product);
                 }
             }
