@@ -107,10 +107,10 @@ Total sem IVA: 198.00
 Total com IVA: 198.00
 Taxa IVA: 0,00 0,00
 -----    Products    ------
-Code: RG1002081WW, Barcode: 3701436916510, Description: CREME MÃOS FLEUR FIG 30ML, Quantity: 24, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 66.00, Bonus: 0
-Code: RG1005051WW, Barcode: 3701436916565, Description: CREME MÃOS OSMANTHUS 30ML, Quantity: 18, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 49.50, Bonus: 0
-Code: RG1006081WW, Barcode: 3701436916572, Description: CREME MÃOS ROSE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0
-Code: RG1008081WW, Barcode: 3701436916503, Description: CREME MÃOS FEUILLE THE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0
-Code: RG1012051WW, Barcode: 3701436916558, Description: CREME MÃOS NEROLI 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0
-Code: RG1004081WW, Barcode: 3701436916473, Description: CREME MÃOS BOIS ORANGE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0
-Code: RG1007051WW, Barcode: 3701436916480, Description: CREME MÃOS CEDRAT 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0
+Code: RG1002081WW, Barcode: 3701436916510, Description: CREME MÃOS FLEUR FIG 30ML, Quantity: 24, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 66.00, Bonus: 0 isFactUpdated: 0
+Code: RG1005051WW, Barcode: 3701436916565, Description: CREME MÃOS OSMANTHUS 30ML, Quantity: 18, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 49.50, Bonus: 0 isFactUpdated: 0
+Code: RG1006081WW, Barcode: 3701436916572, Description: CREME MÃOS ROSE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0 isFactUpdated: 0
+Code: RG1008081WW, Barcode: 3701436916503, Description: CREME MÃOS FEUILLE THE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0 isFactUpdated: 0
+Code: RG1012051WW, Barcode: 3701436916558, Description: CREME MÃOS NEROLI 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0 isFactUpdated: 0
+Code: RG1004081WW, Barcode: 3701436916473, Description: CREME MÃOS BOIS ORANGE 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0 isFactUpdated: 0
+Code: RG1007051WW, Barcode: 3701436916480, Description: CREME MÃOS CEDRAT 30ML, Quantity: 6, UnitPrice: 3.93, Discounts: 30.00, 30.00, 30.00, NetPrice: 2.75, PrecoComIVA: 16.50, Bonus: 0 isFactUpdated: 0

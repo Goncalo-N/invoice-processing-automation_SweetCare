@@ -326,7 +326,6 @@ namespace PDFDataExtraction
             string baseDirectory = GetBaseDirectory();
             string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
             string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
-            bool isProductValid = false;
             int productCounter = 0;
             foreach (var product in products)
             {
@@ -335,6 +334,7 @@ namespace PDFDataExtraction
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
                 {
 
+                    bool isProductValid;
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                
                     if (product.UnitPrice < product.NetPrice)
                     {
@@ -358,6 +358,8 @@ namespace PDFDataExtraction
                     }
 
                 }
+                 Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
+
             }
             //while all the products from an invoice are not validated, the invoice is not validated
             foreach (var product in products)
@@ -375,7 +377,7 @@ namespace PDFDataExtraction
                 log.Error("Invoice not validated: " + pdfFilePath);
                 string fileName = Path.GetFileName(pdfFilePath);
                 string destinationFilePath = Path.Combine(invalidFolderPath, fileName);
-                File.Move(pdfFilePath, destinationFilePath);
+                //File.Move(pdfFilePath, destinationFilePath);
                 Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
             }
             else
@@ -384,10 +386,10 @@ namespace PDFDataExtraction
                 // Move processed PDF file to validated folder
                 string fileName = Path.GetFileName(pdfFilePath);
                 string destinationFilePath = Path.Combine(validFolderPath, fileName);
-                File.Move(pdfFilePath, destinationFilePath);
+                //File.Move(pdfFilePath, destinationFilePath);
                 //Console.WriteLine("Product validated: " + product);
             }
-
+           
         }
 
 
