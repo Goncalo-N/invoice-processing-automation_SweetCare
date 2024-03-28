@@ -18,6 +18,9 @@ namespace PDFDataExtraction
 
         static void Main(string[] aparsers)
         {
+            AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
+            TaskScheduler.UnobservedTaskException += UnobservedTaskExceptionHandler;
+
             log.Information("Application Starting");
 
             string baseDirectory = GetBaseDirectory();
@@ -26,7 +29,17 @@ namespace PDFDataExtraction
             Task.Run(() => MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath));
             PreventApplicationExit();
         }
+        static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+        {
+            log.Error($"Unhandled exception: {e.ExceptionObject}");
+            Environment.Exit(1);
+        }
 
+        static void UnobservedTaskExceptionHandler(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            log.Error($"Unobserved task exception: {e.Exception}");
+            e.SetObserved();
+        }
         static string GetBaseDirectory()
         {
             var baseDirectory = Directory.GetCurrentDirectory();
@@ -358,7 +371,7 @@ namespace PDFDataExtraction
                     }
 
                 }
-                 Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
+                Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
 
             }
             //while all the products from an invoice are not validated, the invoice is not validated
@@ -367,7 +380,9 @@ namespace PDFDataExtraction
                 if (product.isFactUpdated == 1)
                 {
                     productCounter++;
-                }else{
+                }
+                else
+                {
                     productCounter = 0;
                 }
             }
@@ -389,7 +404,7 @@ namespace PDFDataExtraction
                 //File.Move(pdfFilePath, destinationFilePath);
                 //Console.WriteLine("Product validated: " + product);
             }
-           
+
         }
 
 
