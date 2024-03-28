@@ -1,4 +1,4 @@
-public class IProduct
+public class Product
 {
     // Product's code.
     public string Code { get; set; }
@@ -43,7 +43,7 @@ public class IProduct
     }
 }
 
-public class LEXProduct : IProduct
+public class LEXProduct : Product
 {
     public string Name { get; set; }
     public string CNP { get; set; }
@@ -56,7 +56,7 @@ public class LEXProduct : IProduct
         return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
     }
 }
-public class MorenoProduct : IProduct
+public class MorenoProduct : Product
 {
     public string CNP { get; set; }
     public string Designation { get; set; }

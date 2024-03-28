@@ -167,9 +167,9 @@ namespace PDFDataExtraction
             string dueDate = "N/A";
             string IVA = "";
 
-            List<IProduct> products = new List<IProduct>();
+            List<Product> products = new List<Product>();
 
-            List<IProduct> productsDistinct = new List<IProduct>();
+            List<Product> productsDistinct = new List<Product>();
             switch (companyName)
             {
                 case "Roger & Gallet":
@@ -321,7 +321,7 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate products of the invoice.
-        static void validateProducts(int orderID, List<IProduct> products, string invoiceNumber, string pdfFilePath)
+        static void validateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
             string baseDirectory = GetBaseDirectory();
             string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;

@@ -180,10 +180,10 @@ namespace PDFDataExtraction
         }
 
         // Method to extract product details using regular expression
-        public List<IProduct> ExtractProductDetails(string invoiceText, string pattern)
+        public List<Product> ExtractProductDetails(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
-            List<IProduct> products = new List<IProduct>();
+            List<Product> products = new List<Product>();
 
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
 
@@ -199,7 +199,7 @@ namespace PDFDataExtraction
                 {
                     uniqueProductIdentifiers.Add(uniqueIdentifier);
 
-                    IProduct product = new IProduct();
+                    Product product = new Product();
                     product.Code = match.Groups[1].Value;
 
                     product.Barcode = match.Groups["Barcode"].Value;
@@ -247,10 +247,10 @@ namespace PDFDataExtraction
         }
 
         // Method to extract products from Moreno II invoices using regular expression
-        public List<IProduct> ExtractProductDetailsMoreno(string invoiceText, string pattern)
+        public List<Product> ExtractProductDetailsMoreno(string invoiceText, string pattern)
         {
             //Console.WriteLine(pattern);
-            List<IProduct> products = new List<IProduct>();
+            List<Product> products = new List<Product>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
 
             HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
@@ -317,9 +317,9 @@ namespace PDFDataExtraction
         }
 
         // Method to extract products from LEX invoices using regular expression
-        public List<IProduct> ExtractProductDetailsLEX(string invoiceText, string pattern)
+        public List<Product> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
-            List<IProduct> products = new List<IProduct>();
+            List<Product> products = new List<Product>();
             MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
 
             HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
