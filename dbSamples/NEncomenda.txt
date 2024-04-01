@@ -1,3 +1,0 @@
-RG:
-LEX: N\s+encomen(?:\s+\w+)*\s+(\d+)(?=\s|$) //double check after.
-Moreno II: Sweetcare\s+Nº\s*:\s*(\d+) //not entirely sure though.

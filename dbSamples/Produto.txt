@@ -1,3 +1,0 @@
-R&G:(?<Article>\w+)\s+(?<Barcode>\d+)\s+(?<Description>.+?)\s+(?<Quantity>\d+)\s+(?<GrossPrice>[\d,]+)\s+(?<Discount>[\d,]+)\s+(?<PrecoSemIVA>[\d,]+)\s+(?<PrecoComIVA>[\d,]+)
-LEX: (\bPT?\d+|\b\d+)\s+(.+?)\s+(\d+)\s*([-\w]*)\s+(\d+\sUN)\s+(\d+\.\d{2})\s+(\d+\.\d{2})\s+(\d+\.\d{2})\s+(\d+)
-impossivel devido a formato instavél-->Moreno II: (?<CNP>\S+)\s+(?<Designation>.+?)\s+(?<Lot>\S+)\s+(?<ExpiryDate>\d{2}\.\d{2}\.\d{4})\s+(?<Type>.+?)\s+(?<Quantity>\d+)\s+(?<UnitPrice>[\d,]+)\s+(?<Discount1>[\d,]+)\s+(?<Discount2>[\d,]+)\s+(?<NetPrice>[\d,]+)\s+(?<IVA>\d+)%\s+(?<Total>[\d,]+)

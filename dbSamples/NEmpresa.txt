@@ -1,3 +1,0 @@
-RG: Roger & Gallet
-LEX: LABORATORIOS\s+EXPANSCIENCE
-Moreno II: MORENO\s+II

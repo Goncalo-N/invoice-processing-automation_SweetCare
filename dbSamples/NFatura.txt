@@ -1,3 +1,0 @@
-RG: 
-LEX: FT S/(\d+)
-Moreno: Fatura\s*Nº\s*:\s*(\d+)
