@@ -18,6 +18,9 @@ namespace PDFDataExtraction
 
         static void Main(string[] aparsers)
         {
+            AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
+            TaskScheduler.UnobservedTaskException += UnobservedTaskExceptionHandler;
+
             log.Information("Application Starting");
 
             string baseDirectory = GetBaseDirectory();
@@ -26,7 +29,17 @@ namespace PDFDataExtraction
             Task.Run(() => MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath));
             PreventApplicationExit();
         }
+        static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+        {
+            log.Error($"Unhandled exception: {e.ExceptionObject}");
+            Environment.Exit(1);
+        }
 
+        static void UnobservedTaskExceptionHandler(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            log.Error($"Unobserved task exception: {e.Exception}");
+            e.SetObserved();
+        }
         static string GetBaseDirectory()
         {
             var baseDirectory = Directory.GetCurrentDirectory();
@@ -167,9 +180,9 @@ namespace PDFDataExtraction
             string dueDate = "N/A";
             string IVA = "";
 
-            List<IProduct> products = new List<IProduct>();
+            List<Product> products = new List<Product>();
 
-            List<IProduct> productsDistinct = new List<IProduct>();
+            List<Product> productsDistinct = new List<Product>();
             switch (companyName)
             {
                 case "Roger & Gallet":
@@ -273,7 +286,6 @@ namespace PDFDataExtraction
                     isAnyFieldMissing = true;
                 }
             }
-
             // Special check for products being null or having a count of 0
             if (products == null || products.Count == 0)
             {
@@ -322,10 +334,12 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate products of the invoice.
-        static void validateProducts(int orderID, List<IProduct> products, string invoiceNumber, string pdfFilePath)
+        static void validateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
-            bool isProductValid = false;
-
+            string baseDirectory = GetBaseDirectory();
+            string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
+            string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
+            int productCounter = 0;
             foreach (var product in products)
             {
                 //price check
@@ -333,41 +347,64 @@ namespace PDFDataExtraction
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
                 {
 
+                    bool isProductValid;
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity, invoiceNumber);
+                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
-                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber);
+                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
-                }
-                string baseDirectory = GetBaseDirectory();
-                string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
-                string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
+                    if (isProductValid)
+                    {
+                        log.Information("Product validated: " + product);
+                        product.isFactUpdated = 1;
+                    }
+                    else
+                    {
+                        log.Error("Product not validated: " + product);
+                    }
 
-                if (!isProductValid)
+                }
+                Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
+
+            }
+            //while all the products from an invoice are not validated, the invoice is not validated
+            foreach (var product in products)
+            {
+                if (product.isFactUpdated == 1)
                 {
-                    log.Error("Product not validated: " + product);
-                    string fileName = Path.GetFileName(pdfFilePath);
-                    string destinationFilePath = Path.Combine(invalidFolderPath, fileName);
-                    File.Move(pdfFilePath, destinationFilePath);
-                    Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
+                    productCounter++;
                 }
                 else
                 {
-                    log.Information("Product validated: " + product);
-                    // Move processed PDF file to validated folder
-                    string fileName = Path.GetFileName(pdfFilePath);
-                    string destinationFilePath = Path.Combine(validFolderPath, fileName);
-                    File.Move(pdfFilePath, destinationFilePath);
-                    //Console.WriteLine("Product validated: " + product);
+                    productCounter = 0;
                 }
             }
+
+            if (productCounter == 0)
+            {
+                log.Error("Invoice not validated: " + pdfFilePath);
+                string fileName = Path.GetFileName(pdfFilePath);
+                string destinationFilePath = Path.Combine(invalidFolderPath, fileName);
+                //File.Move(pdfFilePath, destinationFilePath);
+                Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
+            }
+            else
+            {
+                log.Information("Invoice validated: " + pdfFilePath);
+                // Move processed PDF file to validated folder
+                string fileName = Path.GetFileName(pdfFilePath);
+                string destinationFilePath = Path.Combine(validFolderPath, fileName);
+                //File.Move(pdfFilePath, destinationFilePath);
+                //Console.WriteLine("Product validated: " + product);
+            }
+
         }
 
 

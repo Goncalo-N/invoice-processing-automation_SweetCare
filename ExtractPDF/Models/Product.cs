@@ -1,4 +1,4 @@
-public class IProduct
+public class Product
 {
     // Product's code.
     public string Code { get; set; }
@@ -33,15 +33,17 @@ public class IProduct
     // Bonus quantity that come with the product.
     public int Bonus { get; set; }
 
+    public int isFactUpdated { get; set; }
+
     // Overrides the ToString method to provide a string representation of the product details.
     public override string ToString()
     {
         return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, UnitPrice: {UnitPrice}, " +
-               $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, PrecoComIVA: {PrecoComIVA}, Bonus: {Bonus}";
+               $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, PrecoComIVA: {PrecoComIVA}, Bonus: {Bonus} isFactUpdated: {isFactUpdated}";
     }
 }
 
-public class LEXProduct : IProduct
+public class LEXProduct : Product
 {
     public string Name { get; set; }
     public string CNP { get; set; }
@@ -54,7 +56,7 @@ public class LEXProduct : IProduct
         return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
     }
 }
-public class MorenoProduct : IProduct
+public class MorenoProduct : Product
 {
     public string CNP { get; set; }
     public string Designation { get; set; }

@@ -31,9 +31,9 @@ public class DataService
         return orderRepository.GetOrderID(invoiceNumber);
     }
 
-    public bool ValidateProduct(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity, string supplierInvoiceNumber)
+    public bool ValidateProduct(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity, string supplierInvoiceNumber, int isFactUpdated)
     {
-        return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber);
+        return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber, isFactUpdated);
     }
 
     internal bool ValidateInvoice(int orderID, string invoiceNumber)
