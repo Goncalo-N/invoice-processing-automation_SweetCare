@@ -2,6 +2,10 @@
 using System.Reflection.Emit;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 using Serilog;
 
 namespace PDFDataExtraction
@@ -14,6 +18,7 @@ namespace PDFDataExtraction
         public MainWindow()
         {
             InitializeComponent();
+            ExitButton.Background = Brushes.Red;
         }
 
         private void StartPauseButton_Click(object sender, RoutedEventArgs e)
@@ -27,9 +32,11 @@ namespace PDFDataExtraction
                 var folders = Program.GetFolderPaths(baseDirectory);
                 Console.WriteLine("Starting the task");
                 _cts = new CancellationTokenSource(); // Reset the CancellationTokenSource for a new task
-                Task.Run(() => Program.MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath, _cts.Token),_cts.Token);
+                Task.Run(() => Program.MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath, _cts.Token), _cts.Token);
                 StartPauseButton.Content = "Pause";
-                Status.Content = "Running"; // Update label content to "Running" when monitoring starts
+                StartPauseButton.Background = Brushes.Red;
+                StatusIndicator.Background = Brushes.Green;
+                StatusLabel.Content = "Running"; // Update label content to "Running" when monitoring starts
             }
             else
             {
@@ -37,7 +44,11 @@ namespace PDFDataExtraction
                 Console.WriteLine("Pausing the task");
                 _cts.Cancel();
                 StartPauseButton.Content = "Resume";
-                Status.Content = "Paused"; // Update label content to "Paused" when monitoring is paused
+
+                StartPauseButton.Background = Brushes.Green;
+                StatusIndicator.Background = Brushes.Red;
+
+                StatusLabel.Content = "Paused"; // Update label content to "Paused" when monitoring is paused
             }
         }
 
@@ -47,5 +58,6 @@ namespace PDFDataExtraction
             // Close the application
             Application.Current.Shutdown();
         }
+
     }
 }
