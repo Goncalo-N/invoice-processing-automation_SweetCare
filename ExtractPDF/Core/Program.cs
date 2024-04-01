@@ -7,7 +7,7 @@ using Serilog;
 namespace PDFDataExtraction
 {
 
-    class Program
+    public class Program
     {
         static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
         static readonly InvoiceParser parser = new InvoiceParser();
@@ -15,6 +15,7 @@ namespace PDFDataExtraction
             .MinimumLevel.Debug()
             .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
+
 
         static void Main(string[] aparsers)
         {
@@ -40,7 +41,7 @@ namespace PDFDataExtraction
             log.Error($"Unobserved task exception: {e.Exception}");
             e.SetObserved();
         }
-        static string GetBaseDirectory()
+        public static string GetBaseDirectory()
         {
             var baseDirectory = Directory.GetCurrentDirectory();
             var parentDirectory = Directory.GetParent(baseDirectory);
@@ -50,7 +51,7 @@ namespace PDFDataExtraction
             return baseDirectory;
         }
 
-        static (string folderPath, string outputFolderPath, string validatedFolderPath, string invalidFolerPath) GetFolderPaths(string baseDirectory)
+        public static (string folderPath, string outputFolderPath, string validatedFolderPath, string invalidFolerPath) GetFolderPaths(string baseDirectory)
         {
             return (
                 Path.Combine(baseDirectory, "pdfs"),
@@ -99,7 +100,7 @@ namespace PDFDataExtraction
             }
             return "N/A";
         }
-        static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath)
+        public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
             // Create a timer with a 5-minute interval
             System.Timers.Timer timer = new System.Timers.Timer(5 * 60 * 1000);
@@ -110,6 +111,29 @@ namespace PDFDataExtraction
             // Initial check when starting the program
             CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath);
         }
+
+        public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath, CancellationToken cancellationToken)
+        {
+            // Create a timer with a 5-minute interval
+            var timer = new System.Threading.Timer(
+                callback: _ => CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath),
+                state: null,
+                dueTime: TimeSpan.Zero,
+                period: TimeSpan.FromMinutes(1)
+            );
+
+            // Register a callback with the cancellation token to dispose of the timer when cancellation is requested
+            cancellationToken.Register(() => timer.Dispose());
+
+            // Wait for the cancellation token to be signaled
+            cancellationToken.WaitHandle.WaitOne();
+
+            // Dispose of the timer when the method exits
+            timer.Dispose();
+        }
+
+
+
 
         static void CheckFolderForNewPDFs(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
@@ -362,12 +386,12 @@ namespace PDFDataExtraction
                     }
                     if (isProductValid)
                     {
-                        log.Information("Product validated: " + product);
+                        log.Information("Product validated: " + product.Code + " in invoice: " + pdfFilePath);
                         product.isFactUpdated = 1;
                     }
                     else
                     {
-                        log.Error("Product not validated: " + product);
+                        log.Error("Product not validated: " + product.Code + " in invoice: " + pdfFilePath);
                     }
 
                 }

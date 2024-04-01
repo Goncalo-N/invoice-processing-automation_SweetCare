@@ -1,0 +1,320 @@
+2024-04-01 14:11:14.035 +01:00 [INF] Application Starting
+2024-04-01 14:11:14.130 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.359 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-04-01 14:11:15.370 +01:00 [ERR] Missing field: Invoice Date
+2024-04-01 14:11:15.370 +01:00 [ERR] Missing field: Num Encomenda
+2024-04-01 14:11:15.370 +01:00 [ERR] Missing field: Num Fatura
+2024-04-01 14:11:15.370 +01:00 [ERR] Missing field: Due Date
+2024-04-01 14:11:15.370 +01:00 [ERR] Number of missing fields: 5
+2024-04-01 14:11:15.464 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.498 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.500 +01:00 [ERR] Product not valid: PT7295378 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.501 +01:00 [ERR] Product not valid: PT6895094 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.503 +01:00 [ERR] Product not valid: 8704035 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.504 +01:00 [ERR] Product not valid: 8703581 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.504 +01:00 [ERR] Product not valid: 8704057 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.505 +01:00 [ERR] Product not valid: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.505 +01:00 [ERR] Product not valid: PT6937748 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.506 +01:00 [ERR] Product not valid: 8703388 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.506 +01:00 [ERR] Product not valid: PT6908368 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.507 +01:00 [ERR] Product not valid: 8703543 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.507 +01:00 [ERR] Product not valid: PT6866046 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.508 +01:00 [ERR] Product not valid: PT6289413 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.508 +01:00 [ERR] Product not valid: PT6397356 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.509 +01:00 [ERR] Product not valid: PT6841817 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.510 +01:00 [ERR] Product not valid: PT7266726 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.510 +01:00 [ERR] Product not valid: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.511 +01:00 [ERR] Product not valid: 8703323 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.511 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.563 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.566 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.567 +01:00 [ERR] Product not valid: 8703987 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.567 +01:00 [ERR] Product not valid: 8703867 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.599 +01:00 [ERR] Product not valid: PT6943761 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.612 +01:00 [ERR] Product not valid: PT6943779 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.613 +01:00 [ERR] Product not valid: PT6943787 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.613 +01:00 [ERR] Product not valid: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.614 +01:00 [ERR] Product not valid: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.614 +01:00 [ERR] Product not valid: PT6340612 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.614 +01:00 [ERR] Product not valid: 8704064 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.615 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 14:11:15.663 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 14:11:15.674 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.674 +01:00 [ERR] Product not valid: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 14:11:15.675 +01:00 [ERR] Product not valid: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 14:11:15.675 +01:00 [ERR] Product not valid: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 14:11:15.675 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 14:11:15.695 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 14:11:15.698 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.698 +01:00 [ERR] Product not valid: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 14:11:15.699 +01:00 [ERR] Product not valid: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 14:11:15.700 +01:00 [ERR] Product not valid: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 14:11:15.700 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 14:11:15.717 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 14:11:15.720 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.721 +01:00 [ERR] Product not valid: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 14:11:15.721 +01:00 [ERR] Product not valid: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 14:11:15.722 +01:00 [ERR] Product not valid: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 14:11:15.722 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 14:11:15.749 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 14:11:15.752 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.753 +01:00 [ERR] Product not valid: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 14:11:15.754 +01:00 [ERR] Product not valid: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 14:11:15.754 +01:00 [ERR] Product not valid: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 14:11:15.754 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 14:11:15.778 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.782 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.783 +01:00 [ERR] Product not valid: RG1002081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.783 +01:00 [ERR] Product not valid: RG1005051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.784 +01:00 [ERR] Product not valid: RG1006081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.784 +01:00 [ERR] Product not valid: RG1008081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.785 +01:00 [ERR] Product not valid: RG1012051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.785 +01:00 [ERR] Product not valid: RG1004081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.786 +01:00 [ERR] Product not valid: RG1007051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.786 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 14:11:15.878 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 14:11:15.881 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 14:11:15.882 +01:00 [ERR] Product not valid: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 14:11:15.882 +01:00 [ERR] Product not valid: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 14:11:15.883 +01:00 [ERR] Product not valid: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 14:11:15.883 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:02:09.327 +01:00 [INF] Application Starting
+2024-04-01 15:02:09.513 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.213 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-04-01 15:02:11.246 +01:00 [ERR] Missing field: Invoice Date
+2024-04-01 15:02:11.246 +01:00 [ERR] Missing field: Num Encomenda
+2024-04-01 15:02:11.246 +01:00 [ERR] Missing field: Num Fatura
+2024-04-01 15:02:11.246 +01:00 [ERR] Missing field: Due Date
+2024-04-01 15:02:11.246 +01:00 [ERR] Number of missing fields: 5
+2024-04-01 15:02:11.386 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.430 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.432 +01:00 [ERR] Product not validated: PT7295378 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.433 +01:00 [ERR] Product not validated: PT6895094 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.434 +01:00 [ERR] Product not validated: 8704035 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.435 +01:00 [ERR] Product not validated: 8703581 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.436 +01:00 [ERR] Product not validated: 8704057 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.437 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.437 +01:00 [ERR] Product not validated: PT6937748 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.438 +01:00 [ERR] Product not validated: 8703388 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.439 +01:00 [ERR] Product not validated: PT6908368 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.439 +01:00 [ERR] Product not validated: 8703543 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.440 +01:00 [ERR] Product not validated: PT6866046 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.440 +01:00 [ERR] Product not validated: PT6289413 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.441 +01:00 [ERR] Product not validated: PT6397356 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.442 +01:00 [ERR] Product not validated: PT6841817 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.443 +01:00 [ERR] Product not validated: PT7266726 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.444 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.446 +01:00 [ERR] Product not validated: 8703323 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.446 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.527 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.534 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.535 +01:00 [ERR] Product not validated: 8703987 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.536 +01:00 [ERR] Product not validated: 8703867 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.537 +01:00 [ERR] Product not validated: PT6943761 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.538 +01:00 [ERR] Product not validated: PT6943779 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.539 +01:00 [ERR] Product not validated: PT6943787 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.539 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.540 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.541 +01:00 [ERR] Product not validated: PT6340612 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.542 +01:00 [ERR] Product not validated: 8704064 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.542 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:02:11.619 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:02:11.636 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.637 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:02:11.638 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:02:11.639 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:02:11.639 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:02:11.667 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:02:11.683 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.684 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:02:11.684 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:02:11.685 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:02:11.685 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:02:11.710 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:02:11.715 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.716 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:02:11.717 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:02:11.718 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:02:11.718 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:02:11.753 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:02:11.757 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.758 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:02:11.759 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:02:11.760 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:02:11.760 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:02:11.794 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.798 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:11.798 +01:00 [ERR] Product not validated: RG1002081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.799 +01:00 [ERR] Product not validated: RG1005051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.801 +01:00 [ERR] Product not validated: RG1006081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.801 +01:00 [ERR] Product not validated: RG1008081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.802 +01:00 [ERR] Product not validated: RG1012051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.803 +01:00 [ERR] Product not validated: RG1004081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.803 +01:00 [ERR] Product not validated: RG1007051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.804 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:02:11.992 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:02:12.006 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:02:12.007 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:02:12.007 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:02:12.008 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:02:12.008 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:10:50.633 +01:00 [INF] Application Starting
+2024-04-01 15:10:50.794 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.484 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-04-01 15:10:52.499 +01:00 [ERR] Missing field: Invoice Date
+2024-04-01 15:10:52.499 +01:00 [ERR] Missing field: Num Encomenda
+2024-04-01 15:10:52.499 +01:00 [ERR] Missing field: Num Fatura
+2024-04-01 15:10:52.499 +01:00 [ERR] Missing field: Due Date
+2024-04-01 15:10:52.499 +01:00 [ERR] Number of missing fields: 5
+2024-04-01 15:10:52.609 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.642 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.644 +01:00 [ERR] Product not validated: PT7295378 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.645 +01:00 [ERR] Product not validated: PT6895094 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.645 +01:00 [ERR] Product not validated: 8704035 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.646 +01:00 [ERR] Product not validated: 8703581 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.646 +01:00 [ERR] Product not validated: 8704057 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.648 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.649 +01:00 [ERR] Product not validated: PT6937748 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.650 +01:00 [ERR] Product not validated: 8703388 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.652 +01:00 [ERR] Product not validated: PT6908368 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.653 +01:00 [ERR] Product not validated: 8703543 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.654 +01:00 [ERR] Product not validated: PT6866046 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.654 +01:00 [ERR] Product not validated: PT6289413 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.655 +01:00 [ERR] Product not validated: PT6397356 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.656 +01:00 [ERR] Product not validated: PT6841817 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.657 +01:00 [ERR] Product not validated: PT7266726 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.658 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.659 +01:00 [ERR] Product not validated: 8703323 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.659 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.765 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.781 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.782 +01:00 [ERR] Product not validated: 8703987 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.782 +01:00 [ERR] Product not validated: 8703867 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.783 +01:00 [ERR] Product not validated: PT6943761 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.784 +01:00 [ERR] Product not validated: PT6943779 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.785 +01:00 [ERR] Product not validated: PT6943787 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.786 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.786 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.787 +01:00 [ERR] Product not validated: PT6340612 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.788 +01:00 [ERR] Product not validated: 8704064 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.788 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:10:52.846 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:10:52.864 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.865 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:10:52.865 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:10:52.866 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:10:52.866 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:10:52.893 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:10:52.898 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.899 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:10:52.899 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:10:52.900 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:10:52.900 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:10:52.922 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:10:52.927 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.928 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:10:52.929 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:10:52.929 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:10:52.929 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:10:52.970 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:10:52.983 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:52.984 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:10:52.985 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:10:52.986 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:10:52.986 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:10:53.123 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.138 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:53.139 +01:00 [ERR] Product not validated: RG1002081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.140 +01:00 [ERR] Product not validated: RG1005051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.141 +01:00 [ERR] Product not validated: RG1006081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.142 +01:00 [ERR] Product not validated: RG1008081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.142 +01:00 [ERR] Product not validated: RG1012051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.143 +01:00 [ERR] Product not validated: RG1004081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.144 +01:00 [ERR] Product not validated: RG1007051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.144 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:10:53.283 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:10:53.290 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:10:53.291 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:10:53.292 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:10:53.293 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:10:53.293 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:25:43.675 +01:00 [INF] Application Starting
+2024-04-01 15:25:43.765 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:44.767 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\213867.pdf
+2024-04-01 15:25:44.779 +01:00 [ERR] Missing field: Invoice Date
+2024-04-01 15:25:44.779 +01:00 [ERR] Missing field: Num Encomenda
+2024-04-01 15:25:44.779 +01:00 [ERR] Missing field: Num Fatura
+2024-04-01 15:25:44.779 +01:00 [ERR] Missing field: Due Date
+2024-04-01 15:25:44.779 +01:00 [ERR] Number of missing fields: 5
+2024-04-01 15:25:44.877 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.915 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:44.919 +01:00 [ERR] Product not validated: PT7295378 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.919 +01:00 [ERR] Product not validated: PT6895094 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.920 +01:00 [ERR] Product not validated: 8704035 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.921 +01:00 [ERR] Product not validated: 8703581 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.921 +01:00 [ERR] Product not validated: 8704057 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.924 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.927 +01:00 [ERR] Product not validated: PT6937748 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.927 +01:00 [ERR] Product not validated: 8703388 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.928 +01:00 [ERR] Product not validated: PT6908368 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.929 +01:00 [ERR] Product not validated: 8703543 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.930 +01:00 [ERR] Product not validated: PT6866046 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.931 +01:00 [ERR] Product not validated: PT6289413 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.934 +01:00 [ERR] Product not validated: PT6397356 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.934 +01:00 [ERR] Product not validated: PT6841817 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.935 +01:00 [ERR] Product not validated: PT7266726 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.936 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.936 +01:00 [ERR] Product not validated: 8703323 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:44.936 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.000 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.004 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.005 +01:00 [ERR] Product not validated: 8703987 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.006 +01:00 [ERR] Product not validated: 8703867 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.008 +01:00 [ERR] Product not validated: PT6943761 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.010 +01:00 [ERR] Product not validated: PT6943779 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.011 +01:00 [ERR] Product not validated: PT6943787 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.012 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.013 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.013 +01:00 [ERR] Product not validated: PT6340612 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.014 +01:00 [ERR] Product not validated: 8704064 in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.014 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-01 15:25:45.075 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:25:45.084 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.085 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:25:45.086 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:25:45.086 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:25:45.086 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-01 15:25:45.115 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:25:45.119 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.120 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:25:45.122 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:25:45.123 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:25:45.124 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-01 15:25:45.147 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:25:45.150 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.151 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:25:45.151 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:25:45.152 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:25:45.152 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-01 15:25:45.182 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:25:45.185 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.186 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:25:45.186 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:25:45.187 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:25:45.187 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-01 15:25:45.219 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.225 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.226 +01:00 [ERR] Product not validated: RG1002081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.228 +01:00 [ERR] Product not validated: RG1005051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.228 +01:00 [ERR] Product not validated: RG1006081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.229 +01:00 [ERR] Product not validated: RG1008081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.229 +01:00 [ERR] Product not validated: RG1012051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.230 +01:00 [ERR] Product not validated: RG1004081WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.230 +01:00 [ERR] Product not validated: RG1007051WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.230 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-01 15:25:45.334 +01:00 [INF] Reading invoice : C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:25:45.337 +01:00 [INF] Base directory: C:\Users\nogue\Documents\Projeto\invoice-processing-automation
+2024-04-01 15:25:45.338 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:25:45.338 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:25:45.339 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-01 15:25:45.340 +01:00 [ERR] Invoice not validated: C:\Users\nogue\Documents\Projeto\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
