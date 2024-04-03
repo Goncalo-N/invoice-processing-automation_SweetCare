@@ -216,7 +216,7 @@ namespace PDFDataExtraction
                     IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
                     products = parser.ExtractProductDetails(invoiceText, regex[12]);
                     break;
-                case "MOENO II":
+                /*case "MOENO II":
                     invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
                     numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
@@ -225,7 +225,7 @@ namespace PDFDataExtraction
                     totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
                     products = parser.ExtractProductDetailsMoreno(invoiceText, regex[12]);
-                    break;
+                    break;*/
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
                     numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
