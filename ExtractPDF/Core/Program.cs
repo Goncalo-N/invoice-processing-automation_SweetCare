@@ -132,9 +132,6 @@ namespace PDFDataExtraction
             timer.Dispose();
         }
 
-
-
-
         static void CheckFolderForNewPDFs(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
             if (!Directory.Exists(folderPath))
@@ -430,25 +427,5 @@ namespace PDFDataExtraction
             }
 
         }
-
-
-        //Calls a method from the producer class to validate the general information of the invoice.
-        /*
-        static void validateInvoice(int orderID, List<IProduct> products, string invoiceNumber)
-        {
-            bool isInvoiceValid = false;
-            isInvoiceValid = dataService.ValidateInvoice(orderID, invoiceNumber);
-
-            if (isInvoiceValid)
-            {
-                log.Information("Invoice validated: " + invoiceNumber);
-                Console.WriteLine("Invoice validated: " + invoiceNumber);
-            }
-            else
-            {
-                log.Error("Invoice not validated: " + invoiceNumber);
-                Console.WriteLine("Invoice not validated: " + invoiceNumber);
-            }
-        }*/
     }
 }

@@ -56,6 +56,7 @@ public class LEXProduct : Product
         return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
     }
 }
+/*
 public class MorenoProduct : Product
 {
     public string CNP { get; set; }
@@ -71,4 +72,4 @@ public class MorenoProduct : Product
         return $"{base.ToString()}, CNP: {CNP}, Designation: {Designation}, Lot: {Lot}, ExpiryDate: {ExpiryDate.ToString("yyyy-MM-dd")}, " +
                $"Type: {Type}, IVA: {IVA}, Total: {Total}";
     }
-}
+}*/
