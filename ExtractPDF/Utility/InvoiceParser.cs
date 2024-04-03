@@ -97,34 +97,34 @@ namespace PDFDataExtraction
 
 
         private string ExtractFurthestFutureDateMatch(string text, Regex regex)
-    {
-        MatchCollection matches = regex.Matches(text);
-        DateTime furthestFutureDate = DateTime.MinValue; // Start with the earliest possible date
-
-        foreach (Match match in matches)
         {
-            if (DateTime.TryParse(match.Value, out DateTime parsedDate))
+            MatchCollection matches = regex.Matches(text);
+            DateTime furthestFutureDate = DateTime.MinValue; // Start with the earliest possible date
+
+            foreach (Match match in matches)
             {
-                // Check if the parsed date is further in the future than the current furthestFutureDate
-                if (parsedDate > furthestFutureDate)
+                if (DateTime.TryParse(match.Value, out DateTime parsedDate))
                 {
-                    furthestFutureDate = parsedDate; // Update furthestFutureDate
+                    // Check if the parsed date is further in the future than the current furthestFutureDate
+                    if (parsedDate > furthestFutureDate)
+                    {
+                        furthestFutureDate = parsedDate; // Update furthestFutureDate
+                    }
                 }
             }
-        }
 
-        // Check if a date was found (furthestFutureDate is no longer DateTime.MinValue)
-        if (furthestFutureDate > DateTime.MinValue)
-        {
-            // Return the furthest future date found, formatted as "dd/MM/yyyy"
-            return furthestFutureDate.ToString("dd/MM/yyyy");
+            // Check if a date was found (furthestFutureDate is no longer DateTime.MinValue)
+            if (furthestFutureDate > DateTime.MinValue)
+            {
+                // Return the furthest future date found, formatted as "dd/MM/yyyy"
+                return furthestFutureDate.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                // Return "N/A" if no future date was found
+                return "N/A";
+            }
         }
-        else
-        {
-            // Return "N/A" if no future date was found
-            return "N/A";
-        }
-    }
 
         private decimal ExtractDecimalValueWithNormalization(string text, string pattern)
         {
@@ -245,77 +245,77 @@ namespace PDFDataExtraction
             }
             return products;
         }
-/*
-        // Method to extract products from Moreno II invoices using regular expression
-        public List<Product> ExtractProductDetailsMoreno(string invoiceText, string pattern)
-        {
-            //Console.WriteLine(pattern);
-            List<Product> products = new List<Product>();
-            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
-
-            HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
-
-            foreach (Match match in matches)
-            {
-                string uniqueIdentifier = $"{match.Groups["Designation"].Value}_{match.Groups["Quantity"].Value}_{match.Groups["NetPrice"].Value}";
-
-                // Check if this product has already been processed
-                if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
+        /*
+                // Method to extract products from Moreno II invoices using regular expression
+                public List<Product> ExtractProductDetailsMoreno(string invoiceText, string pattern)
                 {
-                    uniqueProductIdentifiers.Add(uniqueIdentifier);
+                    //Console.WriteLine(pattern);
+                    List<Product> products = new List<Product>();
+                    MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
 
-                    MorenoProduct product = new MorenoProduct();
-                    product.CNP = match.Groups["CNP"].Value;
-                    product.Designation = match.Groups["Designation"].Value;
-                    product.Lot = match.Groups["Lot"].Value;
-                    DateTime expiryDate;
-                    if (DateTime.TryParse(match.Groups["ExpiryDate"].Value, out expiryDate))
+                    HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
+
+                    foreach (Match match in matches)
                     {
-                        product.ExpiryDate = expiryDate;
+                        string uniqueIdentifier = $"{match.Groups["Designation"].Value}_{match.Groups["Quantity"].Value}_{match.Groups["NetPrice"].Value}";
+
+                        // Check if this product has already been processed
+                        if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
+                        {
+                            uniqueProductIdentifiers.Add(uniqueIdentifier);
+
+                            MorenoProduct product = new MorenoProduct();
+                            product.CNP = match.Groups["CNP"].Value;
+                            product.Designation = match.Groups["Designation"].Value;
+                            product.Lot = match.Groups["Lot"].Value;
+                            DateTime expiryDate;
+                            if (DateTime.TryParse(match.Groups["ExpiryDate"].Value, out expiryDate))
+                            {
+                                product.ExpiryDate = expiryDate;
+                            }
+                            product.Type = match.Groups["Type"].Value;
+                            int quantity;
+                            if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
+                            {
+                                product.Quantity = quantity;
+                            }
+                            decimal unitPrice;
+                            if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
+                            {
+                                product.UnitPrice = unitPrice;
+                            }
+                            decimal discount1;
+                            if (decimal.TryParse(match.Groups["Discount1"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount1))
+                            {
+                                product.Discount1 = discount1;
+                            }
+                            decimal discount2;
+                            if (decimal.TryParse(match.Groups["Discount2"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount2))
+                            {
+                                product.Discount2 = discount2;
+                            }
+                            decimal netPrice;
+                            if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
+                            {
+                                product.NetPrice = netPrice;
+                            }
+                            int iva;
+                            if (int.TryParse(match.Groups["IVA"].Value, out iva))
+                            {
+                                product.IVA = iva;
+                            }
+                            decimal total;
+                            if (decimal.TryParse(match.Groups["Total"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out total))
+                            {
+                                product.Total = total;
+                            }
+                            //Console.WriteLine(product);
+                            products.Add(product);
+                        }
                     }
-                    product.Type = match.Groups["Type"].Value;
-                    int quantity;
-                    if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
-                    {
-                        product.Quantity = quantity;
-                    }
-                    decimal unitPrice;
-                    if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
-                    {
-                        product.UnitPrice = unitPrice;
-                    }
-                    decimal discount1;
-                    if (decimal.TryParse(match.Groups["Discount1"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount1))
-                    {
-                        product.Discount1 = discount1;
-                    }
-                    decimal discount2;
-                    if (decimal.TryParse(match.Groups["Discount2"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount2))
-                    {
-                        product.Discount2 = discount2;
-                    }
-                    decimal netPrice;
-                    if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
-                    {
-                        product.NetPrice = netPrice;
-                    }
-                    int iva;
-                    if (int.TryParse(match.Groups["IVA"].Value, out iva))
-                    {
-                        product.IVA = iva;
-                    }
-                    decimal total;
-                    if (decimal.TryParse(match.Groups["Total"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out total))
-                    {
-                        product.Total = total;
-                    }
-                    //Console.WriteLine(product);
-                    products.Add(product);
+                    return products;
                 }
-            }
-            return products;
-        }
-*/
+        */
         // Method to extract products from LEX invoices using regular expression
         public List<Product> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
