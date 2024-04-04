@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Tests\UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{8783AAC4-D6E7-4258-8B5A-2F70CDF54559}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests", "UITests\UITests.csproj", "{A97D24B0-E014-4031-A6AA-C0FA390CA706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{8783AAC4-D6E7-4258-8B5A-2F70CDF54559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8783AAC4-D6E7-4258-8B5A-2F70CDF54559}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8783AAC4-D6E7-4258-8B5A-2F70CDF54559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97D24B0-E014-4031-A6AA-C0FA390CA706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97D24B0-E014-4031-A6AA-C0FA390CA706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97D24B0-E014-4031-A6AA-C0FA390CA706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97D24B0-E014-4031-A6AA-C0FA390CA706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
