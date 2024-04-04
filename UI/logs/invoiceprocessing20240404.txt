@@ -1,0 +1,74 @@
+2024-04-04 14:37:55.461 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.556 +01:00 [ERR] Supplier not found for file: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\213867.pdf
+2024-04-04 14:37:57.620 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.643 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.646 +01:00 [ERR] Product not validated: PT7295378 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.647 +01:00 [ERR] Product not validated: PT6895094 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.648 +01:00 [ERR] Product not validated: 8704035 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.649 +01:00 [ERR] Product not validated: 8703581 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.649 +01:00 [ERR] Product not validated: 8704057 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.649 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.649 +01:00 [ERR] Product not validated: PT6937748 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.650 +01:00 [ERR] Product not validated: 8703388 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.650 +01:00 [ERR] Product not validated: PT6908368 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.650 +01:00 [ERR] Product not validated: 8703543 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.650 +01:00 [ERR] Product not validated: PT6866046 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.650 +01:00 [ERR] Product not validated: PT6289413 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Product not validated: PT6397356 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Product not validated: PT6841817 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Product not validated: PT7266726 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Product not validated: 8703323 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.651 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.703 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.705 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.706 +01:00 [ERR] Product not validated: 8703987 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.706 +01:00 [ERR] Product not validated: 8703867 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.706 +01:00 [ERR] Product not validated: PT6943761 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.706 +01:00 [ERR] Product not validated: PT6943779 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.707 +01:00 [ERR] Product not validated: PT6943787 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.707 +01:00 [ERR] Product not validated: 8703882 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.707 +01:00 [ERR] Product not validated: PT6969816 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.707 +01:00 [ERR] Product not validated: PT6340612 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.708 +01:00 [ERR] Product not validated: 8704064 in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.708 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-04 14:37:57.748 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-04 14:37:57.755 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.757 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-04 14:37:57.757 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-04 14:37:57.758 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-04 14:37:57.758 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02531.pdf
+2024-04-04 14:37:57.779 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-04 14:37:57.782 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.782 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-04 14:37:57.782 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-04 14:37:57.782 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-04 14:37:57.782 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02546.pdf
+2024-04-04 14:37:57.810 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-04 14:37:57.819 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.821 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-04 14:37:57.821 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-04 14:37:57.821 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-04 14:37:57.821 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02586.pdf
+2024-04-04 14:37:57.863 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-04 14:37:57.874 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.877 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-04 14:37:57.877 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-04 14:37:57.878 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-04 14:37:57.878 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0412FAC02591.pdf
+2024-04-04 14:37:57.912 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.923 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.924 +01:00 [ERR] Product not validated: RG1002081WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.925 +01:00 [ERR] Product not validated: RG1005051WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.925 +01:00 [ERR] Product not validated: RG1006081WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.925 +01:00 [ERR] Product not validated: RG1008081WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.925 +01:00 [ERR] Product not validated: RG1012051WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.926 +01:00 [ERR] Product not validated: RG1004081WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.926 +01:00 [ERR] Product not validated: RG1007051WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.926 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO0501FAC05321.pdf
+2024-04-04 14:37:57.978 +01:00 [INF] Reading invoice : C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-04 14:37:57.983 +01:00 [INF] Base directory: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation
+2024-04-04 14:37:57.983 +01:00 [ERR] Product not validated: RG1001021WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-04 14:37:57.984 +01:00 [ERR] Product not validated: RG1007041WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-04 14:37:57.984 +01:00 [ERR] Product not validated: RG1006071WW in invoice: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
+2024-04-04 14:37:57.984 +01:00 [ERR] Invoice not validated: C:\Users\Gonçalo Nogueira\Downloads\Project\invoice-processing-automation\pdfs\SRO2312CRM03537.pdf
