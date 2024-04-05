@@ -4,7 +4,7 @@
     Title="PDF Monitor" Height="300" Width="400"
     Background="#1E1E1E">
     <Window.Resources>
-        <!-- Simplified Style for the buttons -->
+        <!-- Style for the buttons -->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#007ACC" />
             <Setter Property="Foreground" Value="White" />
@@ -22,7 +22,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!-- Adjusted Style for the status indicator to ensure no crashes -->
+        <!-- Adjusted Style for the status indicator -->
         <Style x:Key="StatusIndicatorStyle" TargetType="Border">
             <Setter Property="Width" Value="20" />
             <Setter Property="Height" Value="20" />
