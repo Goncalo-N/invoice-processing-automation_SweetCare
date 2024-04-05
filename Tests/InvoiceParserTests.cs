@@ -17,20 +17,6 @@ namespace PDFDataExtractionTests
         }
 
         [Test]
-        public void ExtractInvoiceDate_ValidDate_ReturnsFormattedDate()
-        {
-            // Arrange
-            string inputText = "The invoice date is 15/04/2023.";
-            string pattern = @"\d{2}/\d{2}/\d{4}";
-
-            // Act
-            var result = _parser.ExtractInvoiceDate(inputText, pattern);
-
-            // Assert
-            Assert.That(result, Is.EqualTo("15/04/2023"));
-        }
-
-        [Test]
         public void ExtractInvoiceDate_InvalidDate_ReturnsNA()
         {
             // Arrange
@@ -42,6 +28,20 @@ namespace PDFDataExtractionTests
 
             // Assert
             Assert.That(result, Is.EqualTo("N/A"));
+        }
+
+        [Test]
+        public void ExtractInvoiceDate_ValidDate_ReturnsFormattedDate()
+        {
+            // Arrange
+            string inputText = "The invoice date is 15/04/2023.";
+            string pattern = @"\d{2}/\d{2}/\d{4}";
+
+            // Act
+            var result = _parser.ExtractInvoiceDate(inputText, pattern);
+
+            // Assert
+            Assert.That(result, Is.EqualTo("15/04/2023"));
         }
 
         [Test]
