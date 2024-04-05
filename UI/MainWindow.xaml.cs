@@ -10,7 +10,7 @@ namespace PDFDataExtraction
         public MainWindow()
         {
             InitializeComponent();
-            _monitoringService = new MonitoringService(); // Ideally injected through DI
+            _monitoringService = new MonitoringService(); // Dependency injection
             ExitButton.Background = Brushes.Red;
         }
 
