@@ -112,8 +112,8 @@ namespace PDFDataExtractionTests
             var products = _parser.ExtractProductDetailsLEX(inputText, pattern);
 
             // Assert
-            Assert.IsNotNull(products);
-            Assert.IsNotEmpty(products);
+            Assert.That(products, Is.Not.EqualTo(null));
+            Assert.That(products.Count, Is.Not.EqualTo(0));
             Assert.That(products.Count, Is.EqualTo(1)); //One product match
             var firstProduct = products[0];
             Assert.That(firstProduct.Code, Is.EqualTo("8703987"));
