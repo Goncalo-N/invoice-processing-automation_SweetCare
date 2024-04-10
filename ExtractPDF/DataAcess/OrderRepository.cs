@@ -66,11 +66,9 @@ public class OrderRepository
         return orderID;
     }
 
-    //validate products
-    public bool ValidateProduct(string productCode, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber, int isFactUpdated)
+    public bool ValidateProduct(string productCNP, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber, int isFactUpdated)
     {
-
-        //check if the product is already validated from before.
+        // Check if the product is already validated from before.
         if (isFactUpdated == 1)
         {
             return true;
@@ -79,25 +77,17 @@ public class OrderRepository
         bool isValid = false;
         bool pricesMatch = false;
         bool quantityMatch = false;
-        NetPrice = Math.Round(NetPrice, 4);
-        UnitPrice = Math.Round(UnitPrice, 4);
+        NetPrice = Math.Round(NetPrice, 2);
+        UnitPrice = Math.Round(UnitPrice, 2);
 
-
-        //Console.WriteLine("ProductCode: " + productCode);
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();
 
-            string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCode AND orderId = @orderId AND isFactUpdated = 0";
+            string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCNP AND orderId = @orderId AND isFactUpdated = 0";
             using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
             {
-                // Check for null or empty productCode and handle accordingly
-                if (string.IsNullOrEmpty(productCode))
-                {
-                    throw new ArgumentException("Product code cannot be null or empty.", nameof(productCode));
-                }
-
-                selectCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
+                selectCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
                 selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
 
                 using (SqlDataReader reader = selectCommand.ExecuteReader())
@@ -106,41 +96,35 @@ public class OrderRepository
                     {
                         decimal priceNoBonus = reader.GetDecimal(0);
                         decimal priceWithBonus = reader.GetDecimal(1);
+                        priceNoBonus = Math.Round(priceNoBonus, 4);
+                        priceWithBonus = Math.Round(priceWithBonus, 4);
                         int quantity = reader.GetInt32(2);
-                        //checking priceNoBonus and priceWithBonus fields from db
-                        if (priceNoBonus == NetPrice && priceWithBonus == UnitPrice)
-                        {
-                            Console.WriteLine("Price matched on productCode: " + productCode);
-                            pricesMatch = true;
-                        }
 
-                        //checking quantity field from db
-                        if (quantity == Quantity)
-                        {
-                            Console.WriteLine("Quantity matched on productCode: " + productCode);
-                            quantityMatch = true;
-                        }
-
-                        if (pricesMatch && quantityMatch)
-                        {
-
-                            Program.log.Information("Product with code {productCode} being processed.", productCode);
-                            string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber WHERE ref = @productCode AND orderId = @orderId AND isFactUpdated = 0";
-                            using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                            {
-                                updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
-                                updateCommand.Parameters.Add(new SqlParameter("@productCode", productCode));
-                                updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-                                //execute query
-                                int rowsAffected = updateCommand.ExecuteNonQuery();
-                                isValid = rowsAffected > 0;
-
-                            }
-                        }
+                        // Check if prices and quantity match
+                        pricesMatch = (priceNoBonus == UnitPrice && priceWithBonus == NetPrice);
+                        quantityMatch = (quantity == Quantity);
                     }
                 }
             }
+
+            // If prices and quantity match, update database
+            if (pricesMatch && quantityMatch)
+            {
+                // Update database
+                string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber, isFactUpdated = 1 WHERE ref = @productCNP AND orderId = @orderId";
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                {
+                    updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+                    updateCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
+                    updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+
+                    int rowsAffected = updateCommand.ExecuteNonQuery();
+                    isValid = rowsAffected > 0;
+                }
+            }
         }
+
         return isValid;
     }
+
 }
