@@ -111,7 +111,7 @@ public class OrderRepository
             if (pricesMatch && quantityMatch)
             {
                 // Update database
-                string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber, isFactUpdated = 1 WHERE ref = @productCNP AND orderId = @orderId";
+                string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber"/*, isFactUpdated = 1*/+" WHERE ref = @productCNP AND orderId = @orderId";
                 using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                 {
                     updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
