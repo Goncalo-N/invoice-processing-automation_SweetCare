@@ -124,7 +124,7 @@ public class OrderRepository
                         if (pricesMatch && quantityMatch)
                         {
 
-                            Program.log.Information("Product with code {productCode} has a null price field.", productCode);
+                            Program.log.Information("Product with code {productCode} being processed.", productCode);
                             string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber WHERE ref = @productCode AND orderId = @orderId AND isFactUpdated = 0";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                             {

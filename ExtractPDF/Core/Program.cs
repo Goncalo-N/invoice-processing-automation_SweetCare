@@ -351,6 +351,8 @@ namespace PDFDataExtraction
             string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
             string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
             int productCounter = 0;
+            string fileName = "";
+            string destinationFilePath = "";
             foreach (var product in products)
             {
                 //price check
@@ -373,48 +375,36 @@ namespace PDFDataExtraction
                     }
                     if (isProductValid)
                     {
+                        //produto validado.
                         log.Information("Product validated: " + product.Code + " in invoice: " + pdfFilePath);
                         product.isFactUpdated = 1;
                     }
                     else
                     {
+                        //caso não seja possivel validar algum produto do invoice, o invoice é movido para a pasta invalid
+                        //podendo ser verificado posteriormente o codigo do produto que não foi validado de qual invoice
                         log.Error("Product not validated: " + product.Code + " in invoice: " + pdfFilePath);
+                        log.Error("Invoice not validated: " + pdfFilePath);
+                        fileName = Path.GetFileName(pdfFilePath);
+                        destinationFilePath = Path.Combine(invalidFolderPath, fileName);
+                        //File.Move(pdfFilePath, destinationFilePath);
+                        Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
+                        return;
+
                     }
 
                 }
                 Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
 
             }
-            //while all the products from an invoice are not validated, the invoice is not validated
-            foreach (var product in products)
-            {
-                if (product.isFactUpdated == 1)
-                {
-                    productCounter++;
-                }
-                else
-                {
-                    productCounter = 0;
-                }
-            }
+            //if function didnt return, then all products were validated, which means invoice is valid
+            log.Information("Invoice validated: " + pdfFilePath);
+            // Move processed PDF file to validated folder
+            fileName = Path.GetFileName(pdfFilePath);
+            destinationFilePath = Path.Combine(validFolderPath, fileName);
+            //File.Move(pdfFilePath, destinationFilePath);
+            //Console.WriteLine("Product validated: " + product);
 
-            if (productCounter == 0)
-            {
-                log.Error("Invoice not validated: " + pdfFilePath);
-                string fileName = Path.GetFileName(pdfFilePath);
-                string destinationFilePath = Path.Combine(invalidFolderPath, fileName);
-                //File.Move(pdfFilePath, destinationFilePath);
-                Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
-            }
-            else
-            {
-                log.Information("Invoice validated: " + pdfFilePath);
-                // Move processed PDF file to validated folder
-                string fileName = Path.GetFileName(pdfFilePath);
-                string destinationFilePath = Path.Combine(validFolderPath, fileName);
-                //File.Move(pdfFilePath, destinationFilePath);
-                //Console.WriteLine("Product validated: " + product);
-            }
 
         }
     }
