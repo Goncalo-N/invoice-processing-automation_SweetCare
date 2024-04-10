@@ -240,82 +240,20 @@ namespace PDFDataExtraction
                     {
                         product.PrecoComIVA = precoComIVA;
                     }
+                    decimal iva;
+                    if (decimal.TryParse(match.Groups["IVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out iva))
+                    {
+                        product.IVA = iva;
+                    };
+
+                    product.CNP = match.Groups["CNP"].Value;
+                    
                     products.Add(product);
                 }
             }
             return products;
         }
-        /*
-                // Method to extract products from Moreno II invoices using regular expression
-                public List<Product> ExtractProductDetailsMoreno(string invoiceText, string pattern)
-                {
-                    //Console.WriteLine(pattern);
-                    List<Product> products = new List<Product>();
-                    MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
-
-                    HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
-
-                    foreach (Match match in matches)
-                    {
-                        string uniqueIdentifier = $"{match.Groups["Designation"].Value}_{match.Groups["Quantity"].Value}_{match.Groups["NetPrice"].Value}";
-
-                        // Check if this product has already been processed
-                        if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
-                        {
-                            uniqueProductIdentifiers.Add(uniqueIdentifier);
-
-                            MorenoProduct product = new MorenoProduct();
-                            product.CNP = match.Groups["CNP"].Value;
-                            product.Designation = match.Groups["Designation"].Value;
-                            product.Lot = match.Groups["Lot"].Value;
-                            DateTime expiryDate;
-                            if (DateTime.TryParse(match.Groups["ExpiryDate"].Value, out expiryDate))
-                            {
-                                product.ExpiryDate = expiryDate;
-                            }
-                            product.Type = match.Groups["Type"].Value;
-                            int quantity;
-                            if (int.TryParse(match.Groups["Quantity"].Value, out quantity))
-                            {
-                                product.Quantity = quantity;
-                            }
-                            decimal unitPrice;
-                            if (decimal.TryParse(match.Groups["UnitPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out unitPrice))
-                            {
-                                product.UnitPrice = unitPrice;
-                            }
-                            decimal discount1;
-                            if (decimal.TryParse(match.Groups["Discount1"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount1))
-                            {
-                                product.Discount1 = discount1;
-                            }
-                            decimal discount2;
-                            if (decimal.TryParse(match.Groups["Discount2"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out discount2))
-                            {
-                                product.Discount2 = discount2;
-                            }
-                            decimal netPrice;
-                            if (decimal.TryParse(match.Groups["NetPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out netPrice))
-                            {
-                                product.NetPrice = netPrice;
-                            }
-                            int iva;
-                            if (int.TryParse(match.Groups["IVA"].Value, out iva))
-                            {
-                                product.IVA = iva;
-                            }
-                            decimal total;
-                            if (decimal.TryParse(match.Groups["Total"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out total))
-                            {
-                                product.Total = total;
-                            }
-                            //Console.WriteLine(product);
-                            products.Add(product);
-                        }
-                    }
-                    return products;
-                }
-        */
+       
         // Method to extract products from LEX invoices using regular expression
         public List<Product> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
