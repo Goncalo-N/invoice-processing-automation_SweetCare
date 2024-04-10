@@ -215,7 +215,6 @@ namespace PDFDataExtraction
                     totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
                     products = parser.ExtractProductDetails(invoiceText, regex[12]);
-                    
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
@@ -357,7 +356,7 @@ namespace PDFDataExtraction
 
             foreach (var product in products)
             {
-                Console.WriteLine("CNP"+product.CNP);
+                Console.WriteLine("CNP" + product.CNP);
                 //price check
                 //check if neither of the prices equal to 0
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
@@ -368,7 +367,7 @@ namespace PDFDataExtraction
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice , product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
+                        isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
