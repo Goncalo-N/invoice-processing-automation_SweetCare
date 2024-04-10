@@ -215,6 +215,7 @@ namespace PDFDataExtraction
                     totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
                     IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
                     products = parser.ExtractProductDetails(invoiceText, regex[12]);
+                    
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
@@ -350,11 +351,13 @@ namespace PDFDataExtraction
             string baseDirectory = GetBaseDirectory();
             string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
             string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
-            int productCounter = 0;
+
             string fileName = "";
             string destinationFilePath = "";
+
             foreach (var product in products)
             {
+                Console.WriteLine("CNP"+product.CNP);
                 //price check
                 //check if neither of the prices equal to 0
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
@@ -365,45 +368,43 @@ namespace PDFDataExtraction
                     if (product.UnitPrice < product.NetPrice)
                     {
 
-                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice / product.Quantity, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
+                        isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice , product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
-                        isProductValid = dataService.ValidateProduct(product.Code, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
+                        isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
                         //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
+
                     if (isProductValid)
                     {
                         //produto validado.
-                        log.Information("Product validated: " + product.Code + " in invoice: " + pdfFilePath);
+                        log.Information("Product validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         product.isFactUpdated = 1;
                     }
                     else
                     {
                         //caso não seja possivel validar algum produto do invoice, o invoice é movido para a pasta invalid
                         //podendo ser verificado posteriormente o codigo do produto que não foi validado de qual invoice
-                        log.Error("Product not validated: " + product.Code + " in invoice: " + pdfFilePath);
+                        log.Error("Product not validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolderPath, fileName);
                         //File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
-
                     }
-
                 }
-                Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated);
-
+                Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated, product.Code);
             }
+
             //if function didnt return, then all products were validated, which means invoice is valid
             log.Information("Invoice validated: " + pdfFilePath);
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
             destinationFilePath = Path.Combine(validFolderPath, fileName);
-            //File.Move(pdfFilePath, destinationFilePath);
-            //Console.WriteLine("Product validated: " + product);
+            File.Move(pdfFilePath, destinationFilePath);
 
 
         }
