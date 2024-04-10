@@ -75,10 +75,10 @@ Data da Fatura: 13/12/2023
 Nº Encomenda: SRO2312CRM01837
 Nº Fatura: SRO0412FAC02596
 Data Vencimento: 11/02/2024
-Total sem IVA: 58.53
-Total com IVA: 58.53
+Total sem IVA: 58,53
+Total com IVA: 58,53
 Taxa IVA: 0,00 0,00
 -----    Products    ------
-Code: RG1001021WW, Barcode: 3701436911607, Description: JMF SABONETES REDONDOS 3x100G, Quantity: 3, UnitPrice: 10.90, Discounts: 25.00, 25.00, 25.00, NetPrice: 8.18, PrecoComIVA: 24.54, Bonus: 0 isFactUpdated: 0
-Code: RG1007041WW, Barcode: 3701436910488, Description: CEDRAT SABONETE 100g, Quantity: 3, UnitPrice: 4.20, Discounts: 25.00, 25.00, 25.00, NetPrice: 3.15, PrecoComIVA: 9.45, Bonus: 0 isFactUpdated: 0
-Code: RG1006071WW, Barcode: 3701436911621, Description: ROSE KIT SABONETES 3X100g, Quantity: 3, UnitPrice: 10.90, Discounts: 25.00, 25.00, 25.00, NetPrice: 8.18, PrecoComIVA: 24.54, Bonus: 0 isFactUpdated: 0
+Code: RG1001021WW, Barcode: 3701436911607, Description: JMF SABONETES REDONDOS 3x100G, Quantity: 3, UnitPrice: 10,90, Discounts: 25,00, 25,00, 25,00, NetPrice: 8,18, PrecoComIVA: 24,54, Bonus: 0, IVA: 0,00, CNP: 6861740 isFactUpdated: 0
+Code: RG1007041WW, Barcode: 3701436910488, Description: CEDRAT SABONETE 100g, Quantity: 3, UnitPrice: 4,20, Discounts: 25,00, 25,00, 25,00, NetPrice: 3,15, PrecoComIVA: 9,45, Bonus: 0, IVA: 0,00, CNP: 6862102 isFactUpdated: 0
+Code: RG1006071WW, Barcode: 3701436911621, Description: ROSE KIT SABONETES 3X100g, Quantity: 3, UnitPrice: 10,90, Discounts: 25,00, 25,00, 25,00, NetPrice: 8,18, PrecoComIVA: 24,54, Bonus: 0, IVA: 0,00, CNP: 6861823 isFactUpdated: 0
