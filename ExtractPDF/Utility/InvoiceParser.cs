@@ -5,7 +5,7 @@ using PDFDataExtraction.Models;
 
 namespace PDFDataExtraction.Utility
 {
-    public class InvoiceParser
+    public class InvoiceParser : IInvoiceParser
     {
         public string ExtractOrderNumber(string text, string pattern)
         {

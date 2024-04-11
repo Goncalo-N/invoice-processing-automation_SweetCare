@@ -13,7 +13,7 @@ namespace PDFDataExtraction.Core
     public class Program
     {
         static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
-        static readonly InvoiceParser parser = new InvoiceParser();
+        static readonly InvoiceParser invoiceParser = new InvoiceParser();
         internal static Serilog.Core.Logger log = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
@@ -210,24 +210,24 @@ namespace PDFDataExtraction.Core
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = parser.ExtractProductDetails(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = invoiceParser.ExtractProductDetails(invoiceText, regex[12]);
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
-                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = parser.ExtractProductDetailsLEX(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = invoiceParser.ExtractProductDetailsLEX(invoiceText, regex[12]);
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
