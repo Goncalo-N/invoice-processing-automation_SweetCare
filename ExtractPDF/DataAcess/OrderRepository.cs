@@ -1,130 +1,134 @@
 using System.Data.SqlClient;
 using PDFDataExtraction;
 
-public class OrderRepository
+namespace PDFDataExtraction.DataAcess
+
 {
-    private readonly string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
-
-    public OrderRepository(string connectionString)
+    public class OrderRepository
     {
-        this.connectionString = connectionString;
-    }
+        private readonly string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
 
-    // Retrieves all regex patterns associated with a given company name.
-    public List<string> GetAllRegex(string nomeEmpresa)
-    {
-        List<object> regexList = new List<object>();
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        public OrderRepository(string connectionString)
         {
-            connection.Open();
+            this.connectionString = connectionString;
+        }
 
-            string query = "SELECT * FROM supplierRegex WHERE nome_empresa = @nomeEmpresa";
-            using (SqlCommand command = new SqlCommand(query, connection))
+        // Retrieves all regex patterns associated with a given company name.
+        public List<string> GetAllRegex(string nomeEmpresa)
+        {
+            List<object> regexList = new List<object>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // For SQL Server, use the Add method with a value to prevent SQL injection.
-                command.Parameters.Add(new SqlParameter("@nomeEmpresa", nomeEmpresa));
+                connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                string query = "SELECT * FROM supplierRegex WHERE nome_empresa = @nomeEmpresa";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
+                    // For SQL Server, use the Add method with a value to prevent SQL injection.
+                    command.Parameters.Add(new SqlParameter("@nomeEmpresa", nomeEmpresa));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        for (int i = 0; i < reader.FieldCount; i++)
+                        while (reader.Read())
                         {
-                            regexList.Add(reader.GetValue(i));
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                regexList.Add(reader.GetValue(i));
+                            }
                         }
                     }
                 }
             }
+
+            return regexList.ConvertAll(x => x.ToString());
         }
-
-        return regexList.ConvertAll(x => x.ToString());
-    }
-    //get orderID through invoiceNumber
-    public int GetOrderID(string invoiceNumber)
-    {
-        int orderID = 0;
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        //get orderID through invoiceNumber
+        public int GetOrderID(string invoiceNumber)
         {
-            connection.Open();
-
-            string query = "SELECT orderId FROM supplierOrderItems WHERE supplierInvoiceNumber = @invoiceNumber";
-            using (SqlCommand command = new SqlCommand(query, connection))
+            int orderID = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // For SQL Server, use the Add method with a value to prevent SQL injection.
-                command.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+                connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                string query = "SELECT orderId FROM supplierOrderItems WHERE supplierInvoiceNumber = @invoiceNumber";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
+                    // For SQL Server, use the Add method with a value to prevent SQL injection.
+                    command.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        orderID = reader.GetInt32(0);
+                        while (reader.Read())
+                        {
+                            orderID = reader.GetInt32(0);
+                        }
                     }
                 }
             }
-        }
-        return orderID;
-    }
-
-    public bool ValidateProduct(string productCNP, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber, int isFactUpdated)
-    {
-        // Check if the product is already validated from before.
-        if (isFactUpdated == 1)
-        {
-            return true;
+            return orderID;
         }
 
-        bool isValid = false;
-        bool pricesMatch = false;
-        bool quantityMatch = false;
-        NetPrice = Math.Round(NetPrice, 2);
-        UnitPrice = Math.Round(UnitPrice, 2);
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        public bool ValidateProduct(string productCNP, int orderID, decimal NetPrice, decimal UnitPrice, int Quantity, string invoiceNumber, int isFactUpdated)
         {
-            connection.Open();
-
-            string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCNP AND orderId = @orderId AND isFactUpdated = 0";
-            using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+            // Check if the product is already validated from before.
+            if (isFactUpdated == 1)
             {
-                selectCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
-                selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+                return true;
+            }
 
-                using (SqlDataReader reader = selectCommand.ExecuteReader())
+            bool isValid = false;
+            bool pricesMatch = false;
+            bool quantityMatch = false;
+            NetPrice = Math.Round(NetPrice, 2);
+            UnitPrice = Math.Round(UnitPrice, 2);
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCNP AND orderId = @orderId AND isFactUpdated = 0";
+                using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                 {
-                    if (reader.Read())
-                    {
-                        decimal priceNoBonus = reader.GetDecimal(0);
-                        decimal priceWithBonus = reader.GetDecimal(1);
-                        priceNoBonus = Math.Round(priceNoBonus, 4);
-                        priceWithBonus = Math.Round(priceWithBonus, 4);
-                        int quantity = reader.GetInt32(2);
+                    selectCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
+                    selectCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
 
-                        // Check if prices and quantity match
-                        pricesMatch = (priceNoBonus == UnitPrice && priceWithBonus == NetPrice);
-                        quantityMatch = (quantity == Quantity);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            decimal priceNoBonus = reader.GetDecimal(0);
+                            decimal priceWithBonus = reader.GetDecimal(1);
+                            priceNoBonus = Math.Round(priceNoBonus, 4);
+                            priceWithBonus = Math.Round(priceWithBonus, 4);
+                            int quantity = reader.GetInt32(2);
+
+                            // Check if prices and quantity match
+                            pricesMatch = (priceNoBonus == UnitPrice && priceWithBonus == NetPrice);
+                            quantityMatch = (quantity == Quantity);
+                        }
+                    }
+                }
+
+                // If prices and quantity match, update database
+                if (pricesMatch && quantityMatch)
+                {
+                    // Update database
+                    string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber"/*, isFactUpdated = 1*/+ " WHERE ref = @productCNP AND orderId = @orderId";
+                    using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                    {
+                        updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
+                        updateCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
+                        updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
+
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+                        isValid = rowsAffected > 0;
                     }
                 }
             }
 
-            // If prices and quantity match, update database
-            if (pricesMatch && quantityMatch)
-            {
-                // Update database
-                string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber"/*, isFactUpdated = 1*/+" WHERE ref = @productCNP AND orderId = @orderId";
-                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                {
-                    updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
-                    updateCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
-                    updateCommand.Parameters.Add(new SqlParameter("@orderId", orderID));
-
-                    int rowsAffected = updateCommand.ExecuteNonQuery();
-                    isValid = rowsAffected > 0;
-                }
-            }
+            return isValid;
         }
 
-        return isValid;
     }
-
 }

@@ -2,9 +2,12 @@
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using PDFDataExtraction.Models;
+using PDFDataExtraction.Service;
+using PDFDataExtraction.Utility;
 using Serilog;
 
-namespace PDFDataExtraction
+namespace PDFDataExtraction.Core
 {
 
     public class Program
