@@ -15,4 +15,5 @@ namespace PDFDataExtraction.Utility
         List<Product> ExtractProductDetails(string invoiceText, string pattern);
         List<Product> ExtractProductDetailsLEX(string invoiceText, string pattern);
     }
+    
 }
