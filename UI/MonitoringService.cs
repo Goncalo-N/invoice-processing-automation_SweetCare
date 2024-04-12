@@ -23,9 +23,9 @@ namespace PDFDataExtraction
             if (IsMonitoring) return;
 
             // Directly access configuration for paths
-            var pdfFolder = _configuration["ApplicationPaths:PdfFolder"];
-            var outputFolder = _configuration["ApplicationPaths:OutputFolder"];
-            var validFolder = _configuration["ApplicationPaths:ValidFolder"];
+            var pdfFolder = _configuration["ApplicationPaths:PdfFolder"] ?? throw new InvalidOperationException("PdfFolder Path not found in appsettings.json");
+            var outputFolder = _configuration["ApplicationPaths:OutputFolder"] ?? throw new InvalidOperationException("OutputFolder Path not found in appsettings.json");
+            var validFolder = _configuration["ApplicationPaths:ValidFolder"] ?? throw new InvalidOperationException("ValidFolder Path not found in appsettings.json");
 
             IsMonitoring = true;
             _cts = new CancellationTokenSource(); // Reset the CancellationTokenSource for a new task
