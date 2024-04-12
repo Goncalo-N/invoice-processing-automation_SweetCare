@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using PDFDataExtraction.Models;
 
 namespace PDFDataExtraction.Utility
