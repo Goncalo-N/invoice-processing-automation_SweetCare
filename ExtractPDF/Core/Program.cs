@@ -18,6 +18,13 @@ namespace PDFDataExtraction.Core
 
         static readonly Serilog.Core.Logger log;
 
+        // Static fields for folder paths
+        static readonly string pdfFolder;
+        static readonly string outputFolder;
+        static readonly string validFolder;
+        static readonly string invalidFolder;
+        static readonly string missingValuesFolder;
+
         // Static constructor to initialize static readonly fields
         static Program()
         {
@@ -31,9 +38,30 @@ namespace PDFDataExtraction.Core
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
 
+
             // Initialize dataService with the connection string from configuration
-            string connectionString = configuration.GetSection("DatabaseConfiguration:ConnectionString").Value;
+
+            string connectionString = configuration.GetSection("DatabaseConfiguration:ConnectionString").Value
+               ?? throw new InvalidOperationException("Connection string not configured.");
+
             dataService = new DataService(connectionString);
+
+            // Initialize folder paths from configuration
+            pdfFolder = configuration["ApplicationPaths:PdfFolder"]
+                ?? throw new InvalidOperationException("PDF folder path not configured.");
+
+            outputFolder = configuration["ApplicationPaths:OutputFolder"]
+                ?? throw new InvalidOperationException("Output folder path not configured.");
+
+            validFolder = configuration["ApplicationPaths:ValidFolder"]
+                ?? throw new InvalidOperationException("Valid folder path not configured.");
+
+            invalidFolder = configuration["ApplicationPaths:InvalidFolder"]
+                ?? throw new InvalidOperationException("Invalid folder path not configured.");
+
+            missingValuesFolder = configuration["ApplicationPaths:MissingValuesFolder"]
+                ?? throw new InvalidOperationException("Missing values folder path not configured.");
+
         }
         static void Main(string[] args)
         {
@@ -76,16 +104,7 @@ namespace PDFDataExtraction.Core
             return baseDirectory;
         }
 
-        public static (string folderPath, string outputFolderPath, string validatedFolderPath, string invalidFolerPath) GetFolderPaths(string baseDirectory)
-        {
-            return (
-                Path.Combine(baseDirectory, "pdfs"),
-                Path.Combine(baseDirectory, "output"),
-                Path.Combine(baseDirectory, "valid"),
-                Path.Combine(baseDirectory, "invalid")
-            );
-        }
-
+        
         static void PreventApplicationExit()
         {
             while (true)
@@ -179,7 +198,6 @@ namespace PDFDataExtraction.Core
             {
                 baseDirectory = parentDirectory.FullName;
             }
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
@@ -356,11 +374,9 @@ namespace PDFDataExtraction.Core
                 baseDirectory = parentDirectory.FullName;
             }
 
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "missing");
-
             string fileName = Path.GetFileName(pdfFilePath);
             Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
-            string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
+            string destinationFilePath = Path.Combine(missingValuesFolder, fileName);
 
             Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
             //File.Move(pdfFilePath, destinationFilePath);
@@ -373,8 +389,6 @@ namespace PDFDataExtraction.Core
         static void validateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
             string baseDirectory = GetBaseDirectory();
-            string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
-            string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
 
             string fileName = "";
             string destinationFilePath = "";
@@ -414,7 +428,7 @@ namespace PDFDataExtraction.Core
                         log.Error("Product not validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
-                        destinationFilePath = Path.Combine(invalidFolderPath, fileName);
+                        destinationFilePath = Path.Combine(invalidFolder, fileName);
                         //File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
@@ -427,7 +441,7 @@ namespace PDFDataExtraction.Core
             log.Information("Invoice validated: " + pdfFilePath);
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
-            destinationFilePath = Path.Combine(validFolderPath, fileName);
+            destinationFilePath = Path.Combine(validFolder, fileName);
             File.Move(pdfFilePath, destinationFilePath);
 
 
