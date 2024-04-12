@@ -70,14 +70,7 @@ namespace PDFDataExtraction.Core
 
             log.Information("Application Starting");
 
-            // Since paths now come from configuration, ensure the static constructor has run
-            // to initialize the configuration and log before accessing them.
-            string baseDirectory = Directory.GetCurrentDirectory();
-            string pdfFolder = Path.Combine(baseDirectory, "pdfs");
-            string outputFolder = Path.Combine(baseDirectory, "output");
-            string validFolder = Path.Combine(baseDirectory, "valid");
-            string invalidFolder = Path.Combine(baseDirectory, "invalid");
-            string missingValuesFolder = Path.Combine(baseDirectory, "missing");
+            
 
             Task.Run(() => MonitorPdfFolder(pdfFolder, outputFolder, validFolder));
             PreventApplicationExit();
