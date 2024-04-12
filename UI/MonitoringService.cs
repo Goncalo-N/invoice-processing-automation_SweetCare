@@ -29,7 +29,7 @@ namespace PDFDataExtraction
 
             IsMonitoring = true;
             _cts = new CancellationTokenSource(); // Reset the CancellationTokenSource for a new task
-
+            
             Task.Run(() => Program.MonitorPdfFolder(pdfFolder, outputFolder, validFolder, _cts.Token), _cts.Token);
         }
 
