@@ -2,6 +2,7 @@
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using Microsoft.Extensions.Configuration;
 using PDFDataExtraction.Models;
 using PDFDataExtraction.Service;
 using PDFDataExtraction.Utility;
@@ -14,25 +15,46 @@ namespace PDFDataExtraction.Core
     {
         static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
         static readonly InvoiceParser invoiceParser = new InvoiceParser();
-        internal static Serilog.Core.Logger log = new LoggerConfiguration()
-            .MinimumLevel.Debug()
-            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
 
+        static readonly Serilog.Core.Logger log;
 
-        static void Main(string[] aparsers)
+        // Static constructor to initialize static readonly fields
+        static Program()
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            // Initialize logger
+            log = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
+
+            // Initialize dataService with the connection string from configuration
+            string connectionString = configuration.GetSection("DatabaseConfiguration:ConnectionString").Value;
+            dataService = new DataService(connectionString);
+        }
+        static void Main(string[] args)
         {
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             TaskScheduler.UnobservedTaskException += UnobservedTaskExceptionHandler;
 
             log.Information("Application Starting");
 
-            string baseDirectory = GetBaseDirectory();
-            var folders = GetFolderPaths(baseDirectory);
+            // Since paths now come from configuration, ensure the static constructor has run
+            // to initialize the configuration and log before accessing them.
+            string baseDirectory = Directory.GetCurrentDirectory();
+            string pdfFolder = Path.Combine(baseDirectory, "pdfs");
+            string outputFolder = Path.Combine(baseDirectory, "output");
+            string validFolder = Path.Combine(baseDirectory, "valid");
+            string invalidFolder = Path.Combine(baseDirectory, "invalid");
+            string missingValuesFolder = Path.Combine(baseDirectory, "missing");
 
-            Task.Run(() => MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath));
+            Task.Run(() => MonitorPdfFolder(pdfFolder, outputFolder, validFolder));
             PreventApplicationExit();
         }
+
         static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
         {
             log.Error($"Unhandled exception: {e.ExceptionObject}");

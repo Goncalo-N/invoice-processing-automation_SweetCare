@@ -1,4 +1,5 @@
 using System.Threading;
+using PDFDataExtraction.Core;
 
 namespace PDFDataExtraction
 {
