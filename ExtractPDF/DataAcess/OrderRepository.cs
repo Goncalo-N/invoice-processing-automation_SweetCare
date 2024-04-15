@@ -5,7 +5,7 @@ namespace PDFDataExtraction.DataAcess
 {
     public class OrderRepository
     {
-        private readonly string connectionString = "Server=localhost;Database=sweet;Trusted_Connection=True;";
+        private readonly string connectionString;
 
         public OrderRepository(string connectionString)
         {
