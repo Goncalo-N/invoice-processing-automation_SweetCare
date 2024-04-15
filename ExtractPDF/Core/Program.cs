@@ -239,7 +239,8 @@ namespace PDFDataExtraction
             // Write extracted data to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
-                writer.WriteLine(invoiceText); // Write the entire text to the file for debugging purposes (will be deleted later)
+                // Write the entire text to the file for debugging purposes (will be deleted later)
+                writer.WriteLine(invoiceText); 
 
                 // Write general information
                 writer.WriteLine("-----    General Information    ------");
@@ -285,8 +286,10 @@ namespace PDFDataExtraction
 
             // boolean to indicate if any field is missing
             bool isAnyFieldMissing = false;
+
             // counter to keep track of the number of missing fields
             int missingFieldsCounter = 0;
+
             foreach (var field in fields)
             {
                 if (field.Value == null || field.Value.ToString() == "N/A")
@@ -297,6 +300,7 @@ namespace PDFDataExtraction
                     isAnyFieldMissing = true;
                 }
             }
+
             // Special check for products being null or having a count of 0
             if (products == null || products.Count == 0)
             {
@@ -313,7 +317,7 @@ namespace PDFDataExtraction
             }
             else
             {
-                validateProducts(orderID, productsDistinct, numFatura, pdfFilePath);
+                ValidateProducts(orderID, productsDistinct, numFatura, pdfFilePath);
 
                 Console.WriteLine("Data written to " + outputFilePath);
             }
@@ -345,7 +349,7 @@ namespace PDFDataExtraction
 
 
         //Calls a method from the producer class to validate products of the invoice.
-        static void validateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
+        static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
             string baseDirectory = GetBaseDirectory();
             string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
@@ -357,12 +361,14 @@ namespace PDFDataExtraction
             foreach (var product in products)
             {
                 Console.WriteLine("CNP" + product.CNP);
+
                 //price check
                 //check if neither of the prices equal to 0
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
                 {
 
                     bool isProductValid;
+
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                
                     if (product.UnitPrice < product.NetPrice)
                     {
