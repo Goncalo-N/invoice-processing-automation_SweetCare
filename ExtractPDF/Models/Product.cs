@@ -2,37 +2,57 @@ namespace PDFDataExtraction.Models
 {
     public class Product
     {
-        // Product's code.
-        public string Code { get; set; }
+        /// <summary>
+        /// Product's code.
+        /// </summary>
+        public string? Code { get; set; }
 
-        // Barcode of the product.
-        public string Barcode { get; set; }
+        /// <summary>
+        /// Barcode of the product.
+        /// </summary>
+        public string? Barcode { get; set; }
 
-        // Description or name of the product.
-        public string Description { get; set; }
+        /// <summary>
+        /// Description or name of the product.
+        /// </summary>
+        public string? Description { get; set; }
 
-        // Quantity of the product for the order.
+        /// <summary>
+        /// Quantity of the product for the order.
+        /// </summary>
         public int Quantity { get; set; }
 
-        // Unit price of the product before any discounts.
+        /// <summary>
+        /// Unit price of the product before any discounts.
+        /// </summary>
         public decimal UnitPrice { get; set; }
 
-        // First discount applied to the product.
+        /// <summary>
+        /// First discount applied to the product.
+        /// </summary>
         public decimal Discount1 { get; set; }
 
-        // Second discount applied to the product.
+        /// <summary>
+        /// Second discount applied to the product.
+        /// </summary>
         public decimal Discount2 { get; set; }
 
         // Third discount applied to the product.
         public decimal Discount3 { get; set; }
 
-        // Final price after all discounts are applied.
+        /// <summary>
+        /// Final price after all discounts are applied.
+        /// </summary>
         public decimal NetPrice { get; set; }
 
-        // Price of the product including VAT (Value Added Tax).
+        /// <summary>
+        /// Price of the product including VAT (Value Added Tax).
+        /// </summary>
         public decimal PrecoComIVA { get; set; }
 
-        // Bonus quantity that come with the product.
+        /// <summary>
+        /// Bonus quantity that come with the product.
+        /// </summary>
         public int Bonus { get; set; }
 
         public int isFactUpdated { get; set; }
@@ -56,8 +76,8 @@ namespace PDFDataExtraction.Models
 
     public class LEXProduct : Product
     {
-        public string Name { get; set; }
-        public string LotNumber { get; set; }
+        public string? Name { get; set; }
+        public string? LotNumber { get; set; }
         public decimal DiscountPercentage { get; set; }
 
         public override string ToString()
