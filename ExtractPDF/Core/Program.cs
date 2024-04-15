@@ -2,6 +2,7 @@
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using Microsoft.Extensions.Configuration;
 using PDFDataExtraction.Models;
 using PDFDataExtraction.Service;
 using PDFDataExtraction.Utility;
@@ -27,7 +28,7 @@ namespace PDFDataExtraction.Core
         // Static constructor to initialize static readonly fields
         static Program()
         {
-            IConfiguration configuration = new ConfigurationBuilder()
+            Microsoft.Extensions.Configuration.IConfiguration configuration = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
                 .Build();
