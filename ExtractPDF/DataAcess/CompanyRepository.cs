@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 
 
-namespace PDFDataExtraction
+namespace PDFDataExtraction.DataAcess
 {
     public class CompanyRepository
 {

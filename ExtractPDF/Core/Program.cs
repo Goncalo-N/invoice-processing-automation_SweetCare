@@ -2,34 +2,79 @@
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using PDFDataExtraction.Models;
+using PDFDataExtraction.Service;
+using PDFDataExtraction.Utility;
 using Serilog;
 
-namespace PDFDataExtraction
+namespace PDFDataExtraction.Core
 {
 
     public class Program
     {
         static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
-        static readonly InvoiceParser parser = new InvoiceParser();
-        internal static Serilog.Core.Logger log = new LoggerConfiguration()
-            .MinimumLevel.Debug()
-            .WriteTo.File("logs/invoiceprocessing.txt", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
+        static readonly InvoiceParser invoiceParser = new InvoiceParser();
+
+        static readonly Serilog.Core.Logger log;
+
+        // Static fields for folder paths
+        static readonly string pdfFolder;
+        static readonly string outputFolder;
+        static readonly string validFolder;
+        static readonly string invalidFolder;
+        static readonly string missingValuesFolder;
+
+        // Static constructor to initialize static readonly fields
+        static Program()
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            // Initialize logger
+            log = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
 
 
-        static void Main(string[] aparsers)
+            // Initialize dataService with the connection string from configuration
+
+            string connectionString = configuration.GetSection("DatabaseConfiguration:ConnectionString").Value
+               ?? throw new InvalidOperationException("Connection string not configured.");
+
+            dataService = new DataService(connectionString);
+
+            // Initialize folder paths from configuration
+            pdfFolder = configuration["ApplicationPaths:PdfFolder"]
+                ?? throw new InvalidOperationException("PDF folder path not configured.");
+
+            outputFolder = configuration["ApplicationPaths:OutputFolder"]
+                ?? throw new InvalidOperationException("Output folder path not configured.");
+
+            validFolder = configuration["ApplicationPaths:ValidFolder"]
+                ?? throw new InvalidOperationException("Valid folder path not configured.");
+
+            invalidFolder = configuration["ApplicationPaths:InvalidFolder"]
+                ?? throw new InvalidOperationException("Invalid folder path not configured.");
+
+            missingValuesFolder = configuration["ApplicationPaths:MissingValuesFolder"]
+                ?? throw new InvalidOperationException("Missing values folder path not configured.");
+
+        }
+        static void Main(string[] args)
         {
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             TaskScheduler.UnobservedTaskException += UnobservedTaskExceptionHandler;
 
             log.Information("Application Starting");
 
-            string baseDirectory = GetBaseDirectory();
-            var folders = GetFolderPaths(baseDirectory);
+            
 
-            Task.Run(() => MonitorPdfFolder(folders.folderPath, folders.outputFolderPath, folders.validatedFolderPath));
+            Task.Run(() => MonitorPdfFolder(pdfFolder, outputFolder, validFolder));
             PreventApplicationExit();
         }
+
         static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
         {
             log.Error($"Unhandled exception: {e.ExceptionObject}");
@@ -51,16 +96,7 @@ namespace PDFDataExtraction
             return baseDirectory;
         }
 
-        public static (string folderPath, string outputFolderPath, string validatedFolderPath, string invalidFolerPath) GetFolderPaths(string baseDirectory)
-        {
-            return (
-                Path.Combine(baseDirectory, "pdfs"),
-                Path.Combine(baseDirectory, "output"),
-                Path.Combine(baseDirectory, "valid"),
-                Path.Combine(baseDirectory, "invalid")
-            );
-        }
-
+        
         static void PreventApplicationExit()
         {
             while (true)
@@ -154,7 +190,6 @@ namespace PDFDataExtraction
             {
                 baseDirectory = parentDirectory.FullName;
             }
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "Missing_Values");
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
@@ -207,24 +242,24 @@ namespace PDFDataExtraction
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = parser.ExtractProductDetails(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = invoiceParser.ExtractProductDetails(invoiceText, regex[12]);
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
-                    invoiceDate = parser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = parser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = parser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = parser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = parser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = parser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = parser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = parser.ExtractProductDetailsLEX(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
+                    products = invoiceParser.ExtractProductDetailsLEX(invoiceText, regex[12]);
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
@@ -335,11 +370,9 @@ namespace PDFDataExtraction
                 baseDirectory = parentDirectory.FullName;
             }
 
-            string missingValuesFolderPath = Path.Combine(baseDirectory, "missing");
-
             string fileName = Path.GetFileName(pdfFilePath);
             Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
-            string destinationFilePath = Path.Combine(missingValuesFolderPath, fileName);
+            string destinationFilePath = Path.Combine(missingValuesFolder, fileName);
 
             Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
             //File.Move(pdfFilePath, destinationFilePath);
@@ -352,8 +385,6 @@ namespace PDFDataExtraction
         static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
             string baseDirectory = GetBaseDirectory();
-            string invalidFolderPath = GetFolderPaths(baseDirectory).invalidFolerPath;
-            string validFolderPath = GetFolderPaths(baseDirectory).validatedFolderPath;
 
             string fileName = "";
             string destinationFilePath = "";
@@ -395,7 +426,7 @@ namespace PDFDataExtraction
                         log.Error("Product not validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
-                        destinationFilePath = Path.Combine(invalidFolderPath, fileName);
+                        destinationFilePath = Path.Combine(invalidFolder, fileName);
                         //File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
@@ -408,7 +439,7 @@ namespace PDFDataExtraction
             log.Information("Invoice validated: " + pdfFilePath);
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
-            destinationFilePath = Path.Combine(validFolderPath, fileName);
+            destinationFilePath = Path.Combine(validFolder, fileName);
             File.Move(pdfFilePath, destinationFilePath);
 
 

@@ -1,10 +1,11 @@
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using PDFDataExtraction.Models;
 
-namespace PDFDataExtraction
+namespace PDFDataExtraction.Utility
 {
-    public class InvoiceParser
+    public class InvoiceParser : IInvoiceParser
     {
         public string ExtractOrderNumber(string text, string pattern)
         {

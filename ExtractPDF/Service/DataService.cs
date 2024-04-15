@@ -1,43 +1,47 @@
 using PDFDataExtraction;
+using PDFDataExtraction.DataAcess;
 
-public class DataService
+namespace PDFDataExtraction.Service
 {
-    private readonly CompanyRepository companyRepository;
-    private readonly OrderRepository orderRepository;
-
-    public DataService(string connectionString)
+    public class DataService : IDataService
     {
-        this.companyRepository = new CompanyRepository(connectionString);
-        this.orderRepository = new OrderRepository(connectionString);
-    }
+        private readonly CompanyRepository companyRepository;
+        private readonly OrderRepository orderRepository;
 
-    public List<string> GetAllCompanyNames()
-    {
-        return companyRepository.GetAllCompanyNames();
-    }
+        public DataService(string connectionString)
+        {
+            this.companyRepository = new CompanyRepository(connectionString);
+            this.orderRepository = new OrderRepository(connectionString);
+        }
 
-    public List<string> GetAllRegex(string companyName)
-    {
-        return orderRepository.GetAllRegex(companyName);
-    }
+        public List<string> GetAllCompanyNames()
+        {
+            return companyRepository.GetAllCompanyNames();
+        }
 
-    public int GetEmpresaID(string companyName)
-    {
-        return companyRepository.GetEmpresaID(companyName);
-    }
+        public List<string> GetAllRegex(string companyName)
+        {
+            return orderRepository.GetAllRegex(companyName);
+        }
 
-    public int GetOrderID(string invoiceNumber)
-    {
-        return orderRepository.GetOrderID(invoiceNumber);
-    }
+        public int GetEmpresaID(string companyName)
+        {
+            return companyRepository.GetEmpresaID(companyName);
+        }
 
-    public bool ValidateProduct(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity, string supplierInvoiceNumber, int isFactUpdated)
-    {
-        return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber, isFactUpdated);
-    }
+        public int GetOrderID(string invoiceNumber)
+        {
+            return orderRepository.GetOrderID(invoiceNumber);
+        }
 
-    internal bool ValidateInvoice(int orderID, string invoiceNumber)
-    {
-        throw new NotImplementedException();
+        public bool ValidateProduct(string productCode, int orderID, decimal netPrice, decimal unitPrice, int quantity, string supplierInvoiceNumber, int isFactUpdated)
+        {
+            return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber, isFactUpdated);
+        }
+
+        internal bool ValidateInvoice(int orderID, string invoiceNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

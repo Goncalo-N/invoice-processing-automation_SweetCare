@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Media;
+using Microsoft.Extensions.Configuration;
 
 namespace PDFDataExtraction
 {
@@ -9,8 +11,18 @@ namespace PDFDataExtraction
 
         public MainWindow()
         {
+            
             InitializeComponent();
-            _monitoringService = new MonitoringService(); // Dependency injection
+
+            // Manually build configuration
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            // Pass the configuration to MonitoringService
+            _monitoringService = new MonitoringService(configuration);
+            
             ExitButton.Background = Brushes.Red;
         }
 

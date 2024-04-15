@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using PDFDataExtraction;
+using PDFDataExtraction.Utility;
 using System;
 
 namespace PDFDataExtractionTests
@@ -7,7 +8,7 @@ namespace PDFDataExtractionTests
     [TestFixture]
     public class InvoiceParserTests
     {
-        private InvoiceParser _parser;
+        private IInvoiceParser _parser;
 
         [SetUp]
         public void Setup()
