@@ -17,12 +17,9 @@ namespace PDFDataExtraction.UITests
             // Create an in-memory configuration for testing
             _configuration = new ConfigurationBuilder()
                 .AddInMemoryCollection(new Dictionary<string, string>
-                {
-                    {"ApplicationPaths:PdfFolder", "test/path/pdf"},
-                    {"ApplicationPaths:OutputFolder", "test/path/output"},
-                    // Add other necessary configuration settings...
-                })
-                .Build();
+                {{"ApplicationPaths:PdfFolder", "..\\pdf"},
+                    {"ApplicationPaths:OutputFolder", "..\\output"},
+                    {"ApplicationPaths:ValidFolder","..\\valid"}}).Build();
         }
 
         [Test]
