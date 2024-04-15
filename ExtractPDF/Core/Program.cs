@@ -70,7 +70,7 @@ namespace PDFDataExtraction.Core
 
             log.Information("Application Starting");
 
-            
+
 
             Task.Run(() => MonitorPdfFolder(pdfFolder, outputFolder, validFolder));
             PreventApplicationExit();
@@ -97,7 +97,7 @@ namespace PDFDataExtraction.Core
             return baseDirectory;
         }
 
-        
+
         static void PreventApplicationExit()
         {
             while (true)
@@ -276,7 +276,7 @@ namespace PDFDataExtraction.Core
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
                 // Write the entire text to the file for debugging purposes (will be deleted later)
-                writer.WriteLine(invoiceText); 
+                writer.WriteLine(invoiceText);
 
                 // Write general information
                 writer.WriteLine("-----    General Information    ------");
