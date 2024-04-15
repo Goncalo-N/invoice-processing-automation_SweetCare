@@ -5,17 +5,17 @@ namespace PDFDataExtraction.Models
         /// <summary>
         /// Product's code.
         /// </summary>
-        public string? Code { get; set; }
+        public string Code { get; set; } = string.Empty;
 
         /// <summary>
         /// Barcode of the product.
         /// </summary>
-        public string? Barcode { get; set; }
+        public string Barcode { get; set; } = string.Empty;
 
         /// <summary>
         /// Description or name of the product.
         /// </summary>
-        public string? Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         /// <summary>
         /// Quantity of the product for the order.
@@ -59,7 +59,7 @@ namespace PDFDataExtraction.Models
 
         public decimal IVA { get; set; }
 
-        public string CNP { get; set; }
+        public string CNP { get; set; } = string.Empty;
 
         /// <summary>
         /// Overrides the ToString method to provide a string representation of the product details.
@@ -76,8 +76,8 @@ namespace PDFDataExtraction.Models
 
     public class LEXProduct : Product
     {
-        public string? Name { get; set; }
-        public string? LotNumber { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string LotNumber { get; set; } = string.Empty;
         public decimal DiscountPercentage { get; set; }
 
         public override string ToString()

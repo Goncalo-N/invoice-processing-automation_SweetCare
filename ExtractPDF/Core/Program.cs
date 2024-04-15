@@ -106,7 +106,11 @@ namespace PDFDataExtraction.Core
             }
         }
 
-        //Method to extract text from PDF using iText7
+        /// <summary>
+        /// Method to extract text from PDF using iText7
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         static string ExtractTextFromPDF(string filePath)
         {
             using (PdfReader reader = new PdfReader(filePath))
@@ -123,7 +127,12 @@ namespace PDFDataExtraction.Core
                 return output.ToString();
             }
         }
-        //Method to check the file to see what company it belongs to
+        /// <summary>
+        /// Method to check the file to see what company it belongs to
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="companyNames"></param>
+        /// <returns></returns>
         static string CheckCompany(string text, List<string> companyNames)
         {
 
@@ -137,6 +146,13 @@ namespace PDFDataExtraction.Core
             }
             return "N/A";
         }
+
+        /// <summary>
+        /// Method to monitor the PDF folder for new PDF files
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <param name="outputFolderPath"></param>
+        /// <param name="validatedFolderPath"></param>
         public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
             // Create a timer with a 5-minute interval
@@ -149,6 +165,13 @@ namespace PDFDataExtraction.Core
             CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath);
         }
 
+        /// <summary>
+        /// Method to monitor the PDF folder for new PDF files with a cancelation token
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <param name="outputFolderPath"></param>
+        /// <param name="validatedFolderPath"></param>
+        /// <param name="cancellationToken"></param>
         public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath, CancellationToken cancellationToken)
         {
             // Create a timer with a 5-minute interval
@@ -169,6 +192,12 @@ namespace PDFDataExtraction.Core
             timer.Dispose();
         }
 
+        /// <summary>
+        /// Method to check the folder for new PDF files
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <param name="outputFolderPath"></param>
+        /// <param name="validatedFolderPath"></param>
         static void CheckFolderForNewPDFs(string folderPath, string outputFolderPath, string validatedFolderPath)
         {
             if (!Directory.Exists(folderPath))
@@ -183,6 +212,12 @@ namespace PDFDataExtraction.Core
             }
         }
 
+        /// <summary>
+        /// Method that is called when a new PDF file is added to the folder
+        /// </summary>
+        /// <param name="pdfFilePath"></param>
+        /// <param name="outputFolderPath"></param>
+        /// <param name="validatedFolderPath"></param>
         static void OnPdfFileCreated(string pdfFilePath, string outputFolderPath, string validatedFolderPath)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -361,7 +396,10 @@ namespace PDFDataExtraction.Core
         }
 
 
-        //Method to move the pdf file to the missing folder in case of missing values
+        /// <summary>
+        /// Method to move the pdf file to the missing folder in case of missing values
+        /// </summary>
+        /// <param name="pdfFilePath"></param>
         static void OnValuesMissing(string pdfFilePath)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -382,7 +420,13 @@ namespace PDFDataExtraction.Core
         }
 
 
-        //Calls a method from the producer class to validate products of the invoice.
+        /// <summary>
+        /// Validates products of the invoice by calling a method from the producer class.
+        /// </summary>
+        /// <param name="orderID"></param>
+        /// <param name="products"></param>
+        /// <param name="invoiceNumber"></param>
+        /// <param name="pdfFilePath"></param>
         static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
             string baseDirectory = GetBaseDirectory();
