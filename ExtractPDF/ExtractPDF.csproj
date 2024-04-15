@@ -3,7 +3,7 @@
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="itext7" Version="7.1.16" />
+    <PackageReference Include="itext7" Version="7.1.19" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
