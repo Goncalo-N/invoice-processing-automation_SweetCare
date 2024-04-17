@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic; // Required for Dictionary
+using System.Collections.Generic;
 using PDFDataExtraction;
 
 namespace PDFDataExtraction.UITests
@@ -16,7 +16,7 @@ namespace PDFDataExtraction.UITests
         {
             // Create an in-memory configuration for testing
             _configuration = new ConfigurationBuilder()
-                .AddInMemoryCollection(new Dictionary<string, string>
+                .AddInMemoryCollection(new Dictionary<string, string?>
                 {{"ApplicationPaths:PdfFolder", "..\\pdf"},
                     {"ApplicationPaths:OutputFolder", "..\\output"},
                     {"ApplicationPaths:ValidFolder","..\\valid"}}).Build();

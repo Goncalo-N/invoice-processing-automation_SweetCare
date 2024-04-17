@@ -13,7 +13,7 @@ namespace PDFDataExtraction.Core
 
     public class Program
     {
-        static readonly DataService dataService = new DataService("Server=localhost;Database=sweet;Trusted_Connection=True;");
+        static readonly DataService dataService;
         static readonly InvoiceParser invoiceParser = new InvoiceParser();
 
         static readonly Serilog.Core.Logger log;
