@@ -3,10 +3,12 @@ using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using PDFDataExtraction.Models;
 using PDFDataExtraction.Service;
 using PDFDataExtraction.Utility;
 using Serilog;
+using static PDFDataExtraction.Utility.RegexParser;
 
 namespace PDFDataExtraction.Core
 {
@@ -18,12 +20,23 @@ namespace PDFDataExtraction.Core
 
         static readonly Serilog.Core.Logger log;
 
+        static List<SupplierPattern> supplierPatterns;
+        public static List<SupplierPattern> LoadSupplierPatterns()
+        {
+            var jsonContent = File.ReadAllText(regexPatternsFile);
+            var supplierPatterns = JsonConvert.DeserializeObject<List<SupplierPattern>>(jsonContent);
+            return supplierPatterns;
+        }
+
+
         // Static fields for folder paths
         static readonly string pdfFolder;
         static readonly string outputFolder;
         static readonly string validFolder;
         static readonly string invalidFolder;
         static readonly string missingValuesFolder;
+
+        static readonly string regexPatternsFile;
 
         // Static constructor to initialize static readonly fields
         static Program()
@@ -40,7 +53,6 @@ namespace PDFDataExtraction.Core
 
 
             // Initialize dataService with the connection string from configuration
-
             string connectionString = configuration.GetSection("DatabaseConfiguration:ConnectionString").Value
                ?? throw new InvalidOperationException("Connection string not configured.");
 
@@ -61,6 +73,9 @@ namespace PDFDataExtraction.Core
 
             missingValuesFolder = configuration["ApplicationPaths:MissingValuesFolder"]
                 ?? throw new InvalidOperationException("Missing values folder path not configured.");
+
+            regexPatternsFile = configuration["ApplicationPaths:RegexPatternsFile"]
+                ?? throw new InvalidOperationException("Regex patterns folder path not configured.");
 
         }
         static void Main(string[] args)
@@ -131,21 +146,20 @@ namespace PDFDataExtraction.Core
         /// Method to check the file to see what company it belongs to
         /// </summary>
         /// <param name="text"></param>
-        /// <param name="companyNames"></param>
         /// <returns></returns>
-        static string CheckCompany(string text, List<string> companyNames)
+        public static string CheckCompany(string text, List<SupplierPattern> supplierPatterns)
         {
-
-            foreach (string company in companyNames)
+            foreach (var pattern in supplierPatterns)
             {
-                Match match = Regex.Match(text, company, RegexOptions.IgnoreCase);
-                if (match.Success)
+
+                if (Regex.IsMatch(text, pattern.PadraoRegexNomeFornecedor, RegexOptions.IgnoreCase))
                 {
-                    return match.Value;
+                    return pattern.NomeEmpresa;
                 }
             }
             return "N/A";
         }
+
 
         /// <summary>
         /// Method to monitor the PDF folder for new PDF files
@@ -226,23 +240,25 @@ namespace PDFDataExtraction.Core
             {
                 baseDirectory = parentDirectory.FullName;
             }
+
+
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
             // Get all company names from the database
-            List<string> companyNames = dataService.GetAllCompanyNames();
+            //List<string> companyNames = dataService.GetAllCompanyNames();
 
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
 
             // Check the company name
-            string companyName = CheckCompany(invoiceText, companyNames);
+            var supplierPatterns = LoadSupplierPatterns();
+            //PrintSupplierPatterns(supplierPatterns);
+            var companyName = CheckCompany(invoiceText, supplierPatterns);
+
             Console.WriteLine("Company Name: " + companyName);
 
-            //Get supplierID
-            int supplierID = dataService.GetEmpresaID(companyName);
-            Console.WriteLine("Supplier ID: " + supplierID);
-            if (supplierID == 0)
+            if (companyName == null || companyName == "N/A")
             {
                 log.Error("Supplier not found for file: " + pdfFilePath);
                 Console.WriteLine("Supplier not found");
@@ -260,7 +276,7 @@ namespace PDFDataExtraction.Core
             }
 
             // Get the regex for the company
-            List<string> regex = dataService.GetAllRegex(companyName);
+            SupplierPattern supplierPattern = supplierPatterns.FirstOrDefault(sp => sp.NomeEmpresa == companyName);
             Console.WriteLine("Company Name: " + companyName);
 
             //create a condition that based on the company name it will call the correct method;
@@ -278,24 +294,25 @@ namespace PDFDataExtraction.Core
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = invoiceParser.ExtractProductDetails(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, supplierPattern.PadraoRegexNumeroEncomenda);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, supplierPattern.PadraoRegexNumeroFatura);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
+                    IVA= invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
+                    products = invoiceParser.ExtractProductDetails(invoiceText, supplierPattern.PadraoRegexProduto);
+                    
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
-                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, regex[3]);
-                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, regex[4]);
-                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, regex[5]);
-                    dueDate = invoiceParser.ExtractDueDate(invoiceText, regex[6]);
-                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, regex[7]);
-                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, regex[11]);
-                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, regex[13]);
-                    products = invoiceParser.ExtractProductDetailsLEX(invoiceText, regex[12]);
+                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
+                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, supplierPattern.PadraoRegexNumeroEncomenda);
+                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, supplierPattern.PadraoRegexNumeroFatura);
+                    dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
+                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
+                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
+                    products = invoiceParser.ExtractProductDetailsLEX(invoiceText, supplierPattern.PadraoRegexProduto);
                     break;
                 case "N/A":
                     Console.WriteLine("Company not found");
@@ -392,9 +409,25 @@ namespace PDFDataExtraction.Core
 
                 Console.WriteLine("Data written to " + outputFilePath);
             }
-            regex.Clear();
+
         }
 
+        public static void PrintSupplierPatterns(List<SupplierPattern> supplierPatterns)
+        {
+            foreach (var pattern in supplierPatterns)
+            {
+                Console.WriteLine($"Company: {pattern.NomeEmpresa}");
+                Console.WriteLine($"Nome Fornecedor Regex: {pattern.PadraoRegexNomeFornecedor}");
+                Console.WriteLine($"Data Fatura Regex: {pattern.PadraoRegexDataFatura}");
+                Console.WriteLine($"Numero Encomenda Regex: {pattern.PadraoRegexNumeroEncomenda}");
+                Console.WriteLine($"Numero Fatura Regex: {pattern.PadraoRegexNumeroFatura}");
+                Console.WriteLine($"Data Vencimento Fatura Regex: {pattern.PadraoRegexDataVencimentoFatura}");
+                Console.WriteLine($"Total Sem IVA Regex: {pattern.PadraoRegexTotalSemIva}");
+                Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}");
+                // Add more as needed
+                Console.WriteLine(); // Add an empty line for readability
+            }
+        }
 
         /// <summary>
         /// Method to move the pdf file to the missing folder in case of missing values

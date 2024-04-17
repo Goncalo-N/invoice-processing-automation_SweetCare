@@ -1,6 +1,6 @@
 using System.Data.SqlClient;
 
-namespace PDFDataExtraction.DataAcess
+namespace PDFDataExtraction.DataAccess
 
 {
     public class OrderRepository
@@ -12,36 +12,6 @@ namespace PDFDataExtraction.DataAcess
             this.connectionString = connectionString;
         }
 
-        // Retrieves all regex patterns associated with a given company name.
-        public List<string> GetAllRegex(string nomeEmpresa)
-        {
-            List<object> regexList = new List<object>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM supplierRegex WHERE nome_empresa = @nomeEmpresa";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    // For SQL Server, use the Add method with a value to prevent SQL injection.
-                    command.Parameters.Add(new SqlParameter("@nomeEmpresa", nomeEmpresa));
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                regexList.Add(reader.GetValue(i));
-                            }
-                        }
-                    }
-                }
-            }
-
-            return regexList.ConvertAll(x => x.ToString());
-        }
         //get orderID through invoiceNumber
         public int GetOrderID(string invoiceNumber)
         {
