@@ -52,15 +52,15 @@ namespace PDFDataExtraction.Utility
             var distinctMatches = matches.GroupBy(match => match.ToString())
                                          .Select(group => group.First())
                                          .ToList();
-            Console.WriteLine("aa"+distinctMatches);
+            Console.WriteLine("aa" + distinctMatches);
             foreach (Match match in distinctMatches)
             {
                 // Assuming your regex has two groups: one for the percentage and one for the amount
                 // Adjust the group indexes as per your actual regex groups
                 string percentage = match.Groups[1].Value.Trim();
                 string amount = match.Groups[2].Value.Trim();
-                Console.WriteLine("aa"+percentage);
-                Console.WriteLine("aaa"+amount);
+                Console.WriteLine("aa" + percentage);
+                Console.WriteLine("aaa" + amount);
                 // Format each match as desired, here assuming "percentage amount"
                 // Adjust the formatting to match your needs
                 formattedMatches.Add($"{percentage} {amount}");
@@ -249,13 +249,13 @@ namespace PDFDataExtraction.Utility
                     };
 
                     product.CNP = match.Groups["CNP"].Value;
-                    
+
                     products.Add(product);
                 }
             }
             return products;
         }
-       
+
         // Method to extract products from LEX invoices using regular expression
         public List<Product> ExtractProductDetailsLEX(string invoiceText, string pattern)
         {
