@@ -87,20 +87,20 @@ namespace PDFDataExtraction.Models
     }
 }
 
-    /*
-    public class MorenoProduct : Product
-    {
-        public string CNP { get; set; }
-        public string Designation { get; set; }
-        public string Lot { get; set; }
-        public DateTime ExpiryDate { get; set; }
-        public string Type { get; set; }
-        public int IVA { get; set; }
-        public decimal Total { get; set; }
+/*
+public class MorenoProduct : Product
+{
+    public string CNP { get; set; }
+    public string Designation { get; set; }
+    public string Lot { get; set; }
+    public DateTime ExpiryDate { get; set; }
+    public string Type { get; set; }
+    public int IVA { get; set; }
+    public decimal Total { get; set; }
 
-        public override string ToString()
-        {
-            return $"{base.ToString()}, CNP: {CNP}, Designation: {Designation}, Lot: {Lot}, ExpiryDate: {ExpiryDate.ToString("yyyy-MM-dd")}, " +
-                   $"Type: {Type}, IVA: {IVA}, Total: {Total}";
-        }
-    }*/
+    public override string ToString()
+    {
+        return $"{base.ToString()}, CNP: {CNP}, Designation: {Designation}, Lot: {Lot}, ExpiryDate: {ExpiryDate.ToString("yyyy-MM-dd")}, " +
+               $"Type: {Type}, IVA: {IVA}, Total: {Total}";
+    }
+}*/
