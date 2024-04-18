@@ -20,12 +20,16 @@ namespace PDFDataExtraction.Core
 
         static readonly Serilog.Core.Logger log;
 
-        static List<SupplierPattern> supplierPatterns;
+        static List<SupplierPattern>? supplierPatterns;
         public static List<SupplierPattern> LoadSupplierPatterns()
         {
             var jsonContent = File.ReadAllText(regexPatternsFile);
             var supplierPatterns = JsonConvert.DeserializeObject<List<SupplierPattern>>(jsonContent);
-            return supplierPatterns;
+
+            if (supplierPatterns != null)
+                return supplierPatterns;
+
+            throw new InvalidOperationException("Supplier patterns not loaded.");
         }
 
 
@@ -300,9 +304,9 @@ namespace PDFDataExtraction.Core
                     dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
                     totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
                     totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
-                    IVA= invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
+                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
                     products = invoiceParser.ExtractProductDetails(invoiceText, supplierPattern.PadraoRegexProduto);
-                    
+
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
                     invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
