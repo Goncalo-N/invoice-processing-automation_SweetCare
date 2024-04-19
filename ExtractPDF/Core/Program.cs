@@ -416,6 +416,10 @@ namespace PDFDataExtraction.Core
 
         }
 
+        /// <summary>
+        /// Method to print the supplier patterns to the console for debugging purposes
+        /// </summary>
+        /// <param name="supplierPatterns"></param>
         public static void PrintSupplierPatterns(List<SupplierPattern> supplierPatterns)
         {
             foreach (var pattern in supplierPatterns)
