@@ -320,6 +320,9 @@ namespace PDFDataExtraction.Utility
         }
     }
 
+    /// <summary>
+    /// Custom exception class for parsing errors
+    /// </summary>
     public class ParseException : Exception
     {
         public ParseException(string message) : base(message) { }
