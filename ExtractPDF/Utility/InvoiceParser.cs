@@ -98,7 +98,9 @@ namespace PDFDataExtraction.Utility
         private string ExtractFurthestFutureDateMatch(string text, Regex regex)
         {
             MatchCollection matches = regex.Matches(text);
-            DateTime furthestFutureDate = DateTime.MinValue; // Start with the earliest possible date
+
+            // Start with the earliest possible date
+            DateTime furthestFutureDate = DateTime.MinValue;
 
             foreach (Match match in matches)
             {
@@ -107,7 +109,8 @@ namespace PDFDataExtraction.Utility
                     // Check if the parsed date is further in the future than the current furthestFutureDate
                     if (parsedDate > furthestFutureDate)
                     {
-                        furthestFutureDate = parsedDate; // Update furthestFutureDate
+                        // Update furthestFutureDate
+                        furthestFutureDate = parsedDate;
                     }
                 }
             }
