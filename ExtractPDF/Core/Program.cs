@@ -20,7 +20,6 @@ namespace PDFDataExtraction.Core
 
         static readonly Serilog.Core.Logger log;
 
-        static List<SupplierPattern>? supplierPatterns;
         public static List<SupplierPattern> LoadSupplierPatterns()
         {
             var jsonContent = File.ReadAllText(regexPatternsFile);
@@ -91,7 +90,7 @@ namespace PDFDataExtraction.Core
 
 
 
-            Task.Run(() => MonitorPdfFolder(pdfFolder, outputFolder, validFolder));
+            Task.Run(() => MonitorPdfFolder());
             PreventApplicationExit();
         }
 
@@ -106,16 +105,6 @@ namespace PDFDataExtraction.Core
             log.Error($"Unobserved task exception: {e.Exception}");
             e.SetObserved();
         }
-        public static string GetBaseDirectory()
-        {
-            var baseDirectory = Directory.GetCurrentDirectory();
-            var parentDirectory = Directory.GetParent(baseDirectory);
-            baseDirectory = parentDirectory?.FullName ?? baseDirectory;
-            log.Information($"Base directory: {baseDirectory}");
-            Console.WriteLine($"Base directory: {baseDirectory}");
-            return baseDirectory;
-        }
-
 
         static void PreventApplicationExit()
         {
@@ -168,33 +157,27 @@ namespace PDFDataExtraction.Core
         /// <summary>
         /// Method to monitor the PDF folder for new PDF files
         /// </summary>
-        /// <param name="folderPath"></param>
-        /// <param name="outputFolderPath"></param>
-        /// <param name="validatedFolderPath"></param>
-        public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath)
+        public static void MonitorPdfFolder()
         {
             // Create a timer with a 5-minute interval
             System.Timers.Timer timer = new System.Timers.Timer(5 * 60 * 1000);
-            timer.Elapsed += (sender, e) => CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath);
+            timer.Elapsed += (sender, e) => CheckFolderForNewPDFs();
             timer.AutoReset = true;
             timer.Start();
 
             // Initial check when starting the program
-            CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath);
+            CheckFolderForNewPDFs();
         }
 
         /// <summary>
         /// Method to monitor the PDF folder for new PDF files with a cancelation token
         /// </summary>
-        /// <param name="folderPath"></param>
-        /// <param name="outputFolderPath"></param>
-        /// <param name="validatedFolderPath"></param>
         /// <param name="cancellationToken"></param>
-        public static void MonitorPdfFolder(string folderPath, string outputFolderPath, string validatedFolderPath, CancellationToken cancellationToken)
+        public static void MonitorPdfFolder(CancellationToken cancellationToken)
         {
             // Create a timer with a 5-minute interval
             var timer = new System.Threading.Timer(
-                callback: _ => CheckFolderForNewPDFs(folderPath, outputFolderPath, validatedFolderPath),
+                callback: _ => CheckFolderForNewPDFs(),
                 state: null,
                 dueTime: TimeSpan.Zero,
                 period: TimeSpan.FromMinutes(1)
@@ -213,20 +196,17 @@ namespace PDFDataExtraction.Core
         /// <summary>
         /// Method to check the folder for new PDF files
         /// </summary>
-        /// <param name="folderPath"></param>
-        /// <param name="outputFolderPath"></param>
-        /// <param name="validatedFolderPath"></param>
-        static void CheckFolderForNewPDFs(string folderPath, string outputFolderPath, string validatedFolderPath)
+        static void CheckFolderForNewPDFs()
         {
-            if (!Directory.Exists(folderPath))
+            if (!Directory.Exists(pdfFolder))
             {
-                Console.WriteLine("PDF folder does not exist: " + folderPath);
+                Console.WriteLine("PDF folder does not exist: " + pdfFolder);
                 return;
             }
-            string[] newPdfFiles = Directory.GetFiles(folderPath, "*.pdf");
+            string[] newPdfFiles = Directory.GetFiles(pdfFolder, "*.pdf");
             foreach (string pdfFilePath in newPdfFiles)
             {
-                OnPdfFileCreated(pdfFilePath, outputFolderPath, validatedFolderPath);
+                OnPdfFileCreated(pdfFilePath);
             }
         }
 
@@ -234,9 +214,7 @@ namespace PDFDataExtraction.Core
         /// Method that is called when a new PDF file is added to the folder
         /// </summary>
         /// <param name="pdfFilePath"></param>
-        /// <param name="outputFolderPath"></param>
-        /// <param name="validatedFolderPath"></param>
-        static void OnPdfFileCreated(string pdfFilePath, string outputFolderPath, string validatedFolderPath)
+        static void OnPdfFileCreated(string pdfFilePath)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
             var parentDirectory = Directory.GetParent(baseDirectory);
@@ -326,7 +304,7 @@ namespace PDFDataExtraction.Core
 
             // Generate output file path
             string outputFileName = Path.GetFileNameWithoutExtension(pdfFilePath) + "_data.txt";
-            string outputFilePath = Path.Combine(outputFolderPath, outputFileName);
+            string outputFilePath = Path.Combine(outputFolder, outputFileName);
 
             // Write extracted data to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
@@ -455,7 +433,7 @@ namespace PDFDataExtraction.Core
             string destinationFilePath = Path.Combine(missingValuesFolder, fileName);
 
             Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
-            //File.Move(pdfFilePath, destinationFilePath);
+            File.Move(pdfFilePath, destinationFilePath);
             Console.WriteLine($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
 
         }
@@ -470,8 +448,7 @@ namespace PDFDataExtraction.Core
         /// <param name="pdfFilePath"></param>
         static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
-            string baseDirectory = GetBaseDirectory();
-
+            
             string fileName = "";
             string destinationFilePath = "";
 
@@ -513,7 +490,7 @@ namespace PDFDataExtraction.Core
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolder, fileName);
-                        //File.Move(pdfFilePath, destinationFilePath);
+                        File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
                     }
