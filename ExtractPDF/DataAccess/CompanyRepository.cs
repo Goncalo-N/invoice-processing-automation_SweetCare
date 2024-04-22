@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Extensions.Configuration;
-using PDFDataExtraction.Utility;
 using static PDFDataExtraction.Utility.RegexParser;
 
 namespace PDFDataExtraction.DataAccess
@@ -15,7 +12,13 @@ namespace PDFDataExtraction.DataAccess
         public CompanyRepository(IConfiguration configuration)
         {
             var jsonFilePath = configuration.GetValue<string>("SupplierPatternsPath");
-            _supplierPatterns = LoadSupplierPatterns(jsonFilePath);
+            if(!string.IsNullOrEmpty(jsonFilePath) && File.Exists(jsonFilePath)){
+                _supplierPatterns = LoadSupplierPatterns(jsonFilePath);
+            }
+            else{
+                // Load default patterns if the file is not found
+                Console.WriteLine("Supplier patterns file not found. Loading default patterns.");
+            }
         }
 
         public List<string> GetAllCompanyNames()
