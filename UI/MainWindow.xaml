@@ -31,14 +31,36 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="#767676" />
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=Content, ElementName=StatusLabel}" Value="Active">
+                <DataTrigger Binding="{Binding Path=Content, ElementName=StatusLabel}"
+                    Value="Active">
                     <Setter Property="Background" Value="#0A0" />
                     <Setter Property="BorderBrush" Value="#0A0" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=Content, ElementName=StatusLabel}" Value="Inactive">
+                <DataTrigger Binding="{Binding Path=Content, ElementName=StatusLabel}"
+                    Value="Inactive">
                     <Setter Property="Background" Value="#A5A5A5" />
                     <Setter Property="BorderBrush" Value="#A5A5A5" />
                 </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+        <!-- Style for Menu -->
+        <Style TargetType="Menu" x:Key="MenuStyle">
+            <Setter Property="Background" Value="#1E1E1E" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#1E1E1E" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <!-- Style for MenuItem -->
+        <Style TargetType="MenuItem">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#1E1E1E" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#007ACC" />
+                </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -48,19 +70,33 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Style="{StaticResource MenuStyle}">
+            <MenuItem Header="Folders">
+                <MenuItem Header="Open Invalid Folder" Click="InvalidFolderButton_Click" />
+                <MenuItem Header="Open Valid Folder" Click="ValidFolderButton_Click" />
+                <MenuItem Header="Open Logs Folder" Click="LogsFolderButton_Click" />
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="StartPauseButton" Style="{StaticResource ButtonStyle}" Click="StartPauseButton_Click">
+                <!-- Add other File menu items here -->
+            </MenuItem>
+            <!-- Add other top-level menus here -->
+        </Menu>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button x:Name="StartPauseButton" Style="{StaticResource ButtonStyle}"
+                Click="StartPauseButton_Click">
                 Start
             </Button>
-            <Button x:Name="ExitButton" Style="{StaticResource ButtonStyle}" Click="ExitButton_Click">
+            <Button x:Name="ExitButton" Style="{StaticResource ButtonStyle}"
+                Click="ExitButton_Click">
                 Exit
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
-            <Label x:Name="StatusLabel" Content="Inactive" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White"/>
-            <Border x:Name="StatusIndicator" Style="{StaticResource StatusIndicatorStyle}"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"
+            VerticalAlignment="Center" Margin="0,20,0,0">
+            <Label x:Name="StatusLabel" Content="Inactive" VerticalAlignment="Center"
+                HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White" />
+            <Border x:Name="StatusIndicator" Style="{StaticResource StatusIndicatorStyle}" />
         </StackPanel>
     </Grid>
 </Window>
