@@ -12,10 +12,12 @@ namespace PDFDataExtraction.DataAccess
         public CompanyRepository(IConfiguration configuration)
         {
             var jsonFilePath = configuration.GetValue<string>("SupplierPatternsPath");
-            if(!string.IsNullOrEmpty(jsonFilePath) && File.Exists(jsonFilePath)){
+            if (!string.IsNullOrEmpty(jsonFilePath) && File.Exists(jsonFilePath))
+            {
                 _supplierPatterns = LoadSupplierPatterns(jsonFilePath);
             }
-            else{
+            else
+            {
                 // Load default patterns if the file is not found
                 Console.WriteLine("Supplier patterns file not found. Loading default patterns.");
             }
