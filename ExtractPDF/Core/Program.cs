@@ -410,8 +410,8 @@ namespace PDFDataExtraction.Core
                 Console.WriteLine($"Data Vencimento Fatura Regex: {pattern.PadraoRegexDataVencimentoFatura}");
                 Console.WriteLine($"Total Sem IVA Regex: {pattern.PadraoRegexTotalSemIva}");
                 Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}");
-                // Add more as needed
-                Console.WriteLine(); // Add an empty line for readability
+                //Added empty line for better readability
+                Console.WriteLine();
             }
         }
 
