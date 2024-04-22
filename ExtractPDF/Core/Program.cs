@@ -8,6 +8,7 @@ using PDFDataExtraction.Models;
 using PDFDataExtraction.Service;
 using PDFDataExtraction.Utility;
 using Serilog;
+
 using static PDFDataExtraction.Utility.RegexParser;
 
 namespace PDFDataExtraction.Core
@@ -121,19 +122,17 @@ namespace PDFDataExtraction.Core
         /// <returns></returns>
         static string ExtractTextFromPDF(string filePath)
         {
-            using (PdfReader reader = new PdfReader(filePath))
-            using (PdfDocument pdfDoc = new PdfDocument(reader))
+            using PdfReader reader = new PdfReader(filePath);
+            using PdfDocument pdfDoc = new PdfDocument(reader);
+            StringWriter output = new StringWriter();
+            for (int i = 1; i <= pdfDoc.GetNumberOfPages(); i++)
             {
-                StringWriter output = new StringWriter();
-                for (int i = 1; i <= pdfDoc.GetNumberOfPages(); i++)
-                {
-                    PdfPage page = pdfDoc.GetPage(i);
-                    ITextExtractionStrategy strategy = new LocationTextExtractionStrategy();
-                    string text = PdfTextExtractor.GetTextFromPage(page, strategy);
-                    output.WriteLine(text);
-                }
-                return output.ToString();
+                PdfPage page = pdfDoc.GetPage(i);
+                ITextExtractionStrategy strategy = new LocationTextExtractionStrategy();
+                string text = PdfTextExtractor.GetTextFromPage(page, strategy);
+                output.WriteLine(text);
             }
+            return output.ToString();
         }
         /// <summary>
         /// Method to check the file to see what company it belongs to
