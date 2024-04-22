@@ -321,9 +321,9 @@ namespace PDFDataExtraction.Core
                 writer.WriteLine("Total sem IVA: " + totalSemIVA);
                 writer.WriteLine("Total com IVA: " + totalPrice);
                 writer.WriteLine("Taxa IVA: " + IVA);
-                writer.WriteLine("-----    Products    ------");
 
                 // Write product details
+                writer.WriteLine("-----    Products    ------");
                 foreach (var product in products.Distinct())
                 {
                     productsDistinct.Add(product);
@@ -448,7 +448,7 @@ namespace PDFDataExtraction.Core
         /// <param name="pdfFilePath"></param>
         static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
         {
-            
+
             string fileName = "";
             string destinationFilePath = "";
 
