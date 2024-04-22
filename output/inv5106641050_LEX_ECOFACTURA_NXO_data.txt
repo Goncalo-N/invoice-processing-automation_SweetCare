@@ -126,7 +126,8 @@ Nº Fatura: 220052765
 Data Vencimento: 02/01/2024
 Total sem IVA: 946,31
 Total com IVA: 1158,06
-Taxa IVA: 
+Taxa IVA: 6.00 2.08
+23.00 209.67
 -----    Products    ------
 Code: PT7295378, Barcode: , Description: , Quantity: 3, UnitPrice: 8,26, Discounts: 0, 0, 0, NetPrice: 21,31, PrecoComIVA: 0, Bonus: 0, IVA: 3, CNP: 7295378 isFactUpdated: 0, Name: CCREAM ROSTO DUO 40 POUPE8, CNP: 7295378, LotNumber: R100, DiscountPercentage: 14,00, IVA: 3
 Code: PT6895094, Barcode: , Description: , Quantity: 6, UnitPrice: 5,99, Discounts: 0, 0, 0, NetPrice: 28,75, PrecoComIVA: 0, Bonus: 0, IVA: 3, CNP: 6895094 isFactUpdated: 0, Name: AK CR NUTRI-REP PES SECOS 50ML, CNP: 6895094, LotNumber: 606, DiscountPercentage: 20,00, IVA: 3
