@@ -10,12 +10,17 @@ namespace PDFDataExtraction
     {
         private readonly IMonitoringService _monitoringService;
         private readonly IConfiguration _configuration;
-
+        private NotifyIcon trayIcon;
 
         public MainWindow()
         {
-
             InitializeComponent();
+
+            trayIcon = new NotifyIcon()
+            {
+                Icon = SystemIcons.Application,
+                Visible = true
+            };
 
             // Manually build configuration
             IConfiguration configuration = new ConfigurationBuilder()
@@ -24,10 +29,24 @@ namespace PDFDataExtraction
                 .Build();
 
             _configuration = configuration;
-            // Pass the configuration to MonitoringService
-            _monitoringService = new MonitoringService(configuration);
+            _monitoringService = new MonitoringService(configuration, ShowNotification);
 
-            ExitButton.Background = Brushes.Red;
+            ExitButton.Background = System.Windows.Media.Brushes.Red;
+        }
+
+        private void ShowNotification(string message)
+        {
+            try
+            {
+                trayIcon.ShowBalloonTip(5000, "PDF Folder Check", message, ToolTipIcon.Info);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show($"Failed to show notification: {ex.Message}");
+            }
+
+            StatusLabel.Content = message;
+            StatusIndicator.Background = System.Windows.Media.Brushes.Blue;
         }
 
         private void StartPauseButton_Click(object sender, RoutedEventArgs e)
@@ -49,66 +68,37 @@ namespace PDFDataExtraction
             if (_monitoringService.IsMonitoring)
             {
                 StartPauseButton.Content = "Pause";
-                StartPauseButton.Background = Brushes.Red;
-                StatusIndicator.Background = Brushes.Green;
-                StatusLabel.Content = "Running";
+                StartPauseButton.Background = System.Windows.Media.Brushes.Red;
+                StatusIndicator.Background = System.Windows.Media.Brushes.Green;
+                StatusLabel.Content = "Monitoring active";
             }
             else
             {
                 StartPauseButton.Content = "Start";
-                StartPauseButton.Background = Brushes.Green;
-                StatusIndicator.Background = Brushes.Red;
-                StatusLabel.Content = "Paused";
+                StartPauseButton.Background = System.Windows.Media.Brushes.Green;
+                StatusIndicator.Background = System.Windows.Media.Brushes.Red;
+                StatusLabel.Content = "Monitoring paused";
             }
         }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
-
-
         public void InvalidFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            var invalidFolder = _configuration["ApplicationPaths:InvalidFolder"] ?? throw new InvalidOperationException("ValidFolder Path not found in appsettings.json");
-
-            // Ensure the directory exists before trying to open it
-            if (!Directory.Exists(invalidFolder))
-            {
-                MessageBox.Show($"The folder '{invalidFolder}' does not exist.", "Folder Not Found", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Open the folder in File Explorer
+            var invalidFolder = _configuration["ApplicationPaths:InvalidFolder"] ?? throw new InvalidOperationException("Invalid Folder Path not found in appsettings.json");
             Process.Start("explorer.exe", invalidFolder);
         }
+
         public void ValidFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            var validFolder = _configuration["ApplicationPaths:ValidFolder"] ?? throw new InvalidOperationException("ValidFolder Path not found in appsettings.json");
-
-            // Ensure the directory exists before trying to open it
-            if (!Directory.Exists(validFolder))
-            {
-                MessageBox.Show($"The folder '{validFolder}' does not exist.", "Folder Not Found", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Open the folder in File Explorer
+            var validFolder = _configuration["ApplicationPaths:ValidFolder"] ?? throw new InvalidOperationException("Valid Folder Path not found in appsettings.json");
             Process.Start("explorer.exe", validFolder);
         }
 
         public void LogsFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            var logsFolder = _configuration["ApplicationPaths:LogsFolder"] ?? throw new InvalidOperationException("LogsFolder Path not found in appsettings.json");
-
-            // Ensure the directory exists before trying to open it
-            if (!Directory.Exists(logsFolder))
-            {
-                MessageBox.Show($"The folder '{logsFolder}' does not exist.", "Folder Not Found", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Open the folder in File Explorer
+            var logsFolder = _configuration["ApplicationPaths:LogsFolder"] ?? throw new InvalidOperationException("Logs Folder Path not found in appsettings.json");
             Process.Start("explorer.exe", logsFolder);
         }
     }
