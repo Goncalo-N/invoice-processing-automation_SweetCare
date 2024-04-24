@@ -23,6 +23,11 @@ namespace PDFDataExtraction.Models
         public int Quantity { get; set; }
 
         /// <summary>
+        /// Price of the product including VAT (Value Added Tax).
+        /// </summary>
+        public decimal PrecoComIVA { get; set; }
+
+        /// <summary>
         /// Unit price of the product before any discounts.
         /// </summary>
         public decimal UnitPrice { get; set; }
@@ -45,10 +50,7 @@ namespace PDFDataExtraction.Models
         /// </summary>
         public decimal NetPrice { get; set; }
 
-        /// <summary>
-        /// Price of the product including VAT (Value Added Tax).
-        /// </summary>
-        public decimal PrecoComIVA { get; set; }
+
 
         /// <summary>
         /// Bonus quantity that come with the product.
@@ -69,8 +71,8 @@ namespace PDFDataExtraction.Models
         // Overrides the ToString method to provide a string representation of the product details.
         public override string ToString()
         {
-            return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, UnitPrice: {UnitPrice}, " +
-                   $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, PrecoComIVA: {PrecoComIVA}, Bonus: {Bonus}, IVA: {IVA}, CNP: {CNP} isFactUpdated: {isFactUpdated}";
+            return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, PrecoComIVA: {PrecoComIVA}, UnitPrice: {UnitPrice}, " +
+                   $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, Bonus: {Bonus}, IVA: {IVA}, CNP: {CNP} isFactUpdated: {isFactUpdated}";
         }
     }
 

@@ -1,0 +1,166 @@
+2024-04-24 14:17:10.130 +01:00 [INF] Application Starting
+2024-04-24 14:17:11.900 +01:00 [ERR] Supplier not found for file: ..\pdfs\213867.pdf
+2024-04-24 14:17:11.990 +01:00 [INF] Reading invoice : ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.601 +01:00 [INF] Product validated: 7295378 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.603 +01:00 [INF] Product validated: 6895094 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.603 +01:00 [INF] Product validated: 7076844 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.604 +01:00 [INF] Product validated: 6539163 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.606 +01:00 [INF] Product validated: 6694083 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.606 +01:00 [INF] Product validated: 6282525 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.607 +01:00 [INF] Product validated: 6937748 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.608 +01:00 [INF] Product validated: 6264432 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.608 +01:00 [INF] Product validated: 6908368 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.609 +01:00 [INF] Product validated: 6887653 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.610 +01:00 [INF] Product validated: 6866046 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.610 +01:00 [INF] Product validated: 6289413 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.611 +01:00 [INF] Product validated: 6397356 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.612 +01:00 [INF] Product validated: 6841817 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.613 +01:00 [INF] Product validated: 7266726 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.621 +01:00 [INF] Product validated: 6969816 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.623 +01:00 [INF] Product validated: 6937755 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.623 +01:00 [INF] Invoice validated: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.727 +01:00 [INF] Reading invoice : ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.736 +01:00 [ERR] Product not validated: 7240523 in invoice: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.736 +01:00 [ERR] Invoice not validated: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:17:12.806 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:17:12.816 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:17:12.817 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:17:12.844 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:17:12.847 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:17:12.847 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:17:12.874 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:17:12.878 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:17:12.878 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:17:12.929 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:17:12.932 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:17:12.932 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:17:12.970 +01:00 [INF] Reading invoice : ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:17:12.977 +01:00 [ERR] Product not validated: 6938100 in invoice: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:17:12.977 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:17:14.205 +01:00 [INF] Reading invoice : ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:17:14.292 +01:00 [ERR] Product not validated: 6862102 in invoice: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:17:14.293 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:27:23.730 +01:00 [INF] Application Starting
+2024-04-24 14:27:24.650 +01:00 [ERR] Supplier not found for file: ..\pdfs\213867.pdf
+2024-04-24 14:27:24.768 +01:00 [INF] Reading invoice : ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.150 +01:00 [INF] Product validated: 7295378 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.151 +01:00 [INF] Product validated: 6895094 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.152 +01:00 [INF] Product validated: 7076844 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.152 +01:00 [INF] Product validated: 6539163 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.153 +01:00 [INF] Product validated: 6694083 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.154 +01:00 [INF] Product validated: 6282525 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.154 +01:00 [INF] Product validated: 6937748 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.155 +01:00 [INF] Product validated: 6264432 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.156 +01:00 [INF] Product validated: 6908368 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.156 +01:00 [INF] Product validated: 6887653 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.157 +01:00 [INF] Product validated: 6866046 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.157 +01:00 [INF] Product validated: 6289413 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.158 +01:00 [INF] Product validated: 6397356 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.159 +01:00 [INF] Product validated: 6841817 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.160 +01:00 [INF] Product validated: 7266726 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.160 +01:00 [INF] Product validated: 6969816 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.161 +01:00 [INF] Product validated: 6937755 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.161 +01:00 [INF] Invoice validated: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.222 +01:00 [INF] Reading invoice : ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.227 +01:00 [ERR] Product not validated: 7240523 in invoice: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.227 +01:00 [ERR] Invoice not validated: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:27:25.286 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:27:25.295 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:27:25.295 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:27:25.324 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:27:25.330 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:27:25.330 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:27:25.360 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:27:25.368 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:27:25.368 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:27:25.408 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:27:25.413 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:27:25.413 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:27:25.445 +01:00 [INF] Reading invoice : ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:27:25.451 +01:00 [ERR] Product not validated: 6938100 in invoice: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:27:25.451 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:27:25.579 +01:00 [INF] Reading invoice : ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:27:25.585 +01:00 [ERR] Product not validated: 6862102 in invoice: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:27:25.585 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:29:57.742 +01:00 [INF] Application Starting
+2024-04-24 14:29:58.629 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:29:59.375 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:29:59.375 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:04.315 +01:00 [INF] Application Starting
+2024-04-24 14:31:05.127 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:05.771 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:05.771 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:49.643 +01:00 [INF] Application Starting
+2024-04-24 14:31:50.380 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:51.133 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:31:51.133 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:32:50.001 +01:00 [INF] Application Starting
+2024-04-24 14:32:50.688 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:32:51.077 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:32:51.077 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:33:47.995 +01:00 [INF] Application Starting
+2024-04-24 14:33:48.850 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:33:49.260 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:33:49.260 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:42:25.800 +01:00 [INF] Application Starting
+2024-04-24 14:42:27.065 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:42:27.547 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:42:27.547 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:43:48.564 +01:00 [INF] Application Starting
+2024-04-24 14:43:49.370 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:43:49.772 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:43:49.772 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:46:33.613 +01:00 [INF] Application Starting
+2024-04-24 14:46:34.522 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:46:34.905 +01:00 [INF] Product validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:46:34.909 +01:00 [INF] Product validated: 6862102 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:46:34.934 +01:00 [INF] Product validated: 6861823 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:46:34.934 +01:00 [INF] Invoice validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:49.960 +01:00 [INF] Application Starting
+2024-04-24 14:47:50.804 +01:00 [INF] Reading invoice : ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.275 +01:00 [INF] Product validated: 7295378 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.276 +01:00 [INF] Product validated: 6895094 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.278 +01:00 [INF] Product validated: 7076844 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.282 +01:00 [INF] Product validated: 6539163 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.287 +01:00 [INF] Product validated: 6694083 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.294 +01:00 [INF] Product validated: 6282525 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.296 +01:00 [INF] Product validated: 6937748 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.301 +01:00 [INF] Product validated: 6264432 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.304 +01:00 [INF] Product validated: 6908368 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.334 +01:00 [INF] Product validated: 6887653 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.336 +01:00 [INF] Product validated: 6866046 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.337 +01:00 [INF] Product validated: 6289413 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.339 +01:00 [INF] Product validated: 6397356 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.343 +01:00 [INF] Product validated: 6841817 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.345 +01:00 [INF] Product validated: 7266726 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.352 +01:00 [INF] Product validated: 6969816 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.354 +01:00 [INF] Product validated: 6937755 in invoice: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.355 +01:00 [INF] Invoice validated: ..\pdfs\inv5106641050_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.500 +01:00 [INF] Reading invoice : ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.524 +01:00 [ERR] Product not validated: 7240523 in invoice: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.524 +01:00 [ERR] Invoice not validated: ..\pdfs\inv5108887454_LEX_ECOFACTURA_NXO.pdf
+2024-04-24 14:47:51.656 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:51.691 +01:00 [INF] Product validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:51.704 +01:00 [INF] Product validated: 6862102 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:51.706 +01:00 [INF] Product validated: 6861823 in invoice: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:51.706 +01:00 [INF] Invoice validated: ..\pdfs\SRO0412FAC02531.pdf
+2024-04-24 14:47:51.742 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:47:51.756 +01:00 [INF] Product validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:47:51.760 +01:00 [INF] Product validated: 6862102 in invoice: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:47:51.763 +01:00 [INF] Product validated: 6861823 in invoice: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:47:51.764 +01:00 [INF] Invoice validated: ..\pdfs\SRO0412FAC02546.pdf
+2024-04-24 14:47:51.802 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:47:51.823 +01:00 [INF] Product validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:47:51.827 +01:00 [INF] Product validated: 6862102 in invoice: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:47:51.836 +01:00 [INF] Product validated: 6861823 in invoice: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:47:51.837 +01:00 [INF] Invoice validated: ..\pdfs\SRO0412FAC02586.pdf
+2024-04-24 14:47:51.899 +01:00 [INF] Reading invoice : ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:47:51.906 +01:00 [ERR] Product not validated: 6861740 in invoice: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:47:51.907 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0412FAC02591.pdf
+2024-04-24 14:47:51.956 +01:00 [INF] Reading invoice : ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:47:51.974 +01:00 [ERR] Product not validated: 6938100 in invoice: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:47:51.974 +01:00 [ERR] Invoice not validated: ..\pdfs\SRO0501FAC05321.pdf
+2024-04-24 14:47:52.171 +01:00 [INF] Reading invoice : ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:47:52.176 +01:00 [INF] Product validated: 6862102 in invoice: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:47:52.199 +01:00 [INF] Product validated: 6861823 in invoice: ..\pdfs\SRO2312CRM03537.pdf
+2024-04-24 14:47:52.199 +01:00 [INF] Invoice validated: ..\pdfs\SRO2312CRM03537.pdf
