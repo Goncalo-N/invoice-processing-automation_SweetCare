@@ -37,6 +37,7 @@ namespace PDFDataExtraction
         }
 
 
+
         private void StartPauseButton_Click(object sender, RoutedEventArgs e)
         {
             if (!_monitoringService.IsMonitoring)
