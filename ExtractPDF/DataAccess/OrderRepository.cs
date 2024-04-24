@@ -75,6 +75,9 @@ namespace PDFDataExtraction.DataAccess
                             // Check if prices and quantity match
                             pricesMatch = (priceNoBonus == UnitPrice && priceWithBonus == NetPrice);
                             quantityMatch = (quantity == Quantity);
+                            Console.WriteLine("Prices match: " + priceNoBonus+"||"+ priceWithBonus);
+                            Console.WriteLine("Price Match 2: " + UnitPrice+"||" +NetPrice);
+                            Console.WriteLine("Quantity match: " + quantity+ "|| " + Quantity);
                         }
                     }
                 }
@@ -95,7 +98,6 @@ namespace PDFDataExtraction.DataAccess
                     }
                 }
             }
-
             return isValid;
         }
 
