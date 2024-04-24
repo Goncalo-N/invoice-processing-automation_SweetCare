@@ -2,11 +2,13 @@
   <ItemGroup>
     <ProjectReference Include="..\ExtractPDF\ExtractPDF.csproj" />
   </ItemGroup>
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 </Project>

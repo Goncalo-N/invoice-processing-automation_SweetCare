@@ -220,6 +220,12 @@ namespace PDFDataExtraction.Utility
                     {
                         product.Bonus = 0;
                     }
+                    decimal precoComIVA;
+                    if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
+                    {
+                        product.NetPrice = precoComIVA;
+                    }
+
                     decimal grossPrice;
                     if (decimal.TryParse(match.Groups["GrossPrice"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out grossPrice))
                     {
@@ -235,13 +241,9 @@ namespace PDFDataExtraction.Utility
                     decimal precoSemIVA;
                     if (decimal.TryParse(match.Groups["PrecoSemIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoSemIVA))
                     {
-                        product.NetPrice = precoSemIVA;
+                        product.PrecoComIVA = precoSemIVA;
                     }
-                    decimal precoComIVA;
-                    if (decimal.TryParse(match.Groups["PrecoComIVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out precoComIVA))
-                    {
-                        product.PrecoComIVA = precoComIVA;
-                    }
+
                     decimal iva;
                     if (decimal.TryParse(match.Groups["IVA"].Value.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out iva))
                     {
