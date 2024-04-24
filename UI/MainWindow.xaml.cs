@@ -10,17 +10,10 @@ namespace PDFDataExtraction
     {
         private readonly IMonitoringService _monitoringService;
         private readonly IConfiguration _configuration;
-        private NotifyIcon trayIcon;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            trayIcon = new NotifyIcon()
-            {
-                Icon = SystemIcons.Application,
-                Visible = true
-            };
 
             // Manually build configuration
             IConfiguration configuration = new ConfigurationBuilder()
@@ -29,25 +22,20 @@ namespace PDFDataExtraction
                 .Build();
 
             _configuration = configuration;
-            _monitoringService = new MonitoringService(configuration, ShowNotification);
+            _monitoringService = new MonitoringService(configuration);
 
             ExitButton.Background = System.Windows.Media.Brushes.Red;
         }
 
-        private void ShowNotification(string message)
+        public static void ShowOverlay(string message)
         {
-            try
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
-                trayIcon.ShowBalloonTip(5000, "PDF Folder Check", message, ToolTipIcon.Info);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show($"Failed to show notification: {ex.Message}");
-            }
-
-            StatusLabel.Content = message;
-            StatusIndicator.Background = System.Windows.Media.Brushes.Blue;
+                var overlay = new OverlayWindow(message);
+                overlay.Show();
+            });
         }
+
 
         private void StartPauseButton_Click(object sender, RoutedEventArgs e)
         {

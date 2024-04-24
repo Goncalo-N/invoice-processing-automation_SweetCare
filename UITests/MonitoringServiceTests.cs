@@ -19,7 +19,9 @@ namespace PDFDataExtraction.UITests
                 .AddInMemoryCollection(new Dictionary<string, string?>
                 {{"ApplicationPaths:PdfFolder", "..\\pdf"},
                     {"ApplicationPaths:OutputFolder", "..\\output"},
-                    {"ApplicationPaths:ValidFolder","..\\valid"}}).Build();
+                    {"ApplicationPaths:ValidFolder","..\\valid"},
+                    {"ApplicationsPaths:LogsFolder","..\\logs"}}).Build();
+        
         }
 
         [Test]
@@ -34,7 +36,7 @@ namespace PDFDataExtraction.UITests
         public void StopMonitoring_SetsIsMonitoringToFalse()
         {
             var service = new MonitoringService(_configuration);
-            service.StartMonitoring(); // Start first to set it true
+            service.StartMonitoring();
             service.StopMonitoring();
             Assert.That(service.IsMonitoring, Is.EqualTo(false));
         }
