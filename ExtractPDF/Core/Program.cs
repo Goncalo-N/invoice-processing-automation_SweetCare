@@ -226,15 +226,13 @@ namespace PDFDataExtraction.Core
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
-            // Get all company names from the database
-            //List<string> companyNames = dataService.GetAllCompanyNames();
-
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
 
             // Check the company name
             var supplierPatterns = LoadSupplierPatterns();
             //PrintSupplierPatterns(supplierPatterns);
+            
             var companyName = CheckCompany(invoiceText, supplierPatterns);
 
             Console.WriteLine("Company Name: " + companyName);
@@ -333,16 +331,15 @@ namespace PDFDataExtraction.Core
             // Grab the orderID through the numFatura
             int orderID = dataService.GetOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
-            if (orderID == 0)
+           /* if (orderID == 0)
             {
                 //log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
                 //Console.WriteLine("Order not found");
                 //OnValuesMissing(pdfFilePath);
                 //return;
-            }
+            }*/
 
             // Check if any field is missing
-            //dictionary to store the fields and their values
             var fields = new Dictionary<string, object>{
                 {"Invoice Date", invoiceDate},
                 {"Num Encomenda", numEncomenda},
@@ -409,7 +406,6 @@ namespace PDFDataExtraction.Core
                 Console.WriteLine($"Data Vencimento Fatura Regex: {pattern.PadraoRegexDataVencimentoFatura}");
                 Console.WriteLine($"Total Sem IVA Regex: {pattern.PadraoRegexTotalSemIva}");
                 Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}");
-                //Added empty line for better readability
                 Console.WriteLine();
             }
         }
@@ -499,12 +495,11 @@ namespace PDFDataExtraction.Core
 
             //if function didnt return, then all products were validated, which means invoice is valid
             log.Information("Invoice validated: " + pdfFilePath);
+
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
             destinationFilePath = Path.Combine(validFolder, fileName);
             File.Move(pdfFilePath, destinationFilePath);
-
-
         }
     }
 }

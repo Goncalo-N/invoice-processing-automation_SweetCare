@@ -67,8 +67,6 @@ namespace PDFDataExtraction.Models
         /// Overrides the ToString method to provide a string representation of the product details.
         /// </summary>
         /// <returns></returns>
-
-        // Overrides the ToString method to provide a string representation of the product details.
         public override string ToString()
         {
             return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, PrecoComIVA: {PrecoComIVA}, UnitPrice: {UnitPrice}, " +
