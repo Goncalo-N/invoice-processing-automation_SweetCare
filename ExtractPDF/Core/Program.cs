@@ -116,10 +116,10 @@ namespace PDFDataExtraction.Core
         }
 
         /// <summary>
-        /// Method to extract text from PDF using iText7
+        /// Method to extract text from PDF using iText
         /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
+        /// <param name="filePath">path of the pdf file</param>
+        /// <returns>text output of the pdf</returns>
         static string ExtractTextFromPDF(string filePath)
         {
             using PdfReader reader = new PdfReader(filePath);
@@ -137,7 +137,7 @@ namespace PDFDataExtraction.Core
         /// <summary>
         /// Method to check the file to see what company it belongs to
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="text">text converted from pdf</param>
         /// <returns></returns>
         public static string CheckCompany(string text, List<SupplierPattern> supplierPatterns)
         {
@@ -171,7 +171,7 @@ namespace PDFDataExtraction.Core
         /// <summary>
         /// Method to monitor the PDF folder for new PDF files with a cancelation token
         /// </summary>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">session token for pausing task</param>
         public static void MonitorPdfFolder(CancellationToken cancellationToken)
         {
             // Create a timer with a 5-minute interval
@@ -212,7 +212,7 @@ namespace PDFDataExtraction.Core
         /// <summary>
         /// Method that is called when a new PDF file is added to the folder
         /// </summary>
-        /// <param name="pdfFilePath"></param>
+        /// <param name="pdfFilePath">path where pdf is located</param>
         static void OnPdfFileCreated(string pdfFilePath)
         {
             string baseDirectory = Directory.GetCurrentDirectory();
@@ -232,7 +232,7 @@ namespace PDFDataExtraction.Core
             // Check the company name
             var supplierPatterns = LoadSupplierPatterns();
             //PrintSupplierPatterns(supplierPatterns);
-            
+
             var companyName = CheckCompany(invoiceText, supplierPatterns);
 
             Console.WriteLine("Company Name: " + companyName);
@@ -438,7 +438,7 @@ namespace PDFDataExtraction.Core
         /// Validates products of the invoice by calling a method from the producer class.
         /// </summary>
         /// <param name="orderID"></param>
-        /// <param name="products"></param>
+        /// <param name="products">List of products present in this pdf</param>
         /// <param name="invoiceNumber"></param>
         /// <param name="pdfFilePath"></param>
         static void ValidateProducts(int orderID, List<Product> products, string invoiceNumber, string pdfFilePath)
