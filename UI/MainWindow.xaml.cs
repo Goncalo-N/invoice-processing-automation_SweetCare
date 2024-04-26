@@ -29,11 +29,19 @@ namespace PDFDataExtraction
 
         public static void ShowOverlay(string message)
         {
-            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            if (System.Windows.Application.Current != null)
             {
-                var overlay = new OverlayWindow(message);
-                overlay.Show();
-            });
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    var overlay = new OverlayWindow(message);
+                    overlay.Show();
+                });
+            }
+            else
+            {
+                // Handle the case where no current application is available
+                Console.WriteLine("Application context is not available.");
+            }
         }
 
 
