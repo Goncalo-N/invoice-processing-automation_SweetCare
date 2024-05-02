@@ -85,4 +85,28 @@ namespace PDFDataExtraction.Models
             return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
         }
     }
+
+    public class OCPProduct : Product
+    {
+        public string Name { get; set; } = string.Empty;
+        public string LotNumber { get; set; } = string.Empty;
+        public decimal DiscountPercentage { get; set; }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
+        }
+    }
+
+    public class MERCAFARProduct : Product
+    {
+        public string Name { get; set; } = string.Empty;
+        public string LotNumber { get; set; } = string.Empty;
+        public decimal DiscountPercentage { get; set; }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
+        }
+    }
 }
