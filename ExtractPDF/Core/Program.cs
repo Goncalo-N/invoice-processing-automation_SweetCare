@@ -80,7 +80,6 @@ namespace PDFDataExtraction.Core
 
             regexPatternsFile = configuration["ApplicationPaths:RegexPatternsFile"]
                 ?? throw new InvalidOperationException("Regex patterns folder path not configured.");
-
         }
         static void Main(string[] args)
         {
@@ -270,27 +269,21 @@ namespace PDFDataExtraction.Core
             List<Product> products = new List<Product>();
 
             List<Product> productsDistinct = new List<Product>();
+
+            invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
+            numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, supplierPattern.PadraoRegexNumeroEncomenda);
+            numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, supplierPattern.PadraoRegexNumeroFatura);
+            dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
+            totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
+            totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
+            IVA = invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
+
             switch (companyName)
             {
                 case "Roger & Gallet":
-                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
-                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, supplierPattern.PadraoRegexNumeroEncomenda);
-                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, supplierPattern.PadraoRegexNumeroFatura);
-                    dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
-                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
-                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
-                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
                     products = invoiceParser.ExtractProductDetails(invoiceText, supplierPattern.PadraoRegexProduto);
-
                     break;
                 case "LABORATORIOS EXPANSCIENCE":
-                    invoiceDate = invoiceParser.ExtractInvoiceDate(invoiceText, supplierPattern.PadraoRegexDataFatura);
-                    numEncomenda = invoiceParser.ExtractOrderNumber(invoiceText, supplierPattern.PadraoRegexNumeroEncomenda);
-                    numFatura = invoiceParser.ExtractInvoiceNumber(invoiceText, supplierPattern.PadraoRegexNumeroFatura);
-                    dueDate = invoiceParser.ExtractDueDate(invoiceText, supplierPattern.PadraoRegexDataVencimentoFatura);
-                    totalSemIVA = invoiceParser.ExtractTotalWithoutVAT(invoiceText, supplierPattern.PadraoRegexTotalSemIva);
-                    totalPrice = invoiceParser.ExtractTotalPrice(invoiceText, supplierPattern.PadraoRegexTotalAPagar);
-                    IVA = invoiceParser.ExtractIvaPercentage(invoiceText, supplierPattern.PadraoRegexTaxaIva);
                     products = invoiceParser.ExtractProductDetailsLEX(invoiceText, supplierPattern.PadraoRegexProduto);
                     break;
                 case "N/A":
@@ -331,13 +324,13 @@ namespace PDFDataExtraction.Core
             // Grab the orderID through the numFatura
             int orderID = dataService.GetOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
-           /* if (orderID == 0)
+            if (orderID == 0)
             {
-                //log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
-                //Console.WriteLine("Order not found");
+                log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
+                Console.WriteLine("Order not found");
                 //OnValuesMissing(pdfFilePath);
                 //return;
-            }*/
+            }
 
             // Check if any field is missing
             var fields = new Dictionary<string, object>{
