@@ -44,5 +44,5 @@ Nº Fatura: FAC
 Data Vencimento: N/A
 Total sem IVA: 9.04
 Total com IVA: 11.12
-Taxa IVA: 0.00 9.04
+Taxa IVA: 23.00 2.08
 -----    Products    ------
