@@ -320,7 +320,84 @@ namespace PDFDataExtraction.Utility
 
             return products;
         }
+
+        public List<Product> ExtractProductDetailsMercafar(string invoiceText, string pattern)
+        {
+            List<Product> products = new List<Product>();
+            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+
+            HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
+
+            foreach (Match match in matches)
+            {
+                string uniqueIdentifier = $"{match.Groups[1].Value}_{match.Groups[5].Value}_{match.Groups[8].Value}";
+
+                if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
+                {
+                    uniqueProductIdentifiers.Add(uniqueIdentifier);
+                    MERCAFARProduct product = new MERCAFARProduct();
+
+                    product.Code = match.Groups[1].Value;
+                    product.Name = match.Groups[2].Value;
+                    product.CNP = match.Groups[3].Value;
+                    product.LotNumber = match.Groups[4].Value;
+
+                    string quantityString = Regex.Match(match.Groups[5].Value, @"\d+").Value;
+                    product.Quantity = int.TryParse(quantityString, out int qty) ? qty : 0;
+
+                    product.UnitPrice = decimal.TryParse(match.Groups[6].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
+                    product.DiscountPercentage = decimal.TryParse(match.Groups[7].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
+                    product.NetPrice = decimal.TryParse(match.Groups[8].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
+
+                    if (int.TryParse(match.Groups[9].Value, out int iva))
+                        product.IVA = iva;
+
+                    products.Add(product);
+                }
+            }
+
+            return products;
+        }
+
+        public List<Product> ExtractProductDetailsOCP(string invoiceText, string pattern)
+        {
+            List<Product> products = new List<Product>();
+            MatchCollection matches = Regex.Matches(invoiceText, pattern, RegexOptions.IgnoreCase);
+
+            HashSet<string> uniqueProductIdentifiers = new HashSet<string>();
+
+            foreach (Match match in matches)
+            {
+                string uniqueIdentifier = $"{match.Groups[1].Value}_{match.Groups[5].Value}_{match.Groups[8].Value}";
+
+                if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
+                {
+                    uniqueProductIdentifiers.Add(uniqueIdentifier);
+                    OCPProduct product = new OCPProduct();
+
+                    product.Code = match.Groups[1].Value;
+                    product.Name = match.Groups[2].Value;
+                    product.CNP = match.Groups[3].Value;
+                    product.LotNumber = match.Groups[4].Value;
+
+                    string quantityString = Regex.Match(match.Groups[5].Value, @"\d+").Value;
+                    product.Quantity = int.TryParse(quantityString, out int qty) ? qty : 0;
+
+                    product.UnitPrice = decimal.TryParse(match.Groups[6].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
+                    product.DiscountPercentage = decimal.TryParse(match.Groups[7].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
+                    product.NetPrice = decimal.TryParse(match.Groups[8].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
+
+                    if (int.TryParse(match.Groups[9].Value, out int iva))
+                        product.IVA = iva;
+
+                    products.Add(product);
+                }
+            }
+
+            return products;
+        }
     }
+
 
     /// <summary>
     /// Custom exception class for parsing errors
