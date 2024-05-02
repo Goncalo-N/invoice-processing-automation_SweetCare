@@ -286,6 +286,12 @@ namespace PDFDataExtraction.Core
                 case "LABORATORIOS EXPANSCIENCE":
                     products = invoiceParser.ExtractProductDetailsLEX(invoiceText, supplierPattern.PadraoRegexProduto);
                     break;
+                case "MERCAFAR, SA":
+                    products = invoiceParser.ExtractProductDetailsMercafar(invoiceText, supplierPattern.PadraoRegexProduto);
+                    break;
+                case "OCP":
+                    products = invoiceParser.ExtractProductDetailsOCP(invoiceText, supplierPattern.PadraoRegexProduto);
+                    break;
                 case "N/A":
                     Console.WriteLine("Company not found");
                     OnValuesMissing(pdfFilePath);
