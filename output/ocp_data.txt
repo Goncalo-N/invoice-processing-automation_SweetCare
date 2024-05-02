@@ -39,10 +39,10 @@ RZG0-Documento Processado por Programa Certificado Nº 2303/AT                  
 
 -----    General Information    ------
 Data da Fatura: N/A
-Nº Encomenda: N/A
-Nº Fatura: N/A
+Nº Encomenda: N/ Referência: A.FAC23725376
+Nº Fatura: FAC
 Data Vencimento: N/A
-Total sem IVA: 0
-Total com IVA: 0
-Taxa IVA: 
+Total sem IVA: 9.04
+Total com IVA: 11.12
+Taxa IVA: 0.00 9.04
 -----    Products    ------
