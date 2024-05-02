@@ -1,0 +1,48 @@
+2ª VIA Original N/ Referência: A.FAC23725376
+Armazém : ALVERCA
+FACTURA FAC A.FAC23/725376
+R. COR. EDGAR P. DA COSTA CARDOSO, Nº 3 E 3-A, FRAÇ. B, F
+SWEETCARE - SERVIÇOS E PRODUTOS DE SAUDE, LDA
+2615-382 ALVERCA DO RIBATEJO
+Telefone : 219584199/ 22Fax : 229409467 LVMNSRM
+Local Carga : N/ Armazém Data : 2023-12-20 Hora : 14:58:22 100072 - SWEETCARE LDA
+RUA DR.EDUARDO SANTOS SILVA,261 U HIPERCENTRO FRACCAO AI - RUA DR. EDUARDO SANTOS SILVA, 37
+Local Descarga :
+PORTO PORTO
+4200-283 PORTO 4200-283 PORTO
+Contribuinte Nº : 507945417 Página 1/1
+Aviamento : A.GUI2312200772 Volta : LX901 - PORTO CLIENTES
+Nº Comunicação AT:14947614451 [A.GT230721865]
+V/Encomenda :
+Código Designação Qt.Ped Qt.Avi PVP Esc PVF Total Linha TxC IVA Sit Grp Caixa Lote
+# 7103184 CUMLAUDE HIGIENE INTIMA PREBIOTIC MOUSSE X 150 ML . 1 1 0.00 9.04 9.04 23 X 762811
+Sem Desconto : 9.04
+Valor Sujeito IVA IVA Valor IVA Valor Sujeito a Desconto
+Valor Mercadoria : 9.04
+ 9.04 23.00 % 2.08
+Desconto: 0.00
+Imposto : 2.08
+Total : 11.12
+ATCUD: JFHGWNGJ-725376
+Mercadoria colocada à disposição do Cliente até final do dia 2023/12/21
+Situação: C Sem Volta/ Frio | E Esgotado | EP Esgotado Plataforma | F Falta | FC Fora da Colecção | N Não Comercializado | Q Qtd.Limitada | R 
+Retirado | T Falta Plataforma | V Segue Próxima Volta | X Net | # Pedido não Modem 
+Grupo Prod: K Benzodiazepinas | E Estupefacientes | P Psicotropicos | PN Preço Notificado
+Escalão Comerc: PVA: A<5,01  5,01<=B<7,01  7,01<=C<10,01  10,01<=D<20,01  20,01<=E<50,01  F>=50,01  V-VVM
+ 
+Salvo reclamação no prazo de 5 dias, consideramos confirmado o valor da factura.
+* Armazenar e transportar em condições de conservação 2ºC-8ºC
+Os medicamentos, excepto os indicados com "*", devem ser armazenados e transportados em condições de conservação 15ºC - 25ºC
+Total Unidades 1 Banheiras no Mês Enviadas p/ Cliente: 36 Recebidas na OCP:32 Saldo: 4
+!A.FAC23725376!
+RZG0-Documento Processado por Programa Certificado Nº 2303/AT                    Impresso por : PORTAL ; Data : 2023/12/21 ; Hora : 16:00 ; Processo : ARM01085      
+
+-----    General Information    ------
+Data da Fatura: N/A
+Nº Encomenda: N/A
+Nº Fatura: N/A
+Data Vencimento: N/A
+Total sem IVA: 0
+Total com IVA: 0
+Taxa IVA: 
+-----    Products    ------
