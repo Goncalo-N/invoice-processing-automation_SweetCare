@@ -78,6 +78,16 @@ namespace PDFDataExtraction.Utility
             }
             throw new ParseException($"No match found with pattern: {regex.ToString()}");
         }
+        private string ExtractSingleMatchNumeric(string text, Regex regex)
+        {
+            var match = regex.Match(text);
+            if (match.Success)
+            {
+                var numericValue = Regex.Match(match.Value, @"\d+").Value;
+                return numericValue.Trim();
+            }
+            throw new ParseException($"No match found with pattern: {regex.ToString()}");
+        }
         private string ExtractDateString(string text, Regex regex)
         {
             MatchCollection matches = regex.Matches(text);
