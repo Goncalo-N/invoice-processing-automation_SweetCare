@@ -43,22 +43,20 @@
     "padrao_regex_total_a_pagar": "Total\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_produto": "(\\d+)\\s+(.+?)\\s+(\\d+)\\s*([-\\w]*)\\s+(\\d+\\sUN)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d]+)",
     "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+%\\s+(\\d+\\.\\d{2})"
-},{
-  "nome_empresa": "MERCAFAR, SA",
-  "padrao_regex_nome_fornecedor": "MERCAFAR, SA",
-  "padrao_regex_data_fatura": "DATA:\\s+(\\d{4}-\\d{2}-\\d{2})",
-  "padrao_regex_numero_encomenda": "GUIA Nº:\\s+(\\d+)",
-  "padrao_regex_numero_fatura": "(?<=FACTURA\\s+F\\s+F\/)([\\d]+)",
-  "padrao_regex_data_vencimento_fatura": "Vencimento:\\s*(\\d{2}-\\d{2}-\\d{4})",
-  "padrao_regex_total_sem_iva": "A TRANSPORTAR:\\s+([\\d\\.]+)",
-  "padrao_regex_totais_por_iva": "IVA\\s+([\\d\\.]+)%\\s+([\\d\\.]+)",
-  "padrao_regex_valor_iva": "B.INCIDENCIA IVA\\s+([\\d\\.]+)",
-  "padrao_regex_desconto_pronto_pagamento": "Des-\\s+([\\d\\.]+)",
-  "padrao_regex_total_a_pagar": "TOTAL LIQUIDO:\\s+([\\d\\.]+)",
-  "padrao_regex_produto": "(\\d+)\\s+(.+?)\\s+(\\d+)\\s*([-\\w]*)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d]+)",
-  "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+(\\d+\\.\\d{2})"
-}
-
-
-
+  },
+  {
+    "nome_empresa": "MERCAFAR, SA",
+    "padrao_regex_nome_fornecedor": "MERCAFAR, SA",
+    "padrao_regex_data_fatura": "DATA:\\s+(\\d{4}-\\d{2}-\\d{2})",
+    "padrao_regex_numero_encomenda": "GUIA Nº:\\s+(\\d+)",
+    "padrao_regex_numero_fatura": "(?<=FACTURA\\s+F\\s+F\/)([\\d]+)",
+    "padrao_regex_data_vencimento_fatura": "Vencimento:\\s*(\\d{2}-\\d{2}-\\d{4})",
+    "padrao_regex_total_sem_iva": "A TRANSPORTAR:\\s+([\\d\\.]+)",
+    "padrao_regex_totais_por_iva": "IVA\\s+([\\d\\.]+)%\\s+([\\d\\.]+)",
+    "padrao_regex_valor_iva": "B.INCIDENCIA IVA\\s+([\\d\\.]+)",
+    "padrao_regex_desconto_pronto_pagamento": "Des-\\s+([\\d\\.]+)",
+    "padrao_regex_total_a_pagar": "TOTAL LIQUIDO:\\s+([\\d\\.]+)",
+    "padrao_regex_produto": "(\\d+)\\s+(.+?)\\s+(\\d+)\\s*([-\\w]*)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d]+)",
+    "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+(\\d+\\.\\d{2})"
+  }
 ]
