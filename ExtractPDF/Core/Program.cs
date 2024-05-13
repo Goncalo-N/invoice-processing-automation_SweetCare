@@ -309,7 +309,7 @@ namespace PDFDataExtraction.Core
                 writer.WriteLine(invoiceText);
 
                 // Write general information
-                writer.WriteLine("-----    General Information    ------");
+                writer.WriteLine("-----     General Information     ------");
                 writer.WriteLine("Data da Fatura: " + invoiceDate);
                 writer.WriteLine("Nº Encomenda: " + numEncomenda);
                 writer.WriteLine("Nº Fatura: " + numFatura);
