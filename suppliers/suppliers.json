@@ -41,7 +41,7 @@
     "padrao_regex_valor_iva": "Imposto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_desconto_pronto_pagamento": "Sem Desconto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_total_a_pagar": "Total\\s+:\\s+([\\d\\.]+)",
-    "padrao_regex_produto": "(\\d+)\\s+(.+?)\\s+(\\d+)\\s*([-\\w]*)\\s+(\\d+\\sUN)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d]+)",
+    "padrao_regex_produto": "(?P<codigo>\\d+)\\s+(?P<designacao>.+?)\\s+\\d+\\s+\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\s+[Xx]\\s+(?P<caixa>\\d+)",
     "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+%\\s+(\\d+\\.\\d{2})"
   },
   {
