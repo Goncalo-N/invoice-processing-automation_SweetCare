@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace PDFDataExtraction.Models
 {
     public class Product
@@ -69,8 +71,37 @@ namespace PDFDataExtraction.Models
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Code: {Code}, Barcode: {Barcode}, Description: {Description}, Quantity: {Quantity}, PrecoComIVA: {PrecoComIVA}, UnitPrice: {UnitPrice}, " +
-                   $"Discounts: {Discount1}, {Discount2}, {Discount3}, NetPrice: {NetPrice}, Bonus: {Bonus}, IVA: {IVA}, CNP: {CNP} isFactUpdated: {isFactUpdated}";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (!string.IsNullOrEmpty(Code))
+                stringBuilder.Append($"Code: {Code}, ");
+            if (!string.IsNullOrEmpty(Barcode))
+                stringBuilder.Append($"Barcode: {Barcode}, ");
+            if (!string.IsNullOrEmpty(Description))
+                stringBuilder.Append($"Description: {Description}, ");
+            if (Quantity != 0)
+                stringBuilder.Append($"Quantity: {Quantity}, ");
+            if (PrecoComIVA != 0)
+                stringBuilder.Append($"PrecoComIVA: {PrecoComIVA}, ");
+            if (UnitPrice != 0)
+                stringBuilder.Append($"UnitPrice: {UnitPrice}, ");
+            if (Discount1 != 0)
+                stringBuilder.Append($"Discounts: {Discount1}, ");
+            if (Discount2 != 0)
+                stringBuilder.Append($"{Discount2}, ");
+            if (Discount3 != 0)
+                stringBuilder.Append($"{Discount3}, ");
+            if (NetPrice != 0)
+                stringBuilder.Append($"NetPrice: {NetPrice}, ");
+            if (Bonus != 0)
+                stringBuilder.Append($"Bonus: {Bonus}, ");
+            if (IVA != 0)
+                stringBuilder.Append($"IVA: {IVA}, ");
+            if (!string.IsNullOrEmpty(CNP))
+                stringBuilder.Append($"CNP: {CNP}, ");
+            stringBuilder.Append($"isFactUpdated: {isFactUpdated}");
+
+            return stringBuilder.ToString();
         }
     }
 
@@ -82,8 +113,19 @@ namespace PDFDataExtraction.Models
 
         public override string ToString()
         {
-            return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
+            StringBuilder stringBuilder = new StringBuilder(base.ToString());
+
+            if (!string.IsNullOrEmpty(Name))
+                stringBuilder.Append($", Name: {Name}");
+            if (!string.IsNullOrEmpty(CNP))
+                stringBuilder.Append($", CNP: {CNP}");
+            if (!string.IsNullOrEmpty(LotNumber))
+                stringBuilder.Append($", LotNumber: {LotNumber}");
+            stringBuilder.Append($", DiscountPercentage: {DiscountPercentage}");
+
+            return stringBuilder.ToString();
         }
+
     }
 
     public class OCPProduct : Product
@@ -94,8 +136,19 @@ namespace PDFDataExtraction.Models
 
         public override string ToString()
         {
-            return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
+            StringBuilder stringBuilder = new StringBuilder(base.ToString());
+
+            if (!string.IsNullOrEmpty(Name))
+                stringBuilder.Append($", Name: {Name}");
+            if (!string.IsNullOrEmpty(CNP))
+                stringBuilder.Append($", CNP: {CNP}");
+            if (!string.IsNullOrEmpty(LotNumber))
+                stringBuilder.Append($", LotNumber: {LotNumber}");
+            stringBuilder.Append($", DiscountPercentage: {DiscountPercentage}");
+
+            return stringBuilder.ToString();
         }
+
     }
 
     public class MERCAFARProduct : Product
@@ -106,7 +159,17 @@ namespace PDFDataExtraction.Models
 
         public override string ToString()
         {
-            return $"{base.ToString()}, Name: {Name}, CNP: {CNP}, LotNumber: {LotNumber}, DiscountPercentage: {DiscountPercentage}, IVA: {IVA}";
+            StringBuilder stringBuilder = new StringBuilder(base.ToString());
+
+            if (!string.IsNullOrEmpty(Name))
+                stringBuilder.Append($", Name: {Name}");
+            if (!string.IsNullOrEmpty(CNP))
+                stringBuilder.Append($", CNP: {CNP}");
+            if (!string.IsNullOrEmpty(LotNumber))
+                stringBuilder.Append($", LotNumber: {LotNumber}");
+            stringBuilder.Append($", DiscountPercentage: {DiscountPercentage}");
+
+            return stringBuilder.ToString();
         }
     }
 }
