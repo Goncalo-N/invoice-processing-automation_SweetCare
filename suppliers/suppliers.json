@@ -32,7 +32,7 @@
   {
     "nome_empresa": "OCP",
     "padrao_regex_nome_fornecedor": "OCP",
-    "padrao_regex_data_fatura": "Data\\s+:\\s+(\\d{4}-\\d{2}-\\d{2})",
+    "padrao_regex_data_fatura": "(?<Data>(?:)\\s+(\\d{4}-\\d{2}-\\d{2}))",
     "padrao_regex_numero_encomenda": "N/ Referência:\\s+([A-Z0-9.]+)",
     "padrao_regex_numero_fatura": "N/ Referência:\\s+([A-Z0-9.]+)",
     "padrao_regex_data_vencimento_fatura": "Vencimento até final do dia\\s+(\\d{4}/\\d{2}/\\d{2})",
@@ -41,7 +41,7 @@
     "padrao_regex_valor_iva": "Imposto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_desconto_pronto_pagamento": "Sem Desconto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_total_a_pagar": "Total\\s+:\\s+([\\d\\.]+)",
-    "padrao_regex_produto": "(?<codigo>\\d+)\\s+(?<designacao>.+?)\\s+\\d+\\s+\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\s+[Xx]\\s+(?<caixa>\\d+)",
+    "padrao_regex_produto": "(?<codigo>\\d+)\\s+(?<designacao>.+?)\\s+(?<qtped>\\d+)\\s+(?<qtavi>\\d+)\\s+(?<pvp>\\d+\\.\\d+)\\s+(?<pvf>\\d+\\.\\d+)\\s+(?<total>\\d+\\.\\d+)\\s+(?<iva>\\d+)\\s+(?<sit>[Xx])\\s+(?<caixa>\\d+)",
     "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+%\\s+(\\d+\\.\\d{2})"
   },
   {

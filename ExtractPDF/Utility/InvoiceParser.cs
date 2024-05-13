@@ -379,29 +379,29 @@ namespace PDFDataExtraction.Utility
             foreach (Match match in matches)
             {
                 // Using named groups for better clarity and maintainability
-                string uniqueIdentifier = $"{match.Groups["code"].Value}_{match.Groups["name"].Value}_{match.Groups["Qt.Ped"].Value}_{match.Groups["Qt.Avi"].Value}_{match.Groups["PVP"].Value}_{match.Groups["Esc"].Value}_{match.Groups["PVF"].Value}_{match.Groups["Total"].Value}_{match.Groups["Linha"].Value}_{match.Groups["TxC"].Value}_{match.Groups["IVA"].Value}_{match.Groups["Sit"].Value}_{match.Groups["Grp"].Value}_{match.Groups["Caixa"].Value}_{match.Groups["Lote"].Value}";
+                string uniqueIdentifier = $"{match.Groups["codigo"].Value}_{match.Groups["designacao"].Value}_{match.Groups["qtped"].Value}_{match.Groups["qtavi"].Value}_{match.Groups["pvp"].Value}_{match.Groups["pvf"].Value}_{match.Groups["iva"].Value}_{match.Groups["sit"].Value}_{match.Groups["caixa"].Value}";
 
                 if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
                 {
                     uniqueProductIdentifiers.Add(uniqueIdentifier);
                     OCPProduct product = new OCPProduct();
 
-                    product.Code = match.Groups["code"].Value;
-                    product.Name = match.Groups["name"].Value;
-                    product.CNP = match.Groups["code"].Value;
-                    product.LotNumber = match.Groups["Lote"].Value;
+                    product.Code = match.Groups["codigo"].Value;
+                    product.Name = match.Groups["designacao"].Value;
+                    product.CNP = match.Groups["codigo"].Value;
+                    //product.LotNumber = match.Groups["Lote"].Value;
 
                     // Ensure quantity parsing is correct
-                    string quantityString = Regex.Match(match.Groups["Qt.Ped"].Value, @"\d+").Value;
+                    string quantityString = Regex.Match(match.Groups["qtped"].Value, @"\d+").Value;
                     product.Quantity = int.TryParse(quantityString, out int qty) ? qty : 0;
 
                     // Parsing using invariant culture
-                    product.UnitPrice = decimal.TryParse(match.Groups["PVP"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
-                    product.DiscountPercentage = decimal.TryParse(match.Groups["Esc"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
-                    product.NetPrice = decimal.TryParse(match.Groups["Total"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
+                    product.UnitPrice = decimal.TryParse(match.Groups["pvf"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
+                    //product.DiscountPercentage = decimal.TryParse(match.Groups["Esc"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
+                    product.NetPrice = decimal.TryParse(match.Groups["total"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
 
                     // IVA parsing
-                    if (int.TryParse(match.Groups["IVA"].Value, out int iva))
+                    if (int.TryParse(match.Groups["iva"].Value, out int iva))
                         product.IVA = iva;
 
                     products.Add(product);

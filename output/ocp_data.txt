@@ -38,7 +38,7 @@ Total Unidades 1 Banheiras no Mês Enviadas p/ Cliente: 36 Recebidas na OCP:32 S
 RZG0-Documento Processado por Programa Certificado Nº 2303/AT                    Impresso por : PORTAL ; Data : 2023/12/21 ; Hora : 16:00 ; Processo : ARM01085      
 
 -----    General Information    ------
-Data da Fatura: N/A
+Data da Fatura: 20/12/2023
 Nº Encomenda: N/ Referência: A.FAC23725376
 Nº Fatura: N/ Referência: A.FAC23725376
 Data Vencimento: N/A
@@ -46,4 +46,4 @@ Total sem IVA: 9,04
 Total com IVA: 11,12
 Taxa IVA: 23.00 2.08
 -----    Products    ------
-Code: , Barcode: , Description: , Quantity: 0, PrecoComIVA: 0, UnitPrice: 0, Discounts: 0, 0, 0, NetPrice: 0, Bonus: 0, IVA: 0, CNP:  isFactUpdated: 0, Name: , CNP: , LotNumber: , DiscountPercentage: 0, IVA: 0
+Code: 7103184, Barcode: , Description: , Quantity: 1, PrecoComIVA: 0, UnitPrice: 9,04, Discounts: 0, 0, 0, NetPrice: 9,04, Bonus: 0, IVA: 23, CNP: 7103184 isFactUpdated: 0, Name: CUMLAUDE HIGIENE INTIMA PREBIOTIC MOUSSE X 150 ML ., CNP: 7103184, LotNumber: , DiscountPercentage: 0, IVA: 23

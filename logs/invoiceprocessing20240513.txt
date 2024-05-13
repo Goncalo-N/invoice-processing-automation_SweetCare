@@ -18,3 +18,26 @@
 2024-05-13 16:44:27.557 +01:00 [ERR] Missing field: Invoice Date
 2024-05-13 16:44:27.557 +01:00 [ERR] Missing field: Due Date
 2024-05-13 16:44:27.557 +01:00 [ERR] Number of missing fields: 2
+2024-05-13 16:56:24.844 +01:00 [INF] Application Starting
+2024-05-13 16:56:25.691 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-13 16:56:26.023 +01:00 [ERR] Order not found for invoiceNumber: N/ Referência: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-13 16:56:26.024 +01:00 [ERR] Missing field: Invoice Date
+2024-05-13 16:56:26.024 +01:00 [ERR] Missing field: Due Date
+2024-05-13 16:56:26.024 +01:00 [ERR] Number of missing fields: 2
+2024-05-13 17:00:08.698 +01:00 [INF] Application Starting
+2024-05-13 17:00:09.635 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-13 17:00:09.967 +01:00 [ERR] Order not found for invoiceNumber: N/ Referência: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-13 17:00:09.967 +01:00 [ERR] Missing field: Invoice Date
+2024-05-13 17:00:09.967 +01:00 [ERR] Missing field: Due Date
+2024-05-13 17:00:09.968 +01:00 [ERR] Number of missing fields: 2
+2024-05-13 17:01:13.698 +01:00 [INF] Application Starting
+2024-05-13 17:01:14.755 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-13 17:01:15.116 +01:00 [ERR] Order not found for invoiceNumber: N/ Referência: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-13 17:01:15.116 +01:00 [ERR] Missing field: Invoice Date
+2024-05-13 17:01:15.117 +01:00 [ERR] Missing field: Due Date
+2024-05-13 17:01:15.117 +01:00 [ERR] Number of missing fields: 2
+2024-05-13 17:04:58.467 +01:00 [INF] Application Starting
+2024-05-13 17:04:59.253 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-13 17:04:59.563 +01:00 [ERR] Order not found for invoiceNumber: N/ Referência: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-13 17:04:59.563 +01:00 [ERR] Missing field: Due Date
+2024-05-13 17:04:59.563 +01:00 [ERR] Number of missing fields: 1
