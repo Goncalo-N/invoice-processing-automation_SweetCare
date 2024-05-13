@@ -41,7 +41,7 @@
     "padrao_regex_valor_iva": "Imposto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_desconto_pronto_pagamento": "Sem Desconto\\s+:\\s+([\\d\\.]+)",
     "padrao_regex_total_a_pagar": "Total\\s+:\\s+([\\d\\.]+)",
-    "padrao_regex_produto": "(?P<codigo>\\d+)\\s+(?P<designacao>.+?)\\s+\\d+\\s+\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\s+[Xx]\\s+(?P<caixa>\\d+)",
+    "padrao_regex_produto": "(?<codigo>\\d+)\\s+(?<designacao>.+?)\\s+\\d+\\s+\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\.\\d+\\s+\\d+\\s+[Xx]\\s+(?<caixa>\\d+)",
     "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+%\\s+(\\d+\\.\\d{2})"
   },
   {
@@ -56,7 +56,7 @@
     "padrao_regex_valor_iva": "B.INCIDENCIA IVA\\s+([\\d\\.]+)",
     "padrao_regex_desconto_pronto_pagamento": "Des-\\s+([\\d\\.]+)",
     "padrao_regex_total_a_pagar": "TOTAL LIQUIDO:\\s+([\\d\\.]+)",
-    "padrao_regex_produto": "(\\d+)\\s+(.+?)\\s+(\\d+)\\s*([-\\w]*)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d\\.]+)\\s+([\\d]+)",
+    "padrao_regex_produto": "(?<iva>\\d+%)?\\s+(?<codigo>\\d+)\\s+(?<designacao>.+?)\\s+(?<ped>\\d+)\\s+(?<env>\\d+)\\s+(?<pvp>\\d+\\.\\d+|\\d+)\\s+(?<desc>\\d+%)\\s+(?<iva2>\\d+%)?\\s*(?<pvf>\\d+\\.\\d+|\\d*)\\s*(?<punit>\\d+\\.\\d+|\\d*)\\s*(?<valor>\\d+\\.\\d+|\\d*)\\s*(?<reposicao>.+?)LOTE:(?<lote>[^\\s]+)\\s+DESC\\s+AD:\\s+(?<desc_ad>\\d+\\.\\d{2}%)",
     "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+(\\d+\\.\\d{2})"
   }
 ]
