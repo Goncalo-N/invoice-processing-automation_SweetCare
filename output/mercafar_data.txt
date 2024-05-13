@@ -484,10 +484,10 @@ DUPLICADO
 -----    General Information    ------
 Data da Fatura: N/A
 Nº Encomenda: GUIA Nº: 1540909
-Nº Fatura: FACTURA
-F F/1470802
+Nº Fatura: 1470802
 Data Vencimento: N/A
 Total sem IVA: 537
 Total com IVA: 0
 Taxa IVA: 0.00 0.00
 -----    Products    ------
+isFactUpdated: 0, LotNumber: E222E227, DiscountPercentage: 0
