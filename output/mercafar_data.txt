@@ -485,7 +485,7 @@ DUPLICADO
 Data da Fatura: N/A
 Nº Encomenda: GUIA Nº: 1540909
 Nº Fatura: 1470802
-Data Vencimento: N/A
+Data Vencimento: 19/02/2024
 Total sem IVA: 1
 Total com IVA: 0
 Taxa IVA: 0.00 0.00
