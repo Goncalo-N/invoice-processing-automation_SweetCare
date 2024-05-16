@@ -484,7 +484,7 @@ namespace PDFDataExtraction.Core
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolder, fileName);
-                        File.Move(pdfFilePath, destinationFilePath);
+                        //File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
                     }
@@ -498,7 +498,7 @@ namespace PDFDataExtraction.Core
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
             destinationFilePath = Path.Combine(validFolder, fileName);
-            File.Move(pdfFilePath, destinationFilePath);
+            //File.Move(pdfFilePath, destinationFilePath);
         }
     }
 }
