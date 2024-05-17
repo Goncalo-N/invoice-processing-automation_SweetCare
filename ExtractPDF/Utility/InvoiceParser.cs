@@ -323,7 +323,6 @@ namespace PDFDataExtraction.Utility
             return products;
         }
 
-
         public List<Product> ExtractProductDetailsMercafar(string invoiceText, string pattern)
         {
             List<Product> products = new List<Product>();
