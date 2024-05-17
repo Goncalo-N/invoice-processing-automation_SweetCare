@@ -138,12 +138,13 @@ namespace PDFDataExtraction.Utility
             }
         }
 
-        private decimal ExtractDecimalValueWithNormalization(string text, string pattern)
+        private static decimal ExtractDecimalValueWithNormalization(string text, string pattern)
         {
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
             Match match = regex.Match(text);
             if (match.Success)
             {
+                Console.WriteLine(match.Groups[1].Value);
                 string decimalString = match.Groups[1].Value;
 
                 // Normalize the string based on the last separator
@@ -163,30 +164,22 @@ namespace PDFDataExtraction.Utility
             return 0m;
         }
 
-        private string NormalizeDecimalString(string decimalString)
+        private static string NormalizeDecimalString(string decimalString)
         {
-            if (decimalString.Contains(",") && decimalString.Contains("."))
+            // Identify the last comma or period in the string to determine the decimal separator
+            int lastCommaIndex = decimalString.LastIndexOf(',');
+            int lastPeriodIndex = decimalString.LastIndexOf('.');
+
+            if (lastCommaIndex > lastPeriodIndex)
             {
-                // Ambiguous case: decide based on the convention
-                int lastCommaIndex = decimalString.LastIndexOf(',');
-                int lastDotIndex = decimalString.LastIndexOf('.');
-                if (lastCommaIndex > lastDotIndex)
-                {
-                    // Assume comma is the decimal separator
-                    decimalString = decimalString.Replace(".", "").Replace(",", ".");
-                }
-                else
-                {
-                    // Assume dot is the decimal separator
-                    decimalString = decimalString.Replace(",", "");
-                }
+                // Comma is the decimal separator, remove all other commas
+                decimalString = decimalString.Substring(0, lastCommaIndex).Replace(",", "") + "." + decimalString.Substring(lastCommaIndex + 1).Replace(",", "");
             }
-            else if (decimalString.Contains(",") && !decimalString.Contains("."))
+            else if (lastPeriodIndex > lastCommaIndex)
             {
-                // Likely using commas as decimal separators
-                decimalString = decimalString.Replace(",", ".");
+                // Period is the decimal separator, remove all commas
+                decimalString = decimalString.Substring(0, lastPeriodIndex).Replace(",", "") + "." + decimalString.Substring(lastPeriodIndex + 1).Replace(".", "");
             }
-            // No need to modify decimalString if it only contains dots or no separators at all
 
             return decimalString;
         }
