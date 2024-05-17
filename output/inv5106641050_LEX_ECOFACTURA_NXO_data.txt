@@ -119,30 +119,30 @@ Data de carga 2023-12-18T11:37:11 Total fatura 1,158.06 EUR
 local de descarga SWEETCARE - PORTO RUA DR EDUARDO SANTOS SILVA 261 U  4200-283 PORTO PORTUGAL
 Nome transpo 69296GT 1(1)
 
------    General Information    ------
+-----     General Information     ------
 Data da Fatura: 18/12/2023
 Nº Encomenda: 1000345369
 Nº Fatura: 220052765
 Data Vencimento: 02/01/2024
-Total sem IVA: 946,31
-Total com IVA: 1158,06
+Total sem IVA: 946.31
+Total com IVA: 1158.06
 Taxa IVA: 6.00 2.08
 23.00 209.67
 -----    Products    ------
-Code: PT7295378, Quantity: 3, UnitPrice: 8,26, NetPrice: 21,31, IVA: 3, CNP: 7295378, isFactUpdated: 0, Name: CCREAM ROSTO DUO 40 POUPE8, CNP: 7295378, LotNumber: R100, DiscountPercentage: 14,00
-Code: PT6895094, Quantity: 6, UnitPrice: 5,99, NetPrice: 28,75, IVA: 3, CNP: 6895094, isFactUpdated: 0, Name: AK CR NUTRI-REP PES SECOS 50ML, CNP: 6895094, LotNumber: 606, DiscountPercentage: 20,00
-Code: 8704035, Quantity: 3, UnitPrice: 7,96, NetPrice: 20,54, IVA: 2, CNP: 7076844, isFactUpdated: 0, Name: SPRAY MUDA FRALDA 75ML, CNP: 7076844, LotNumber: -2312905, DiscountPercentage: 14,00
-Code: 8703581, Quantity: 3, UnitPrice: 5,35, NetPrice: 13,80, IVA: 3, CNP: 6539163, isFactUpdated: 0, Name: AGUA DE LIMPEZA 300 ML, CNP: 6539163, DiscountPercentage: 14,00
-Code: 8704057, Quantity: 3, UnitPrice: 5,35, NetPrice: 13,80, IVA: 3, CNP: 6694083, isFactUpdated: 0, Name: STICK COLD CREAM 10ML, CNP: 6694083, LotNumber: -R148, DiscountPercentage: 14,00
-Code: 8703882, Quantity: 90, UnitPrice: 5,35, NetPrice: 312,97, IVA: 3, CNP: 6282525, isFactUpdated: 0, Name: CICASTELA CR REPAR 40ML, CNP: 6282525, LotNumber: -R324, DiscountPercentage: 35,00
-Code: PT6937748, Quantity: 3, UnitPrice: 8,06, NetPrice: 20,79, IVA: 3, CNP: 6937748, isFactUpdated: 0, Name: AKILDIA CREME PE DIAB 150 ML, CNP: 6937748, LotNumber: 777T, DiscountPercentage: 14,00
-Code: 8703388, Quantity: 6, UnitPrice: 14,03, NetPrice: 72,39, IVA: 3, CNP: 6264432, isFactUpdated: 0, Name: SERUM CORRET ESTRIAS 45ML, CNP: 6264432, LotNumber: -P107, DiscountPercentage: 14,00
-Code: PT6908368, Quantity: 6, UnitPrice: 8,33, NetPrice: 34,99, IVA: 3, CNP: 6908368, isFactUpdated: 0, Name: AKILHIVER CREME FRIERAS 100ML, CNP: 6908368, LotNumber: 223, DiscountPercentage: 30,00
-Code: 8703543, Quantity: 3, UnitPrice: 11,29, NetPrice: 29,13, IVA: 3, CNP: 6887653, isFactUpdated: 0, Name: AGUA DE LIMPEZA 750 ML, CNP: 6887653, LotNumber: -P132239E, DiscountPercentage: 14,00
-Code: PT6866046, Quantity: 3, UnitPrice: 8,10, NetPrice: 20,90, IVA: 3, CNP: 6866046, isFactUpdated: 0, Name: EC SERUM REPAR 10 OLEOS 10ML, CNP: 6866046, LotNumber: 124, DiscountPercentage: 14,00
-Code: PT6289413, Quantity: 3, UnitPrice: 6,35, NetPrice: 16,38, IVA: 3, CNP: 6289413, isFactUpdated: 0, Name: AKILEINE SPORTS NOK 75ML+OF33%, CNP: 6289413, LotNumber: 412, DiscountPercentage: 14,00
-Code: PT6397356, Quantity: 12, UnitPrice: 8,36, NetPrice: 86,28, IVA: 3, CNP: 6397356, isFactUpdated: 0, Name: STELATOPIA CR ROSTO 40 DUO, CNP: 6397356, LotNumber: N162, DiscountPercentage: 14,00
-Code: PT6841817, Quantity: 3, UnitPrice: 3,43, NetPrice: 7,20, IVA: 3, CNP: 6841817, isFactUpdated: 0, Name: AKILHIVER CREME FRIEIRAS 30 ML, CNP: 6841817, LotNumber: 202T, DiscountPercentage: 30,00
-Code: PT7266726, Quantity: 3, UnitPrice: 5,49, NetPrice: 14,16, IVA: 2, CNP: 7266726, isFactUpdated: 0, Name: PHYSIO SORO FISIOL 5MLX40+OF20, CNP: 7266726, LotNumber: KPHY20231004, DiscountPercentage: 14,00
-Code: PT6969816, Quantity: 12, UnitPrice: 5,93, NetPrice: 61,20, IVA: 3, CNP: 6969816, isFactUpdated: 0, Name: CREME FRALDA 100ML + 50ML, CNP: 6969816, LotNumber: KCZF230925, DiscountPercentage: 14,00
-Code: 8703323, Quantity: 24, UnitPrice: 8,32, NetPrice: 171,72, IVA: 3, CNP: 6937755, isFactUpdated: 0, Name: LINIMENTO HIG. FRALDA 400ML, CNP: 6937755, LotNumber: -P984, DiscountPercentage: 14,00
+Code: PT7295378, Quantity: 3, UnitPrice: 8.26, NetPrice: 21.31, IVA: 3, CNP: 7295378, isFactUpdated: 0, Name: CCREAM ROSTO DUO 40 POUPE8, CNP: 7295378, LotNumber: R100, DiscountPercentage: 14.00
+Code: PT6895094, Quantity: 6, UnitPrice: 5.99, NetPrice: 28.75, IVA: 3, CNP: 6895094, isFactUpdated: 0, Name: AK CR NUTRI-REP PES SECOS 50ML, CNP: 6895094, LotNumber: 606, DiscountPercentage: 20.00
+Code: 8704035, Quantity: 3, UnitPrice: 7.96, NetPrice: 20.54, IVA: 2, CNP: 7076844, isFactUpdated: 0, Name: SPRAY MUDA FRALDA 75ML, CNP: 7076844, LotNumber: -2312905, DiscountPercentage: 14.00
+Code: 8703581, Quantity: 3, UnitPrice: 5.35, NetPrice: 13.80, IVA: 3, CNP: 6539163, isFactUpdated: 0, Name: AGUA DE LIMPEZA 300 ML, CNP: 6539163, DiscountPercentage: 14.00
+Code: 8704057, Quantity: 3, UnitPrice: 5.35, NetPrice: 13.80, IVA: 3, CNP: 6694083, isFactUpdated: 0, Name: STICK COLD CREAM 10ML, CNP: 6694083, LotNumber: -R148, DiscountPercentage: 14.00
+Code: 8703882, Quantity: 90, UnitPrice: 5.35, NetPrice: 312.97, IVA: 3, CNP: 6282525, isFactUpdated: 0, Name: CICASTELA CR REPAR 40ML, CNP: 6282525, LotNumber: -R324, DiscountPercentage: 35.00
+Code: PT6937748, Quantity: 3, UnitPrice: 8.06, NetPrice: 20.79, IVA: 3, CNP: 6937748, isFactUpdated: 0, Name: AKILDIA CREME PE DIAB 150 ML, CNP: 6937748, LotNumber: 777T, DiscountPercentage: 14.00
+Code: 8703388, Quantity: 6, UnitPrice: 14.03, NetPrice: 72.39, IVA: 3, CNP: 6264432, isFactUpdated: 0, Name: SERUM CORRET ESTRIAS 45ML, CNP: 6264432, LotNumber: -P107, DiscountPercentage: 14.00
+Code: PT6908368, Quantity: 6, UnitPrice: 8.33, NetPrice: 34.99, IVA: 3, CNP: 6908368, isFactUpdated: 0, Name: AKILHIVER CREME FRIERAS 100ML, CNP: 6908368, LotNumber: 223, DiscountPercentage: 30.00
+Code: 8703543, Quantity: 3, UnitPrice: 11.29, NetPrice: 29.13, IVA: 3, CNP: 6887653, isFactUpdated: 0, Name: AGUA DE LIMPEZA 750 ML, CNP: 6887653, LotNumber: -P132239E, DiscountPercentage: 14.00
+Code: PT6866046, Quantity: 3, UnitPrice: 8.10, NetPrice: 20.90, IVA: 3, CNP: 6866046, isFactUpdated: 0, Name: EC SERUM REPAR 10 OLEOS 10ML, CNP: 6866046, LotNumber: 124, DiscountPercentage: 14.00
+Code: PT6289413, Quantity: 3, UnitPrice: 6.35, NetPrice: 16.38, IVA: 3, CNP: 6289413, isFactUpdated: 0, Name: AKILEINE SPORTS NOK 75ML+OF33%, CNP: 6289413, LotNumber: 412, DiscountPercentage: 14.00
+Code: PT6397356, Quantity: 12, UnitPrice: 8.36, NetPrice: 86.28, IVA: 3, CNP: 6397356, isFactUpdated: 0, Name: STELATOPIA CR ROSTO 40 DUO, CNP: 6397356, LotNumber: N162, DiscountPercentage: 14.00
+Code: PT6841817, Quantity: 3, UnitPrice: 3.43, NetPrice: 7.20, IVA: 3, CNP: 6841817, isFactUpdated: 0, Name: AKILHIVER CREME FRIEIRAS 30 ML, CNP: 6841817, LotNumber: 202T, DiscountPercentage: 30.00
+Code: PT7266726, Quantity: 3, UnitPrice: 5.49, NetPrice: 14.16, IVA: 2, CNP: 7266726, isFactUpdated: 0, Name: PHYSIO SORO FISIOL 5MLX40+OF20, CNP: 7266726, LotNumber: KPHY20231004, DiscountPercentage: 14.00
+Code: PT6969816, Quantity: 12, UnitPrice: 5.93, NetPrice: 61.20, IVA: 3, CNP: 6969816, isFactUpdated: 0, Name: CREME FRALDA 100ML + 50ML, CNP: 6969816, LotNumber: KCZF230925, DiscountPercentage: 14.00
+Code: 8703323, Quantity: 24, UnitPrice: 8.32, NetPrice: 171.72, IVA: 3, CNP: 6937755, isFactUpdated: 0, Name: LINIMENTO HIG. FRALDA 400ML, CNP: 6937755, LotNumber: -P984, DiscountPercentage: 14.00
