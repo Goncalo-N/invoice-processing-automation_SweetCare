@@ -488,6 +488,12 @@ Nº Fatura: 1470802
 Data Vencimento: 19/02/2024
 Total sem IVA: 1169.43
 Total com IVA: 1438.40
-Taxa IVA: 0.00 0.00
+Taxa IVA: 5,00% 0,00
+12,00% 0,00
+13,00% 0,00
+23,00% 268,97
+20,00% 0,00
+21,00% 0,00
+0,00% 0,00
+6,00% 0,00
 -----    Products    ------
-isFactUpdated: 0, LotNumber: E222E227, DiscountPercentage: 0

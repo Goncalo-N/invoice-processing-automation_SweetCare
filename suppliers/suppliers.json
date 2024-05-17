@@ -56,7 +56,7 @@
     "padrao_regex_valor_iva": "B.INCIDENCIA IVA\\s+([\\d\\.]+)",
     "padrao_regex_desconto_pronto_pagamento": "Des-\\s+([\\d\\.]+)",
     "padrao_regex_total_a_pagar": "TOTAL LIQUIDO:\\s*Nº Factura \\d{2}-\\d{2}-\\d{4}\\s*([\\d,]+)",
-    "padrao_regex_produto": "(?<iva>\\d+%)?\\s+(?<codigo>\\d+)\\s+(?<designacao>.+?)\\s+(?<ped>\\d+)\\s+(?<env>\\d+)\\s+(?<pvp>\\d+\\.\\d+|\\d+)\\s+(?<desc>\\d+%)\\s+(?<iva2>\\d+%)?\\s*(?<pvf>\\d+\\.\\d+|\\d*)\\s*(?<punit>\\d+\\.\\d+|\\d*)\\s*(?<valor>\\d+\\.\\d+|\\d*)\\s*(?<reposicao>.+?)LOTE:(?<lote>[^\\s]+)\\s+DESC\\s+AD:\\s+(?<desc_ad>\\d+\\.\\d{2}%)",
-    "padrao_regex_taxa_iva": "\\b(0\\.00|6\\.00|13\\.00|23\\.00)\\s+(\\d+\\.\\d{2})"
+    "padrao_regex_produto": "(?<code>\\d{2}\\s\\d+)\\s+(?<name>[\\w\\s]+?)\\s+(?<ped>\\d+)\\s+(?<env>\\d+)\\s+(?<unitPrice>\\d+,\\d{2})\\s+(?<discount>\\d+%)\\s+(?<iva>\\d+%)?\\s+(?<inform>\\d+,\\d{2})?\\s+(?<pvf>\\d+,\\d{2})?\\s+(?<punit>\\d+,\\d{2})?\\s+(?<netPrice>\\d+,\\d{2})\\s+LOTE:(?<lote>\\w+)",
+    "padrao_regex_taxa_iva": "(\\d{1,2},\\d{2}%)\\s+(\\d{1,3}(?:,\\d{3})*(?:,\\d{2})?)"
   }
 ]
