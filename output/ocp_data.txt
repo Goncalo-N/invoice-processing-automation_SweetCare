@@ -41,9 +41,9 @@ RZG0-Documento Processado por Programa Certificado Nº 2303/AT                  
 Data da Fatura: 20/12/2023
 Nº Encomenda: A.FAC23725376
 Nº Fatura: A.FAC23725376
-Data Vencimento: N/A
-Total sem IVA: 9.04
-Total com IVA: 11.12
+Data Vencimento: 18/02/2024
+Total sem IVA: 9,04
+Total com IVA: 11,12
 Taxa IVA: 23.00 2.08
 -----    Products    ------
-Code: 7103184, Quantity: 1, UnitPrice: 9.04, NetPrice: 9.04, IVA: 23, CNP: 7103184, isFactUpdated: 0, Name: CUMLAUDE HIGIENE INTIMA PREBIOTIC MOUSSE X 150 ML ., CNP: 7103184, DiscountPercentage: 0
+Code: 7103184, Quantity: 1, UnitPrice: 9,04, NetPrice: 9,04, IVA: 23, CNP: 7103184, isFactUpdated: 0, Name: CUMLAUDE HIGIENE INTIMA PREBIOTIC MOUSSE X 150 ML ., CNP: 7103184, DiscountPercentage: 0

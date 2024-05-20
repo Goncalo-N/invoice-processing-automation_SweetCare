@@ -264,6 +264,7 @@ namespace PDFDataExtraction.Core
             decimal totalPrice = 0;
             string invoiceDate = "N/A";
             string dueDate = "N/A";
+            DateTime dueDateMissing = DateTime.Now;
             string IVA = "";
 
             List<Product> products = new List<Product>();
@@ -308,6 +309,12 @@ namespace PDFDataExtraction.Core
                 // Write the entire text to the file for debugging purposes (will be deleted later)
                 writer.WriteLine(invoiceText);
 
+                // calculate due date based on invoice date ( in case of missing due date)
+                if (dueDate == "N/A")
+                {
+                    dueDateMissing = DateTime.Parse(invoiceDate).AddDays(60);
+                    dueDate = String.Format("{0:dd/MM/yyyy}", dueDateMissing);
+                }
                 // Write general information
                 writer.WriteLine("-----     General Information     ------");
                 writer.WriteLine("Data da Fatura: " + invoiceDate);
@@ -357,6 +364,7 @@ namespace PDFDataExtraction.Core
 
             foreach (var field in fields)
             {
+
                 if (field.Value == null || field.Value.ToString() == "N/A")
                 {
                     log.Error($"Missing field: {field.Key}");
