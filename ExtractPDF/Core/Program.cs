@@ -341,8 +341,8 @@ namespace PDFDataExtraction.Core
             {
                 log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
                 Console.WriteLine("Order not found");
-                //OnValuesMissing(pdfFilePath);
-                //return;
+                OnValuesMissing(pdfFilePath);
+                return;
             }
 
             // Check if any field is missing
@@ -492,7 +492,7 @@ namespace PDFDataExtraction.Core
                         log.Error("Invoice not validated: " + pdfFilePath);
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolder, fileName);
-                        //File.Move(pdfFilePath, destinationFilePath);
+                        File.Move(pdfFilePath, destinationFilePath);
                         Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
                     }
@@ -506,7 +506,7 @@ namespace PDFDataExtraction.Core
             // Move processed PDF file to validated folder
             fileName = Path.GetFileName(pdfFilePath);
             destinationFilePath = Path.Combine(validFolder, fileName);
-            //File.Move(pdfFilePath, destinationFilePath);
+            File.Move(pdfFilePath, destinationFilePath);
         }
     }
 }
