@@ -333,7 +333,7 @@ namespace PDFDataExtraction.Utility
             {
                 // The code is directly captured from the pattern
                 string code = match.Groups["Codigo"].Value;
-                Console.WriteLine("codinafoisd"+code);
+                Console.WriteLine("codinafoisd" + code);
                 string uniqueIdentifier = $"{code}_{match.Groups["Ped"].Value}_{match.Groups["PUNIT"].Value}_{match.Groups["PVP"].Value}_{match.Groups["Desc"].Value}_{match.Groups["PVF"].Value}_{match.Groups["VALOR"].Value}_{match.Groups["IVA"].Value}";
 
                 if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
