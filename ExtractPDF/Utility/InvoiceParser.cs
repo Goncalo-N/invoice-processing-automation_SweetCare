@@ -331,7 +331,8 @@ namespace PDFDataExtraction.Utility
 
             foreach (Match match in matches)
             {
-                string code = match.Groups["Codigo"].Success ? match.Groups["Codigo"].Value : match.Groups["CodigoEnd"].Value;
+                // Determine the correct code
+                string code = match.Groups["Codigo"].Success ? $"{match.Groups["NumB"].Value}{match.Groups["Codigo"].Value}" : match.Groups["CodigoEnd"].Success ? $"{match.Groups["NumB1"].Value}{match.Groups["CodigoEnd"].Value}" : string.Empty;
                 string uniqueIdentifier = $"{code}_{match.Groups["Ped"].Value}_{match.Groups["PUNIT"].Value}";
 
                 if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
@@ -343,34 +344,28 @@ namespace PDFDataExtraction.Utility
                     product.Description = match.Groups["Designacao"].Value.Trim();
                     product.CNP = code;
 
-                    string quantityString = Regex.Match(match.Groups["Ped"].Value, @"\d+").Value;
+                    string quantityString = Regex.Match(match.Groups["Env"].Value, @"\d+").Value;
                     product.Quantity = int.TryParse(quantityString, out int qty) ? qty : 0;
+
+                    string quantityAskedString = Regex.Match(match.Groups["Ped"].Value, @"\d+").Value;
+                    product.QtPed = int.TryParse(quantityAskedString, out int QtPed) ? QtPed : 0;
 
                     product.UnitPrice = decimal.TryParse(match.Groups["PVP"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
                     product.Discount1 = decimal.TryParse(match.Groups["Desc"].Value.Replace("%", ""), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
 
-                    // Check both possible positions for PUNIT, PVF, and VALOR
-                    if (decimal.TryParse(match.Groups["PUNIT"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice))
-                    {
-                        product.UnitPrice = unitPrice;
-                    }
-                    else if (decimal.TryParse(match.Groups[16].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out netPrice))
-                    {
-                        product.UnitPrice = unitPrice;
-                    }
+                    // Check both possible positions for PVF, PUNIT, and VALOR
+                    product.PrecoComIVA = decimal.TryParse(match.Groups["PVF"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal pvf) ? pvf
+                        : decimal.TryParse(match.Groups["PVF1"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out pvf) ? pvf : 0;
 
+                    product.NetPrice = decimal.TryParse(match.Groups["VALOR"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal valor) ? valor
+                        : decimal.TryParse(match.Groups["VALOR1"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out valor) ? valor : 0;
 
-                    if (decimal.TryParse(match.Groups["VALOR"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal totalValue))
-                    {
-                        product.NetPrice = netPrice;
-                    }
-                    else if (decimal.TryParse(match.Groups[18].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out totalValue))
-                    {
-                        product.NetPrice = netPrice;
-                    }
+                    product.IVA = decimal.TryParse(match.Groups["IVA"].Value?.Replace("%", ""), out decimal iva) ? iva : 0;
 
-                    if (int.TryParse(match.Groups["IVA"].Value?.Replace("%", ""), out int iva))
-                        product.IVA = iva;
+                    // Optionally set other fields if available
+                    product.LotNumber = match.Groups["LotNumber"].Value;
+                    product.Name = match.Groups["Name"].Value;
+                    product.DiscountPercentage = decimal.TryParse(match.Groups["DiscountPercentage"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discountPercentage) ? discountPercentage : 0;
 
                     products.Add(product);
                 }

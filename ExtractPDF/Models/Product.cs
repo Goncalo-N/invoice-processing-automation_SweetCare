@@ -150,12 +150,13 @@ namespace PDFDataExtraction.Models
         }
 
     }
-
     public class MERCAFARProduct : Product
     {
         public string Name { get; set; } = string.Empty;
         public string LotNumber { get; set; } = string.Empty;
         public decimal DiscountPercentage { get; set; }
+
+        public int QtPed { get; set; }
 
         public override string ToString()
         {
@@ -167,6 +168,8 @@ namespace PDFDataExtraction.Models
                 stringBuilder.Append($", CNP: {CNP}");
             if (!string.IsNullOrEmpty(LotNumber))
                 stringBuilder.Append($", LotNumber: {LotNumber}");
+            if (QtPed != 0)
+                stringBuilder.Append($", QtPed: {QtPed}");
             stringBuilder.Append($", DiscountPercentage: {DiscountPercentage}");
 
             return stringBuilder.ToString();
