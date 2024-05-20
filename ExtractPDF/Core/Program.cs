@@ -359,7 +359,7 @@ namespace PDFDataExtraction.Core
             // boolean to indicate if any field is missing
             bool isAnyFieldMissing = false;
 
-            // counter to keep track of the number of missing fields
+            // counter for number of missing fields
             int missingFieldsCounter = 0;
 
             foreach (var field in fields)
@@ -374,7 +374,7 @@ namespace PDFDataExtraction.Core
                 }
             }
 
-            // Special check for products being null or having a count of 0
+            // check products being null or product list being empty
             if (products == null || products.Count == 0)
             {
                 Console.WriteLine("Missing field: Products");
@@ -418,7 +418,7 @@ namespace PDFDataExtraction.Core
         }
 
         /// <summary>
-        /// Method to move the pdf file to the missing folder in case of missing values
+        /// Method moves the pdf file to the missing folder
         /// </summary>
         /// <param name="pdfFilePath"></param>
         static void OnValuesMissing(string pdfFilePath)
@@ -500,7 +500,7 @@ namespace PDFDataExtraction.Core
                 Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated, product.Code);
             }
 
-            //if function didnt return, then all products were validated, which means invoice is valid
+            //if function didnt return, then all products were validated, invoice is moved to valid folder
             log.Information("Invoice validated: " + pdfFilePath);
 
             // Move processed PDF file to validated folder
