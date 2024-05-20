@@ -38,12 +38,10 @@ namespace PDFDataExtraction.Utility
             return ExtractFurthestFutureDateMatch(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
 
-
         public string ExtractIvaPercentage(string text, string pattern)
         {
             return ExtractAllMatchesFormatted(text, new Regex(pattern, RegexOptions.IgnoreCase));
         }
-
 
         private string ExtractAllMatchesFormatted(string text, Regex regex)
         {
@@ -68,7 +66,6 @@ namespace PDFDataExtraction.Utility
             return string.Join(Environment.NewLine, formattedMatches);
         }
 
-
         private string ExtractSingleMatch(string text, Regex regex)
         {
             var match = regex.Match(text);
@@ -78,6 +75,7 @@ namespace PDFDataExtraction.Utility
             }
             throw new ParseException($"No match found with pattern: {regex.ToString()}");
         }
+
         private string ExtractSingleMatchNumeric(string text, Regex regex)
         {
             var match = regex.Match(text);
@@ -88,6 +86,7 @@ namespace PDFDataExtraction.Utility
             }
             throw new ParseException($"No match found with pattern: {regex.ToString()}");
         }
+
         private string ExtractDateString(string text, Regex regex)
         {
             MatchCollection matches = regex.Matches(text);
@@ -102,8 +101,6 @@ namespace PDFDataExtraction.Utility
             // Return "N/A" if no valid date is found
             return "N/A";
         }
-
-
 
         private string ExtractFurthestFutureDateMatch(string text, Regex regex)
         {
@@ -322,6 +319,7 @@ namespace PDFDataExtraction.Utility
 
             return products;
         }
+
         public List<Product> ExtractProductDetailsMercafar(string invoiceText, string pattern)
         {
             List<Product> products = new List<Product>();
@@ -410,7 +408,6 @@ namespace PDFDataExtraction.Utility
             return products;
         }
     }
-
 
     /// <summary>
     /// Custom exception class for parsing errors
