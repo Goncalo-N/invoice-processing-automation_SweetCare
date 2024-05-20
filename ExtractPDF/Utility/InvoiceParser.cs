@@ -322,7 +322,6 @@ namespace PDFDataExtraction.Utility
 
             return products;
         }
-
         public List<Product> ExtractProductDetailsMercafar(string invoiceText, string pattern)
         {
             List<Product> products = new List<Product>();
@@ -332,26 +331,45 @@ namespace PDFDataExtraction.Utility
 
             foreach (Match match in matches)
             {
-                string uniqueIdentifier = $"{match.Groups["code"].Value}_{match.Groups["ped"].Value}_{match.Groups["netPrice"].Value}";
+                string code = match.Groups["Codigo"].Success ? match.Groups["Codigo"].Value : match.Groups["CodigoEnd"].Value;
+                string uniqueIdentifier = $"{code}_{match.Groups["Ped"].Value}_{match.Groups["PUNIT"].Value}";
 
                 if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
                 {
                     uniqueProductIdentifiers.Add(uniqueIdentifier);
                     MERCAFARProduct product = new MERCAFARProduct();
 
-                    product.Code = match.Groups["code"].Value;
-                    product.Description = match.Groups["name"].Value.Trim();
-                    product.CNP = match.Groups["code"].Value;
+                    product.Code = code;
+                    product.Description = match.Groups["Designacao"].Value.Trim();
+                    product.CNP = code;
 
-                    product.LotNumber = match.Groups["lote"].Value;
-                    string quantityString = Regex.Match(match.Groups["ped"].Value, @"\d+").Value;
+                    string quantityString = Regex.Match(match.Groups["Ped"].Value, @"\d+").Value;
                     product.Quantity = int.TryParse(quantityString, out int qty) ? qty : 0;
 
-                    product.UnitPrice = decimal.TryParse(match.Groups["unitPrice"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
-                    product.Discount1 = decimal.TryParse(match.Groups["discount"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
-                    product.NetPrice = decimal.TryParse(match.Groups["netPrice"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
+                    product.UnitPrice = decimal.TryParse(match.Groups["PVP"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
+                    product.Discount1 = decimal.TryParse(match.Groups["Desc"].Value.Replace("%", ""), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
 
-                    if (int.TryParse(match.Groups["iva"].Value.Replace("%", ""), out int iva))
+                    // Check both possible positions for PUNIT, PVF, and VALOR
+                    if (decimal.TryParse(match.Groups["PUNIT"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice))
+                    {
+                        product.UnitPrice = unitPrice;
+                    }
+                    else if (decimal.TryParse(match.Groups[16].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out netPrice))
+                    {
+                        product.UnitPrice = unitPrice;
+                    }
+
+
+                    if (decimal.TryParse(match.Groups["VALOR"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal totalValue))
+                    {
+                        product.NetPrice = netPrice;
+                    }
+                    else if (decimal.TryParse(match.Groups[18].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out totalValue))
+                    {
+                        product.NetPrice = netPrice;
+                    }
+
+                    if (int.TryParse(match.Groups["IVA"].Value?.Replace("%", ""), out int iva))
                         product.IVA = iva;
 
                     products.Add(product);

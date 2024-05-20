@@ -486,8 +486,8 @@ Data da Fatura: 21/12/2023
 Nº Encomenda: 1540909
 Nº Fatura: 1470802
 Data Vencimento: 19/02/2024
-Total sem IVA: 1169.43
-Total com IVA: 1438.40
+Total sem IVA: 1169,43
+Total com IVA: 1438,40
 Taxa IVA: 5,00% 0,00
 12,00% 0,00
 13,00% 0,00
@@ -497,3 +497,13 @@ Taxa IVA: 5,00% 0,00
 0,00% 0,00
 6,00% 0,00
 -----    Products    ------
+Description: 1028653 NUXE BIO AMT FLUIDO HIDRATANTE NF 12X2ML, Quantity: 1, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
+Description: 6626911 NUXE BIO FLUIDE HYDRATANT 50 G2, Quantity: 3, UnitPrice: 23,78, Discounts: 20, isFactUpdated: 0, DiscountPercentage: 0
+Description: 7245613 NUXE CR FRAICHE CREME PN 50 ML, Quantity: 3, UnitPrice: 17,61, Discounts: 20, NetPrice: 14,09, isFactUpdated: 0, DiscountPercentage: 0
+Description: 7112896 NUXE HUIL PROD NEROLI 100 ML, Quantity: 3, UnitPrice: 20,95, Discounts: 20, NetPrice: 16,76, isFactUpdated: 0, DiscountPercentage: 0
+Description: 6908830 NUXE HUILE PROD OR NF 100 ML, Quantity: 12, UnitPrice: 22,40, Discounts: 20, isFactUpdated: 0, DiscountPercentage: 0
+Description: 7078568 NUXE MEN GEL DOUCHE 2X200ML REF: 0A35781, Quantity: 6, UnitPrice: 10,27, Discounts: 20, isFactUpdated: 0, DiscountPercentage: 0
+Description: 1026688 NUXE MERV LIFT AMT CREME DIA PN 12 X 2ML, Quantity: 2, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
+Description: 6071340 NUXE PRODIG PERFUME 30 ML, Quantity: 9, UnitPrice: 21,37, Discounts: 20, IVA: 23, isFactUpdated: 0, DiscountPercentage: 0
+Description: 7295980 NUXE PRODIGIEUSE BOOST CREME PN 40 ML, Quantity: 3, UnitPrice: 22,74, Discounts: 20, NetPrice: 18,19, isFactUpdated: 0, DiscountPercentage: 0
+Description: 1024650 NUXE SUPER SERUM AMT 12X1ML, Quantity: 2, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
