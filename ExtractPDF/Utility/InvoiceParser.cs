@@ -331,16 +331,17 @@ namespace PDFDataExtraction.Utility
 
             foreach (Match match in matches)
             {
-                // Determine the correct code
-                string code = match.Groups["Codigo"].Success ? $"{match.Groups["NumB"].Value}{match.Groups["Codigo"].Value}" : match.Groups["CodigoEnd"].Success ? $"{match.Groups["NumB1"].Value}{match.Groups["CodigoEnd"].Value}" : string.Empty;
-                string uniqueIdentifier = $"{code}_{match.Groups["Ped"].Value}_{match.Groups["PUNIT"].Value}";
+                // The code is directly captured from the pattern
+                string code = match.Groups["Codigo"].Value;
+                Console.WriteLine("codinafoisd"+code);
+                string uniqueIdentifier = $"{code}_{match.Groups["Ped"].Value}_{match.Groups["PUNIT"].Value}_{match.Groups["PVP"].Value}_{match.Groups["Desc"].Value}_{match.Groups["PVF"].Value}_{match.Groups["VALOR"].Value}_{match.Groups["IVA"].Value}";
 
                 if (!uniqueProductIdentifiers.Contains(uniqueIdentifier))
                 {
                     uniqueProductIdentifiers.Add(uniqueIdentifier);
                     MERCAFARProduct product = new MERCAFARProduct();
 
-                    product.Code = code;
+                    product.Code = match.Groups["Codigo"].Value;
                     product.Description = match.Groups["Designacao"].Value.Trim();
                     product.CNP = code;
 
@@ -353,7 +354,6 @@ namespace PDFDataExtraction.Utility
                     product.UnitPrice = decimal.TryParse(match.Groups["PVP"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
                     product.Discount1 = decimal.TryParse(match.Groups["Desc"].Value.Replace("%", ""), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
 
-                    // Check both possible positions for PVF, PUNIT, and VALOR
                     product.PrecoComIVA = decimal.TryParse(match.Groups["PVF"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal pvf) ? pvf
                         : decimal.TryParse(match.Groups["PVF1"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out pvf) ? pvf : 0;
 
@@ -362,17 +362,13 @@ namespace PDFDataExtraction.Utility
 
                     product.IVA = decimal.TryParse(match.Groups["IVA"].Value?.Replace("%", ""), out decimal iva) ? iva : 0;
 
-                    // Optionally set other fields if available
-                    product.LotNumber = match.Groups["LotNumber"].Value;
-                    product.Name = match.Groups["Name"].Value;
-                    product.DiscountPercentage = decimal.TryParse(match.Groups["DiscountPercentage"].Value?.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discountPercentage) ? discountPercentage : 0;
-
                     products.Add(product);
                 }
             }
 
             return products;
         }
+
         public List<Product> ExtractProductDetailsOCP(string invoiceText, string pattern)
         {
             List<Product> products = new List<Product>();

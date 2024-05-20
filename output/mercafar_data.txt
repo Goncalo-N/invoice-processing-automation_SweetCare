@@ -497,13 +497,35 @@ Taxa IVA: 5,00% 0,00
 0,00% 0,00
 6,00% 0,00
 -----    Products    ------
-Description: 1028653 NUXE BIO AMT FLUIDO HIDRATANTE NF 12X2ML, Quantity: 1, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
-Description: 6626911 NUXE BIO FLUIDE HYDRATANT 50 G2, Quantity: 3, PrecoComIVA: 19,02, UnitPrice: 23,78, Discounts: 20, NetPrice: 57,06, isFactUpdated: 0, DiscountPercentage: 0
-Description: 7245613 NUXE CR FRAICHE CREME PN 50 ML, Quantity: 3, PrecoComIVA: 14,09, UnitPrice: 17,61, Discounts: 20, NetPrice: 42,27, isFactUpdated: 0, DiscountPercentage: 0
-Description: 7112896 NUXE HUIL PROD NEROLI 100 ML, Quantity: 3, PrecoComIVA: 16,76, UnitPrice: 20,95, Discounts: 20, NetPrice: 50,28, isFactUpdated: 0, DiscountPercentage: 0
-Description: 6908830 NUXE HUILE PROD OR NF 100 ML, Quantity: 12, PrecoComIVA: 17,92, UnitPrice: 22,40, Discounts: 20, NetPrice: 215,04, isFactUpdated: 0, DiscountPercentage: 0
-Description: 7078568 NUXE MEN GEL DOUCHE 2X200ML REF: 0A35781, Quantity: 6, PrecoComIVA: 8,22, UnitPrice: 10,27, Discounts: 20, NetPrice: 49,32, isFactUpdated: 0, DiscountPercentage: 0
-Description: 1026688 NUXE MERV LIFT AMT CREME DIA PN 12 X 2ML, Quantity: 2, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
-Description: 6071340 NUXE PRODIG PERFUME 30 ML, Quantity: 9, PrecoComIVA: 17,10, UnitPrice: 21,37, Discounts: 20, NetPrice: 153,90, IVA: 23, isFactUpdated: 0, DiscountPercentage: 0
-Description: 7295980 NUXE PRODIGIEUSE BOOST CREME PN 40 ML, Quantity: 3, PrecoComIVA: 18,19, UnitPrice: 22,74, Discounts: 20, NetPrice: 54,57, isFactUpdated: 0, DiscountPercentage: 0
-Description: 1024650 NUXE SUPER SERUM AMT 12X1ML, Quantity: 2, Discounts: 100, isFactUpdated: 0, DiscountPercentage: 0
+Code: 1028653, Description: NUXE BIO AMT FLUIDO HIDRATANTE NF 12X2ML, Quantity: 1, Discounts: 100, CNP: 1028653, isFactUpdated: 0, CNP: 1028653, QtPed: 1, DiscountPercentage: 0
+Code: 6626911, Description: NUXE BIO FLUIDE HYDRATANT 50 G2, Quantity: 3, PrecoComIVA: 19,02, UnitPrice: 23,78, Discounts: 20, NetPrice: 57,06, CNP: 6626911, isFactUpdated: 0, CNP: 6626911, QtPed: 3, DiscountPercentage: 0
+Code: 1026763, Description: NUXE BODY RDT AMT CR REFIRMANTE 12 X 7ML, Quantity: 1, Discounts: 100, IVA: 23, CNP: 1026763, isFactUpdated: 0, CNP: 1026763, QtPed: 1, DiscountPercentage: 0
+Code: 1027751, Description: NUXE CR FRAICHE AMT CREME 3 EM 1 12X2ML, Quantity: 1, Discounts: 100, CNP: 1027751, isFactUpdated: 0, CNP: 1027751, QtPed: 1, DiscountPercentage: 0
+Code: 7245613, Description: NUXE CR FRAICHE CREME PN 50 ML, Quantity: 3, PrecoComIVA: 14,09, UnitPrice: 17,61, Discounts: 20, NetPrice: 42,27, CNP: 7245613, isFactUpdated: 0, CNP: 7245613, QtPed: 3, DiscountPercentage: 0
+Code: 1029751, Description: NUXE HUIL PROD AMT FLORAL 12X2ML, Quantity: 1, Discounts: 100, CNP: 1029751, isFactUpdated: 0, CNP: 1029751, QtPed: 1, DiscountPercentage: 0
+Code: 1029752, Description: NUXE HUIL PROD AMT NEROLI 12X2ML, Quantity: 1, Discounts: 100, CNP: 1029752, isFactUpdated: 0, CNP: 1029752, QtPed: 1, DiscountPercentage: 0
+Code: 1029750, Description: NUXE HUIL PROD AMT OR 12X2ML, Quantity: 1, Discounts: 100, IVA: 23, CNP: 1029750, isFactUpdated: 0, CNP: 1029750, QtPed: 1, DiscountPercentage: 0
+Code: 1030863, Description: NUXE HUIL PROD AMT 12 X 2 ML, Quantity: 1, Discounts: 100, CNP: 1030863, isFactUpdated: 0, CNP: 1030863, QtPed: 1, DiscountPercentage: 0
+Code: 7112896, Description: NUXE HUIL PROD NEROLI 100 ML, Quantity: 3, PrecoComIVA: 16,76, UnitPrice: 20,95, Discounts: 20, NetPrice: 50,28, CNP: 7112896, isFactUpdated: 0, CNP: 7112896, QtPed: 3, DiscountPercentage: 0
+Code: 6908830, Description: NUXE HUILE PROD OR NF 100 ML, Quantity: 12, PrecoComIVA: 17,92, UnitPrice: 22,40, Discounts: 20, NetPrice: 215,04, CNP: 6908830, isFactUpdated: 0, CNP: 6908830, QtPed: 12, DiscountPercentage: 0
+Code: 6342154, Description: NUXE INSTAMASQUE EXFOLIANTE 50 ML, Quantity: 3, PrecoComIVA: 11,22, UnitPrice: 14,03, Discounts: 20, NetPrice: 33,66, CNP: 6342154, isFactUpdated: 0, CNP: 6342154, QtPed: 3, DiscountPercentage: 0
+Code: 6853085, Description: NUXE MAQ PROD PO COMPACTO 25 GR, Quantity: 3, PrecoComIVA: 17,34, UnitPrice: 21,67, Discounts: 20, NetPrice: 52,02, IVA: 23, CNP: 6853085, isFactUpdated: 0, CNP: 6853085, QtPed: 3, DiscountPercentage: 0
+Code: 7078568, Description: NUXE MEN GEL DOUCHE 2X200ML REF: 0A35781, Quantity: 6, PrecoComIVA: 8,22, UnitPrice: 10,27, Discounts: 20, NetPrice: 49,32, CNP: 7078568, isFactUpdated: 0, CNP: 7078568, QtPed: 6, DiscountPercentage: 0
+Code: 1026688, Description: NUXE MERV LIFT AMT CREME DIA PN 12 X 2ML, Quantity: 2, Discounts: 100, CNP: 1026688, isFactUpdated: 0, CNP: 1026688, QtPed: 2, DiscountPercentage: 0
+Code: 1028343, Description: NUXE MERV LIFT AMT CREME DIA PS 12 X 2ML, Quantity: 1, Discounts: 100, CNP: 1028343, isFactUpdated: 0, CNP: 1028343, QtPed: 1, DiscountPercentage: 0
+Code: 1033551, Description: NUXE MERV LIFT AMT GLOW CREME 12 X 2 ML, Quantity: 2, Discounts: 100, IVA: 23, CNP: 1033551, isFactUpdated: 0, CNP: 1033551, QtPed: 2, DiscountPercentage: 0
+Code: 1021111, Description: NUXE NUXUG AMT CREME DIA 12 X 2ML, Quantity: 1, Discounts: 100, CNP: 1021111, isFactUpdated: 0, CNP: 1021111, QtPed: 1, DiscountPercentage: 0
+Code: 7751404, Description: NUXE PROD LAIT PARF CORPS 200 ML, Quantity: 3, PrecoComIVA: 9,14, UnitPrice: 11,43, Discounts: 20, NetPrice: 27,42, CNP: 7751404, isFactUpdated: 0, CNP: 7751404, QtPed: 3, DiscountPercentage: 0
+Code: 1030525, Description: NUXE PRODIG AMT NEROLI PERFUME 12 X 1 ML, Quantity: 1, Discounts: 100, CNP: 1030525, isFactUpdated: 0, CNP: 1030525, QtPed: 1, DiscountPercentage: 0
+Code: 6071340, Description: NUXE PRODIG PERFUME 30 ML, Quantity: 9, PrecoComIVA: 17,10, UnitPrice: 21,37, Discounts: 20, NetPrice: 153,90, IVA: 23, CNP: 6071340, isFactUpdated: 0, CNP: 6071340, QtPed: 9, DiscountPercentage: 0
+Code: 1031228, Description: NUXE PRODIGIEUSE BOOST AMT CR PN 12X2ML, Quantity: 1, Discounts: 100, CNP: 1031228, isFactUpdated: 0, CNP: 1031228, QtPed: 1, DiscountPercentage: 0
+Code: 7295980, Description: NUXE PRODIGIEUSE BOOST CREME PN 40 ML, Quantity: 3, PrecoComIVA: 18,19, UnitPrice: 22,74, Discounts: 20, NetPrice: 54,57, CNP: 7295980, isFactUpdated: 0, CNP: 7295980, QtPed: 3, DiscountPercentage: 0
+Code: 6395194, Description: NUXE RDM CREME CORPO 400ML, Quantity: 3, PrecoComIVA: 14,28, UnitPrice: 17,85, Discounts: 20, NetPrice: 42,84, CNP: 6395194, isFactUpdated: 0, CNP: 6395194, QtPed: 3, DiscountPercentage: 0
+Code: 6071324, Description: NUXE RDM EXFOLIANTE CORPORAL 175 ML, Quantity: 3, PrecoComIVA: 12,50, UnitPrice: 15,62, Discounts: 20, NetPrice: 37,50, CNP: 6071324, isFactUpdated: 0, CNP: 6071324, QtPed: 3, DiscountPercentage: 0
+Code: 1030864, Description: NUXE SUN AMT LEITE POS SOLAR 12 X 7 ML, Quantity: 1, Discounts: 100, IVA: 23, CNP: 1030864, isFactUpdated: 0, CNP: 1030864, QtPed: 1, DiscountPercentage: 0
+Code: 1032288, Description: NUXE SUPER SERUM AMT OLHOS 12X2ML, Quantity: 2, Discounts: 100, CNP: 1032288, isFactUpdated: 0, CNP: 1032288, QtPed: 2, DiscountPercentage: 0
+Code: 1024650, Description: NUXE SUPER SERUM AMT 12X1ML, Quantity: 2, Discounts: 100, CNP: 1024650, isFactUpdated: 0, CNP: 1024650, QtPed: 2, DiscountPercentage: 0
+Code: 7273144, Description: NUXE SUPER SERUM 50 ML, Quantity: 3, PrecoComIVA: 47,69, UnitPrice: 59,61, Discounts: 20, NetPrice: 143,07, CNP: 7273144, isFactUpdated: 0, CNP: 7273144, QtPed: 3, DiscountPercentage: 0
+Code: 7330910, Description: NUXE SWEET LEMON BALSAMO LABIAL 15 ML, Quantity: 6, PrecoComIVA: 6,46, UnitPrice: 8,07, Discounts: 20, NetPrice: 38,76, CNP: 7330910, isFactUpdated: 0, CNP: 7330910, QtPed: 6, DiscountPercentage: 0
+Code: 7104307, Description: NUXE VERY ROSE BALSAMO LABIAL 15 ML, Quantity: 12, PrecoComIVA: 6,46, UnitPrice: 8,07, Discounts: 20, NetPrice: 77,52, IVA: 23, CNP: 7104307, isFactUpdated: 0, CNP: 7104307, QtPed: 12, DiscountPercentage: 0
+Code: 6501247, Description: NUXE VERY ROSE OLEO DESMAQ 150 ML, Quantity: 6, PrecoComIVA: 9,44, UnitPrice: 11,80, Discounts: 20, NetPrice: 56,64, CNP: 6501247, isFactUpdated: 0, CNP: 6501247, QtPed: 6, DiscountPercentage: 0
