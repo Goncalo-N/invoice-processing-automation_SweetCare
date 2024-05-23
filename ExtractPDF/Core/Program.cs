@@ -221,7 +221,6 @@ namespace PDFDataExtraction.Core
                 baseDirectory = parentDirectory.FullName;
             }
 
-
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
 
@@ -243,6 +242,7 @@ namespace PDFDataExtraction.Core
                 OnValuesMissing(pdfFilePath);
                 return;
             }
+
             log.Information("Reading invoice : " + pdfFilePath);
             // return if company name is N/A
             if (companyName == "N/A")
@@ -255,7 +255,6 @@ namespace PDFDataExtraction.Core
 
             // Get the regex for the company
             SupplierPattern supplierPattern = supplierPatterns.FirstOrDefault(sp => sp.NomeEmpresa == companyName);
-            Console.WriteLine("Company Name: " + companyName);
 
             //create a condition that based on the company name it will call the correct method;
             string numEncomenda = "N/A";
@@ -431,12 +430,12 @@ namespace PDFDataExtraction.Core
             }
 
             string fileName = Path.GetFileName(pdfFilePath);
-            Console.WriteLine("Missing values in PDF file: " + pdfFilePath);
+            log.Error("Missing values in PDF file: " + pdfFilePath);
             string destinationFilePath = Path.Combine(missingValuesFolder, fileName);
 
-            Console.WriteLine("Moving PDF file to Missing_Values folder" + destinationFilePath);
+            log.Error($"Moving PDF file to Missing_Values folder: {destinationFilePath}");
             File.Move(pdfFilePath, destinationFilePath);
-            Console.WriteLine($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
+            log.Error($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
 
         }
 
@@ -456,8 +455,6 @@ namespace PDFDataExtraction.Core
 
             foreach (var product in products)
             {
-                Console.WriteLine("CNP" + product.CNP);
-
                 //price check
                 //check if neither of the prices equal to 0
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
@@ -468,14 +465,11 @@ namespace PDFDataExtraction.Core
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                
                     if (product.UnitPrice < product.NetPrice)
                     {
-
                         isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
-                        //Console.WriteLine("ValueCheck: " + product.NetPrice / product.Quantity);
                     }
                     else
                     {
                         isProductValid = dataService.ValidateProduct(product.CNP, orderID, product.NetPrice, product.UnitPrice, product.Quantity, invoiceNumber, product.isFactUpdated);
-                        //Console.WriteLine("ValueCheck: " + product.NetPrice);
                     }
 
                     if (isProductValid)
@@ -493,11 +487,11 @@ namespace PDFDataExtraction.Core
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolder, fileName);
                         File.Move(pdfFilePath, destinationFilePath);
-                        Console.WriteLine($"Moved PDF file to Invalid folder: {pdfFilePath}");
+                        log.Error($"Moved PDF file to Invalid folder: {pdfFilePath}");
                         return;
                     }
                 }
-                Console.WriteLine("Invoice fact updated product: " + product.isFactUpdated, product.Code);
+                log.Information("Invoice fact updated product: " + product.isFactUpdated, product.Code);
             }
 
             //if function didnt return, then all products were validated, invoice is moved to valid folder
