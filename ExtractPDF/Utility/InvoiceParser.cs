@@ -386,7 +386,6 @@ namespace PDFDataExtraction.Utility
                     product.Code = match.Groups["codigo"].Value;
                     product.Name = match.Groups["designacao"].Value;
                     product.CNP = match.Groups["codigo"].Value;
-                    //product.LotNumber = match.Groups["Lote"].Value;
 
                     // Ensure quantity parsing is correct
                     string quantityString = Regex.Match(match.Groups["qtped"].Value, @"\d+").Value;
@@ -394,7 +393,6 @@ namespace PDFDataExtraction.Utility
 
                     // Parsing using invariant culture
                     product.UnitPrice = decimal.TryParse(match.Groups["pvf"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal unitPrice) ? unitPrice : 0;
-                    //product.DiscountPercentage = decimal.TryParse(match.Groups["Esc"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal discount) ? discount : 0;
                     product.NetPrice = decimal.TryParse(match.Groups["total"].Value.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal netPrice) ? netPrice : 0;
 
                     // IVA parsing
