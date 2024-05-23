@@ -484,10 +484,13 @@ namespace PDFDataExtraction.Core
                         //podendo ser verificado posteriormente o codigo do produto que não foi validado de qual invoice
                         log.Error("Product not validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         log.Error("Invoice not validated: " + pdfFilePath);
+
                         fileName = Path.GetFileName(pdfFilePath);
                         destinationFilePath = Path.Combine(invalidFolder, fileName);
+
                         File.Move(pdfFilePath, destinationFilePath);
                         log.Error($"Moved PDF file to Invalid folder: {pdfFilePath}");
+                        
                         return;
                     }
                 }
