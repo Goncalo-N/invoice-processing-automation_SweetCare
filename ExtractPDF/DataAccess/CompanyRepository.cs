@@ -18,8 +18,8 @@ namespace PDFDataExtraction.DataAccess
             }
             else
             {
-                // Load default patterns if the file is not found
-                Console.WriteLine("Supplier patterns file not found. Loading default patterns.");
+                //file is not found
+                Console.WriteLine("Supplier patterns file not found.");
             }
         }
 
