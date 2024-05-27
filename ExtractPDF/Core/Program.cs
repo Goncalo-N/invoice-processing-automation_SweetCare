@@ -490,7 +490,7 @@ namespace PDFDataExtraction.Core
 
                         File.Move(pdfFilePath, destinationFilePath);
                         log.Error($"Moved PDF file to Invalid folder: {pdfFilePath}");
-                        
+
                         return;
                     }
                 }
