@@ -433,7 +433,6 @@ namespace PDFDataExtraction.Core
             log.Error("Missing values in PDF file: " + pdfFilePath);
             string destinationFilePath = Path.Combine(missingValuesFolder, fileName);
 
-            log.Error($"Moving PDF file to Missing_Values folder: {destinationFilePath}");
             File.Move(pdfFilePath, destinationFilePath);
             log.Error($"Moved PDF file to Missing_Values folder: {destinationFilePath}");
 
