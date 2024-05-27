@@ -458,7 +458,6 @@ namespace PDFDataExtraction.Core
                 //check if neither of the prices equal to 0
                 if (product.NetPrice != 0 && product.UnitPrice != 0)
                 {
-
                     bool isProductValid;
 
                     //check for invoices that multiply the quantity with unit price instead of using the net price per product                
@@ -496,13 +495,20 @@ namespace PDFDataExtraction.Core
                 log.Information("Invoice fact updated product: " + product.isFactUpdated, product.Code);
             }
 
-            //if function didnt return, then all products were validated, invoice is moved to valid folder
-            log.Information("Invoice validated: " + pdfFilePath);
 
-            // Move processed PDF file to validated folder
-            fileName = Path.GetFileName(pdfFilePath);
-            destinationFilePath = Path.Combine(validFolder, fileName);
-            File.Move(pdfFilePath, destinationFilePath);
+
+            if (validFolder != null)
+            {
+                //if function didnt return, then all products were validated, invoice is moved to valid folder
+                log.Information("Invoice validated: " + pdfFilePath);
+                // Move processed PDF file to validated folder
+                fileName = Path.GetFileName(pdfFilePath);
+                destinationFilePath = Path.Combine(validFolder, fileName);
+                File.Move(pdfFilePath, destinationFilePath);
+                log.Information($"Moved PDF file to Valid folder: {pdfFilePath}");
+            }
+            log.Information("Finished Invoice: " + pdfFilePath);
+
         }
     }
 }
