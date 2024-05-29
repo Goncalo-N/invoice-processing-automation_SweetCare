@@ -4,7 +4,6 @@ namespace PDFDataExtraction.Service
 {
     public class DataService : IDataService
     {
-        private readonly CompanyRepository companyRepository;
         private readonly OrderRepository orderRepository;
 
         public DataService(string connectionString)
