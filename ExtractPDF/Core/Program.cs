@@ -230,7 +230,6 @@ namespace PDFDataExtraction.Core
 
             // Check the company name
             var supplierPatterns = LoadSupplierPatterns();
-            //PrintSupplierPatterns(supplierPatterns);
 
             var companyName = CheckCompany(invoiceText, supplierPatterns);
 
@@ -388,25 +387,6 @@ namespace PDFDataExtraction.Core
                 log.Information("Data written to " + outputFilePath);
             }
 
-        }
-
-        /// <summary>
-        /// Method to print the supplier patterns to the console for debugging purposes
-        /// </summary>
-        /// <param name="supplierPatterns"></param>
-        public static void PrintSupplierPatterns(List<SupplierPattern> supplierPatterns)
-        {
-            foreach (var pattern in supplierPatterns)
-            {
-                Console.WriteLine($"Company: {pattern.NomeEmpresa}");
-                Console.WriteLine($"Nome Fornecedor Regex: {pattern.PadraoRegexNomeFornecedor}");
-                Console.WriteLine($"Data Fatura Regex: {pattern.PadraoRegexDataFatura}");
-                Console.WriteLine($"Numero Encomenda Regex: {pattern.PadraoRegexNumeroEncomenda}");
-                Console.WriteLine($"Numero Fatura Regex: {pattern.PadraoRegexNumeroFatura}");
-                Console.WriteLine($"Data Vencimento Fatura Regex: {pattern.PadraoRegexDataVencimentoFatura}");
-                Console.WriteLine($"Total Sem IVA Regex: {pattern.PadraoRegexTotalSemIva}");
-                Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}\n");
-            }
         }
 
         /// <summary>
