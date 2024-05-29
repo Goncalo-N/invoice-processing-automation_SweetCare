@@ -1,0 +1,23 @@
+2024-05-29 13:50:24.119 +01:00 [INF] Application Starting
+2024-05-29 13:50:25.145 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-29 13:50:25.620 +01:00 [ERR] Order not found for invoiceNumber: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-29 13:50:25.621 +01:00 [ERR] Missing values in PDF file: ..\pdfs\ocp.pdf
+2024-05-29 13:50:25.622 +01:00 [ERR] Moved PDF file to Missing_Values folder: ..\missing\ocp.pdf
+2024-05-29 13:53:06.113 +01:00 [INF] Application Starting
+2024-05-29 13:53:25.443 +01:00 [INF] Application Starting
+2024-05-29 13:53:26.159 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-29 13:53:26.541 +01:00 [ERR] Order not found for invoiceNumber: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-29 13:53:26.546 +01:00 [ERR] Missing values in PDF file: ..\pdfs\ocp.pdf
+2024-05-29 13:53:26.547 +01:00 [ERR] Moved PDF file to Missing_Values folder: ..\missing\ocp.pdf
+2024-05-29 13:55:37.443 +01:00 [INF] Application Starting
+2024-05-29 13:55:38.154 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-29 13:55:38.588 +01:00 [ERR] Order not found for invoiceNumber: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-05-29 13:55:38.588 +01:00 [ERR] Missing values in PDF file: ..\pdfs\ocp.pdf
+2024-05-29 13:55:38.589 +01:00 [ERR] Moved PDF file to Missing_Values folder: ..\missing\ocp.pdf
+2024-05-29 13:59:54.926 +01:00 [INF] Application Starting
+2024-05-29 13:59:55.573 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-05-29 13:59:55.952 +01:00 [INF] Product validated: 7103184 in invoice: ..\pdfs\ocp.pdf
+2024-05-29 13:59:55.953 +01:00 [INF] Invoice fact updated product: 1
+2024-05-29 13:59:55.954 +01:00 [INF] Invoice validated: ..\pdfs\ocp.pdf
+2024-05-29 13:59:55.955 +01:00 [INF] Moved PDF file to Valid folder: ..\pdfs\ocp.pdf
+2024-05-29 13:59:55.956 +01:00 [INF] Finished Invoice: ..\pdfs\ocp.pdf
