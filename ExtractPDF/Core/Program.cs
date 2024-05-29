@@ -403,8 +403,7 @@ namespace PDFDataExtraction.Core
                 Console.WriteLine($"Numero Fatura Regex: {pattern.PadraoRegexNumeroFatura}");
                 Console.WriteLine($"Data Vencimento Fatura Regex: {pattern.PadraoRegexDataVencimentoFatura}");
                 Console.WriteLine($"Total Sem IVA Regex: {pattern.PadraoRegexTotalSemIva}");
-                Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}");
-                Console.WriteLine();
+                Console.WriteLine($"Total a Pagar Regex: {pattern.PadraoRegexTotalAPagar}\n");
             }
         }
 
@@ -492,14 +491,18 @@ namespace PDFDataExtraction.Core
             if (validFolder != null)
             {
                 //if function didnt return, then all products were validated, invoice is moved to valid folder
-                log.Information("Invoice validated: " + pdfFilePath);
+                log.Information("Invoice validated successfuly: " + pdfFilePath);
+
                 // Move processed PDF file to validated folder
                 fileName = Path.GetFileName(pdfFilePath);
                 destinationFilePath = Path.Combine(validFolder, fileName);
+
                 File.Move(pdfFilePath, destinationFilePath);
+
                 log.Information($"Moved PDF file to Valid folder: {pdfFilePath}");
             }
-            log.Information("Finished Invoice: " + pdfFilePath);
+
+            log.Information("Finished Invoice Processing: " + pdfFilePath);
 
         }
     }
