@@ -345,6 +345,7 @@ namespace PDFDataExtraction.Core
                 {"Total Sem IVA", totalSemIVA},
                 {"Total Price", totalPrice},
                 {"IVA Percentage", IVA},
+                {"Products", products}
                 };
 
             // boolean to indicate if any field is missing
