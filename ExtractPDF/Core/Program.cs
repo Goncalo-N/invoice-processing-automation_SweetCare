@@ -385,6 +385,7 @@ namespace PDFDataExtraction.Core
                 ValidateProducts(orderID, productsDistinct, numFatura, pdfFilePath);
 
                 Console.WriteLine("Data written to " + outputFilePath);
+                log.Information("Data written to " + outputFilePath);
             }
 
         }
