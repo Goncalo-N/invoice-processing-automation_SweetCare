@@ -199,6 +199,7 @@ namespace PDFDataExtraction.Core
             if (!Directory.Exists(pdfFolder))
             {
                 Console.WriteLine("PDF folder does not exist: " + pdfFolder);
+                log.Error("PDF folder does not exist: " + pdfFolder);
                 return;
             }
             string[] newPdfFiles = Directory.GetFiles(pdfFolder, "*.pdf");
@@ -223,7 +224,7 @@ namespace PDFDataExtraction.Core
 
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
-
+            log.Information($"New PDF file detected: {pdfFilePath}");
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
 
@@ -234,7 +235,6 @@ namespace PDFDataExtraction.Core
             var companyName = CheckCompany(invoiceText, supplierPatterns);
 
             Console.WriteLine("Company Name: " + companyName);
-
             if (companyName == null || companyName == "N/A")
             {
                 log.Error("Supplier not found for file: " + pdfFilePath);
@@ -243,6 +243,7 @@ namespace PDFDataExtraction.Core
                 return;
             }
 
+            log.Information("Company Name Detected: " + companyName);
             log.Information("Reading invoice : " + pdfFilePath);
 
             // Get the regex for the company
