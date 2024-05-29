@@ -56,7 +56,7 @@ namespace PDFDataExtraction.DataAccess
             {
                 connection.Open();
 
-                string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCNP AND orderId = @orderId AND isFactUpdated = 0";
+                string selectQuery = "SELECT priceNoBonus, priceWithBonus, qntOrder FROM supplierOrderItems WHERE ref = @productCNP AND orderId = @orderId";
                 using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                 {
                     selectCommand.Parameters.Add(new SqlParameter("@productCNP", productCNP));
@@ -86,7 +86,7 @@ namespace PDFDataExtraction.DataAccess
                 if (pricesMatch && quantityMatch)
                 {
                     // Update database
-                    string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber"/*, isFactUpdated = 1*/+ " WHERE ref = @productCNP AND orderId = @orderId";
+                    string updateQuery = "UPDATE supplierOrderItems SET supplierInvoiceNumber = @invoiceNumber, isFactUpdated = 1 WHERE ref = @productCNP AND orderId = @orderId";
                     using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                     {
                         updateCommand.Parameters.Add(new SqlParameter("@invoiceNumber", invoiceNumber));
