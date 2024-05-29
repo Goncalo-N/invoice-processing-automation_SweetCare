@@ -244,14 +244,6 @@ namespace PDFDataExtraction.Core
             }
 
             log.Information("Reading invoice : " + pdfFilePath);
-            // return if company name is N/A
-            if (companyName == "N/A")
-            {
-                log.Error("Company not found for file: " + pdfFilePath);
-                Console.WriteLine("Company not found");
-                OnValuesMissing(pdfFilePath);
-                return;
-            }
 
             // Get the regex for the company
             SupplierPattern supplierPattern = supplierPatterns.FirstOrDefault(sp => sp.NomeEmpresa == companyName);
