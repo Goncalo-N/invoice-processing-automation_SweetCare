@@ -133,6 +133,7 @@ namespace PDFDataExtraction.Core
             }
             return output.ToString();
         }
+
         /// <summary>
         /// Method to check the file to see what company it belongs to
         /// </summary>
