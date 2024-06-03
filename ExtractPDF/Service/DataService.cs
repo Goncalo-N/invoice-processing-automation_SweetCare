@@ -20,10 +20,5 @@ namespace PDFDataExtraction.Service
         {
             return orderRepository.ValidateProduct(productCode, orderID, netPrice, unitPrice, quantity, supplierInvoiceNumber, isFactUpdated);
         }
-
-        internal bool ValidateInvoice(int orderID, string invoiceNumber)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
