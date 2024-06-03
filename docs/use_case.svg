@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    contentStyleType="text/css" height="201px" preserveAspectRatio="none"
+    style="width:1264px;height:201px;background:#FFFFFF;" version="1.1" viewBox="0 0 1264 201"
+    width="1264px" zoomAndPan="magnify">
+    <defs />
+    <g><!--entity
+        User-->
+        <g id="elem_User">
+            <ellipse cx="112.83" cy="14" fill="#F1F1F1" rx="8" ry="8"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <path
+                d="M112.83,22 L112.83,49 M99.83,30 L125.83,30 M112.83,49 L99.83,64 M112.83,49 L125.83,64 "
+                fill="none" style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="32" x="96.83" y="78.4951">User</text>
+        </g><!--entity
+        System-->
+        <g id="elem_System">
+            <ellipse cx="689.83" cy="14" fill="#F1F1F1" rx="8" ry="8"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <path
+                d="M689.83,22 L689.83,49 M676.83,30 L702.83,30 M689.83,49 L676.83,64 M689.83,49 L702.83,64 "
+                fill="none" style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="51" x="664.33" y="78.4951">System</text>
+        </g>
+        <g id="elem_Review and Correct Errors">
+            <ellipse cx="112.8276" cy="168.8255" fill="#F1F1F1" rx="106.8276" ry="23.7655"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="179" x="23.3276" y="171.6722">Review and Correct Errors</text>
+        </g>
+        <g id="elem_Monitor Directory">
+            <ellipse cx="334.8339" cy="168.8268" fill="#F1F1F1" rx="79.7839" ry="18.3568"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="118" x="274.0856" y="172.2313">Monitor Directory</text>
+        </g>
+        <g id="elem_Process PDF">
+            <ellipse cx="517.83" cy="168.828" fill="#F1F1F1" rx="68.24" ry="16.048"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="88" x="470.83" y="172.5756">Process PDF</text>
+        </g>
+        <g id="elem_Validate Data">
+            <ellipse cx="689.834" cy="168.8328" fill="#F1F1F1" rx="68.964" ry="16.1928"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="90" x="641.834" y="172.5804">Validate Data</text>
+        </g>
+        <g id="elem_Route PDF Based on Validation">
+            <ellipse cx="916.8305" cy="168.8341" fill="#F1F1F1" rx="123.1205" ry="27.0241"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="214" x="809.8305" y="171.6808">Route PDF Based on Validation</text>
+        </g>
+        <g id="elem_Log Validation Events">
+            <ellipse cx="1166.8272" cy="168.8274" fill="#F1F1F1" rx="91.8872" ry="20.7774"
+                style="stroke:#181818;stroke-width:0.5;" />
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+                textLength="146" x="1093.8272" y="171.6741">Log Validation Events</text>
+        </g><!--link
+        User to Review and Correct Errors-->
+        <g id="link_User_Review and Correct Errors">
+            <path d="M112.83,82.28 C112.83,102.65 112.83,121.17 112.83,138.73 " fill="none"
+                id="User-to-Review and Correct Errors" style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="112.83,144.73,116.83,135.73,112.83,139.73,108.83,135.73,112.83,144.73"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g><!--link
+        System to Monitor Directory-->
+        <g id="link_System_Monitor Directory">
+            <path d="M664.01,53.61 C603.54,74.59 457.8886,125.1334 383.3486,150.9934 " fill="none"
+                id="System-to-Monitor Directory" style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="377.68,152.96,387.4939,153.7892,382.4038,151.3212,384.8718,146.2311,377.68,152.96"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g><!--link
+        System to Process PDF-->
+        <g id="link_System_Process PDF">
+            <path d="M664.08,63.09 C629.78,87.66 574.658,127.1264 543.228,149.6364 " fill="none"
+                id="System-to-Process PDF" style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="538.35,153.13,547.9961,151.1416,542.415,150.2187,543.3379,144.6376,538.35,153.13"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g><!--link
+        System to Validate Data-->
+        <g id="link_System_Validate Data">
+            <path d="M689.83,82.28 C689.83,105.77 689.83,128.76 689.83,146.25 " fill="none"
+                id="System-to-Validate Data" style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="689.83,152.25,693.83,143.25,689.83,147.25,685.83,143.25,689.83,152.25"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g><!--link
+        System to Route PDF Based on Validation-->
+        <g id="link_System_Route PDF Based on Validation">
+            <path d="M715.43,58.54 C753.34,79.12 819.7061,115.1289 866.5261,140.5289 " fill="none"
+                id="System-to-Route PDF Based on Validation"
+                style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="871.8,143.39,865.7966,135.5824,867.4051,141.0057,861.9817,142.6143,871.8,143.39"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g><!--link
+        System to Log Validation Events-->
+        <g id="link_System_Log Validation Events">
+            <path d="M715.81,51.36 C789.88,70.49 997.6505,124.1399 1102.1005,151.1099 " fill="none"
+                id="System-to-Log Validation Events" style="stroke:#181818;stroke-width:1.0;" />
+            <polygon fill="#181818"
+                points="1107.91,152.61,1100.1958,146.4869,1103.0688,151.36,1098.1958,154.2329,1107.91,152.61"
+                style="stroke:#181818;stroke-width:1.0;" />
+        </g>
+    </g>
+</svg>
