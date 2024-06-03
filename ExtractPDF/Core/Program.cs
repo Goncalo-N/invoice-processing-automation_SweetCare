@@ -413,7 +413,6 @@ namespace PDFDataExtraction.Core
 
         }
 
-
         /// <summary>
         /// Validates products of the invoice by calling a method from the producer class.
         /// </summary>
