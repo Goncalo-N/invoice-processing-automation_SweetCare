@@ -52,6 +52,7 @@ namespace PDFDataExtraction.Utility
 
         public static List<SupplierPattern> LoadSupplierPatterns(string jsonFilePath)
         {
+            // Load the JSON file and deserialize it into a list of SupplierPattern objects.
             var jsonContent = File.ReadAllText(jsonFilePath);
             return JsonConvert.DeserializeObject<List<SupplierPattern>>(jsonContent);
         }
