@@ -446,14 +446,14 @@ namespace PDFDataExtraction.Core
 
                     if (isProductValid)
                     {
-                        //produto validado.
+                        //product validated.
                         log.Information("Product validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         product.isFactUpdated = 1;
                     }
                     else
                     {
-                        //caso não seja possivel validar algum produto do invoice, o invoice é movido para a pasta invalid
-                        //podendo ser verificado posteriormente o codigo do produto que não foi validado de qual invoice
+                        //in case of the product not being validated, the invoice is moved to invalid folder
+                        //logs can be used to check the product that was not validated
                         log.Error("Product not validated: " + product.CNP + " in invoice: " + pdfFilePath);
                         log.Error("Invoice not validated: " + pdfFilePath);
 
