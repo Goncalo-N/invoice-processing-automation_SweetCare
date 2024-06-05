@@ -100,10 +100,9 @@ namespace PDFDataExtraction.Core
             Environment.Exit(1);
         }
 
-        static void UnobservedTaskExceptionHandler(object sender, UnobservedTaskExceptionEventArgs e)
+        private static void UnobservedTaskExceptionHandler(object? sender, UnobservedTaskExceptionEventArgs e)
         {
-            log.Error($"Unobserved task exception: {e.Exception}");
-            e.SetObserved();
+            Console.WriteLine("Unobserved exception: " + e.Exception);
         }
 
         static void PreventApplicationExit()
