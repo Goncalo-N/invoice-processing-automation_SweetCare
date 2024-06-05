@@ -32,13 +32,13 @@ namespace PDFDataExtraction.Utility
             public required string PadraoRegexTotalSemIva { get; set; }
 
             [JsonProperty("padrao_regex_totais_por_iva")]
-            public string PadraoRegexTotaisPorIva { get; set; }
+            public required string PadraoRegexTotaisPorIva { get; set; }
 
             [JsonProperty("padrao_regex_valor_iva")]
-            public string PadraoRegexValorIva { get; set; }
+            public required string PadraoRegexValorIva { get; set; }
 
             [JsonProperty("padrao_regex_desconto_pronto_pagamento")]
-            public string PadraoRegexDescontoProntoPagamento { get; set; }
+            public required string PadraoRegexDescontoProntoPagamento { get; set; }
 
             [JsonProperty("padrao_regex_total_a_pagar")]
             public required string PadraoRegexTotalAPagar { get; set; }
@@ -54,7 +54,7 @@ namespace PDFDataExtraction.Utility
         {
             // Load the JSON file and deserialize it into a list of SupplierPattern objects.
             var jsonContent = File.ReadAllText(jsonFilePath);
-            return JsonConvert.DeserializeObject<List<SupplierPattern>>(jsonContent);
+            return JsonConvert.DeserializeObject<List<SupplierPattern>>(jsonContent) ?? new List<SupplierPattern>();
         }
     }
 }
