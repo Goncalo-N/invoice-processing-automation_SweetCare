@@ -200,9 +200,12 @@ namespace PDFDataExtraction.Core
             {
                 Console.WriteLine("PDF folder does not exist: " + pdfFolder);
                 log.Error("PDF folder does not exist: " + pdfFolder);
+
                 return;
             }
+
             string[] newPdfFiles = Directory.GetFiles(pdfFolder, "*.pdf");
+
             foreach (string pdfFilePath in newPdfFiles)
             {
                 OnPdfFileCreated(pdfFilePath);
@@ -217,6 +220,7 @@ namespace PDFDataExtraction.Core
         {
             string baseDirectory = Directory.GetCurrentDirectory();
             var parentDirectory = Directory.GetParent(baseDirectory);
+
             if (parentDirectory != null)
             {
                 baseDirectory = parentDirectory.FullName;
@@ -225,6 +229,7 @@ namespace PDFDataExtraction.Core
             // Console.write the event
             Console.WriteLine($"New PDF file detected: {pdfFilePath}");
             log.Information($"New PDF file detected: {pdfFilePath}");
+
             // Extract text from PDF
             string invoiceText = ExtractTextFromPDF(pdfFilePath);
 
@@ -238,7 +243,9 @@ namespace PDFDataExtraction.Core
             {
                 log.Error("Supplier not found for file: " + pdfFilePath);
                 Console.WriteLine("Supplier not found");
+
                 OnValuesMissing(pdfFilePath);
+
                 return;
             }
 
@@ -328,11 +335,14 @@ namespace PDFDataExtraction.Core
             // Grab the orderID through the numFatura
             int orderID = dataService.GetOrderID(numFatura);
             Console.WriteLine("Order ID: " + orderID);
+
             if (orderID == 0)
             {
                 log.Error("Order not found for invoiceNumber: " + numFatura + " in the invoice: " + pdfFilePath);
                 Console.WriteLine("Order not found");
+
                 OnValuesMissing(pdfFilePath);
+
                 return;
             }
 
@@ -361,7 +371,9 @@ namespace PDFDataExtraction.Core
                 {
                     log.Error($"Missing field: {field.Key}");
                     Console.WriteLine($"Missing field: {field.Key}");
+
                     missingFieldsCounter++;
+
                     isAnyFieldMissing = true;
                 }
             }
@@ -370,7 +382,9 @@ namespace PDFDataExtraction.Core
             if (products == null || products.Count == 0)
             {
                 Console.WriteLine("Missing field: Products");
+
                 missingFieldsCounter++;
+
                 isAnyFieldMissing = true;
             }
 
@@ -378,6 +392,7 @@ namespace PDFDataExtraction.Core
             {
                 log.Error("Number of missing fields: " + missingFieldsCounter);
                 OnValuesMissing(pdfFilePath);
+
                 return;
             }
             else
@@ -398,6 +413,7 @@ namespace PDFDataExtraction.Core
         {
             string baseDirectory = Directory.GetCurrentDirectory();
             var parentDirectory = Directory.GetParent(baseDirectory);
+
             if (parentDirectory != null)
             {
                 baseDirectory = parentDirectory.FullName;
@@ -467,8 +483,6 @@ namespace PDFDataExtraction.Core
                 }
                 log.Information("Invoice fact updated product: " + product.isFactUpdated, product.Code);
             }
-
-
 
             if (validFolder != null)
             {
