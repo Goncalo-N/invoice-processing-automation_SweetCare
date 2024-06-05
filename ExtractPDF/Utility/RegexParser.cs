@@ -11,25 +11,25 @@ namespace PDFDataExtraction.Utility
         public class SupplierPattern
         {
             [JsonProperty("nome_empresa")]
-            public string NomeEmpresa { get; set; }
+            public required string NomeEmpresa { get; set; }
 
             [JsonProperty("padrao_regex_nome_fornecedor")]
-            public string PadraoRegexNomeFornecedor { get; set; }
+            public required string PadraoRegexNomeFornecedor { get; set; }
 
             [JsonProperty("padrao_regex_data_fatura")]
-            public string PadraoRegexDataFatura { get; set; }
+            public required string PadraoRegexDataFatura { get; set; }
 
             [JsonProperty("padrao_regex_numero_encomenda")]
-            public string PadraoRegexNumeroEncomenda { get; set; }
+            public required string PadraoRegexNumeroEncomenda { get; set; }
 
             [JsonProperty("padrao_regex_numero_fatura")]
-            public string PadraoRegexNumeroFatura { get; set; }
+            public required string PadraoRegexNumeroFatura { get; set; }
 
             [JsonProperty("padrao_regex_data_vencimento_fatura")]
-            public string PadraoRegexDataVencimentoFatura { get; set; }
+            public required string PadraoRegexDataVencimentoFatura { get; set; }
 
             [JsonProperty("padrao_regex_total_sem_iva")]
-            public string PadraoRegexTotalSemIva { get; set; }
+            public required string PadraoRegexTotalSemIva { get; set; }
 
             [JsonProperty("padrao_regex_totais_por_iva")]
             public string PadraoRegexTotaisPorIva { get; set; }
@@ -41,13 +41,13 @@ namespace PDFDataExtraction.Utility
             public string PadraoRegexDescontoProntoPagamento { get; set; }
 
             [JsonProperty("padrao_regex_total_a_pagar")]
-            public string PadraoRegexTotalAPagar { get; set; }
+            public required string PadraoRegexTotalAPagar { get; set; }
 
             [JsonProperty("padrao_regex_produto")]
-            public string PadraoRegexProduto { get; set; }
+            public required string PadraoRegexProduto { get; set; }
 
             [JsonProperty("padrao_regex_taxa_iva")]
-            public string PadraoRegexTaxaIva { get; set; }
+            public required string PadraoRegexTaxaIva { get; set; }
         }
 
         public static List<SupplierPattern> LoadSupplierPatterns(string jsonFilePath)
