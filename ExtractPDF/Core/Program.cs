@@ -246,7 +246,7 @@ namespace PDFDataExtraction.Core
             log.Information("Reading invoice : " + pdfFilePath);
 
             // Get the regex for the company
-            SupplierPattern supplierPattern = supplierPatterns.FirstOrDefault(sp => sp.NomeEmpresa == companyName);
+            SupplierPattern supplierPattern = supplierPatterns.FirstOrDefault(sp => sp.NomeEmpresa == companyName) ?? new List<SupplierPattern>()[0];
 
             //create a condition that based on the company name it will call the correct method;
             string numEncomenda = "N/A";

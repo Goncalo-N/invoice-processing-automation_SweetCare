@@ -10,6 +10,7 @@ namespace PDFDataExtraction.Utility
         // Ensure your SupplierPattern class property names match the JSON field names exactly.
         public class SupplierPattern
         {
+
             [JsonProperty("nome_empresa")]
             public required string NomeEmpresa { get; set; }
 
@@ -48,6 +49,7 @@ namespace PDFDataExtraction.Utility
 
             [JsonProperty("padrao_regex_taxa_iva")]
             public required string PadraoRegexTaxaIva { get; set; }
+
         }
 
         public static List<SupplierPattern> LoadSupplierPatterns(string jsonFilePath)
