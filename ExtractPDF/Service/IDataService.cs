@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace PDFDataExtraction.Service
 {
     public interface IDataService
