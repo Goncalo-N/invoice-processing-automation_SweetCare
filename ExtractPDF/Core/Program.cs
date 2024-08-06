@@ -9,6 +9,7 @@ using PDFDataExtraction.Service;
 using PDFDataExtraction.Utility;
 using Serilog;
 
+
 using static PDFDataExtraction.Utility.RegexParser;
 
 namespace PDFDataExtraction.Core
