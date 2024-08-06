@@ -1,0 +1,1 @@
+2024-06-15 12:41:55.418 +01:00 [INF] Application Starting

@@ -1,0 +1,7 @@
+2024-06-15 12:41:52.081 +01:00 [INF] Application Starting
+2024-06-15 12:41:52.144 +01:00 [INF] New PDF file detected: ..\pdfs\ocp.pdf
+2024-06-15 12:41:52.999 +01:00 [INF] Company Name Detected: OCP
+2024-06-15 12:41:52.999 +01:00 [INF] Reading invoice : ..\pdfs\ocp.pdf
+2024-06-15 12:41:53.232 +01:00 [ERR] Order not found for invoiceNumber: A.FAC23725376 in the invoice: ..\pdfs\ocp.pdf
+2024-06-15 12:41:53.232 +01:00 [ERR] Missing values in PDF file: ..\pdfs\ocp.pdf
+2024-06-15 12:41:53.233 +01:00 [ERR] Moved PDF file to Missing_Values folder: ..\missing\ocp.pdf
